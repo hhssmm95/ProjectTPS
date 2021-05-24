@@ -1,2 +1,0 @@
-G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\Definitions.ProjectTPS.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\ProjectTPS.h
