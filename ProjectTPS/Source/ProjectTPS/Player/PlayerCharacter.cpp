@@ -24,11 +24,11 @@ APlayerCharacter::APlayerCharacter()
 
 	m_Arm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Arm"));
 	m_Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-	//m_Scene = CreateDefaultSubobject<USceneComponent>(TEXT("Scene"));
+	m_Scene = CreateDefaultSubobject<USceneComponent>(TEXT("Scene"));
 
 	m_Camera->SetupAttachment(m_Arm);
-	m_Arm->SetupAttachment(GetCapsuleComponent());
-	//m_Scene->SetupAttachment(GetCapsuleComponent());
+	m_Arm->SetupAttachment(m_Scene);
+	m_Scene->SetupAttachment(GetCapsuleComponent());
 	//m_eDirection = EMoveDir::None;
 
 	GetCharacterMovement()->MaxWalkSpeed = 500.f;
@@ -118,7 +118,7 @@ void APlayerCharacter::Turn(float fScale)
 	if (!m_bIsDead)
 	{
 		//AddControllerYawInput(fScale * 45.f * GetWorld()->GetDeltaSeconds());
-		//m_Scene->AddRelativeRotation(FRotator(0.f, 0.f, fScale * 45.f * GetWorld()->GetDeltaSeconds()));
+		m_Scene->AddRelativeRotation(FRotator(0.f, 0.f, fScale * 45.f * GetWorld()->GetDeltaSeconds()));
 		AddUpperYawInput(fScale);
 	}
 
