@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ProjectTPS.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{E7555595-F9FA-49C2-9D3A-3D35AE6C6F86}</UniqueIdentifier>
+      <UniqueIdentifier>{AC587D63-010E-4ECA-B5D9-1E3E5121CF34}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ProjectTPS.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{B777AB19-BF61-4651-B57D-2D2064250563}</UniqueIdentifier>
+      <UniqueIdentifier>{6A04C401-4DED-4F44-8A95-7C6BB2AF18E1}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -23,8 +23,11 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
     <Filter Include="Source\ProjectTPS">
-      <UniqueIdentifier>{EC6895D9-C9CB-435B-94B6-0B6044560A11}</UniqueIdentifier>
+      <UniqueIdentifier>{F07D1A49-31A9-4088-834D-3C2F8C618FDD}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ProjectTPS\ProjectTPS.Build.cs">
       <Filter>Source\ProjectTPS</Filter>
@@ -35,9 +38,6 @@
     <ClInclude Include="..\..\Source\ProjectTPS\ProjectTPS.h">
       <Filter>Source\ProjectTPS</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\ProjectTPS\ProjectTPSGameModeBase.cpp">
-      <Filter>Source\ProjectTPS</Filter>
-    </ClCompile>
     <ClInclude Include="..\..\Source\ProjectTPS\ProjectTPSGameModeBase.h">
       <Filter>Source\ProjectTPS</Filter>
     </ClInclude>
@@ -47,19 +47,22 @@
     <ClCompile Include="..\..\Source\ProjectTPS\GameInfo.cpp">
       <Filter>Source\ProjectTPS</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ProjectTPS\ProjectTPSGameModeBase.cpp">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClCompile>
     <Filter Include="Source\ProjectTPS\Player">
-      <UniqueIdentifier>{72D11D0A-DB57-4F24-8502-890573243014}</UniqueIdentifier>
+      <UniqueIdentifier>{98191A80-8641-4E88-B11C-8A148430BFBD}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\ProjectTPS\Player\PlayerCharacter.h">
-      <Filter>Source\ProjectTPS\Player</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\ProjectTPS\Player\PlayerCharacter.cpp">
+    <ClCompile Include="..\..\Source\ProjectTPS\Player\PlayerAnimation.cpp">
       <Filter>Source\ProjectTPS\Player</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\ProjectTPS\Player\PlayerAnimation.h">
       <Filter>Source\ProjectTPS\Player</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\ProjectTPS\Player\PlayerAnimation.cpp">
+    <ClInclude Include="..\..\Source\ProjectTPS\Player\PlayerCharacter.h">
+      <Filter>Source\ProjectTPS\Player</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\Player\PlayerCharacter.cpp">
       <Filter>Source\ProjectTPS\Player</Filter>
     </ClCompile>
   </ItemGroup>

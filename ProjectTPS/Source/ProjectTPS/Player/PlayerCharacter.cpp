@@ -22,13 +22,13 @@ APlayerCharacter::APlayerCharacter()
 		GetMesh()->SetAnimInstanceClass(AnimAsset.Class);
 
 
-	//m_Arm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Arm"));
+	m_Arm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Arm"));
 	m_Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-	m_Scene = CreateDefaultSubobject<USceneComponent>(TEXT("Scene"));
+	//m_Scene = CreateDefaultSubobject<USceneComponent>(TEXT("Scene"));
 
-	m_Camera->SetupAttachment(m_Scene);
-	//m_Arm->SetupAttachment(m_Scene);
-	m_Scene->SetupAttachment(GetCapsuleComponent());
+	m_Camera->SetupAttachment(m_Arm);
+	m_Arm->SetupAttachment(GetCapsuleComponent());
+	//m_Scene->SetupAttachment(GetCapsuleComponent());
 	//m_eDirection = EMoveDir::None;
 
 	GetCharacterMovement()->MaxWalkSpeed = 500.f;
@@ -64,6 +64,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	//PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Pressed, this, &APlayerCharacter::AttackKey);
 	PlayerInputComponent->BindAction(TEXT("Jump"), EInputEvent::IE_Pressed, this, &APlayerCharacter::InputJump);
 	PlayerInputComponent->BindAction(TEXT("Aim"), EInputEvent::IE_Pressed, this, &APlayerCharacter::AimPress);
+	PlayerInputComponent->BindAction(TEXT("Aim"), EInputEvent::IE_Released, this, &APlayerCharacter::AimRelease);
 
 }
 
