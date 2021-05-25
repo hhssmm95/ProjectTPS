@@ -72,7 +72,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayerCharacter); \
 	FORCEINLINE static uint32 __PPO__m_Scene() { return STRUCT_OFFSET(APlayerCharacter, m_Scene); } \
 	FORCEINLINE static uint32 __PPO__m_bIsDead() { return STRUCT_OFFSET(APlayerCharacter, m_bIsDead); } \
 	FORCEINLINE static uint32 __PPO__m_pPlayerAnim() { return STRUCT_OFFSET(APlayerCharacter, m_pPlayerAnim); } \
-	FORCEINLINE static uint32 __PPO__m_UpperYaw() { return STRUCT_OFFSET(APlayerCharacter, m_UpperYaw); }
+	FORCEINLINE static uint32 __PPO__m_UpperYaw() { return STRUCT_OFFSET(APlayerCharacter, m_UpperYaw); } \
+	FORCEINLINE static uint32 __PPO__m_IsAiming() { return STRUCT_OFFSET(APlayerCharacter, m_IsAiming); }
 
 
 #define ProjectTPS_Source_ProjectTPS_Player_PlayerCharacter_h_9_PROLOG

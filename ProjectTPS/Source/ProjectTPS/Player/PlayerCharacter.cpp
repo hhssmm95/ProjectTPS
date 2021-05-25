@@ -22,12 +22,12 @@ APlayerCharacter::APlayerCharacter()
 		GetMesh()->SetAnimInstanceClass(AnimAsset.Class);
 
 
-	m_Arm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Arm"));
+	//m_Arm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Arm"));
 	m_Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	m_Scene = CreateDefaultSubobject<USceneComponent>(TEXT("Scene"));
 
-	m_Camera->SetupAttachment(m_Arm);
-	m_Arm->SetupAttachment(m_Scene);
+	m_Camera->SetupAttachment(m_Scene);
+	//m_Arm->SetupAttachment(m_Scene);
 	m_Scene->SetupAttachment(GetCapsuleComponent());
 	//m_eDirection = EMoveDir::None;
 
@@ -63,7 +63,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 	//PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Pressed, this, &APlayerCharacter::AttackKey);
 	PlayerInputComponent->BindAction(TEXT("Jump"), EInputEvent::IE_Pressed, this, &APlayerCharacter::InputJump);
-	PlayerInputComponent->BindAction(TEXT("Jump"), EInputEvent::IE_Pressed, this, &APlayerCharacter::Aim);
+	PlayerInputComponent->BindAction(TEXT("Aim"), EInputEvent::IE_Pressed, this, &APlayerCharacter::AimPress);
 
 }
 
@@ -118,9 +118,22 @@ void APlayerCharacter::Turn(float fScale)
 	if (!m_bIsDead)
 	{
 		//AddControllerYawInput(fScale * 45.f * GetWorld()->GetDeltaSeconds());
-		m_Arm->AddRelativeRotation(FRotator(0.f, fScale, 0.f));
+		//m_Scene->AddRelativeRotation(FRotator(0.f, fScale, 0.f));
+		AddControllerYawInput(fScale * 45.f * GetWorld()->GetDeltaSeconds());
+		//AddUpperYawInput(fScale);
+		/*PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("%f"), m_UpperYaw));
 
-		AddUpperYawInput(fScale);
+
+		if (m_UpperYaw > 90.f)
+		{
+			GetCapsuleComponent()->AddWorldRotation(FRotator(0.f, 90.f, 0.f));
+			m_UpperYaw = 0.f;
+		}
+		else if (m_UpperYaw < -90.f)
+		{
+			GetCapsuleComponent()->AddWorldRotation(FRotator(0.f, -90.f, 0.f));
+			m_UpperYaw = 0.f;
+		}*/
 	}
 
 }
@@ -150,11 +163,18 @@ void APlayerCharacter::InputJump()
 	}
 }
 
-void APlayerCharacter::Aim()
+void APlayerCharacter::AimPress()
 {
 	if (!m_bIsDead)
 	{
-
+		m_IsAiming = true;
 	}
 }
 
+void APlayerCharacter::AimRelease()
+{
+	if (!m_bIsDead)
+	{
+		m_IsAiming = false;
+	}
+}

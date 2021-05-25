@@ -37,6 +37,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		float m_UpperYaw;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		bool m_IsAiming;
+
 
 
 public:/*
@@ -63,7 +66,8 @@ public:
 
 public:
 	void InputJump();
-	void Aim();
+	void AimPress();
+	void AimRelease();
 
 protected:
 	// Called when the game starts or when spawned
