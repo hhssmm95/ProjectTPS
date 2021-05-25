@@ -900,3 +900,89 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2021.05.25-02.57.51:654][321]AssetCheck: New page: 애셋 저장: 애셋이 다수입니다.
 [2021.05.25-02.57.51:654][321]LogContentValidation: Display: AnimBlueprint /Game/Player/BPPlayerAnimation.BPPlayerAnimation 유효성 검사
 [2021.05.25-02.57.51:654][321]LogContentValidation: Display: Blueprint /Game/Player/BPPlayerCharacter.BPPlayerCharacter 유효성 검사
+[2021.05.25-02.58.37:704][627]LogAssetEditorSubsystem: Opening Asset editor for AnimBlueprint /Game/Player/BPPlayerAnimation.BPPlayerAnimation
+[2021.05.25-02.58.37:735][627]LogActorComponent: RegisterComponentWithWorld: (/Engine/Transient.World_19:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0) Already registered. Aborting.
+[2021.05.25-02.58.38:531][627]LogContentBrowser: Verbose: The majority of assets in the view are of type: AnimSequence
+[2021.05.25-02.58.47:988][430]LogSlate: Took 0.010985 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensedItalic.ttf' (160K)
+[2021.05.25-03.04.12:672][397]LogUObjectHash: Compacting FUObjectHashTables data took   2.49ms
+[2021.05.25-03.04.12:674][397]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Levels/Main' took 0.031
+[2021.05.25-03.04.12:687][397]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/Player/BPPlayerAnimation] ([1] browsable assets)...
+[2021.05.25-03.04.12:697][397]OBJ SavePackage:     Rendered thumbnail for [AnimBlueprint /Game/Player/BPPlayerAnimation.BPPlayerAnimation]
+[2021.05.25-03.04.12:697][397]OBJ SavePackage: Finished generating thumbnails for package [/Game/Player/BPPlayerAnimation]
+[2021.05.25-03.04.12:697][397]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Player/BPPlayerAnimation" FILE="G:/ProjectTPS/ProjectTPS/Saved/Autosaves/Game/Player/BPPlayerAnimation_Auto1.uasset" SILENT=false AUTOSAVING=true
+[2021.05.25-03.04.12:804][397]LogSavePackage: Moving 'G:/ProjectTPS/ProjectTPS/Saved/BPPlayerAnimation_Auto12A741CC54325A84EE8583D81E195772D.tmp' to 'G:/ProjectTPS/ProjectTPS/Saved/Autosaves/Game/Player/BPPlayerAnimation_Auto1.uasset'
+[2021.05.25-03.04.12:805][397]LogFileHelpers: Auto-saving content packages took 0.131
+[2021.05.25-03.06.08:967][975]LogSelectionDetails: Warning: NavigateToFunctionSource:  Unable to find symbols for 'AActor::K2_GetActorRotation' [요소가 없습니다.]
+[2021.05.25-03.06.52:187][564]BlueprintLog: New page: BPPlayerAnimation 컴파일
+[2021.05.25-03.06.52:239][564]LogUObjectHash: Compacting FUObjectHashTables data took   2.19ms
+[2021.05.25-03.08.03:981][844]BlueprintLog: New page: BPPlayerAnimation 컴파일
+[2021.05.25-03.08.04:021][844]LogUObjectHash: Compacting FUObjectHashTables data took   2.45ms
+[2021.05.25-03.08.04:604][877]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Player/BPPlayerAnimation" FILE="G:/ProjectTPS/ProjectTPS/Content/Player/BPPlayerAnimation.uasset" SILENT=true
+[2021.05.25-03.08.04:707][877]LogSavePackage: Moving 'G:/ProjectTPS/ProjectTPS/Saved/BPPlayerAnimationFBD9F51644E5ACE7B0348D95ED2A7068.tmp' to 'G:/ProjectTPS/ProjectTPS/Content/Player/BPPlayerAnimation.uasset'
+[2021.05.25-03.08.04:725][877]AssetCheck: New page: 애셋 저장: BPPlayerAnimation
+[2021.05.25-03.08.04:725][877]LogContentValidation: Display: AnimBlueprint /Game/Player/BPPlayerAnimation.BPPlayerAnimation 유효성 검사
+[2021.05.25-03.11.53:562][530]BlueprintLog: New page: BPPlayerAnimation 컴파일
+[2021.05.25-03.11.53:608][530]LogUObjectHash: Compacting FUObjectHashTables data took   2.72ms
+[2021.05.25-03.11.54:123][556]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Player/BPPlayerAnimation" FILE="G:/ProjectTPS/ProjectTPS/Content/Player/BPPlayerAnimation.uasset" SILENT=true
+[2021.05.25-03.11.54:245][556]LogSavePackage: Moving 'G:/ProjectTPS/ProjectTPS/Saved/BPPlayerAnimationDB51650A4F613C8E95B2B4BF0871DCEC.tmp' to 'G:/ProjectTPS/ProjectTPS/Content/Player/BPPlayerAnimation.uasset'
+[2021.05.25-03.11.54:264][556]AssetCheck: New page: 애셋 저장: BPPlayerAnimation
+[2021.05.25-03.11.54:264][556]LogContentValidation: Display: AnimBlueprint /Game/Player/BPPlayerAnimation.BPPlayerAnimation 유효성 검사
+[2021.05.25-03.14.09:733][797]BlueprintLog: New page: BPPlayerAnimation 컴파일
+[2021.05.25-03.14.09:779][797]LogUObjectHash: Compacting FUObjectHashTables data took   2.36ms
+[2021.05.25-03.16.42:534][564]BlueprintLog: New page: BPPlayerAnimation 컴파일
+[2021.05.25-03.16.42:605][564]LogUObjectHash: Compacting FUObjectHashTables data took   2.69ms
+[2021.05.25-03.18.24:148][515]BlueprintLog: New page: BPPlayerAnimation 컴파일
+[2021.05.25-03.18.24:222][515]LogUObjectHash: Compacting FUObjectHashTables data took   2.39ms
+[2021.05.25-03.20.21:840][414]LogEditorTransaction: Undo 핀 링크 생성
+[2021.05.25-03.20.21:946][414]LogActorComponent: RegisterComponentWithWorld: (/Engine/Transient.World_19:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0) Already registered. Aborting.
+[2021.05.25-03.21.05:002][996]LogBlueprint: Warning: [AssetLog] G:\ProjectTPS\ProjectTPS\Content\ParagonWraith\Characters\Heroes\Wraith\WraithPlayerCharacter.uasset: [Compiler] InputAction Event 가  Jump 입력 액션  에 대해 알려지지 않은 'Jump' 액션을 참조합니다.
+[2021.05.25-03.21.05:002][996]LogBlueprint: Warning: [AssetLog] G:\ProjectTPS\ProjectTPS\Content\ParagonWraith\Characters\Heroes\Wraith\WraithPlayerCharacter.uasset: [Compiler] Input Axis Event 가  LookUp 입력 축  에 대해 알려지지 않은 'LookUp' 축을 참조합니다.
+[2021.05.25-03.21.05:003][996]LogBlueprint: Warning: [AssetLog] G:\ProjectTPS\ProjectTPS\Content\ParagonWraith\Characters\Heroes\Wraith\WraithPlayerCharacter.uasset: [Compiler] InputAction Event 가  ResetVR 입력 액션  에 대해 알려지지 않은 'ResetVR' 액션을 참조합니다.
+[2021.05.25-03.21.05:003][996]LogBlueprint: Warning: [AssetLog] G:\ProjectTPS\ProjectTPS\Content\ParagonWraith\Characters\Heroes\Wraith\WraithPlayerCharacter.uasset: [Compiler] Input Axis Event 가  LookUpRate 입력 축  에 대해 알려지지 않은 'LookUpRate' 축을 참조합니다.
+[2021.05.25-03.21.05:003][996]LogBlueprint: Warning: [AssetLog] G:\ProjectTPS\ProjectTPS\Content\ParagonWraith\Characters\Heroes\Wraith\WraithPlayerCharacter.uasset: [Compiler] Input Axis Event 가  TurnRate 입력 축  에 대해 알려지지 않은 'TurnRate' 축을 참조합니다.
+[2021.05.25-03.21.05:004][996]LogBlueprint: Warning: [AssetLog] G:\ProjectTPS\ProjectTPS\Content\ParagonWraith\Characters\Heroes\Wraith\WraithPlayerCharacter.uasset: [Compiler] Input Axis Event 가  Turn 입력 축  에 대해 알려지지 않은 'Turn' 축을 참조합니다.
+[2021.05.25-03.21.05:004][996]LogBlueprint: Warning: [AssetLog] G:\ProjectTPS\ProjectTPS\Content\ParagonWraith\Characters\Heroes\Wraith\WraithPlayerCharacter.uasset: [Compiler] Input Axis Event 가  MoveRight 입력 축  에 대해 알려지지 않은 'MoveRight' 축을 참조합니다.
+[2021.05.25-03.21.05:004][996]LogBlueprint: Warning: [AssetLog] G:\ProjectTPS\ProjectTPS\Content\ParagonWraith\Characters\Heroes\Wraith\WraithPlayerCharacter.uasset: [Compiler] Input Axis Event 가  MoveForward 입력 축  에 대해 알려지지 않은 'MoveForward' 축을 참조합니다.
+[2021.05.25-03.21.05:304][996]LogAssetEditorSubsystem: Opening Asset editor for AnimBlueprint /Game/ParagonWraith/Characters/Heroes/Wraith/Wraith_AnimBlueprint.Wraith_AnimBlueprint
+[2021.05.25-03.21.05:314][996]LogActorComponent: RegisterComponentWithWorld: (/Engine/Transient.World_22:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0) Already registered. Aborting.
+[2021.05.25-03.21.05:993][996]LogScript: Warning: Script Msg: Divide by zero detected: 0.000000 / 0
+Script call stack:
+	Function /Game/ParagonWraith/Characters/Heroes/Wraith/Wraith_AnimBlueprint.Wraith_AnimBlueprint_C:BlueprintUpdateAnimation
+	Function /Game/ParagonWraith/Characters/Heroes/Wraith/Wraith_AnimBlueprint.Wraith_AnimBlueprint_C:ExecuteUbergraph_Wraith_AnimBlueprint
+
+[2021.05.25-03.21.06:128][996]LogContentBrowser: Verbose: The majority of assets in the view are of type: AnimSequence
+[2021.05.25-03.21.50:333][407]BlueprintLog: New page: BPPlayerAnimation 컴파일
+[2021.05.25-03.21.50:394][407]LogUObjectHash: Compacting FUObjectHashTables data took   2.68ms
+[2021.05.25-03.22.18:218][745]BlueprintLog: New page: BPPlayerAnimation 컴파일
+[2021.05.25-03.22.18:271][745]LogUObjectHash: Compacting FUObjectHashTables data took   2.34ms
+[2021.05.25-03.22.36:682][149]BlueprintLog: New page: BPPlayerAnimation 컴파일
+[2021.05.25-03.22.36:741][149]LogUObjectHash: Compacting FUObjectHashTables data took   2.30ms
+[2021.05.25-03.22.37:445][194]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Player/BPPlayerAnimation" FILE="G:/ProjectTPS/ProjectTPS/Content/Player/BPPlayerAnimation.uasset" SILENT=true
+[2021.05.25-03.22.37:925][194]LogSavePackage: Moving 'G:/ProjectTPS/ProjectTPS/Saved/BPPlayerAnimation492EA47041D0E1ED109491BDD8ACDB82.tmp' to 'G:/ProjectTPS/ProjectTPS/Content/Player/BPPlayerAnimation.uasset'
+[2021.05.25-03.22.37:942][194]AssetCheck: New page: 애셋 저장: BPPlayerAnimation
+[2021.05.25-03.22.37:942][194]LogContentValidation: Display: AnimBlueprint /Game/Player/BPPlayerAnimation.BPPlayerAnimation 유효성 검사
+[2021.05.25-03.22.43:104][635]LogUObjectHash: Compacting FUObjectHashTables data took   2.43ms
+[2021.05.25-03.22.58:593][263]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2021.05.25-03.23.03:169][263]LogSlate: Window '부모 클래스 선택' being destroyed
+[2021.05.25-03.23.03:179][263]LogContentBrowser: Deferred new asset file creation: NewBlueprint
+[2021.05.25-03.23.03:190][263]LogContentBrowser: Creating deferred item: NewBlueprint
+[2021.05.25-03.23.05:444][510]LogContentBrowser: Attempting asset rename: NewBlueprint -> BPGameMode
+[2021.05.25-03.23.05:448][510]LogContentBrowser: End creating deferred item NewBlueprint
+[2021.05.25-03.23.07:368][698]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Player/BPGameMode.BPGameMode
+[2021.05.25-03.23.10:653][956]LogSlate: Prevented a slow task dialog from being summoned while a context menu was open
+[2021.05.25-03.23.14:243][301]BlueprintLog: New page: BPGameMode 컴파일
+[2021.05.25-03.23.14:303][301]LogUObjectHash: Compacting FUObjectHashTables data took   1.87ms
+[2021.05.25-03.23.14:751][335]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Player/BPGameMode" FILE="G:/ProjectTPS/ProjectTPS/Content/Player/BPGameMode.uasset" SILENT=true
+[2021.05.25-03.23.14:773][335]LogSavePackage: Moving 'G:/ProjectTPS/ProjectTPS/Saved/BPGameMode4940C84B4F44B9A10E3E37BFA40C22F3.tmp' to 'G:/ProjectTPS/ProjectTPS/Content/Player/BPGameMode.uasset'
+[2021.05.25-03.23.14:790][335]AssetCheck: New page: 애셋 저장: BPGameMode
+[2021.05.25-03.23.14:790][335]LogContentValidation: Display: Blueprint /Game/Player/BPGameMode.BPGameMode 유효성 검사
+[2021.05.25-03.23.19:789][876]LogSlate: Prevented a slow task dialog from being summoned while a context menu was open
+[2021.05.25-03.23.26:437][635]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Levels/Main" FILE="G:/ProjectTPS/ProjectTPS/Content/Levels/Main.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2021.05.25-03.23.26:466][635]LogUObjectHash: Compacting FUObjectHashTables data took   2.14ms
+[2021.05.25-03.23.26:588][635]LogSavePackage: Moving 'G:/ProjectTPS/ProjectTPS/Saved/Main2947EA81454A3E805677DCBC74DDD72C.tmp' to 'G:/ProjectTPS/ProjectTPS/Content/Levels/Main.umap'
+[2021.05.25-03.23.26:602][635]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Levels/Main_BuiltData" FILE="G:/ProjectTPS/ProjectTPS/Content/Levels/Main_BuiltData.uasset" SILENT=true
+[2021.05.25-03.23.26:625][635]LogSavePackage: Moving 'G:/ProjectTPS/ProjectTPS/Saved/Main_BuiltData67FD99F84A6D86F1367BA782FD7C6B6A.tmp' to 'G:/ProjectTPS/ProjectTPS/Content/Levels/Main_BuiltData.uasset'
+[2021.05.25-03.23.26:643][635]AssetCheck: New page: 애셋 저장: 애셋이 다수입니다.
+[2021.05.25-03.23.26:643][635]LogContentValidation: Display: MapBuildDataRegistry /Game/Levels/Main_BuiltData.Main_BuiltData 유효성 검사
+[2021.05.25-03.23.26:643][635]LogContentValidation: Display: World /Game/Levels/Main.Main 유효성 검사
+[2021.05.25-03.23.28:349][819]LogUObjectHash: Compacting FUObjectHashTables data took   1.98ms
