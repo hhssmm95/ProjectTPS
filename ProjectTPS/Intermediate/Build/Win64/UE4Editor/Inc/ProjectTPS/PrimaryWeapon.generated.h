@@ -63,10 +63,12 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APrimaryWeapon); \
 	FORCEINLINE static uint32 __PPO__m_RootScene() { return STRUCT_OFFSET(APrimaryWeapon, m_RootScene); } \
 	FORCEINLINE static uint32 __PPO__m_Damage() { return STRUCT_OFFSET(APrimaryWeapon, m_Damage); } \
 	FORCEINLINE static uint32 __PPO__m_FireRate() { return STRUCT_OFFSET(APrimaryWeapon, m_FireRate); } \
-	FORCEINLINE static uint32 __PPO__m_Ammo() { return STRUCT_OFFSET(APrimaryWeapon, m_Ammo); } \
-	FORCEINLINE static uint32 __PPO__m_AmmoMax() { return STRUCT_OFFSET(APrimaryWeapon, m_AmmoMax); } \
+	FORCEINLINE static uint32 __PPO__m_CurrentMag() { return STRUCT_OFFSET(APrimaryWeapon, m_CurrentMag); } \
+	FORCEINLINE static uint32 __PPO__m_CurrentMagMax() { return STRUCT_OFFSET(APrimaryWeapon, m_CurrentMagMax); } \
+	FORCEINLINE static uint32 __PPO__m_RemainMag() { return STRUCT_OFFSET(APrimaryWeapon, m_RemainMag); } \
 	FORCEINLINE static uint32 __PPO__m_BulletClass() { return STRUCT_OFFSET(APrimaryWeapon, m_BulletClass); } \
 	FORCEINLINE static uint32 __PPO__m_MuzzleSoundClass() { return STRUCT_OFFSET(APrimaryWeapon, m_MuzzleSoundClass); } \
+	FORCEINLINE static uint32 __PPO__m_EmptySoundClass() { return STRUCT_OFFSET(APrimaryWeapon, m_EmptySoundClass); } \
 	FORCEINLINE static uint32 __PPO__m_MuzzleClass() { return STRUCT_OFFSET(APrimaryWeapon, m_MuzzleClass); }
 
 

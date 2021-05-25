@@ -22,7 +22,7 @@ APlayerCharacter::APlayerCharacter()
 	if (AnimAsset.Succeeded())
 		GetMesh()->SetAnimInstanceClass(AnimAsset.Class);
 
-	static ConstructorHelpers::FClassFinder<APrimaryWeapon>		WeaponAsset(TEXT("Blueprint'/Game/Player/BPM4A1.BPM4A1_C'"));
+	static ConstructorHelpers::FClassFinder<APrimaryWeapon>		WeaponAsset(TEXT("Blueprint'/Game/Player/BP_KrissVector.BP_KrissVector_C'"));
 
 	if (WeaponAsset.Succeeded())
 		m_StartWeapon = WeaponAsset.Class;

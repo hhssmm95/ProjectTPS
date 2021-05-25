@@ -54,13 +54,17 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_FireRate;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Ammo_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_CurrentMag_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_Ammo;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_CurrentMag;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_AmmoMax_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_CurrentMagMax_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_AmmoMax;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_CurrentMagMax;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_RemainMag_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_RemainMag;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BulletClass_MetaData[];
 #endif
@@ -69,6 +73,10 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_MuzzleSoundClass_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_MuzzleSoundClass;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_EmptySoundClass_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_EmptySoundClass;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_MuzzleClass_MetaData[];
 #endif
@@ -122,21 +130,29 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_FireRate = { "m_FireRate", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_FireRate), METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_FireRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_FireRate_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_Ammo_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_CurrentMag_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PrimaryWeapon" },
 		{ "ModuleRelativePath", "Player/PrimaryWeapon.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_Ammo = { "m_Ammo", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_Ammo), METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_Ammo_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_Ammo_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_CurrentMag = { "m_CurrentMag", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_CurrentMag), METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_CurrentMag_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_CurrentMag_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_AmmoMax_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_CurrentMagMax_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PrimaryWeapon" },
 		{ "ModuleRelativePath", "Player/PrimaryWeapon.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_AmmoMax = { "m_AmmoMax", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_AmmoMax), METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_AmmoMax_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_AmmoMax_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_CurrentMagMax = { "m_CurrentMagMax", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_CurrentMagMax), METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_CurrentMagMax_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_CurrentMagMax_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_RemainMag_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PrimaryWeapon" },
+		{ "ModuleRelativePath", "Player/PrimaryWeapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_RemainMag = { "m_RemainMag", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_RemainMag), METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_RemainMag_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_RemainMag_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BulletClass_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -154,12 +170,18 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleSoundClass = { "m_MuzzleSoundClass", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_MuzzleSoundClass), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleSoundClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleSoundClass_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_EmptySoundClass_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PrimaryWeapon" },
+		{ "ModuleRelativePath", "Player/PrimaryWeapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_EmptySoundClass = { "m_EmptySoundClass", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_EmptySoundClass), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_EmptySoundClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_EmptySoundClass_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleClass_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PrimaryWeapon" },
-		{ "Comment", "//TSubclassOf<USoundBase>\x09\x09m_MuzzleSoundClass;\n" },
 		{ "ModuleRelativePath", "Player/PrimaryWeapon.h" },
-		{ "ToolTip", "TSubclassOf<USoundBase>         m_MuzzleSoundClass;" },
 	};
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleClass = { "m_MuzzleClass", nullptr, (EPropertyFlags)0x0024080000000005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_MuzzleClass), Z_Construct_UClass_AEffectNormal_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleClass_MetaData)) };
@@ -168,10 +190,12 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_RootScene,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_Damage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_FireRate,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_Ammo,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_AmmoMax,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_CurrentMag,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_CurrentMagMax,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_RemainMag,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BulletClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleSoundClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_EmptySoundClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleClass,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APrimaryWeapon_Statics::StaticCppClassTypeInfo = {
@@ -201,7 +225,7 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APrimaryWeapon, 3115814629);
+	IMPLEMENT_CLASS(APrimaryWeapon, 1489845157);
 	template<> PROJECTTPS_API UClass* StaticClass<APrimaryWeapon>()
 	{
 		return APrimaryWeapon::StaticClass();

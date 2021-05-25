@@ -29,20 +29,27 @@ protected:
 		float m_FireRate;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		float m_Ammo;
+		int32 m_CurrentMag;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		float m_AmmoMax;
+		int32 m_CurrentMagMax;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		int32 m_RemainMag;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TSubclassOf<class ABullet>	m_BulletClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		USoundBase* m_MuzzleSoundClass;
-	//TSubclassOf<USoundBase>		m_MuzzleSoundClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USoundBase* m_EmptySoundClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TSubclassOf<class AEffectNormal>	m_MuzzleClass;
+
+	class APlayerHUD* m_PlayerHUD;
 
 	bool Delay;
 	float DelayTime;

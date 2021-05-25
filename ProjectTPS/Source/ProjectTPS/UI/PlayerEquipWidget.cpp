@@ -8,7 +8,6 @@
 void UPlayerEquipWidget::NativePreConstruct()
 {
 	Super::NativePreConstruct();
-
 	m_CurrentMagText = Cast<UTextBlock>(GetWidgetFromName(TEXT("Player_CurrentMag")));
 	m_RemainMagText = Cast<UTextBlock>(GetWidgetFromName(TEXT("Player_RemainMag")));
 }
@@ -21,6 +20,7 @@ void UPlayerEquipWidget::NativeTick(const FGeometry& MyGeometry, float InDeltaTi
 {
 	Super::NativeTick(MyGeometry, InDeltaTime);
 }
+
 
 void UPlayerEquipWidget::SetCurrentMagText(int32 Ammo)
 {

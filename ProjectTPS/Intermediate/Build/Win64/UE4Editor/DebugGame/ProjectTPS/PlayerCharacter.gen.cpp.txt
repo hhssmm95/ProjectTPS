@@ -2,6 +2,7 @@ G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS
 E:\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
 E:\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
 G:\ProjectTPS\ProjectTPS\Source\ProjectTPS/Player/PlayerCharacter.h
+G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\PlayerInfo.h
 G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\../GameInfo.h
 E:\UE_4.26\Engine\Source\Runtime\Engine\Public\EngineMinimal.h
 E:\UE_4.26\Engine\Source\Runtime\Core\Public\Misc/MonolithicHeaderBoilerplate.h
@@ -678,4 +679,5 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\INCLUDE\isa_availability.h
 E:\UE_4.26\Engine\Source\Runtime\Slate\Public\Widgets/Input/SSlider.h
 E:\UE_4.26\Engine\Source\Runtime\Slate\Public\Framework/Docking/LayoutService.h
+G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerInfo.generated.h
 G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerCharacter.generated.h

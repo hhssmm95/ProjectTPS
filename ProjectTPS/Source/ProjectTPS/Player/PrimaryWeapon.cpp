@@ -2,9 +2,12 @@
 
 
 #include "PrimaryWeapon.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "../Bullet.h"
 #include "../EffectNormal.h"
-#include "Kismet/KismetMathLibrary.h"
+#include "../PlayerHUD.h"
+#include "../UI/MainHUDWidget.h"
+#include "../UI/PlayerEquipWidget.h"
 
 // Sets default values
 APrimaryWeapon::APrimaryWeapon()
@@ -12,16 +15,6 @@ APrimaryWeapon::APrimaryWeapon()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-
-	//static ConstructorHelpers::FClassFinder<AEffectNormal>	MuzzleClassAsset(TEXT("Blueprint'/Game/Player/BP_RifleMuzzle.BP_RifleMuzzle_C'"));
-	//if (MuzzleClassAsset.Succeeded())
-	//	m_MuzzleClass = MuzzleClassAsset.Class;
-
-
-	//static ConstructorHelpers::FClassFinder<ABullet>	BulletClassAsset(TEXT("Blueprint'/Game/Player/BP_Bullet.BP_Bullet_C'"));
-
-	//if (BulletClassAsset.Succeeded())
-	//	m_BulletClass = BulletClassAsset.Class;
 
 	m_Mesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Mesh"));
 	m_RootScene = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
@@ -33,13 +26,19 @@ APrimaryWeapon::APrimaryWeapon()
 	Delay = false;
 	DelayTime = 0.12f;
 	DelayTimeAcc = 0.f;
+
 }
 
 // Called when the game starts or when spawned
 void APrimaryWeapon::BeginPlay()
 {
 	Super::BeginPlay();
+	
+	m_PlayerHUD = Cast<APlayerHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
+	m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(m_CurrentMagMax);
+	m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetRemainMagText(m_RemainMag);
 
+	m_CurrentMag = m_CurrentMagMax;
 }
 
 // Called every frame
@@ -71,44 +70,58 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 {
 	if (!Delay)
 	{
-		FHitResult result;
-
-		TArray<AActor*> IgnoreActor;
-		IgnoreActor.Add(this);
-
-		bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), CameraPos, CameraPos + CameraForward * 20000.f,
-			UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1), true, IgnoreActor,
-			EDrawDebugTrace::ForDuration, result, true);
-
-		if (bHit)
+		if (m_CurrentMag > 0)
 		{
-			FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("FireMuzzle"));
-			FRotator vMuzzleRot = GetActorRotation();
+			FHitResult result;
 
-			AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
-				vMuzzleRot);
+			TArray<AActor*> IgnoreActor;
+			IgnoreActor.Add(this);
+
+			bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), CameraPos, CameraPos + CameraForward * 20000.f,
+				UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1), true, IgnoreActor,
+				EDrawDebugTrace::ForDuration, result, true);
+
+			if (bHit)
+			{
+				FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("FireMuzzle"));
+				FRotator vMuzzleRot = GetActorRotation();
+
+				AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
+					vMuzzleRot);
 
 
-			FRotator BulletRot = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 80.f, result.ImpactPoint);
-			ABullet* Bullet = GetWorld()->SpawnActor<ABullet>(m_BulletClass, vMuzzlePos + GetActorForwardVector() * 80.f,
-				BulletRot);
-			UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_MuzzleSoundClass, GetActorLocation());
+				FRotator BulletRot = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 80.f, result.ImpactPoint);
+				ABullet* Bullet = GetWorld()->SpawnActor<ABullet>(m_BulletClass, vMuzzlePos + GetActorForwardVector() * 80.f,
+					BulletRot);
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_MuzzleSoundClass, GetActorLocation());
 
-			Delay = true;
+				m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(--m_CurrentMag);
+				if (m_CurrentMag < 0)
+					m_CurrentMag = 0;
+				Delay = true;
+			}
+			else
+			{
+				FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("FireMuzzle"));
+				FRotator vMuzzleRot = GetActorRotation();
+
+				AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
+					vMuzzleRot);
+
+				ABullet* Bullet = GetWorld()->SpawnActor<ABullet>(m_BulletClass, vMuzzlePos + GetActorForwardVector() * 80.f,
+					GetActorRotation());
+
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_MuzzleSoundClass, GetActorLocation());
+
+				m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(--m_CurrentMag);
+				if (m_CurrentMag < 0)
+					m_CurrentMag = 0;
+				Delay = true;
+			}
 		}
 		else
 		{
-			FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("FireMuzzle"));
-			FRotator vMuzzleRot = GetActorRotation();
-
-			AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
-				vMuzzleRot);
-
-			ABullet* Bullet = GetWorld()->SpawnActor<ABullet>(m_BulletClass, vMuzzlePos + GetActorForwardVector() * 80.f,
-				GetActorRotation());
-
-			UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_MuzzleSoundClass, GetActorLocation());
-
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_EmptySoundClass, GetActorLocation());
 			Delay = true;
 		}
 	}

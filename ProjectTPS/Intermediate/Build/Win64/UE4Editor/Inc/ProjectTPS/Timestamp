@@ -1,10 +1,12 @@
+G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\PlayerAnimation.h
 G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\PrimaryWeapon.h
 G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\PlayerCharacter.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\UI\PlayerHPWidget.h
 G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\PlayerInfo.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\PlayerAnimation.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\EffectNormal.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\GameInfo.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Bullet.h
+G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\UI\PlayerHPWidget.h
+G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\UI\MainHUDWidget.h
 G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\ProjectTPSGameModeBase.h
 G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\UI\PlayerEquipWidget.h
+G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\GameInfo.h
+G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Bullet.h
+G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\EffectNormal.h
+G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\PlayerHUD.h
