@@ -118,7 +118,8 @@ void APlayerCharacter::Turn(float fScale)
 	if (!m_bIsDead)
 	{
 		//AddControllerYawInput(fScale * 45.f * GetWorld()->GetDeltaSeconds());
-		m_Scene->AddRelativeRotation(FRotator(0.f, 0.f, fScale * 45.f * GetWorld()->GetDeltaSeconds()));
+		m_Arm->AddRelativeRotation(FRotator(0.f, fScale, 0.f));
+
 		AddUpperYawInput(fScale);
 	}
 
