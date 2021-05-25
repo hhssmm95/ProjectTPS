@@ -4,6 +4,7 @@
 #include "PlayerCharacter.h"
 #include "PlayerAnimation.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "PrimaryWeapon.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -20,6 +21,13 @@ APlayerCharacter::APlayerCharacter()
 
 	if (AnimAsset.Succeeded())
 		GetMesh()->SetAnimInstanceClass(AnimAsset.Class);
+
+	static ConstructorHelpers::FClassFinder<APrimaryWeapon>		WeaponAsset(TEXT("Blueprint'/Game/Player/BPM4A1.BPM4A1_C'"));
+
+	if (WeaponAsset.Succeeded())
+		m_StartWeapon = WeaponAsset.Class;
+	
+
 
 
 	m_Arm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Arm"));
@@ -42,6 +50,19 @@ void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	m_pPlayerAnim = Cast<UPlayerAnimation>(GetMesh()->GetAnimInstance());
+
+
+	FActorSpawnParameters	param;
+	param.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+	m_PrimaryWeapon = GetWorld()->SpawnActor<APrimaryWeapon>(m_StartWeapon, FVector::ZeroVector,
+		FRotator::ZeroRotator, param);
+
+	m_PrimaryWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform,
+		TEXT("RifleSocket"));
+
+	m_PrimaryWeapon->SetActorRotation(FRotator(GetActorForwardVector().X, GetActorForwardVector().Y, 
+		GetActorForwardVector().X));
 }
 
 // Called every frame
@@ -177,5 +198,13 @@ void APlayerCharacter::AimRelease()
 	if (!m_bIsDead)
 	{
 		m_IsAiming = false;
+	}
+}
+
+void APlayerCharacter::PrimaryFire()
+{
+	if (!m_bIsDead)
+	{
+
 	}
 }

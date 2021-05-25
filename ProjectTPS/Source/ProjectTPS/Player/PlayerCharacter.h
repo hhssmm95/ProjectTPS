@@ -41,6 +41,12 @@ protected:
 		bool m_IsAiming;
 
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		class APrimaryWeapon* m_PrimaryWeapon;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		TSubclassOf<class APrimaryWeapon> m_StartWeapon;
 
 public:/*
 	EMoveDir GetDirection() const
@@ -68,6 +74,8 @@ public:
 	void InputJump();
 	void AimPress();
 	void AimRelease();
+
+	void PrimaryFire();
 
 protected:
 	// Called when the game starts or when spawned

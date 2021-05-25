@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ProjectTPS.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{AC587D63-010E-4ECA-B5D9-1E3E5121CF34}</UniqueIdentifier>
+      <UniqueIdentifier>{6651C345-9B0C-4781-A602-5107022D5388}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ProjectTPS.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{6A04C401-4DED-4F44-8A95-7C6BB2AF18E1}</UniqueIdentifier>
+      <UniqueIdentifier>{A1463403-88FC-4F6E-99B4-802D7CBECAED}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\ProjectTPS">
-      <UniqueIdentifier>{F07D1A49-31A9-4088-834D-3C2F8C618FDD}</UniqueIdentifier>
+      <UniqueIdentifier>{CF9A348D-EAB8-4137-A1E5-5D48A56870C1}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ProjectTPS\ProjectTPS.Build.cs">
       <Filter>Source\ProjectTPS</Filter>
@@ -50,8 +50,20 @@
     <ClCompile Include="..\..\Source\ProjectTPS\ProjectTPSGameModeBase.cpp">
       <Filter>Source\ProjectTPS</Filter>
     </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\Bullet.h">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\Bullet.cpp">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\EffectNormal.h">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\EffectNormal.cpp">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClCompile>
     <Filter Include="Source\ProjectTPS\Player">
-      <UniqueIdentifier>{98191A80-8641-4E88-B11C-8A148430BFBD}</UniqueIdentifier>
+      <UniqueIdentifier>{1C7A2D60-83DD-46FE-A55C-A44B4C68AC5B}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ProjectTPS\Player\PlayerAnimation.cpp">
       <Filter>Source\ProjectTPS\Player</Filter>
@@ -63,6 +75,12 @@
       <Filter>Source\ProjectTPS\Player</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\ProjectTPS\Player\PlayerCharacter.cpp">
+      <Filter>Source\ProjectTPS\Player</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\Player\PrimaryWeapon.h">
+      <Filter>Source\ProjectTPS\Player</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\Player\PrimaryWeapon.cpp">
       <Filter>Source\ProjectTPS\Player</Filter>
     </ClCompile>
   </ItemGroup>

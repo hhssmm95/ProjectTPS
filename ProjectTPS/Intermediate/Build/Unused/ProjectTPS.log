@@ -1,24 +1,12 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (G:\ProjectTPS).
-  Creating makefile for ProjectTPSEditor (no existing makefile)
   Building ProjectTPSEditor...
   Using Visual Studio 2019 14.28.29336 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 15 actions with 8 processes...
-    [1/15] Default.rc2
-    [2/15] SharedPCH.Engine.ShadowErrors.cpp
-    [3/15] ProjectTPS.cpp
-    [4/15] GameInfo.cpp
-    [5/15] ProjectTPSGameModeBase.cpp
-    [6/15] GameInfo.gen.cpp
-    [7/15] PlayerAnimation.cpp
-    [8/15] ProjectTPSGameModeBase.gen.cpp
-    [9/15] PlayerAnimation.gen.cpp
-    [10/15] PlayerCharacter.cpp
-    [11/15] ProjectTPS.init.gen.cpp
-    [12/15] PlayerCharacter.gen.cpp
-    [13/15] UE4Editor-ProjectTPS-0001.lib
-       G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0001.lib 라이브러리 및 G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0001.exp 개체를 생성하고 있습니다.
-    [14/15] UE4Editor-ProjectTPS-0001.dll
-       G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0001.suppressed.lib 라이브러리 및 G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0001.suppressed.exp 개체를 생성하고 있습니다.
-    [15/15] ProjectTPSEditor.target
-  Total time in Parallel executor: 70.65 seconds
-  Total execution time: 73.82 seconds
+  Building 4 actions with 8 processes...
+    [1/4] PrimaryWeapon.cpp
+    [2/4] UE4Editor-ProjectTPS-0012.lib
+       G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0012.lib 라이브러리 및 G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0012.exp 개체를 생성하고 있습니다.
+    [3/4] UE4Editor-ProjectTPS-0012.dll
+       G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0012.suppressed.lib 라이브러리 및 G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0012.suppressed.exp 개체를 생성하고 있습니다.
+    [4/4] ProjectTPSEditor.target
+  Total time in Parallel executor: 13.21 seconds
+  Total execution time: 14.12 seconds
