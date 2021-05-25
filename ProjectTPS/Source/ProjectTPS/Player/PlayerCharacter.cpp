@@ -40,7 +40,7 @@ APlayerCharacter::APlayerCharacter()
 	//m_eDirection = EMoveDir::None;
 
 	GetCharacterMovement()->MaxWalkSpeed = 500.f;
-	GetCharacterMovement()->JumpZVelocity = 1000.f;
+	GetCharacterMovement()->JumpZVelocity = 500.f;
 	m_UpperYaw = 0.f;
 
 }

@@ -23,7 +23,7 @@ ABullet::ABullet()
 
 	//m_Body->SetCollisionProfileName(TEXT("PlayerName"));
 
-	m_Movement->InitialSpeed = 6000.f;
+	m_Movement->InitialSpeed = 15000.f;
 }
 
 // Called when the game starts or when spawned
