@@ -31,6 +31,9 @@ protected:
 		int32 m_CurrentMag;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		int32 m_CurrentMagMax;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		int32 m_RemainMag;
 
 
@@ -95,6 +98,10 @@ public:
 	{
 		m_CurrentMag = CurrentMag;
 	}
+	void SetCurrentMagMax(int32 CurrentMagMax)
+	{
+		m_CurrentMagMax = CurrentMagMax;
+	}
 	void SetRemainMag(int32 RemainMag)
 	{
 		m_RemainMag = RemainMag;
@@ -137,6 +144,10 @@ public:
 	int32 GetCurrentMag()
 	{
 		return m_CurrentMag;
+	}
+	int32 GetCurrentMagMax()
+	{
+		return m_CurrentMagMax;
 	}
 	int32 GetRemainMag()
 	{

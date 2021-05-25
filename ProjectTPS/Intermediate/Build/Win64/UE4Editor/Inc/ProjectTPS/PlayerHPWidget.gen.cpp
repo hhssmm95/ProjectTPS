@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerHPWidget() {}
 	PROJECTTPS_API UClass* Z_Construct_UClass_UPlayerHPWidget();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget();
 	UPackage* Z_Construct_UPackage__Script_ProjectTPS();
+	UMG_API UClass* Z_Construct_UClass_UProgressBar_NoRegister();
 // End Cross Module References
 	void UPlayerHPWidget::StaticRegisterNativesUPlayerHPWidget()
 	{
@@ -31,6 +32,11 @@ void EmptyLinkFunctionForGeneratedCodePlayerHPWidget() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_HPBar_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_HPBar;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -45,6 +51,18 @@ void EmptyLinkFunctionForGeneratedCodePlayerHPWidget() {}
 		{ "ModuleRelativePath", "UI/PlayerHPWidget.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerHPWidget_Statics::NewProp_m_HPBar_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerHPWidget" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/PlayerHPWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerHPWidget_Statics::NewProp_m_HPBar = { "m_HPBar", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerHPWidget, m_HPBar), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerHPWidget_Statics::NewProp_m_HPBar_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerHPWidget_Statics::NewProp_m_HPBar_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UPlayerHPWidget_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerHPWidget_Statics::NewProp_m_HPBar,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UPlayerHPWidget_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UPlayerHPWidget>::IsAbstract,
 	};
@@ -54,11 +72,11 @@ void EmptyLinkFunctionForGeneratedCodePlayerHPWidget() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_UPlayerHPWidget_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerHPWidget_Statics::PropPointers),
 		0,
 		0x00B010A0u,
 		METADATA_PARAMS(Z_Construct_UClass_UPlayerHPWidget_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerHPWidget_Statics::Class_MetaDataParams))
@@ -72,7 +90,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerHPWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UPlayerHPWidget, 44016662);
+	IMPLEMENT_CLASS(UPlayerHPWidget, 1427811262);
 	template<> PROJECTTPS_API UClass* StaticClass<UPlayerHPWidget>()
 	{
 		return UPlayerHPWidget::StaticClass();

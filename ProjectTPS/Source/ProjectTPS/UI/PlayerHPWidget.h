@@ -13,5 +13,18 @@ UCLASS()
 class PROJECTTPS_API UPlayerHPWidget : public UUserWidget
 {
 	GENERATED_BODY()
-	
+
+protected:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UProgressBar* m_HPBar;
+
+
+protected:
+	virtual void NativePreConstruct();
+	virtual void NativeConstruct();
+	virtual void NativeTick(const FGeometry& MyGeometry, float InDeltaTime);
+
+public:
+	void SetHPBar(float HP);
 };

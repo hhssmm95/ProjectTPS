@@ -60,7 +60,10 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UPlayerHPWidget); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UPlayerHPWidget)
 
 
-#define ProjectTPS_Source_ProjectTPS_UI_PlayerHPWidget_h_15_PRIVATE_PROPERTY_OFFSET
+#define ProjectTPS_Source_ProjectTPS_UI_PlayerHPWidget_h_15_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__m_HPBar() { return STRUCT_OFFSET(UPlayerHPWidget, m_HPBar); }
+
+
 #define ProjectTPS_Source_ProjectTPS_UI_PlayerHPWidget_h_12_PROLOG
 #define ProjectTPS_Source_ProjectTPS_UI_PlayerHPWidget_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
