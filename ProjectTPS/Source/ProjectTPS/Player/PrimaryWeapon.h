@@ -37,14 +37,17 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TSubclassOf<class ABullet>	m_BulletClass;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USoundBase* m_MuzzleSoundClass;
+	//TSubclassOf<USoundBase>		m_MuzzleSoundClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		TSubclassOf<class AEffectNormal>	m_MuzzleClass;
+
 	bool Delay;
 	float DelayTime;
 	float DelayTimeAcc;
 
-
-protected:
-
-	TSubclassOf<class AEffectNormal>	m_MuzzleClass;
 
 public:
 	USkeletalMeshComponent* GetMesh()	const

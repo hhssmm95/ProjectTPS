@@ -65,7 +65,9 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APrimaryWeapon); \
 	FORCEINLINE static uint32 __PPO__m_FireRate() { return STRUCT_OFFSET(APrimaryWeapon, m_FireRate); } \
 	FORCEINLINE static uint32 __PPO__m_Ammo() { return STRUCT_OFFSET(APrimaryWeapon, m_Ammo); } \
 	FORCEINLINE static uint32 __PPO__m_AmmoMax() { return STRUCT_OFFSET(APrimaryWeapon, m_AmmoMax); } \
-	FORCEINLINE static uint32 __PPO__m_BulletClass() { return STRUCT_OFFSET(APrimaryWeapon, m_BulletClass); }
+	FORCEINLINE static uint32 __PPO__m_BulletClass() { return STRUCT_OFFSET(APrimaryWeapon, m_BulletClass); } \
+	FORCEINLINE static uint32 __PPO__m_MuzzleSoundClass() { return STRUCT_OFFSET(APrimaryWeapon, m_MuzzleSoundClass); } \
+	FORCEINLINE static uint32 __PPO__m_MuzzleClass() { return STRUCT_OFFSET(APrimaryWeapon, m_MuzzleClass); }
 
 
 #define ProjectTPS_Source_ProjectTPS_Player_PrimaryWeapon_h_9_PROLOG

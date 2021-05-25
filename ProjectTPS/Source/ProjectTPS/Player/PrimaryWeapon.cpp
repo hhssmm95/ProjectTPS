@@ -13,15 +13,15 @@ APrimaryWeapon::APrimaryWeapon()
 	PrimaryActorTick.bCanEverTick = true;
 
 
-	static ConstructorHelpers::FClassFinder<AEffectNormal>	MuzzleClassAsset(TEXT("Blueprint'/Game/Player/BP_RifleMuzzle.BP_RifleMuzzle_C'"));
-	if (MuzzleClassAsset.Succeeded())
-		m_MuzzleClass = MuzzleClassAsset.Class;
+	//static ConstructorHelpers::FClassFinder<AEffectNormal>	MuzzleClassAsset(TEXT("Blueprint'/Game/Player/BP_RifleMuzzle.BP_RifleMuzzle_C'"));
+	//if (MuzzleClassAsset.Succeeded())
+	//	m_MuzzleClass = MuzzleClassAsset.Class;
 
 
-	static ConstructorHelpers::FClassFinder<ABullet>	BulletClassAsset(TEXT("Blueprint'/Game/Player/BP_Bullet.BP_Bullet_C'"));
+	//static ConstructorHelpers::FClassFinder<ABullet>	BulletClassAsset(TEXT("Blueprint'/Game/Player/BP_Bullet.BP_Bullet_C'"));
 
-	if (BulletClassAsset.Succeeded())
-		m_BulletClass = BulletClassAsset.Class;
+	//if (BulletClassAsset.Succeeded())
+	//	m_BulletClass = BulletClassAsset.Class;
 
 	m_Mesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Mesh"));
 	m_RootScene = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
@@ -92,6 +92,7 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 			FRotator BulletRot = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 80.f, result.ImpactPoint);
 			ABullet* Bullet = GetWorld()->SpawnActor<ABullet>(m_BulletClass, vMuzzlePos + GetActorForwardVector() * 80.f,
 				BulletRot);
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_MuzzleSoundClass, GetActorLocation());
 
 			Delay = true;
 		}
@@ -105,6 +106,8 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 
 			ABullet* Bullet = GetWorld()->SpawnActor<ABullet>(m_BulletClass, vMuzzlePos + GetActorForwardVector() * 80.f,
 				GetActorRotation());
+
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_MuzzleSoundClass, GetActorLocation());
 
 			Delay = true;
 		}
