@@ -95,5 +95,18 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 
 			Delay = true;
 		}
+		else
+		{
+			FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("FireMuzzle"));
+			FRotator vMuzzleRot = GetActorRotation();
+
+			AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
+				vMuzzleRot);
+
+			ABullet* Bullet = GetWorld()->SpawnActor<ABullet>(m_BulletClass, vMuzzlePos + GetActorForwardVector() * 80.f,
+				GetActorRotation());
+
+			Delay = true;
+		}
 	}
 }
