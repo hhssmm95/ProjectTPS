@@ -3575,3 +3575,111 @@ Script Stack (0 frames):
 [2021.05.25-15.06.30:426][582]LogContentValidation: Display: WidgetBlueprint /Game/UI/UI_EquipWidget.UI_EquipWidget 유효성 검사
 [2021.05.25-15.06.48:389][862]BlueprintLog: New page: UI_EquipWidget 컴파일
 [2021.05.25-15.06.48:473][862]LogUObjectHash: Compacting FUObjectHashTables data took   6.05ms
+[2021.05.25-15.08.12:289][ 65]LogUObjectHash: Compacting FUObjectHashTables data took   4.81ms
+[2021.05.25-15.08.12:326][ 65]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/UI/digital-7_Font" FILE="G:/ProjectTPS/ProjectTPS/Content/UI/digital-7_Font.uasset" SILENT=true
+[2021.05.25-15.08.12:331][ 65]LogSavePackage: Moving 'G:/ProjectTPS/ProjectTPS/Saved/digital-7_Font81D7959344D9755B83CFF5ADE7CC2022.tmp' to 'G:/ProjectTPS/ProjectTPS/Content/UI/digital-7_Font.uasset'
+[2021.05.25-15.08.12:379][ 65]AssetCheck: New page: 애셋 저장: digital-7_Font
+[2021.05.25-15.08.12:379][ 65]LogContentValidation: Display: Font /Game/UI/digital-7_Font.digital-7_Font 유효성 검사
+[2021.05.25-15.08.18:279][580]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2021.05.25-15.08.42:307][834]Running E:/UE_4.26/Engine/Binaries/DotNET/UnrealBuildTool.exe  -projectfiles -project="G:/ProjectTPS/ProjectTPS/ProjectTPS.uproject" -game -rocket -progress
+[2021.05.25-15.08.43:859][834]Discovering modules, targets and source code for project...
+[2021.05.25-15.08.50:895][834]Binding IntelliSense data...
+[2021.05.25-15.08.59:053][834]Binding IntelliSense data... 100%
+[2021.05.25-15.08.59:053][834]Writing project files...
+[2021.05.25-15.09.06:191][834]Writing project files... 100%
+[2021.05.25-15.09.06:519][834]Candidate modules for hot reload:
+[2021.05.25-15.09.06:519][834]  ProjectTPS
+[2021.05.25-15.09.06:519][834]Launching UnrealBuildTool... [E:/UE_4.26/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ProjectTPS,1737 ProjectTPSEditor Win64 Development -Project="G:/ProjectTPS/ProjectTPS/ProjectTPS.uproject" "G:/ProjectTPS/ProjectTPS/ProjectTPS.uproject"  -IgnoreJunk]
+[2021.05.25-15.10.09:124][834]CompilerResultsLog: New page: 컴파일 - 2021. 5. 26. 오전 9:10:09
+[2021.05.25-15.10.09:125][834]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (G:\ProjectTPS).
+[2021.05.25-15.10.09:125][834]CompilerResultsLog: Creating makefile for ProjectTPSEditor (no existing makefile)
+[2021.05.25-15.10.09:125][834]CompilerResultsLog: Parsing headers for ProjectTPSEditor
+[2021.05.25-15.10.09:125][834]CompilerResultsLog:   Running UnrealHeaderTool "G:\ProjectTPS\ProjectTPS\ProjectTPS.uproject" "G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\Development\ProjectTPSEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\han\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+[2021.05.25-15.10.09:125][834]CompilerResultsLog: Reflection code generated for ProjectTPSEditor in 20.8564147 seconds
+[2021.05.25-15.10.09:125][834]CompilerResultsLog: Building ProjectTPSEditor...
+[2021.05.25-15.10.09:125][834]CompilerResultsLog: Using Visual Studio 2019 14.28.29336 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2021.05.25-15.10.09:125][834]CompilerResultsLog: Building 6 actions with 8 processes...
+[2021.05.25-15.10.09:125][834]CompilerResultsLog:   [1/6] PlayerHPWidget.cpp
+[2021.05.25-15.10.09:125][834]CompilerResultsLog:   G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\UI\PlayerHPWidget.cpp(4): fatal error C1083: ???? ?????? ?? ?? ?????ϴ?. 'UI/PlayerHPWidget.h': No such file or directory
+[2021.05.25-15.10.09:125][834]CompilerResultsLog:   [2/6] ProjectTPS.init.gen.cpp
+[2021.05.25-15.10.09:125][834]CompilerResultsLog:   [3/6] PlayerHPWidget.gen.cpp
+[2021.05.25-15.10.09:125][834]LogMainFrame: MainFrame: Module compiling took 62.661 seconds
+[2021.05.25-15.10.09:195][834]Warning: HotReload failed, recompile failed
+[2021.05.25-15.10.09:195][834]Warning: RebindPackages failed because compilation failed.
+[2021.05.25-15.10.10:980][834]LogSlate: Window '메시지' being destroyed
+[2021.05.25-15.10.10:995][834]Message dialog closed, result: No, title: 메시지, text: 'PlayerHPWidget' 클래스 추가에 성공했지만, 'ProjectTPS' 모듈을 다시 컴파일해야 콘텐츠 브라우저에 나타날 것입니다. 'ProjectTPS' 모듈을 자동으로 핫 리로드하는 데 실패했습니다.
+
+출력 로그를 열어 자세한 내용을 확인하시겠습니까?
+[2021.05.25-15.10.10:996][834]LogSlate: Window 'C++ 클래스 추가' being destroyed
+[2021.05.25-15.11.45:250][789]Running E:/UE_4.26/Engine/Binaries/DotNET/UnrealBuildTool.exe  -projectfiles -project="G:/ProjectTPS/ProjectTPS/ProjectTPS.uproject" -game -rocket -progress
+[2021.05.25-15.11.46:380][789]Discovering modules, targets and source code for project...
+[2021.05.25-15.11.48:591][789]Binding IntelliSense data...
+[2021.05.25-15.11.51:417][789]Binding IntelliSense data... 100%
+[2021.05.25-15.11.51:417][789]Writing project files...
+[2021.05.25-15.11.56:443][789]Writing project files... 100%
+[2021.05.25-15.11.56:800][789]Candidate modules for hot reload:
+[2021.05.25-15.11.56:801][789]  ProjectTPS
+[2021.05.25-15.11.56:801][789]Launching UnrealBuildTool... [E:/UE_4.26/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ProjectTPS,5938 ProjectTPSEditor Win64 Development -Project="G:/ProjectTPS/ProjectTPS/ProjectTPS.uproject" "G:/ProjectTPS/ProjectTPS/ProjectTPS.uproject"  -IgnoreJunk]
+[2021.05.25-15.12.06:976][789]CompilerResultsLog: New page: 컴파일 - 2021. 5. 26. 오전 9:12:06
+[2021.05.25-15.12.06:976][789]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (G:\ProjectTPS).
+[2021.05.25-15.12.06:976][789]CompilerResultsLog: Creating makefile for ProjectTPSEditor (no existing makefile)
+[2021.05.25-15.12.06:976][789]CompilerResultsLog: Parsing headers for ProjectTPSEditor
+[2021.05.25-15.12.06:976][789]CompilerResultsLog:   Running UnrealHeaderTool "G:\ProjectTPS\ProjectTPS\ProjectTPS.uproject" "G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\Development\ProjectTPSEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\han\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+[2021.05.25-15.12.06:976][789]CompilerResultsLog: Reflection code generated for ProjectTPSEditor in 5.3345934 seconds
+[2021.05.25-15.12.06:976][789]CompilerResultsLog: Building ProjectTPSEditor...
+[2021.05.25-15.12.06:976][789]CompilerResultsLog: Using Visual Studio 2019 14.28.29336 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2021.05.25-15.12.06:976][789]CompilerResultsLog: Building 7 actions with 8 processes...
+[2021.05.25-15.12.06:976][789]CompilerResultsLog:   [1/7] PlayerHPWidget.cpp
+[2021.05.25-15.12.06:976][789]CompilerResultsLog:   G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\UI\PlayerHPWidget.cpp(4): fatal error C1083: ???? ?????? ?? ?? ?????ϴ?. 'UI/PlayerHPWidget.h': No such file or directory
+[2021.05.25-15.12.06:976][789]CompilerResultsLog:   [2/7] PlayerInfo.cpp
+[2021.05.25-15.12.06:976][789]CompilerResultsLog:   G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\PlayerInfo.cpp(4): fatal error C1083: ???? ?????? ?? ?? ?????ϴ?. 'Player/PlayerInfo.h': No such file or directory
+[2021.05.25-15.12.06:976][789]CompilerResultsLog:   [3/7] ProjectTPS.init.gen.cpp
+[2021.05.25-15.12.06:976][789]CompilerResultsLog:   [4/7] PlayerInfo.gen.cpp
+[2021.05.25-15.12.06:976][789]LogMainFrame: MainFrame: Module compiling took 10.183 seconds
+[2021.05.25-15.12.06:977][789]Warning: HotReload failed, recompile failed
+[2021.05.25-15.12.06:977][789]Warning: RebindPackages failed because compilation failed.
+[2021.05.25-15.12.08:663][789]LogSlate: Window '메시지' being destroyed
+[2021.05.25-15.12.08:682][789]Message dialog closed, result: No, title: 메시지, text: 'PlayerInfo' 클래스 추가에 성공했지만, 'ProjectTPS' 모듈을 다시 컴파일해야 콘텐츠 브라우저에 나타날 것입니다. 'ProjectTPS' 모듈을 자동으로 핫 리로드하는 데 실패했습니다.
+
+출력 로그를 열어 자세한 내용을 확인하시겠습니까?
+[2021.05.25-15.12.08:682][789]LogSlate: Window 'C++ 클래스 추가' being destroyed
+[2021.05.25-15.14.15:669][569]LogHotReload: New module detected: UE4Editor-ProjectTPS-0037.dll
+[2021.05.25-15.14.17:724][576]LogHotReload: Starting Hot-Reload from IDE
+[2021.05.25-15.14.17:811][576]LogClass: Could not find existing class PlayerHPWidget in package /Script/ProjectTPS for HotReload, assuming new class
+[2021.05.25-15.14.17:812][576]LogClass: Could not find existing class PlayerInfo in package /Script/ProjectTPS for HotReload, assuming new class
+[2021.05.25-15.14.17:812][576]LogClass: EMoveDir HotReload.
+[2021.05.25-15.14.17:812][576]LogClass: PlayerAnimType HotReload.
+[2021.05.25-15.14.17:830][576]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ProjectTPS' in 0.0004 seconds. Added 8 classes and 4 folders.
+[2021.05.25-15.14.17:841][576]Display: HotReload successful (3 functions remapped  0 scriptstructs remapped)
+[2021.05.25-15.14.18:035][576]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0172 seconds. Added 3611 classes and 867 folders.
+[2021.05.25-15.14.18:044][576]Display: HotReload took  0.3s.
+[2021.05.25-15.23.42:744][314]BlueprintLog: New page: UI_EquipWidget 컴파일
+[2021.05.25-15.23.42:870][314]LogUObjectHash: Compacting FUObjectHashTables data took   7.31ms
+[2021.05.25-15.23.44:079][341]LogUObjectHash: Compacting FUObjectHashTables data took   5.45ms
+[2021.05.25-15.23.44:080][341]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Levels/Main' took 0.066
+[2021.05.25-15.23.44:081][341]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/UI/UI_EquipWidget] ([1] browsable assets)...
+[2021.05.25-15.23.44:081][341]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI/UI_EquipWidget]
+[2021.05.25-15.23.44:081][341]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/UI/UI_EquipWidget" FILE="G:/ProjectTPS/ProjectTPS/Saved/Autosaves/Game/UI/UI_EquipWidget_Auto6.uasset" SILENT=false AUTOSAVING=true
+[2021.05.25-15.23.44:143][341]LogSavePackage: Moving 'G:/ProjectTPS/ProjectTPS/Saved/UI_EquipWidget_Auto67FAE456147F72BCA6530A7AD6F4E1F4F.tmp' to 'G:/ProjectTPS/ProjectTPS/Saved/Autosaves/Game/UI/UI_EquipWidget_Auto6.uasset'
+[2021.05.25-15.23.44:144][341]LogFileHelpers: Auto-saving content packages took 0.064
+[2021.05.25-15.35.15:788][643]LogHotReload: New module detected: UE4Editor-ProjectTPS-0039.dll
+[2021.05.25-15.35.17:177][648]LogHotReload: Starting Hot-Reload from IDE
+[2021.05.25-15.35.17:279][648]LogClass: Could not find existing class PlayerInfo in package /Script/ProjectTPS for HotReload, assuming new class
+[2021.05.25-15.35.17:279][648]LogClass: EMoveDir HotReload.
+[2021.05.25-15.35.17:279][648]LogClass: PlayerAnimType HotReload.
+[2021.05.25-15.35.17:305][648]LogHotReload: Re-instancing PlayerInfo after hot-reload.
+[2021.05.25-15.35.17:374][648]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ProjectTPS' in 0.0005 seconds. Added 8 classes and 4 folders.
+[2021.05.25-15.35.17:387][648]Display: HotReload successful (3 functions remapped  0 scriptstructs remapped)
+[2021.05.25-15.35.17:638][648]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0189 seconds. Added 3611 classes and 867 folders.
+[2021.05.25-15.35.17:657][648]Display: HotReload took  0.5s.
+[2021.05.25-15.46.23:898][629]LogHotReload: New module detected: UE4Editor-ProjectTPS-0040.dll
+[2021.05.25-15.46.26:289][637]LogHotReload: Starting Hot-Reload from IDE
+[2021.05.25-15.46.26:371][637]LogClass: Could not find existing class PlayerCharacter in package /Script/ProjectTPS for HotReload, assuming new class
+[2021.05.25-15.46.26:371][637]LogClass: Function GetUpperYaw is new.
+[2021.05.25-15.46.26:441][637]LogClass: EMoveDir HotReload.
+[2021.05.25-15.46.26:441][637]LogClass: PlayerAnimType HotReload.
+[2021.05.25-15.46.26:473][637]LogHotReload: Re-instancing PlayerCharacter after hot-reload.
+[2021.05.25-15.46.26:799][637]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ProjectTPS' in 0.0006 seconds. Added 8 classes and 4 folders.
+[2021.05.25-15.46.26:812][637]Display: HotReload successful (2 functions remapped  0 scriptstructs remapped)
+[2021.05.25-15.46.27:061][637]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0116 seconds. Added 3611 classes and 867 folders.
+[2021.05.25-15.46.27:073][637]Display: HotReload took  0.8s.

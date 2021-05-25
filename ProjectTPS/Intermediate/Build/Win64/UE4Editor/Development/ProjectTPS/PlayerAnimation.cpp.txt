@@ -679,6 +679,8 @@ E:\UE_4.26\Engine\Source\Runtime\Slate\Public\Widgets/Input/SSlider.h
 E:\UE_4.26\Engine\Source\Runtime\Slate\Public\Framework/Docking/LayoutService.h
 G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerAnimation.generated.h
 G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\PlayerCharacter.h
+G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\PlayerInfo.h
+G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerInfo.generated.h
 G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerCharacter.generated.h
 E:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet/KismetMathLibrary.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetMathLibrary.generated.h

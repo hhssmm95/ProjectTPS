@@ -67,6 +67,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayerCharacter); \
 
 
 #define ProjectTPS_Source_ProjectTPS_Player_PlayerCharacter_h_12_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__m_PlayerInfo() { return STRUCT_OFFSET(APlayerCharacter, m_PlayerInfo); } \
 	FORCEINLINE static uint32 __PPO__m_Camera() { return STRUCT_OFFSET(APlayerCharacter, m_Camera); } \
 	FORCEINLINE static uint32 __PPO__m_Arm() { return STRUCT_OFFSET(APlayerCharacter, m_Arm); } \
 	FORCEINLINE static uint32 __PPO__m_bIsDead() { return STRUCT_OFFSET(APlayerCharacter, m_bIsDead); } \
