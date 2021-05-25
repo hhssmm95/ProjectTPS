@@ -13,7 +13,7 @@ enum class PlayerAnimType : uint8
 	Run,
 	Attack,
 	Jump,
-	Death
+	Death,
 };
 
 
@@ -55,6 +55,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		PlayerAnimType	m_ePlayerAnim;
+
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UAnimMontage* m_RifleFireMontage;
 	//protected:
 
 		/*UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -79,5 +83,6 @@ public:
 		////void InputAttack();
 	void JumpStart();
 	void Death();
-
+	void RifleFire();
+	void RifleStop();
 };

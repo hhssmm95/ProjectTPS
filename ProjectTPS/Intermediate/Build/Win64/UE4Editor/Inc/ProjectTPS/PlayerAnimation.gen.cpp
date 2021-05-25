@@ -20,6 +20,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 	PROJECTTPS_API UClass* Z_Construct_UClass_UPlayerAnimation();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimInstance();
 	PROJECTTPS_API UClass* Z_Construct_UClass_APlayerCharacter_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 // End Cross Module References
 	static UEnum* PlayerAnimType_StaticEnum()
 	{
@@ -108,6 +109,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_ePlayerAnim_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_m_ePlayerAnim;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_RifleFireMontage_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_RifleFireMontage;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -154,11 +159,20 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 	};
 #endif
 	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_ePlayerAnim = { "m_ePlayerAnim", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerAnimation, m_ePlayerAnim), Z_Construct_UEnum_ProjectTPS_PlayerAnimType, METADATA_PARAMS(Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_ePlayerAnim_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_ePlayerAnim_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_RifleFireMontage_MetaData[] = {
+		{ "AllowPriavteAccess", "true" },
+		{ "Category", "PlayerAnimation" },
+		{ "ModuleRelativePath", "Player/PlayerAnimation.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_RifleFireMontage = { "m_RifleFireMontage", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerAnimation, m_RifleFireMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_RifleFireMontage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_RifleFireMontage_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UPlayerAnimation_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_bIsDead,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_pPlayer,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_ePlayerAnim_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_ePlayerAnim,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_RifleFireMontage,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UPlayerAnimation_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UPlayerAnimation>::IsAbstract,
@@ -187,7 +201,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UPlayerAnimation, 4001000113);
+	IMPLEMENT_CLASS(UPlayerAnimation, 66127990);
 	template<> PROJECTTPS_API UClass* StaticClass<UPlayerAnimation>()
 	{
 		return UPlayerAnimation::StaticClass();

@@ -7,7 +7,10 @@
 
 UPlayerAnimation::UPlayerAnimation()
 {
+	static ConstructorHelpers::FObjectFinder<UAnimMontage>		RifleFireAsset(TEXT("AnimMontage'/Game/Player/Animation/Player_RifeFire.Player_RifeFire'"));
 
+	if (RifleFireAsset.Succeeded())
+		m_RifleFireMontage = RifleFireAsset.Object;
 }
 
 void UPlayerAnimation::NativeInitializeAnimation()
@@ -122,4 +125,14 @@ void UPlayerAnimation::JumpStart()
 void UPlayerAnimation::Death()
 {
 	m_ePlayerAnim = PlayerAnimType::Death;
+}
+
+void UPlayerAnimation::RifleFire()
+{
+	Montage_Play(m_RifleFireMontage);
+}
+
+void UPlayerAnimation::RifleStop()
+{
+	Montage_Stop(0.2f, m_RifleFireMontage);
 }

@@ -187,10 +187,15 @@ void APlayerCharacter::PrimaryFire()
 	{
 		m_bFire = true;
 		//m_PrimaryWeapon->Fire();
+		m_pPlayerAnim->RifleFire();
 	}
 }
 
 void APlayerCharacter::PrimaryStop()
 {
+	if (!m_bIsDead)
+	{
 		m_bFire = false;
+		m_pPlayerAnim->RifleStop();
+	}
 }
