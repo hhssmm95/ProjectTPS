@@ -37,6 +37,11 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TSubclassOf<class ABullet>	m_BulletClass;
 
+	bool Delay;
+	float DelayTime;
+	float DelayTimeAcc;
+
+
 protected:
 
 	TSubclassOf<class AEffectNormal>	m_MuzzleClass;
@@ -47,7 +52,7 @@ public:
 		return m_Mesh;
 	}
 
-	void Fire();
+	void Fire(FVector CameraPos, FVector CameraForward);
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

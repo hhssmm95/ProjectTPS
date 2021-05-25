@@ -70,6 +70,11 @@ void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+
+	if (m_bFire)
+	{
+		m_PrimaryWeapon->Fire(m_Camera->GetComponentLocation(), m_Camera->GetForwardVector());
+	}
 }
 
 // Called to bind functionality to input
@@ -86,6 +91,9 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction(TEXT("Jump"), EInputEvent::IE_Pressed, this, &APlayerCharacter::InputJump);
 	PlayerInputComponent->BindAction(TEXT("Aim"), EInputEvent::IE_Pressed, this, &APlayerCharacter::AimPress);
 	PlayerInputComponent->BindAction(TEXT("Aim"), EInputEvent::IE_Released, this, &APlayerCharacter::AimRelease);
+	PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Pressed, this, &APlayerCharacter::PrimaryFire);
+	PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Released, this, &APlayerCharacter::PrimaryStop);
+	
 
 }
 
@@ -97,41 +105,13 @@ void APlayerCharacter::MoveFront(float fScale)
 		AddMovementInput(GetActorForwardVector(), fScale);
 
 
-	//if (fScale == 0.f)
-	//	m_eDirection = EMoveDir::None;
-	//else if (fScale < 0.f)
-	//	m_eDirection = EMoveDir::Backward;
-	//else
-	//	m_eDirection = EMoveDir::Forward;
 }
 void APlayerCharacter::MoveSide(float fScale)
 {
 	if (!m_bIsDead)
 		AddMovementInput(GetActorRightVector(), fScale);
 
-	/*if (fScale < 0.f)
-	{
-		if (m_eDirection == EMoveDir::Forward)
-			m_eDirection = EMoveDir::ForwardLeft;
-
-		else if (m_eDirection == EMoveDir::Backward)
-			m_eDirection = EMoveDir::BackwardLeft;
-
-		else
-			m_eDirection = EMoveDir::Left;
-	}
-
-	else if (fScale > 0.f)
-	{
-		if (m_eDirection == EMoveDir::Forward)
-			m_eDirection = EMoveDir::ForwardRight;
-
-		else if (m_eDirection == EMoveDir::Backward)
-			m_eDirection = EMoveDir::BackwardRight;
-
-		else
-			m_eDirection = EMoveDir::Right;
-	}*/
+	
 }
 
 void APlayerCharacter::Turn(float fScale)
@@ -205,6 +185,12 @@ void APlayerCharacter::PrimaryFire()
 {
 	if (!m_bIsDead)
 	{
-
+		m_bFire = true;
+		//m_PrimaryWeapon->Fire();
 	}
+}
+
+void APlayerCharacter::PrimaryStop()
+{
+		m_bFire = false;
 }

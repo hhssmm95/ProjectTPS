@@ -4,6 +4,7 @@
 #include "PrimaryWeapon.h"
 #include "../Bullet.h"
 #include "../EffectNormal.h"
+#include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
 APrimaryWeapon::APrimaryWeapon()
@@ -28,6 +29,10 @@ APrimaryWeapon::APrimaryWeapon()
 	SetRootComponent(m_RootScene);
 
 	m_Mesh->SetupAttachment(m_RootScene);
+
+	Delay = false;
+	DelayTime = 0.12f;
+	DelayTimeAcc = 0.f;
 }
 
 // Called when the game starts or when spawned
@@ -42,6 +47,15 @@ void APrimaryWeapon::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	if (Delay)
+	{
+		if (DelayTimeAcc >= DelayTime)
+		{
+			Delay = false;
+			DelayTimeAcc = 0.f;
+		}
+		DelayTimeAcc += DeltaTime;
+	}
 }
 
 void APrimaryWeapon::LoadMesh(const FString& strPath)
@@ -53,14 +67,33 @@ void APrimaryWeapon::LoadMesh(const FString& strPath)
 		m_Mesh->SetSkeletalMesh(pMesh);
 }
 
-void APrimaryWeapon::Fire()
+void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 {
-	FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("ShinbiBullet")) + GetActorForwardVector() * 5.f;
-	FRotator vMuzzleRot = GetActorRotation();
+	if (!Delay)
+	{
+		FHitResult result;
 
-	AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
-		vMuzzleRot);
+		TArray<AActor*> IgnoreActor;
+		IgnoreActor.Add(this);
 
-	ABullet* Bullet = GetWorld()->SpawnActor<ABullet>(m_BulletClass, vMuzzlePos + GetActorForwardVector() * 100.f,
-		GetActorRotation());
+		bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), CameraPos, CameraPos + CameraForward * 20000.f,
+			UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1), true, IgnoreActor,
+			EDrawDebugTrace::ForDuration, result, true);
+
+		if (bHit)
+		{
+			FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("FireMuzzle"));
+			FRotator vMuzzleRot = GetActorRotation();
+
+			AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
+				vMuzzleRot);
+
+
+			FRotator BulletRot = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 80.f, result.ImpactPoint);
+			ABullet* Bullet = GetWorld()->SpawnActor<ABullet>(m_BulletClass, vMuzzlePos + GetActorForwardVector() * 80.f,
+				BulletRot);
+
+			Delay = true;
+		}
+	}
 }
