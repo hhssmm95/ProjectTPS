@@ -26,7 +26,7 @@ protected:
 	virtual void NativeTick(const FGeometry& MyGeometry, float InDeltaTime);
 
 public:
-	UPlayerHPWidget* GetPlaerHPWidget()	const
+	UPlayerHPWidget* GetPlayerHPWidget()	const
 	{
 		return m_PlayerHPWidget;
 	}

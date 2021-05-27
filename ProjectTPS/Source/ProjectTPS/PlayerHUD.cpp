@@ -3,6 +3,7 @@
 
 #include "PlayerHUD.h"
 #include "UI/MainHUDWidget.h"
+#include "UI/PlayerHPWidget.h"
 
 
 APlayerHUD::APlayerHUD()
@@ -34,4 +35,9 @@ void APlayerHUD::BeginPlay()
 void APlayerHUD::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
+
+void APlayerHUD::UpdatePlayerHP(float HP)
+{
+	m_MainHUDWidget->GetPlayerHPWidget()->SetHPBar(HP);
 }

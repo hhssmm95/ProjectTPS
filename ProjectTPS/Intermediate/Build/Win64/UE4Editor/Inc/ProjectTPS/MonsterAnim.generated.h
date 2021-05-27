@@ -16,11 +16,15 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterAnim_h_24_SPARSE_DATA
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterAnim_h_24_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execAnimNotify_MonsterLongAttack); \
+	DECLARE_FUNCTION(execAnimNotify_MonsterNearAttack); \
 	DECLARE_FUNCTION(execAnimNotify_MonsterAttackEnd);
 
 
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterAnim_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execAnimNotify_MonsterLongAttack); \
+	DECLARE_FUNCTION(execAnimNotify_MonsterNearAttack); \
 	DECLARE_FUNCTION(execAnimNotify_MonsterAttackEnd);
 
 

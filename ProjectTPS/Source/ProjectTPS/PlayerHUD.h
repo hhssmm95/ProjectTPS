@@ -39,5 +39,7 @@ public:
 		return m_MainHUDWidget;
 	}
 
+	void UpdatePlayerHP(float HP);
+
 	
 };

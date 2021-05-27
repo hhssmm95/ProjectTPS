@@ -3,6 +3,7 @@
 
 #include "Monster.h"
 #include "MonsterAIController.h"
+#include "../Player/PlayerCharacter.h"
 
 // Sets default values
 AMonster::AMonster()
@@ -28,6 +29,9 @@ AMonster::AMonster()
 
 	m_CloseAttackDistance = 250.f;
 	m_LongAttackDistance = 1000.f;
+	m_Attack = 100.f;
+
+	GetCapsuleComponent()->SetCollisionProfileName(TEXT("MonsterBody"));
 
 }
 
@@ -101,9 +105,52 @@ void AMonster::MonsterAttackEnd()
 
 void AMonster::MonsterNearAttack()
 {
-	FHitResult* Result;
+	FHitResult result;
 
 	FCollisionQueryParams	params(NAME_None, false, this);
+
+
+	bool bSweep = GetWorld()->SweepSingleByChannel(result, GetActorLocation() - GetActorForwardVector() * m_CloseAttackDistance,
+		GetActorLocation() + GetActorForwardVector() * m_CloseAttackDistance, FQuat::Identity,
+		ECollisionChannel::ECC_GameTraceChannel5,
+		FCollisionShape::MakeSphere(m_CloseAttackDistance),
+		params);
+	if (bSweep)
+	{
+		PrintViewport(2.f, FColor::Red, TEXT("Player Hit"));
+		/*
+		
+
+		/*vDir = GetActorLocation() - result.ImpactPoint;
+		vDir.Normalize();
+		FRotator	vRot = vDir.ToOrientationRotator();
+
+		FActorSpawnParameters	param;
+		param.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;*/
+
+	/*	AHitEffect* pHitEffect = GetWorld()->SpawnActor<AHitEffect>(AHitEffect::StaticClass(),
+			result1.ImpactPoint, vRot, param);
+
+		pHitEffect->LoadParticle(TEXT("ParticleSystem'/Game/ParagonKhaimera/FX/ParticleSystems/Abilities/Primary/FX/P_Khaimera_LMB_Impact.P_Khaimera_LMB_Impact'"));;
+		pHitEffect->LoadSound(TEXT("SoundWave'/Game/Monster/420674__sypherzent__deep-cut-slash-gash.420674__sypherzent__deep-cut-slash-gash'"));*/
+
+		APlayerCharacter* pPlayer = Cast<APlayerCharacter>(result.GetActor());
+
+		if (pPlayer)
+		{
+			FDamageEvent DmgEvent;
+			pPlayer->TakeDamage((float)m_Attack, DmgEvent, GetController(), this);
+		}
+	}
+
+#if ENABLE_DRAW_DEBUG
+	FColor	DrawColor = bSweep ? FColor::Yellow : FColor::Blue;
+
+
+
+	DrawDebugCone(GetWorld(), GetActorLocation(), GetActorForwardVector(), m_CloseAttackDistance, 
+		FMath::DegreesToRadians(22.5f), FMath::DegreesToRadians(22.5f), 20, DrawColor, false, 1.f);
+#endif // ENABLE_DRAW_DEBUGEDITOR
 
 }
 

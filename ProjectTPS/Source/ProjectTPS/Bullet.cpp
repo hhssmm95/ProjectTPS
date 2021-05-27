@@ -22,7 +22,7 @@ ABullet::ABullet()
 	m_BulletTrail->SetupAttachment(m_Body);
 
 	//m_Body->SetCollisionProfileName(TEXT("PlayerName"));
-
+	
 	m_Movement->InitialSpeed = 15000.f;
 }
 

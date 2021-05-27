@@ -5,6 +5,8 @@
 #include "PlayerAnimation.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "PrimaryWeapon.h"
+#include "../PlayerHUD.h"
+#include "../HitCameraShake.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -39,10 +41,16 @@ APlayerCharacter::APlayerCharacter()
 	//m_Scene->SetupAttachment(GetCapsuleComponent());
 	//m_eDirection = EMoveDir::None;
 
+	m_PlayerInfo = CreateDefaultSubobject<UPlayerInfo>(TEXT("PlayerInfo"));
+
 	GetCharacterMovement()->MaxWalkSpeed = 500.f;
 	GetCharacterMovement()->JumpZVelocity = 500.f;
 	m_UpperYaw = 0.f;
 
+	SetHPMax(1000);
+	SetHP(1000);
+
+	GetCapsuleComponent()->SetCollisionProfileName("PlayerBody");
 }
 
 // Called when the game starts or when spawned
@@ -63,6 +71,9 @@ void APlayerCharacter::BeginPlay()
 
 	m_PrimaryWeapon->SetActorRotation(FRotator(GetActorForwardVector().X, GetActorForwardVector().Y, 
 		GetActorForwardVector().X));
+
+	m_HUD = Cast<APlayerHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
+	m_HUD->UpdatePlayerHP(m_PlayerInfo->GetHPPercent());
 }
 
 // Called every frame
@@ -121,23 +132,7 @@ void APlayerCharacter::Turn(float fScale)
 
 	if (!m_bIsDead)
 	{
-		//AddControllerYawInput(fScale * 45.f * GetWorld()->GetDeltaSeconds());
-		//m_Scene->AddRelativeRotation(FRotator(0.f, fScale, 0.f));
 		AddControllerYawInput(fScale * 45.f * GetWorld()->GetDeltaSeconds());
-		//AddUpperYawInput(fScale);
-		/*PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("%f"), m_UpperYaw));
-
-
-		if (m_UpperYaw > 90.f)
-		{
-			GetCapsuleComponent()->AddWorldRotation(FRotator(0.f, 90.f, 0.f));
-			m_UpperYaw = 0.f;
-		}
-		else if (m_UpperYaw < -90.f)
-		{
-			GetCapsuleComponent()->AddWorldRotation(FRotator(0.f, -90.f, 0.f));
-			m_UpperYaw = 0.f;
-		}*/
 	}
 
 }
@@ -208,4 +203,25 @@ void APlayerCharacter::EquipSuppressor()
 	{
 		m_PrimaryWeapon->EquipSuppressor();
 	}
+}
+
+
+float APlayerCharacter::TakeDamage(float Damage, struct FDamageEvent const& DamageEvent,
+	AController* EventInstigator, AActor* DamageCauser)
+{
+	Damage = Super::TakeDamage(Damage, DamageEvent, EventInstigator, DamageCauser);
+
+	AddHP((int32)-Damage);
+
+	GetController<APlayerController>()->ClientStartCameraShake(UHitCameraShake::StaticClass(),
+		0.7f, ECameraShakePlaySpace::CameraLocal);
+
+	return Damage;
+}
+
+void APlayerCharacter::AddHP(int32 HP)
+{
+	m_PlayerInfo->AddHP(HP);
+
+	m_HUD->UpdatePlayerHP(m_PlayerInfo->GetHPPercent());
 }

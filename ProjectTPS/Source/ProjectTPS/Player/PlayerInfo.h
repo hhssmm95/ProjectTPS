@@ -142,6 +142,12 @@ public:
 	{
 		return m_HPMax;
 	}
+
+	float GetHPPercent()
+	{
+		return m_HP / (float)m_HPMax;
+	}
+
 	int32 GetAttack()
 	{
 		return m_Attack;

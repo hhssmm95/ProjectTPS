@@ -52,6 +52,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		TSubclassOf<class APrimaryWeapon> m_StartWeapon;
 
+	class APlayerHUD* m_HUD;
+
 	bool m_bFire;
 
 public:/*
@@ -67,6 +69,8 @@ public:/*
 	}
 
 public:
+	virtual float TakeDamage(float Damage, struct FDamageEvent const& DamageEvent, 
+		AController* EventInstigator, AActor* DamageCauser) override;
 
 	void MoveFront(float fScale);
 	void MoveSide(float fScale);
@@ -124,10 +128,7 @@ public:
 
 
 
-	void AddHP(int32 HP)
-	{
-		m_PlayerInfo->AddHP(HP);
-	}
+	void AddHP(int32 HP);
 	void AddCurrentMag(int32 CurrentMag)
 	{
 		m_PlayerInfo->AddCurrentMag(CurrentMag);
