@@ -96,6 +96,18 @@ void AMonster::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void AMonster::MonsterAttackEnd()
 {
 	m_eMonsterAIType = MonsterAI::Idle;
+}
 
+
+void AMonster::MonsterNearAttack()
+{
+	FHitResult* Result;
+
+	FCollisionQueryParams	params(NAME_None, false, this);
+
+}
+
+void AMonster::MonsterLongAttack()
+{
 
 }

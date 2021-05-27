@@ -19,14 +19,19 @@ APrimaryWeapon::APrimaryWeapon()
 	m_Mesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Mesh"));
 	m_RootScene = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
 
+	m_SuppressorMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Suppressor"));
+
 	SetRootComponent(m_RootScene);
 
 	m_Mesh->SetupAttachment(m_RootScene);
+	m_SuppressorMesh->SetupAttachment(m_RootScene);
 
 	Delay = false;
 	DelayTime = 0.12f;
 	DelayTimeAcc = 0.f;
 
+	m_bSuppressorUsing = false;
+	m_SuppressorMesh->SetVisibility(false);
 }
 
 // Called when the game starts or when spawned
@@ -86,14 +91,23 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 				FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("FireMuzzle"));
 				FRotator vMuzzleRot = GetActorRotation();
 
-				AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
+				if (!m_bSuppressorUsing)
+					AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
 					vMuzzleRot);
 
 
 				FRotator BulletRot = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 80.f, result.ImpactPoint);
 				ABullet* Bullet = GetWorld()->SpawnActor<ABullet>(m_BulletClass, vMuzzlePos + GetActorForwardVector() * 80.f,
 					BulletRot);
-				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_MuzzleSoundClass, GetActorLocation());
+
+				if (m_bSuppressorUsing)
+				{
+					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_SuppressorSoundClass, GetActorLocation());
+				}
+				else
+				{
+					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_MuzzleSoundClass, GetActorLocation());
+				}
 
 				m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(--m_CurrentMag);
 				if (m_CurrentMag < 0)
@@ -105,13 +119,22 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 				FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("FireMuzzle"));
 				FRotator vMuzzleRot = GetActorRotation();
 
-				AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
+				if(!m_bSuppressorUsing)
+					AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
 					vMuzzleRot);
 
 				ABullet* Bullet = GetWorld()->SpawnActor<ABullet>(m_BulletClass, vMuzzlePos + GetActorForwardVector() * 80.f,
 					GetActorRotation());
 
-				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_MuzzleSoundClass, GetActorLocation());
+				if (m_bSuppressorUsing)
+				{
+					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_SuppressorSoundClass, GetActorLocation());
+				}
+				else
+				{
+					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_MuzzleSoundClass, GetActorLocation());
+				}
+				
 
 				m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(--m_CurrentMag);
 				if (m_CurrentMag < 0)
@@ -124,5 +147,24 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 			UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_EmptySoundClass, GetActorLocation());
 			Delay = true;
 		}
+	}
+}
+
+void APrimaryWeapon::EquipSuppressor()
+{
+	if (!m_bSuppressorUsing)
+	{
+		m_bSuppressorUsing = true;
+		m_SuppressorMesh->SetVisibility(true);
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_EquipSoundClass, GetActorLocation());
+		
+	}
+	else
+	{
+
+		m_bSuppressorUsing = false;
+		m_SuppressorMesh->SetVisibility(false);
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_DischargeSoundClass, GetActorLocation());
+
 	}
 }

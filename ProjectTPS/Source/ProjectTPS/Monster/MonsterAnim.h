@@ -47,4 +47,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 		void AnimNotify_MonsterAttackEnd();
+	UFUNCTION(BlueprintCallable)
+		void AnimNotify_MonsterNearAttack();
+	UFUNCTION(BlueprintCallable)
+		void AnimNotify_MonsterLongAttack();
 };

@@ -164,4 +164,6 @@ public:
 	{
 		return m_PlayerInfo->GetRemainMag();
 	}
+
+	void EquipSuppressor();
 };

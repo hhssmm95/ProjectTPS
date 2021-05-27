@@ -22,6 +22,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		USceneComponent* m_RootScene;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		UStaticMeshComponent* m_SuppressorMesh;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		float m_Damage;
 
@@ -37,8 +40,19 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		int32 m_RemainMag;
 
+protected:
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TSubclassOf<class ABullet>	m_BulletClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USoundBase* m_SuppressorSoundClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USoundBase* m_EquipSoundClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USoundBase* m_DischargeSoundClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		USoundBase* m_MuzzleSoundClass;
@@ -49,18 +63,26 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TSubclassOf<class AEffectNormal>	m_MuzzleClass;
 
+
+
+
+protected:
+
 	class APlayerHUD* m_PlayerHUD;
 
 	bool Delay;
 	float DelayTime;
 	float DelayTimeAcc;
 
+	bool m_bSuppressorUsing;
 
 public:
 	USkeletalMeshComponent* GetMesh()	const
 	{
 		return m_Mesh;
 	}
+
+	void EquipSuppressor();
 
 	void Fire(FVector CameraPos, FVector CameraForward);
 protected:

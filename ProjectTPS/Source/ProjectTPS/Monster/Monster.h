@@ -110,6 +110,8 @@ public:
 
 public:
 	void MonsterAttackEnd();
+	void MonsterNearAttack();
+	void MonsterLongAttack();
 
 public:
 	float GetWalkSpeed() const

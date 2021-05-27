@@ -27,3 +27,18 @@ void UMonsterAnim::AnimNotify_MonsterAttackEnd()
 
 	pMonster->MonsterAttackEnd();
 }
+
+void UMonsterAnim::AnimNotify_MonsterNearAttack()
+{
+	AMonster* pMonster = Cast<AMonster>(TryGetPawnOwner());
+
+	pMonster->MonsterNearAttack();
+}
+
+
+void UMonsterAnim::AnimNotify_MonsterLongAttack()
+{
+	AMonster* pMonster = Cast<AMonster>(TryGetPawnOwner());
+
+	pMonster->MonsterLongAttack();
+}

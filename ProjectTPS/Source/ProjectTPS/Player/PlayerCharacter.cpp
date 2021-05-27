@@ -94,6 +94,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction(TEXT("Aim"), EInputEvent::IE_Released, this, &APlayerCharacter::AimRelease);
 	PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Pressed, this, &APlayerCharacter::PrimaryFire);
 	PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Released, this, &APlayerCharacter::PrimaryStop);
+	PlayerInputComponent->BindAction(TEXT("SuppressorShot(Debug)"), EInputEvent::IE_Pressed, this, &APlayerCharacter::EquipSuppressor);
 	
 
 }
@@ -198,5 +199,13 @@ void APlayerCharacter::PrimaryStop()
 	{
 		m_bFire = false;
 		m_pPlayerAnim->RifleStop();
+	}
+}
+
+void APlayerCharacter::EquipSuppressor()
+{
+	if (!m_bIsDead)
+	{
+		m_PrimaryWeapon->EquipSuppressor();
 	}
 }
