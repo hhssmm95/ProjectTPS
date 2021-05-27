@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "ProjectTPS",
-			"Path": "G:\\ProjectTPS\\ProjectTPS\\Source\\ProjectTPS.Target.cs",
+			"Path": "G:\\Git\\ProjectTPS\\Source\\ProjectTPS.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "ProjectTPSEditor",
-			"Path": "G:\\ProjectTPS\\ProjectTPS\\Source\\ProjectTPSEditor.Target.cs",
+			"Path": "G:\\Git\\ProjectTPS\\Source\\ProjectTPSEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]

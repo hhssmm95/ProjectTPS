@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ProjectTPS.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{60F6B5D2-AF60-4254-B49C-5D65A3F1A904}</UniqueIdentifier>
+      <UniqueIdentifier>{0A97A39E-83F0-49A8-944D-10BD1E554413}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ProjectTPS.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{C55018B9-BBE1-49AF-96C0-869AAC4BA4B3}</UniqueIdentifier>
+      <UniqueIdentifier>{7400BA0B-CDFD-4F58-B74A-FE8A946A82B0}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,8 +27,32 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\ProjectTPS">
-      <UniqueIdentifier>{D276DB59-F282-4F9E-BDDE-5FF3B1DF2AB3}</UniqueIdentifier>
+      <UniqueIdentifier>{92CA35D1-0448-49CF-BB9B-D500B4891FAF}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\ProjectTPS\Bullet.cpp">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\Bullet.h">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\EffectNormal.cpp">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\EffectNormal.h">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\GameInfo.cpp">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\GameInfo.h">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\PlayerHUD.cpp">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\PlayerHUD.h">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClInclude>
     <None Include="..\..\Source\ProjectTPS\ProjectTPS.Build.cs">
       <Filter>Source\ProjectTPS</Filter>
     </None>
@@ -38,38 +62,14 @@
     <ClInclude Include="..\..\Source\ProjectTPS\ProjectTPS.h">
       <Filter>Source\ProjectTPS</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\ProjectTPS\ProjectTPSGameModeBase.h">
-      <Filter>Source\ProjectTPS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\ProjectTPS\GameInfo.h">
-      <Filter>Source\ProjectTPS</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\ProjectTPS\GameInfo.cpp">
-      <Filter>Source\ProjectTPS</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\ProjectTPS\ProjectTPSGameModeBase.cpp">
       <Filter>Source\ProjectTPS</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\ProjectTPS\Bullet.h">
+    <ClInclude Include="..\..\Source\ProjectTPS\ProjectTPSGameModeBase.h">
       <Filter>Source\ProjectTPS</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\ProjectTPS\EffectNormal.h">
-      <Filter>Source\ProjectTPS</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\ProjectTPS\EffectNormal.cpp">
-      <Filter>Source\ProjectTPS</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ProjectTPS\Bullet.cpp">
-      <Filter>Source\ProjectTPS</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\ProjectTPS\PlayerHUD.h">
-      <Filter>Source\ProjectTPS</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\ProjectTPS\PlayerHUD.cpp">
-      <Filter>Source\ProjectTPS</Filter>
-    </ClCompile>
     <Filter Include="Source\ProjectTPS\Player">
-      <UniqueIdentifier>{BA112BEF-B8C2-4068-96A0-5138E4E21F04}</UniqueIdentifier>
+      <UniqueIdentifier>{CDBA7D5B-0F29-47C8-9C50-FE57B2284A82}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ProjectTPS\Player\PlayerAnimation.cpp">
       <Filter>Source\ProjectTPS\Player</Filter>
@@ -77,44 +77,107 @@
     <ClInclude Include="..\..\Source\ProjectTPS\Player\PlayerAnimation.h">
       <Filter>Source\ProjectTPS\Player</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\ProjectTPS\Player\PrimaryWeapon.h">
-      <Filter>Source\ProjectTPS\Player</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\ProjectTPS\Player\PrimaryWeapon.cpp">
-      <Filter>Source\ProjectTPS\Player</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\ProjectTPS\Player\PlayerCharacter.cpp">
-      <Filter>Source\ProjectTPS\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ProjectTPS\Player\PlayerInfo.cpp">
       <Filter>Source\ProjectTPS\Player</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\ProjectTPS\Player\PlayerCharacter.h">
       <Filter>Source\ProjectTPS\Player</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\Player\PlayerInfo.cpp">
+      <Filter>Source\ProjectTPS\Player</Filter>
+    </ClCompile>
     <ClInclude Include="..\..\Source\ProjectTPS\Player\PlayerInfo.h">
       <Filter>Source\ProjectTPS\Player</Filter>
     </ClInclude>
-    <Filter Include="Source\ProjectTPS\UI">
-      <UniqueIdentifier>{51EC1D1B-A85F-4645-8482-B1ACD5105E1F}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Source\ProjectTPS\UI\PlayerHPWidget.h">
-      <Filter>Source\ProjectTPS\UI</Filter>
+    <ClCompile Include="..\..\Source\ProjectTPS\Player\PrimaryWeapon.cpp">
+      <Filter>Source\ProjectTPS\Player</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\Player\PrimaryWeapon.h">
+      <Filter>Source\ProjectTPS\Player</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\ProjectTPS\UI\PlayerHPWidget.cpp">
+    <Filter Include="Source\ProjectTPS\UI">
+      <UniqueIdentifier>{AB6A4303-AAC6-4026-82EA-DF85A5DC2AFD}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\ProjectTPS\UI\MainHUDWidget.cpp">
       <Filter>Source\ProjectTPS\UI</Filter>
     </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\UI\MainHUDWidget.h">
+      <Filter>Source\ProjectTPS\UI</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\ProjectTPS\UI\PlayerEquipWidget.cpp">
       <Filter>Source\ProjectTPS\UI</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\ProjectTPS\UI\PlayerEquipWidget.h">
       <Filter>Source\ProjectTPS\UI</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\ProjectTPS\UI\MainHUDWidget.cpp">
+    <ClCompile Include="..\..\Source\ProjectTPS\UI\PlayerHPWidget.cpp">
       <Filter>Source\ProjectTPS\UI</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\ProjectTPS\UI\MainHUDWidget.h">
+    <ClInclude Include="..\..\Source\ProjectTPS\UI\PlayerHPWidget.h">
       <Filter>Source\ProjectTPS\UI</Filter>
+    </ClInclude>
+    <Filter Include="Source\ProjectTPS\Monster">
+      <UniqueIdentifier>{D273E747-CF99-43B7-90E0-6F9159FD691F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\ProjectTPS\Monster\BTAttackTargetTask.cpp">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\Monster\BTAttackTargetTask.h">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\Monster\BTCheckDistanceDecorator.cpp">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\Monster\BTCheckDistanceDecorator.h">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\Monster\BTPatrolTask.cpp">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\Monster\BTPatrolTask.h">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\Monster\BTTraceTargetTask.cpp">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\Monster\BTTraceTargetTask.h">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\Monster\BTWaitTask.cpp">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\Monster\BTWaitTask.h">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\Monster\Monster.cpp">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\Monster\Monster.h">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\Monster\MonsterAIController.cpp">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\Monster\MonsterAIController.h">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\Monster\MonsterAnim.cpp">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\Monster\MonsterAnim.h">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\Monster\MonsterPatrolPoint.cpp">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\Monster\MonsterPatrolPoint.h">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\Monster\MonsterSpawnPoint.cpp">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\Monster\MonsterSpawnPoint.h">
+      <Filter>Source\ProjectTPS\Monster</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

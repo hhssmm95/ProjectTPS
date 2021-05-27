@@ -73,7 +73,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UPlayerInfo); \
 	FORCEINLINE static uint32 __PPO__m_HaveSnipeMode() { return STRUCT_OFFSET(UPlayerInfo, m_HaveSnipeMode); } \
 	FORCEINLINE static uint32 __PPO__m_HaveSuperSuppressor() { return STRUCT_OFFSET(UPlayerInfo, m_HaveSuperSuppressor); } \
 	FORCEINLINE static uint32 __PPO__m_HaveNightVision() { return STRUCT_OFFSET(UPlayerInfo, m_HaveNightVision); } \
-	FORCEINLINE static uint32 __PPO__m_HaveThermalVision() { return STRUCT_OFFSET(UPlayerInfo, m_HaveThermalVision); }
+	FORCEINLINE static uint32 __PPO__m_HaveThermalVision() { return STRUCT_OFFSET(UPlayerInfo, m_HaveThermalVision); } \
+	FORCEINLINE static uint32 __PPO__m_WaitTime() { return STRUCT_OFFSET(UPlayerInfo, m_WaitTime); }
 
 
 #define ProjectTPS_Source_ProjectTPS_Player_PlayerInfo_h_10_PROLOG

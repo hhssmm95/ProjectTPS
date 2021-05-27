@@ -1,6 +1,6 @@
-G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\Definitions.ProjectTPS.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\PrimaryWeapon.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\../GameInfo.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\Definitions.ProjectTPS.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\PrimaryWeapon.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\../GameInfo.h
 E:\UE_4.26\Engine\Source\Runtime\Engine\Public\EngineMinimal.h
 E:\UE_4.26\Engine\Source\Runtime\Core\Public\Misc/MonolithicHeaderBoilerplate.h
 E:\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\CoreUObject.h
@@ -677,17 +677,19 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\INCLUDE\isa_availability.h
 E:\UE_4.26\Engine\Source\Runtime\Slate\Public\Widgets/Input/SSlider.h
 E:\UE_4.26\Engine\Source\Runtime\Slate\Public\Framework/Docking/LayoutService.h
-G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PrimaryWeapon.generated.h
+E:\UE_4.26\Engine\Source\Runtime\AIModule\Classes\Blueprint/AIBlueprintHelperLibrary.h
+E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AIBlueprintHelperLibrary.generated.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PrimaryWeapon.generated.h
 E:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet/KismetMathLibrary.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetMathLibrary.generated.h
 E:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet\KismetMathLibrary.inl
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\../Bullet.h
-G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\Bullet.generated.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\../EffectNormal.h
-G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\EffectNormal.generated.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\../PlayerHUD.h
-G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerHUD.generated.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\../UI/MainHUDWidget.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\../Bullet.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\Bullet.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\../EffectNormal.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\EffectNormal.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\../PlayerHUD.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerHUD.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\../UI/MainHUDWidget.h
 E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Blueprint/UserWidget.h
 E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/SlateWrapperTypes.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\SlateWrapperTypes.generated.h
@@ -785,6 +787,6 @@ E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\PropertyPath\PropertyPa
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\DynamicPropertyPath.generated.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\WidgetBlueprintGeneratedClass.generated.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\UserWidget.generated.h
-G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\MainHUDWidget.generated.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\../UI/PlayerEquipWidget.h
-G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerEquipWidget.generated.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\MainHUDWidget.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\../UI/PlayerEquipWidget.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerEquipWidget.generated.h

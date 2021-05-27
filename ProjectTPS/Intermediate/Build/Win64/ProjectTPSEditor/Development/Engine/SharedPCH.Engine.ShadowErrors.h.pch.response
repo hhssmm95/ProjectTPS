@@ -259,11 +259,11 @@
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"
-/I G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\Development\Engine
-/Yc"G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-"G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.cpp"
-/Fo"G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+/I G:\Git\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\Development\Engine
+/Yc"G:\Git\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Fp"G:\Git\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+"G:\Git\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.cpp"
+/Fo"G:\Git\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
 /TP
 /GR-
 /W4

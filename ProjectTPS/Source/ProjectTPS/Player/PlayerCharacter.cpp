@@ -74,6 +74,7 @@ void APlayerCharacter::Tick(float DeltaTime)
 	if (m_bFire)
 	{
 		m_PrimaryWeapon->Fire(m_Camera->GetComponentLocation(), m_Camera->GetForwardVector());
+
 	}
 }
 

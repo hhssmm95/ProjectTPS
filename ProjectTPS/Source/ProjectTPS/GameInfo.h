@@ -4,6 +4,7 @@
 
 #include "EngineMinimal.h"
 #include "Engine.h"
+#include "Blueprint/AIBlueprintHelperLibrary.h"
 
 DECLARE_LOG_CATEGORY_EXTERN(UEKR1, Log, All);
 #define LOG_CALLINFO	(FString(__FUNCTION__) + TEXT("{") + FString::FromInt(__LINE__) + TEXT("}"))

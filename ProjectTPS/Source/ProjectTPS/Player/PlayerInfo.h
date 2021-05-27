@@ -65,6 +65,15 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		bool m_HaveThermalVision;
 
+protected:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	float m_WaitTime;
+
+	float m_WaitTimeAcc;
+	bool m_bWait;
+
+
 public:	
 	// Sets default values for this component's properties
 	UPlayerInfo();
