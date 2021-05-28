@@ -23,6 +23,21 @@ EBTNodeResult::Type UBTAttackTargetTask::ExecuteTask(UBehaviorTreeComponent& Own
 	//if (pMonster->GetMonsterAIType() == MonsterAI::Skill1)
 	//	return EBTNodeResult::Failed;
 
+	ACharacter* pTarget = Cast<ACharacter>(OwnerComp.GetAIOwner()->GetBlackboardComponent()->GetValueAsObject(TEXT("Target")));
+	if (!pTarget)
+	{
+
+		return EBTNodeResult::Failed;
+	}
+
+	FVector vTarget = pTarget->GetActorLocation();
+	FVector vLoc = pMonster->GetActorLocation();
+
+	FVector vDir = vTarget - vLoc;
+	vDir.Normalize();
+	pMonster->SetActorRotation(FRotator(0.f, vDir.Rotation().Yaw, 0.f));
+
+
 	pMonster->SetMonsterAIType(MonsterAI::Attack);
 
 	switch (m_Type)

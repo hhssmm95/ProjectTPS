@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ProjectTPS.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{02AA60BB-D5A9-4D1B-AD34-5B40161FDA96}</UniqueIdentifier>
+      <UniqueIdentifier>{BCD5FEBD-4D57-4EB1-B5FB-5B4353A52206}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ProjectTPS.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{FCD4A851-02E6-40A1-B7BF-4BC7CEC11FDF}</UniqueIdentifier>
+      <UniqueIdentifier>{F1F975AE-01C3-4D83-BA10-1A7DB61A4655}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\ProjectTPS">
-      <UniqueIdentifier>{8BEF5A33-784C-4162-8EB3-0EAE02583700}</UniqueIdentifier>
+      <UniqueIdentifier>{854059EC-6EAF-4F7D-8025-5F0BB9CF673E}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\ProjectTPS\Bullet.h">
       <Filter>Source\ProjectTPS</Filter>
@@ -74,8 +74,14 @@
     <ClCompile Include="..\..\Source\ProjectTPS\Bullet.cpp">
       <Filter>Source\ProjectTPS</Filter>
     </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\BTTask_SimpleRotateTo.h">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\BTTask_SimpleRotateTo.cpp">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClCompile>
     <Filter Include="Source\ProjectTPS\Player">
-      <UniqueIdentifier>{632D0E5D-FE93-4244-9B1B-319B46BC49E0}</UniqueIdentifier>
+      <UniqueIdentifier>{213C1CDE-25FF-420E-B943-6753226E6AA7}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ProjectTPS\Player\PlayerAnimation.cpp">
       <Filter>Source\ProjectTPS\Player</Filter>
@@ -102,7 +108,7 @@
       <Filter>Source\ProjectTPS\Player</Filter>
     </ClCompile>
     <Filter Include="Source\ProjectTPS\UI">
-      <UniqueIdentifier>{D409AED1-AD8A-407D-95E7-2C22C4E824E4}</UniqueIdentifier>
+      <UniqueIdentifier>{860289D4-7362-49E9-AEC8-5109CF571937}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ProjectTPS\UI\MainHUDWidget.cpp">
       <Filter>Source\ProjectTPS\UI</Filter>
@@ -123,11 +129,8 @@
       <Filter>Source\ProjectTPS\UI</Filter>
     </ClInclude>
     <Filter Include="Source\ProjectTPS\Monster">
-      <UniqueIdentifier>{205E2E97-A232-4B16-9BDE-229EF8A7CF88}</UniqueIdentifier>
+      <UniqueIdentifier>{F1ACA078-82A1-4780-A355-563B7AE5CDE0}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\ProjectTPS\Monster\BTAttackTargetTask.cpp">
-      <Filter>Source\ProjectTPS\Monster</Filter>
-    </ClCompile>
     <ClInclude Include="..\..\Source\ProjectTPS\Monster\BTAttackTargetTask.h">
       <Filter>Source\ProjectTPS\Monster</Filter>
     </ClInclude>
@@ -167,19 +170,10 @@
     <ClInclude Include="..\..\Source\ProjectTPS\Monster\MonsterSpawnPoint.h">
       <Filter>Source\ProjectTPS\Monster</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\ProjectTPS\Monster\BTWaitTask.h">
-      <Filter>Source\ProjectTPS\Monster</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\ProjectTPS\Monster\BTWaitTask.cpp">
-      <Filter>Source\ProjectTPS\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\ProjectTPS\Monster\MonsterAnim.cpp">
       <Filter>Source\ProjectTPS\Monster</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\ProjectTPS\Monster\MonsterAnim.h">
-      <Filter>Source\ProjectTPS\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\ProjectTPS\Monster\Monster.h">
       <Filter>Source\ProjectTPS\Monster</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\ProjectTPS\Monster\Monster.cpp">
@@ -191,21 +185,29 @@
     <ClInclude Include="..\..\Source\ProjectTPS\Monster\BTTaskStopInvestigating.h">
       <Filter>Source\ProjectTPS\Monster</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\ProjectTPS\Monster\BTTaskMonsterMoveTo.h">
-      <Filter>Source\ProjectTPS\Monster</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\ProjectTPS\Monster\BTTaskMonsterMoveTo.cpp">
-      <Filter>Source\ProjectTPS\Monster</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Source\ProjectTPS\Monster\BTTaskSetMonsterAnimation.cpp">
-      <Filter>Source\ProjectTPS\Monster</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\Source\ProjectTPS\Monster\BTTaskSetMonsterAnimation.h">
       <Filter>Source\ProjectTPS\Monster</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\Monster\BTTaskSetMonsterAnimation.cpp">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\Monster\BTTaskMonsterMoveTo.h">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ProjectTPS\Monster\Monster.h">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ProjectTPS\Monster\BTWaitTask.h">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\Monster\BTWaitTask.cpp">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ProjectTPS\Monster\BTTaskMonsterMoveTo.cpp">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ProjectTPS\Monster\BTAttackTargetTask.cpp">
+      <Filter>Source\ProjectTPS\Monster</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
