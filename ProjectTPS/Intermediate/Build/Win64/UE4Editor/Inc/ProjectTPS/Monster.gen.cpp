@@ -18,7 +18,9 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 	PROJECTTPS_API UClass* Z_Construct_UClass_AMonster_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_AMonster();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
+	PROJECTTPS_API UEnum* Z_Construct_UEnum_ProjectTPS_EMonsterAnimType();
 	PROJECTTPS_API UClass* Z_Construct_UClass_UMonsterAnim_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 // End Cross Module References
 	static UEnum* MonsterAI_StaticEnum()
@@ -35,7 +37,7 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 		return MonsterAI_StaticEnum();
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_MonsterAI(MonsterAI_StaticEnum, TEXT("/Script/ProjectTPS"), TEXT("MonsterAI"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_ProjectTPS_MonsterAI_Hash() { return 3404666150U; }
+	uint32 Get_Z_Construct_UEnum_ProjectTPS_MonsterAI_Hash() { return 2659211000U; }
 	UEnum* Z_Construct_UEnum_ProjectTPS_MonsterAI()
 	{
 #if WITH_HOT_RELOAD
@@ -47,11 +49,13 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 		if (!ReturnEnum)
 		{
 			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "MonsterAI::None", (int64)MonsterAI::None },
 				{ "MonsterAI::Idle", (int64)MonsterAI::Idle },
 				{ "MonsterAI::Patrol", (int64)MonsterAI::Patrol },
 				{ "MonsterAI::Trace", (int64)MonsterAI::Trace },
 				{ "MonsterAI::Attack", (int64)MonsterAI::Attack },
 				{ "MonsterAI::Death", (int64)MonsterAI::Death },
+				{ "MonsterAI::Suspicious", (int64)MonsterAI::Suspicious },
 			};
 #if WITH_METADATA
 			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
@@ -60,7 +64,9 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 				{ "Death.Name", "MonsterAI::Death" },
 				{ "Idle.Name", "MonsterAI::Idle" },
 				{ "ModuleRelativePath", "Monster/Monster.h" },
+				{ "None.Name", "MonsterAI::None" },
 				{ "Patrol.Name", "MonsterAI::Patrol" },
+				{ "Suspicious.Name", "MonsterAI::Suspicious" },
 				{ "Trace.Name", "MonsterAI::Trace" },
 			};
 #endif
@@ -81,8 +87,183 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 		}
 		return ReturnEnum;
 	}
+	DEFINE_FUNCTION(AMonster::execSetMonsterAIType)
+	{
+		P_GET_ENUM(MonsterAI,Z_Param_AIType);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetMonsterAIType(MonsterAI(Z_Param_AIType));
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMonster::execGetMonsterAIType)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(MonsterAI*)Z_Param__Result=P_THIS->GetMonsterAIType();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMonster::execGetMonsterAnim)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(UMonsterAnim**)Z_Param__Result=P_THIS->GetMonsterAnim();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMonster::execChangeAnimation)
+	{
+		P_GET_ENUM(EMonsterAnimType,Z_Param_AnimType);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ChangeAnimation(EMonsterAnimType(Z_Param_AnimType));
+		P_NATIVE_END;
+	}
 	void AMonster::StaticRegisterNativesAMonster()
 	{
+		UClass* Class = AMonster::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "ChangeAnimation", &AMonster::execChangeAnimation },
+			{ "GetMonsterAIType", &AMonster::execGetMonsterAIType },
+			{ "GetMonsterAnim", &AMonster::execGetMonsterAnim },
+			{ "SetMonsterAIType", &AMonster::execSetMonsterAIType },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AMonster_ChangeAnimation_Statics
+	{
+		struct Monster_eventChangeAnimation_Parms
+		{
+			EMonsterAnimType AnimType;
+		};
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_AnimType_Underlying;
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_AnimType;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UFunction_AMonster_ChangeAnimation_Statics::NewProp_AnimType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_AMonster_ChangeAnimation_Statics::NewProp_AnimType = { "AnimType", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Monster_eventChangeAnimation_Parms, AnimType), Z_Construct_UEnum_ProjectTPS_EMonsterAnimType, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMonster_ChangeAnimation_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMonster_ChangeAnimation_Statics::NewProp_AnimType_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMonster_ChangeAnimation_Statics::NewProp_AnimType,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMonster_ChangeAnimation_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Monster/Monster.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMonster_ChangeAnimation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMonster, nullptr, "ChangeAnimation", nullptr, nullptr, sizeof(Monster_eventChangeAnimation_Parms), Z_Construct_UFunction_AMonster_ChangeAnimation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMonster_ChangeAnimation_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMonster_ChangeAnimation_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMonster_ChangeAnimation_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMonster_ChangeAnimation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMonster_ChangeAnimation_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMonster_GetMonsterAIType_Statics
+	{
+		struct Monster_eventGetMonsterAIType_Parms
+		{
+			MonsterAI ReturnValue;
+		};
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_ReturnValue_Underlying;
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UFunction_AMonster_GetMonsterAIType_Statics::NewProp_ReturnValue_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_AMonster_GetMonsterAIType_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Monster_eventGetMonsterAIType_Parms, ReturnValue), Z_Construct_UEnum_ProjectTPS_MonsterAI, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMonster_GetMonsterAIType_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMonster_GetMonsterAIType_Statics::NewProp_ReturnValue_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMonster_GetMonsterAIType_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMonster_GetMonsterAIType_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Monster/Monster.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMonster_GetMonsterAIType_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMonster, nullptr, "GetMonsterAIType", nullptr, nullptr, sizeof(Monster_eventGetMonsterAIType_Parms), Z_Construct_UFunction_AMonster_GetMonsterAIType_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMonster_GetMonsterAIType_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMonster_GetMonsterAIType_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMonster_GetMonsterAIType_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMonster_GetMonsterAIType()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMonster_GetMonsterAIType_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMonster_GetMonsterAnim_Statics
+	{
+		struct Monster_eventGetMonsterAnim_Parms
+		{
+			UMonsterAnim* ReturnValue;
+		};
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AMonster_GetMonsterAnim_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Monster_eventGetMonsterAnim_Parms, ReturnValue), Z_Construct_UClass_UMonsterAnim_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMonster_GetMonsterAnim_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMonster_GetMonsterAnim_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMonster_GetMonsterAnim_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Monster/Monster.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMonster_GetMonsterAnim_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMonster, nullptr, "GetMonsterAnim", nullptr, nullptr, sizeof(Monster_eventGetMonsterAnim_Parms), Z_Construct_UFunction_AMonster_GetMonsterAnim_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMonster_GetMonsterAnim_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMonster_GetMonsterAnim_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMonster_GetMonsterAnim_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMonster_GetMonsterAnim()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMonster_GetMonsterAnim_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMonster_SetMonsterAIType_Statics
+	{
+		struct Monster_eventSetMonsterAIType_Parms
+		{
+			MonsterAI AIType;
+		};
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_AIType_Underlying;
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_AIType;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UFunction_AMonster_SetMonsterAIType_Statics::NewProp_AIType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_AMonster_SetMonsterAIType_Statics::NewProp_AIType = { "AIType", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Monster_eventSetMonsterAIType_Parms, AIType), Z_Construct_UEnum_ProjectTPS_MonsterAI, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMonster_SetMonsterAIType_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMonster_SetMonsterAIType_Statics::NewProp_AIType_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMonster_SetMonsterAIType_Statics::NewProp_AIType,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMonster_SetMonsterAIType_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Monster/Monster.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMonster_SetMonsterAIType_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMonster, nullptr, "SetMonsterAIType", nullptr, nullptr, sizeof(Monster_eventSetMonsterAIType_Parms), Z_Construct_UFunction_AMonster_SetMonsterAIType_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMonster_SetMonsterAIType_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMonster_SetMonsterAIType_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMonster_SetMonsterAIType_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMonster_SetMonsterAIType()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMonster_SetMonsterAIType_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_AMonster_NoRegister()
 	{
@@ -91,6 +272,7 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 	struct Z_Construct_UClass_AMonster_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -150,6 +332,14 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_MonsterAnim_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_MonsterAnim;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SuspiciousVoice_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_SuspiciousVoice;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_EnemySpotVoice_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_EnemySpotVoice;
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_PatrolPoint_Inner;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_PatrolPoint_MetaData[];
@@ -166,6 +356,12 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 	UObject* (*const Z_Construct_UClass_AMonster_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_ACharacter,
 		(UObject* (*)())Z_Construct_UPackage__Script_ProjectTPS,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_AMonster_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AMonster_ChangeAnimation, "ChangeAnimation" }, // 1352577499
+		{ &Z_Construct_UFunction_AMonster_GetMonsterAIType, "GetMonsterAIType" }, // 1634751223
+		{ &Z_Construct_UFunction_AMonster_GetMonsterAnim, "GetMonsterAnim" }, // 3822644090
+		{ &Z_Construct_UFunction_AMonster_SetMonsterAIType, "SetMonsterAIType" }, // 2051374347
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonster_Statics::Class_MetaDataParams[] = {
@@ -286,6 +482,22 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMonster_Statics::NewProp_m_MonsterAnim = { "m_MonsterAnim", nullptr, (EPropertyFlags)0x0020080000020005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMonster, m_MonsterAnim), Z_Construct_UClass_UMonsterAnim_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMonster_Statics::NewProp_m_MonsterAnim_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonster_Statics::NewProp_m_MonsterAnim_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonster_Statics::NewProp_m_SuspiciousVoice_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Monster" },
+		{ "ModuleRelativePath", "Monster/Monster.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMonster_Statics::NewProp_m_SuspiciousVoice = { "m_SuspiciousVoice", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMonster, m_SuspiciousVoice), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMonster_Statics::NewProp_m_SuspiciousVoice_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonster_Statics::NewProp_m_SuspiciousVoice_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonster_Statics::NewProp_m_EnemySpotVoice_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Monster" },
+		{ "ModuleRelativePath", "Monster/Monster.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMonster_Statics::NewProp_m_EnemySpotVoice = { "m_EnemySpotVoice", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMonster, m_EnemySpotVoice), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMonster_Statics::NewProp_m_EnemySpotVoice_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonster_Statics::NewProp_m_EnemySpotVoice_MetaData)) };
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMonster_Statics::NewProp_m_PatrolPoint_Inner = { "m_PatrolPoint", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonster_Statics::NewProp_m_PatrolPoint_MetaData[] = {
@@ -318,6 +530,8 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_WalkSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_RunSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_MonsterAnim,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_SuspiciousVoice,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_EnemySpotVoice,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_PatrolPoint_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_PatrolPoint,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_WaitTime,
@@ -330,11 +544,11 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_AMonster_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_AMonster_Statics::PropPointers),
 		0,
 		0x009000A4u,
@@ -349,7 +563,7 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMonster, 1736025774);
+	IMPLEMENT_CLASS(AMonster, 3858255654);
 	template<> PROJECTTPS_API UClass* StaticClass<AMonster>()
 	{
 		return AMonster::StaticClass();

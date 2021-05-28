@@ -11,11 +11,13 @@
 UENUM(BlueprintType)
 enum class MonsterAI : uint8
 {
+	None,
 	Idle,
 	Patrol,
 	Trace,
 	Attack,
-	Death
+	Death,
+	Suspicious
 };
 
 UCLASS()
@@ -73,6 +75,14 @@ protected:
 
 	MonsterAI	m_eMonsterAIType;
 
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USoundBase* m_SuspiciousVoice;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USoundBase* m_EnemySpotVoice;
+
+
 protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -112,6 +122,7 @@ public:
 	void MonsterAttackEnd();
 	void MonsterNearAttack();
 	void MonsterLongAttack();
+	void MonsterSuspectEnd();
 
 public:
 	float GetWalkSpeed() const
@@ -125,12 +136,15 @@ public:
 	}
 
 public:
+
+	UFUNCTION(BlueprintCallable)
 	void ChangeAnimation(EMonsterAnimType AnimType)
 	{
 		m_MonsterAnim->ChangeAnimType(AnimType);
 	}
 
 
+	UFUNCTION(BlueprintCallable)
 	UMonsterAnim* GetMonsterAnim()
 	{
 		return m_MonsterAnim;
@@ -221,11 +235,13 @@ public:
 		m_PatrolPoint.Add(pPoint);
 	}
 
+	UFUNCTION(BlueprintCallable)
 	MonsterAI GetMonsterAIType() const
 	{
 		return m_eMonsterAIType;
 	}
 
+	UFUNCTION(BlueprintCallable)
 	void SetMonsterAIType(MonsterAI AIType)
 	{
 		m_eMonsterAIType = AIType;

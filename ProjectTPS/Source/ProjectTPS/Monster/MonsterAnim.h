@@ -14,7 +14,8 @@ enum class EMonsterAnimType : uint8
 	Run,
 	Attack1,
 	Attack2,
-	Death
+	Death,
+	Suspicious
 	
 };
 
@@ -51,4 +52,6 @@ public:
 		void AnimNotify_MonsterNearAttack();
 	UFUNCTION(BlueprintCallable)
 		void AnimNotify_MonsterLongAttack();
+	UFUNCTION(BlueprintCallable)
+		void AnimNotify_MonsterSuspectEnd();
 };

@@ -68,6 +68,8 @@ protected:
 
 protected:
 
+	class APlayerCharacter* m_Player;
+
 	class APlayerHUD* m_PlayerHUD;
 
 	bool Delay;

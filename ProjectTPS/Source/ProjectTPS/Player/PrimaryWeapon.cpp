@@ -8,6 +8,8 @@
 #include "../PlayerHUD.h"
 #include "../UI/MainHUDWidget.h"
 #include "../UI/PlayerEquipWidget.h"
+#include "PlayerCharacter.h"
+#include "Perception/AISense_Hearing.h"
 
 // Sets default values
 APrimaryWeapon::APrimaryWeapon()
@@ -39,6 +41,8 @@ void APrimaryWeapon::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	m_Player = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
+
 	m_PlayerHUD = Cast<APlayerHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
 	m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(m_CurrentMagMax);
 	m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetRemainMagText(m_RemainMag);
@@ -103,10 +107,15 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 				if (m_bSuppressorUsing)
 				{
 					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_SuppressorSoundClass, GetActorLocation());
+					UAISense_Hearing::ReportNoiseEvent(GetWorld(), GetActorLocation(), 1.f,
+						m_Player, 3000.f, TEXT("SuppressorNoise"));
+					
 				}
 				else
 				{
 					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_MuzzleSoundClass, GetActorLocation());
+					UAISense_Hearing::ReportNoiseEvent(GetWorld(), GetActorLocation(), 1.f,
+						m_Player, 3000.f, TEXT("GunShotNoise"));
 				}
 
 				m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(--m_CurrentMag);
@@ -129,12 +138,16 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 				if (m_bSuppressorUsing)
 				{
 					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_SuppressorSoundClass, GetActorLocation());
+					UAISense_Hearing::ReportNoiseEvent(GetWorld(), GetActorLocation(), 1.f,
+						m_Player, 3000.f, TEXT("SuppressorNoise"));
+
 				}
 				else
 				{
 					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_MuzzleSoundClass, GetActorLocation());
+					UAISense_Hearing::ReportNoiseEvent(GetWorld(), GetActorLocation(), 1.f,
+						m_Player, 3000.f, TEXT("GunShotNoise"));
 				}
-				
 
 				m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(--m_CurrentMag);
 				if (m_CurrentMag < 0)

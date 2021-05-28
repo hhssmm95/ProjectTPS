@@ -34,7 +34,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		return EMonsterAnimType_StaticEnum();
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EMonsterAnimType(EMonsterAnimType_StaticEnum, TEXT("/Script/ProjectTPS"), TEXT("EMonsterAnimType"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_ProjectTPS_EMonsterAnimType_Hash() { return 3572347822U; }
+	uint32 Get_Z_Construct_UEnum_ProjectTPS_EMonsterAnimType_Hash() { return 1397954580U; }
 	UEnum* Z_Construct_UEnum_ProjectTPS_EMonsterAnimType()
 	{
 #if WITH_HOT_RELOAD
@@ -52,6 +52,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 				{ "EMonsterAnimType::Attack1", (int64)EMonsterAnimType::Attack1 },
 				{ "EMonsterAnimType::Attack2", (int64)EMonsterAnimType::Attack2 },
 				{ "EMonsterAnimType::Death", (int64)EMonsterAnimType::Death },
+				{ "EMonsterAnimType::Suspicious", (int64)EMonsterAnimType::Suspicious },
 			};
 #if WITH_METADATA
 			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
@@ -62,6 +63,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 				{ "Idle.Name", "EMonsterAnimType::Idle" },
 				{ "ModuleRelativePath", "Monster/MonsterAnim.h" },
 				{ "Run.Name", "EMonsterAnimType::Run" },
+				{ "Suspicious.Name", "EMonsterAnimType::Suspicious" },
 				{ "Walk.Name", "EMonsterAnimType::Walk" },
 			};
 #endif
@@ -81,6 +83,13 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
 		}
 		return ReturnEnum;
+	}
+	DEFINE_FUNCTION(UMonsterAnim::execAnimNotify_MonsterSuspectEnd)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AnimNotify_MonsterSuspectEnd();
+		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UMonsterAnim::execAnimNotify_MonsterLongAttack)
 	{
@@ -110,6 +119,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 			{ "AnimNotify_MonsterAttackEnd", &UMonsterAnim::execAnimNotify_MonsterAttackEnd },
 			{ "AnimNotify_MonsterLongAttack", &UMonsterAnim::execAnimNotify_MonsterLongAttack },
 			{ "AnimNotify_MonsterNearAttack", &UMonsterAnim::execAnimNotify_MonsterNearAttack },
+			{ "AnimNotify_MonsterSuspectEnd", &UMonsterAnim::execAnimNotify_MonsterSuspectEnd },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -179,6 +189,28 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterSuspectEnd_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterSuspectEnd_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Monster/MonsterAnim.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterSuspectEnd_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMonsterAnim, nullptr, "AnimNotify_MonsterSuspectEnd", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterSuspectEnd_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterSuspectEnd_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterSuspectEnd()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterSuspectEnd_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_UMonsterAnim_NoRegister()
 	{
 		return UMonsterAnim::StaticClass();
@@ -207,6 +239,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterAttackEnd, "AnimNotify_MonsterAttackEnd" }, // 848965571
 		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterLongAttack, "AnimNotify_MonsterLongAttack" }, // 1250493243
 		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterNearAttack, "AnimNotify_MonsterNearAttack" }, // 2536851774
+		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterSuspectEnd, "AnimNotify_MonsterSuspectEnd" }, // 1008508225
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMonsterAnim_Statics::Class_MetaDataParams[] = {
@@ -255,7 +288,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMonsterAnim, 323562004);
+	IMPLEMENT_CLASS(UMonsterAnim, 3066250386);
 	template<> PROJECTTPS_API UClass* StaticClass<UMonsterAnim>()
 	{
 		return UMonsterAnim::StaticClass();

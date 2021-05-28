@@ -58,7 +58,12 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UBTWaitTask); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UBTWaitTask)
 
 
-#define ProjectTPS_Source_ProjectTPS_Monster_BTWaitTask_h_15_PRIVATE_PROPERTY_OFFSET
+#define ProjectTPS_Source_ProjectTPS_Monster_BTWaitTask_h_15_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__ManualWaitTimeControl() { return STRUCT_OFFSET(UBTWaitTask, ManualWaitTimeControl); } \
+	FORCEINLINE static uint32 __PPO__WaitTime() { return STRUCT_OFFSET(UBTWaitTask, WaitTime); } \
+	FORCEINLINE static uint32 __PPO__EnableRecognizeEnemy() { return STRUCT_OFFSET(UBTWaitTask, EnableRecognizeEnemy); }
+
+
 #define ProjectTPS_Source_ProjectTPS_Monster_BTWaitTask_h_12_PROLOG
 #define ProjectTPS_Source_ProjectTPS_Monster_BTWaitTask_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

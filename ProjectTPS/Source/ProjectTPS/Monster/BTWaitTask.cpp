@@ -10,23 +10,31 @@ UBTWaitTask::UBTWaitTask()
 {
 	NodeName = TEXT("WaitTask");
 	bNotifyTick = true;
+	ManualWaitTimeControl = false;
+	WaitTime = 0.f;
+	EnableRecognizeEnemy = false;
 }
 
 EBTNodeResult::Type UBTWaitTask::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
 	Super::ExecuteTask(OwnerComp, NodeMemory);
+
 	AMonster* pMonster = Cast<AMonster>(OwnerComp.GetAIOwner()->GetPawn());
-	if (!pMonster->GetWait())
-		return EBTNodeResult::Succeeded;
 
 	pMonster->SetMonsterAIType(MonsterAI::Idle);
 
-	if (pMonster->GetPatrolPointCount() <= 1)
-		return EBTNodeResult::Failed;
+	if (!ManualWaitTimeControl)
+	{
+		if (!pMonster->GetWait())
+			return EBTNodeResult::Succeeded;
+
+		if (pMonster->GetPatrolPointCount() <= 1)
+			return EBTNodeResult::Failed;
 
 
 
-	pMonster->WaitStart();
+		pMonster->WaitStart();
+	}
 	OwnerComp.GetAIOwner()->StopMovement();
 
 	return EBTNodeResult::InProgress;
@@ -38,9 +46,30 @@ void UBTWaitTask::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory,
 
 	AMonster* pMonster = Cast<AMonster>(OwnerComp.GetAIOwner()->GetPawn());
 
-	if (!pMonster->GetWait())
+	if (EnableRecognizeEnemy)
 	{
-		pMonster->NextPatrol();
-		FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
+		ACharacter* pTarget = Cast<ACharacter>(OwnerComp.GetAIOwner()->GetBlackboardComponent()->GetValueAsObject(TEXT("Target")));
+		
+		if (pTarget)
+		{
+			OwnerComp.GetBlackboardComponent()->SetValueAsBool(TEXT("IsInvestigating"), false);
+			FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
+
+		}
+	}
+
+	if (!ManualWaitTimeControl)
+	{
+		if (!pMonster->GetWait())
+		{
+			pMonster->NextPatrol();
+			FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
+		}
+	}
+	else
+	{
+		WaitTimeAcc += DeltaSeconds;
+		if(WaitTimeAcc>=WaitTime)
+			FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded);
 	}
 }

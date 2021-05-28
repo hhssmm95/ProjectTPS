@@ -72,6 +72,9 @@ void AMonster::Tick(float DeltaTime)
 		case MonsterAI::Death:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Death);
 			break;
+		case MonsterAI::Suspicious:
+			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Suspicious);
+			break;
 		}
 	
 
@@ -157,4 +160,9 @@ void AMonster::MonsterNearAttack()
 void AMonster::MonsterLongAttack()
 {
 
+}
+
+void AMonster::MonsterSuspectEnd()
+{
+	m_eMonsterAIType = MonsterAI::Idle;
 }
