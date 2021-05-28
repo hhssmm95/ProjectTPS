@@ -2,11 +2,11 @@
   Building ProjectTPSEditor...
   Using Visual Studio 2019 14.28.29336 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   Building 4 actions with 8 processes...
-    [1/4] BTTask_SimpleRotateTo.cpp
-    [2/4] UE4Editor-ProjectTPS-0035.lib
-       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0035.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0035.exp 개체를 생성하고 있습니다.
-    [3/4] UE4Editor-ProjectTPS-0035.dll
-       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0035.suppressed.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0035.suppressed.exp 개체를 생성하고 있습니다.
+    [1/4] Monster.cpp
+    [2/4] UE4Editor-ProjectTPS-0043.lib
+       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0043.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0043.exp 개체를 생성하고 있습니다.
+    [3/4] UE4Editor-ProjectTPS-0043.dll
+       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0043.suppressed.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0043.suppressed.exp 개체를 생성하고 있습니다.
     [4/4] ProjectTPSEditor.target
-  Total time in Parallel executor: 19.26 seconds
-  Total execution time: 20.35 seconds
+  Total time in Parallel executor: 19.01 seconds
+  Total execution time: 20.08 seconds

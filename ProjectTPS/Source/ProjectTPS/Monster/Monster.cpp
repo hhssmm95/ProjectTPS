@@ -4,6 +4,9 @@
 #include "Monster.h"
 #include "MonsterAIController.h"
 #include "../Player/PlayerCharacter.h"
+#include "../Bullet.h"
+#include "../EffectNormal.h"
+#include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
 AMonster::AMonster()
@@ -60,20 +63,25 @@ void AMonster::Tick(float DeltaTime)
 		{
 		case MonsterAI::Idle:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Idle);
+			m_TargetLoc = FVector::ZeroVector;
 			break;
 		case MonsterAI::Patrol:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Walk);
+			m_TargetLoc = FVector::ZeroVector;
 			break;
 		case MonsterAI::Trace:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Run);
+			m_TargetLoc = FVector::ZeroVector;
 			break;
 		case MonsterAI::Attack:
 			break;
 		case MonsterAI::Death:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Death);
+			m_TargetLoc = FVector::ZeroVector;
 			break;
 		case MonsterAI::Suspicious:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Suspicious);
+			m_TargetLoc = FVector::ZeroVector;
 			break;
 		}
 	
@@ -159,7 +167,20 @@ void AMonster::MonsterNearAttack()
 
 void AMonster::MonsterLongAttack()
 {
+	PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("%f <- if 0 is error"), m_TargetLoc.X));
+	FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("LongAttackMuzzle")) + GetActorForwardVector();
+	FRotator vMuzzleRot = GetActorRotation();
 
+	AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_LongAttackMuzzle, vMuzzlePos,
+		vMuzzleRot);
+
+	UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_LongAttackSound, GetActorLocation());
+
+	FRotator BulletRot = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 80.f, 
+		FVector(m_TargetLoc.X, m_TargetLoc.Y, m_TargetLoc.Z + 50.f));
+
+	ABullet* Bullet = GetWorld()->SpawnActor<ABullet>(m_LongAttackBullet, vMuzzlePos + GetActorForwardVector() * 80.f,
+		BulletRot);
 }
 
 void AMonster::MonsterSuspectEnd()

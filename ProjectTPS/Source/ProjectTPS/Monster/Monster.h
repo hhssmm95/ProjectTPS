@@ -82,7 +82,14 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		USoundBase* m_EnemySpotVoice;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USoundBase* m_LongAttackSound;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	TSubclassOf<class AEffectNormal> m_LongAttackMuzzle;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	TSubclassOf<class ABullet> m_LongAttackBullet;
 protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -95,6 +102,8 @@ protected:
 	int32 m_PatrolDir;
 	bool m_bPatrol;
 	FVector m_vPatrolTargetLoc;
+
+	FVector m_TargetLoc;
 
 	class AMonsterSpawnPoint* m_SpawnPoint;
 
@@ -125,6 +134,7 @@ public:
 	void MonsterSuspectEnd();
 
 public:
+
 	float GetWalkSpeed() const
 	{
 		return m_WalkSpeed;
@@ -245,6 +255,12 @@ public:
 	void SetMonsterAIType(MonsterAI AIType)
 	{
 		m_eMonsterAIType = AIType;
+	}
+
+	UFUNCTION(BlueprintCallable)
+		void SetTargetLocation(FVector Loc)
+	{
+		m_TargetLoc = Loc;
 	}
 
 };

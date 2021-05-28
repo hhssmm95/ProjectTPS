@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FVector;
 enum class MonsterAI : uint8;
 class UMonsterAnim;
 enum class EMonsterAnimType : uint8;
@@ -19,6 +20,7 @@ enum class EMonsterAnimType : uint8;
 #define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_26_SPARSE_DATA
 #define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_26_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execSetTargetLocation); \
 	DECLARE_FUNCTION(execSetMonsterAIType); \
 	DECLARE_FUNCTION(execGetMonsterAIType); \
 	DECLARE_FUNCTION(execGetMonsterAnim); \
@@ -27,6 +29,7 @@ enum class EMonsterAnimType : uint8;
 
 #define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execSetTargetLocation); \
 	DECLARE_FUNCTION(execSetMonsterAIType); \
 	DECLARE_FUNCTION(execGetMonsterAIType); \
 	DECLARE_FUNCTION(execGetMonsterAnim); \
@@ -92,6 +95,9 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMonster); \
 	FORCEINLINE static uint32 __PPO__m_MonsterAnim() { return STRUCT_OFFSET(AMonster, m_MonsterAnim); } \
 	FORCEINLINE static uint32 __PPO__m_SuspiciousVoice() { return STRUCT_OFFSET(AMonster, m_SuspiciousVoice); } \
 	FORCEINLINE static uint32 __PPO__m_EnemySpotVoice() { return STRUCT_OFFSET(AMonster, m_EnemySpotVoice); } \
+	FORCEINLINE static uint32 __PPO__m_LongAttackSound() { return STRUCT_OFFSET(AMonster, m_LongAttackSound); } \
+	FORCEINLINE static uint32 __PPO__m_LongAttackMuzzle() { return STRUCT_OFFSET(AMonster, m_LongAttackMuzzle); } \
+	FORCEINLINE static uint32 __PPO__m_LongAttackBullet() { return STRUCT_OFFSET(AMonster, m_LongAttackBullet); } \
 	FORCEINLINE static uint32 __PPO__m_PatrolPoint() { return STRUCT_OFFSET(AMonster, m_PatrolPoint); } \
 	FORCEINLINE static uint32 __PPO__m_WaitTime() { return STRUCT_OFFSET(AMonster, m_WaitTime); }
 

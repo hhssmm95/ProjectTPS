@@ -50,6 +50,7 @@ EBTNodeResult::Type UBTAttackTargetTask::ExecuteTask(UBehaviorTreeComponent& Own
 	case EAttackType::Attack2_Far:
 
 		pMonster->ChangeAnimation(EMonsterAnimType::Attack2);
+		pMonster->SetTargetLocation(vTarget);
 		break;
 	default:
 		break;
