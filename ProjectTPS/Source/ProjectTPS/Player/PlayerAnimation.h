@@ -25,30 +25,12 @@ class PROJECTTPS_API UPlayerAnimation : public UAnimInstance
 public:
 	UPlayerAnimation();
 
-	//protected:
-
-		/*
-		UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-			float m_Direction;
-
-		UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-			float m_MoveSpeed;
-
-		UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-			float m_AttackSpeed;
-
-		UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-			bool m_Falling;
-
-		UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-			bool m_Jump;
-
-		UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-			bool m_Ground;*/
-
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		bool m_bIsDead;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		bool m_bHitReacting;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		class APlayerCharacter* m_pPlayer;
@@ -56,20 +38,28 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		PlayerAnimType	m_ePlayerAnim;
 
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		UAnimMontage* m_RifleFireMontage;
-	//protected:
 
-		/*UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-			float m_Yaw;
 
-		UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-			float m_Pitch;*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UAnimMontage* m_HitMontage1;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UAnimMontage* m_HitMontage2;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UAnimMontage* m_HitMontage3;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UAnimMontage* m_HitMontage4;
+
 
 
 public:
-	//UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	virtual void NativeInitializeAnimation();
 	virtual void NativeUpdateAnimation(float DeltaSeconds);
 
@@ -85,4 +75,5 @@ public:
 	void Death();
 	void RifleFire();
 	void RifleStop();
+	void HitReaction();
 };

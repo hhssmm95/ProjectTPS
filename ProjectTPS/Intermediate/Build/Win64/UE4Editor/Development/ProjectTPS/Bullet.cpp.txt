@@ -680,3 +680,11 @@ E:\UE_4.26\Engine\Source\Runtime\Slate\Public\Framework/Docking/LayoutService.h
 E:\UE_4.26\Engine\Source\Runtime\AIModule\Classes\Blueprint/AIBlueprintHelperLibrary.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AIBlueprintHelperLibrary.generated.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\Bullet.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player/PlayerCharacter.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\PlayerInfo.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerInfo.generated.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerCharacter.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Monster/Monster.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Monster\MonsterAnim.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\MonsterAnim.generated.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\Monster.generated.h

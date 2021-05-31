@@ -3,6 +3,7 @@
 #pragma once
 
 #include "MonsterAnim.h"
+//#include "NiagaraSystem.h"
 #include "GameFramework/Character.h"
 #include "Monster.generated.h"
 
@@ -75,6 +76,7 @@ protected:
 
 	MonsterAI	m_eMonsterAIType;
 
+protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		USoundBase* m_SuspiciousVoice;
@@ -86,10 +88,31 @@ protected:
 		USoundBase* m_LongAttackSound;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USoundBase* m_HitSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USoundBase* m_HeadShotSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		UParticleSystem* m_HitParticle;
+
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	//	UNiagaraSystem* m_HeadShotParticle;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USoundBase* m_HurtSound1;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USoundBase* m_HurtSound2;
+
+
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<class AEffectNormal> m_LongAttackMuzzle;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<class ABullet> m_LongAttackBullet;
+
 protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -146,6 +169,13 @@ public:
 	}
 
 public:
+
+	virtual float TakeDamage(float Damage, struct FDamageEvent const& DamageEvent,
+		AController* EventInstigator, AActor* DamageCauser) override;
+
+	void EmitHitEffect(FVector ImpactLoc, FRotator Rot);
+	void EmitHeadshotEffect(FVector ImpactLoc, FRotator Rot);
+
 
 	UFUNCTION(BlueprintCallable)
 	void ChangeAnimation(EMonsterAnimType AnimType)

@@ -8,6 +8,9 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UPrimitiveComponent;
+class AActor;
+struct FVector;
 struct FHitResult;
 #ifdef PROJECTTPS_Bullet_generated_h
 #error "Bullet.generated.h already included, missing '#pragma once' in Bullet.h"
@@ -17,11 +20,15 @@ struct FHitResult;
 #define ProjectTPS_Source_ProjectTPS_Bullet_h_12_SPARSE_DATA
 #define ProjectTPS_Source_ProjectTPS_Bullet_h_12_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execOnBulletHit); \
+	DECLARE_FUNCTION(execOnBulletBeginOverlap); \
 	DECLARE_FUNCTION(execProjectileStop);
 
 
 #define ProjectTPS_Source_ProjectTPS_Bullet_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execOnBulletHit); \
+	DECLARE_FUNCTION(execOnBulletBeginOverlap); \
 	DECLARE_FUNCTION(execProjectileStop);
 
 
@@ -71,7 +78,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ABullet); \
 	FORCEINLINE static uint32 __PPO__m_Body() { return STRUCT_OFFSET(ABullet, m_Body); } \
 	FORCEINLINE static uint32 __PPO__m_BulletParticle() { return STRUCT_OFFSET(ABullet, m_BulletParticle); } \
 	FORCEINLINE static uint32 __PPO__m_BulletTrail() { return STRUCT_OFFSET(ABullet, m_BulletTrail); } \
-	FORCEINLINE static uint32 __PPO__m_Movement() { return STRUCT_OFFSET(ABullet, m_Movement); }
+	FORCEINLINE static uint32 __PPO__m_Movement() { return STRUCT_OFFSET(ABullet, m_Movement); } \
+	FORCEINLINE static uint32 __PPO__m_Damage() { return STRUCT_OFFSET(ABullet, m_Damage); }
 
 
 #define ProjectTPS_Source_ProjectTPS_Bullet_h_9_PROLOG

@@ -49,3 +49,8 @@ void UMonsterAnim::AnimNotify_MonsterSuspectEnd()
 
 	pMonster->MonsterSuspectEnd();
 }
+
+void UMonsterAnim::MonsterHitReaction()
+{
+	Montage_Play(m_HitMontage);
+}

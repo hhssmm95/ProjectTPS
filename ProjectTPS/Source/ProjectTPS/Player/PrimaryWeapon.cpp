@@ -86,7 +86,7 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 			TArray<AActor*> IgnoreActor;
 			IgnoreActor.Add(this);
 
-			bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), CameraPos, CameraPos + CameraForward * 20000.f,
+			bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), CameraPos, CameraPos + CameraForward * 100000.f,
 				UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1), true, IgnoreActor,
 				EDrawDebugTrace::ForDuration, result, true);
 

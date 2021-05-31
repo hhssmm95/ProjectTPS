@@ -73,7 +73,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMonsterAnim); \
 
 
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterAnim_h_25_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__m_eMonsterAnim() { return STRUCT_OFFSET(UMonsterAnim, m_eMonsterAnim); }
+	FORCEINLINE static uint32 __PPO__m_eMonsterAnim() { return STRUCT_OFFSET(UMonsterAnim, m_eMonsterAnim); } \
+	FORCEINLINE static uint32 __PPO__m_HitMontage() { return STRUCT_OFFSET(UMonsterAnim, m_HitMontage); }
 
 
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterAnim_h_22_PROLOG

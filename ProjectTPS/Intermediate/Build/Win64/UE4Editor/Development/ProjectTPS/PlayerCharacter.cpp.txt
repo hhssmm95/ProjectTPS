@@ -693,3 +693,5 @@ G:\Git\ProjectTPS\Source\ProjectTPS\Player\../PlayerHUD.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerHUD.generated.h
 G:\Git\ProjectTPS\Source\ProjectTPS\Player\../HitCameraShake.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\HitCameraShake.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\../HitEffect.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\HitEffect.generated.h

@@ -75,7 +75,12 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayerCharacter); \
 	FORCEINLINE static uint32 __PPO__m_UpperYaw() { return STRUCT_OFFSET(APlayerCharacter, m_UpperYaw); } \
 	FORCEINLINE static uint32 __PPO__m_IsAiming() { return STRUCT_OFFSET(APlayerCharacter, m_IsAiming); } \
 	FORCEINLINE static uint32 __PPO__m_PrimaryWeapon() { return STRUCT_OFFSET(APlayerCharacter, m_PrimaryWeapon); } \
-	FORCEINLINE static uint32 __PPO__m_StartWeapon() { return STRUCT_OFFSET(APlayerCharacter, m_StartWeapon); }
+	FORCEINLINE static uint32 __PPO__m_StartWeapon() { return STRUCT_OFFSET(APlayerCharacter, m_StartWeapon); } \
+	FORCEINLINE static uint32 __PPO__m_HitParticle() { return STRUCT_OFFSET(APlayerCharacter, m_HitParticle); } \
+	FORCEINLINE static uint32 __PPO__m_HitSound() { return STRUCT_OFFSET(APlayerCharacter, m_HitSound); } \
+	FORCEINLINE static uint32 __PPO__m_HurtSound1() { return STRUCT_OFFSET(APlayerCharacter, m_HurtSound1); } \
+	FORCEINLINE static uint32 __PPO__m_HurtSound2() { return STRUCT_OFFSET(APlayerCharacter, m_HurtSound2); } \
+	FORCEINLINE static uint32 __PPO__m_HurtSound3() { return STRUCT_OFFSET(APlayerCharacter, m_HurtSound3); }
 
 
 #define ProjectTPS_Source_ProjectTPS_Player_PlayerCharacter_h_9_PROLOG

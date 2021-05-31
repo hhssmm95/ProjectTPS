@@ -227,8 +227,8 @@
 /I Editor\Kismet\Public
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\ClothingSystemRuntimeInterface
 /I Runtime\ClothingSystemRuntimeInterface\Public
-/I G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS
-/I G:\ProjectTPS\ProjectTPS\Source
+/I G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS
+/I G:\Git\ProjectTPS\Source
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
 /I ThirdParty\PhysX3\PxShared\include\filebuf
@@ -258,12 +258,12 @@
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"
-/FI"G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\DebugGame\Engine\SharedPCH.Engine.NonOptimized.ShadowErrors.h"
-/Yu"G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\DebugGame\Engine\SharedPCH.Engine.NonOptimized.ShadowErrors.h"
-/Fp"G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\DebugGame\Engine\SharedPCH.Engine.NonOptimized.ShadowErrors.h.pch"
-"G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerCharacter.gen.cpp"
-/FI"G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\Definitions.ProjectTPS.h"
-/Fo"G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\PlayerCharacter.gen.cpp.obj"
+/FI"G:\Git\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\DebugGame\Engine\SharedPCH.Engine.NonOptimized.ShadowErrors.h"
+/Yu"G:\Git\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\DebugGame\Engine\SharedPCH.Engine.NonOptimized.ShadowErrors.h"
+/Fp"G:\Git\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\DebugGame\Engine\SharedPCH.Engine.NonOptimized.ShadowErrors.h.pch"
+"G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerCharacter.gen.cpp"
+/FI"G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\Definitions.ProjectTPS.h"
+/Fo"G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\PlayerCharacter.gen.cpp.obj"
 /TP
 /GR-
 /W4

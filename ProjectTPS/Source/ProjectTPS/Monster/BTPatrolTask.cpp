@@ -70,7 +70,6 @@ void UBTPatrolTask::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemor
 		OwnerComp.GetAIOwner()->StopMovement();
 		pMonster->SetMonsterAIType(MonsterAI::Idle);
 		pMonster->WaitStart();
-		PrintViewport(0.5f, FColor::Red, TEXT("Goal"));
 
 		FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
 	}

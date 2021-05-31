@@ -7,6 +7,7 @@
 #include "../Bullet.h"
 #include "../EffectNormal.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "../HitEffect.h"
 
 // Sets default values
 AMonster::AMonster()
@@ -48,7 +49,6 @@ void AMonster::BeginPlay()
 	//m_SightDistance = 3000.f;
 	//m_SightAngle = 30.f;
 
-	//PrintViewport(5.f, FColor::Blue, TEXT("Monster Init"));
 	//AMonsterAIController* pController = Cast<AMonsterAIController>(GetController());
 	//pController->PerceptionInit();
 }
@@ -93,10 +93,8 @@ void AMonster::Tick(float DeltaTime)
 		{
 			m_WaitTimeAcc = 0.f;
 			m_bWait = false;
-			PrintViewport(1.5f, FColor::Green, TEXT("WaitFalse"));
 		}
 	}
-	//PrintViewport(1.5f, FColor::Green, FString::Printf(TEXT("%f"), m_WaitTimeAcc));
 
 	
 }
@@ -128,7 +126,6 @@ void AMonster::MonsterNearAttack()
 		params);
 	if (bSweep)
 	{
-		PrintViewport(2.f, FColor::Red, TEXT("Player Hit"));
 		/*
 		
 
@@ -167,7 +164,6 @@ void AMonster::MonsterNearAttack()
 
 void AMonster::MonsterLongAttack()
 {
-	PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("%f <- if 0 is error"), m_TargetLoc.X));
 	FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("LongAttackMuzzle")) + GetActorForwardVector();
 	FRotator vMuzzleRot = GetActorRotation();
 
@@ -187,3 +183,70 @@ void AMonster::MonsterSuspectEnd()
 {
 	m_eMonsterAIType = MonsterAI::Idle;
 }
+
+float AMonster::TakeDamage(float Damage, struct FDamageEvent const& DamageEvent,
+	AController* EventInstigator, AActor* DamageCauser)
+{
+	Damage = Super::TakeDamage(Damage, DamageEvent, EventInstigator, DamageCauser);
+
+	m_HP -= Damage;
+
+	m_MonsterAnim->MonsterHitReaction();
+
+
+	return Damage;
+}
+
+void AMonster::EmitHitEffect(FVector ImpactLoc, FRotator Rot)
+{
+	FActorSpawnParameters	params;
+	params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+	AHitEffect* pEffect = GetWorld()->SpawnActor<AHitEffect>(AHitEffect::StaticClass(),
+		ImpactLoc, Rot, params);
+
+	pEffect->SetActorScale3D(FVector(0.1f, 0.1f, 0.1f));
+
+	pEffect->LoadParticle(m_HitParticle);
+	pEffect->LoadSound(m_HitSound);
+
+	int32 RandSound = FMath::FRandRange(0, 1);
+
+	switch (RandSound)
+	{
+	case 0:
+		pEffect->LoadAdditionalSound1(m_HurtSound1);
+
+	case 1:
+		pEffect->LoadAdditionalSound1(m_HurtSound2);
+
+	}
+}
+void AMonster::EmitHeadshotEffect(FVector ImpactLoc, FRotator Rot)
+{
+	FActorSpawnParameters	params;
+	params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+	AHitEffect* pEffect = GetWorld()->SpawnActor<AHitEffect>(AHitEffect::StaticClass(),
+		ImpactLoc, Rot, params);
+
+	pEffect->SetActorScale3D(FVector(0.5f, 0.5f, 0.5f));
+
+	//pEffect->LoadParticle(m_HeadShotParticle);
+	//m_HeadShotParticle->
+	pEffect->LoadSound(m_HeadShotSound);
+
+	int32 RandSound = FMath::FRandRange(0, 1);
+
+	switch (RandSound)
+	{
+	case 0:
+		pEffect->LoadAdditionalSound1(m_HurtSound1);
+
+	case 1:
+		pEffect->LoadAdditionalSound1(m_HurtSound2);
+
+	}
+}
+
+

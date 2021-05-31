@@ -1,6 +1,6 @@
-G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\Definitions.ProjectTPS.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\PlayerAnimation.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\../GameInfo.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\Definitions.ProjectTPS.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\PlayerAnimation.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\../GameInfo.h
 E:\UE_4.26\Engine\Source\Runtime\Engine\Public\EngineMinimal.h
 E:\UE_4.26\Engine\Source\Runtime\Core\Public\Misc/MonolithicHeaderBoilerplate.h
 E:\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\CoreUObject.h
@@ -677,11 +677,13 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\INCLUDE\isa_availability.h
 E:\UE_4.26\Engine\Source\Runtime\Slate\Public\Widgets/Input/SSlider.h
 E:\UE_4.26\Engine\Source\Runtime\Slate\Public\Framework/Docking/LayoutService.h
-G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerAnimation.generated.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\PlayerCharacter.h
-G:\ProjectTPS\ProjectTPS\Source\ProjectTPS\Player\PlayerInfo.h
-G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerInfo.generated.h
-G:\ProjectTPS\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerCharacter.generated.h
+E:\UE_4.26\Engine\Source\Runtime\AIModule\Classes\Blueprint/AIBlueprintHelperLibrary.h
+E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AIBlueprintHelperLibrary.generated.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerAnimation.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\PlayerCharacter.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\PlayerInfo.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerInfo.generated.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerCharacter.generated.h
 E:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet/KismetMathLibrary.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetMathLibrary.generated.h
 E:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet\KismetMathLibrary.inl

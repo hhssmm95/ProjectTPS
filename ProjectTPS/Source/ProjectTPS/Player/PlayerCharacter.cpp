@@ -7,6 +7,7 @@
 #include "PrimaryWeapon.h"
 #include "../PlayerHUD.h"
 #include "../HitCameraShake.h"
+#include "../HitEffect.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -213,8 +214,12 @@ float APlayerCharacter::TakeDamage(float Damage, struct FDamageEvent const& Dama
 
 	AddHP((int32)-Damage);
 
+	m_pPlayerAnim->HitReaction();
+
+
 	GetController<APlayerController>()->ClientStartCameraShake(UHitCameraShake::StaticClass(),
-		0.7f, ECameraShakePlaySpace::CameraLocal);
+		0.5f, ECameraShakePlaySpace::CameraLocal);
+
 
 	return Damage;
 }
@@ -225,3 +230,34 @@ void APlayerCharacter::AddHP(int32 HP)
 
 	m_HUD->UpdatePlayerHP(m_PlayerInfo->GetHPPercent());
 }
+
+void APlayerCharacter::EmitHitEffect(FVector ImpactLoc, FRotator Rot)
+{
+
+	FActorSpawnParameters	params;
+	params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+	AHitEffect* pEffect = GetWorld()->SpawnActor<AHitEffect>(AHitEffect::StaticClass(),
+		ImpactLoc, Rot, params);
+
+	pEffect->SetActorScale3D(FVector(0.1f, 0.1f, 0.1f));
+
+	pEffect->LoadParticle(m_HitParticle);
+	pEffect->LoadSound(m_HitSound);
+	
+	int32 RandSound = FMath::FRandRange(0, 2);
+
+	switch (RandSound)
+	{
+	case 0: 
+		pEffect->LoadAdditionalSound1(m_HurtSound1);
+
+	case 1:
+		pEffect->LoadAdditionalSound1(m_HurtSound2);
+
+	case 2:
+		pEffect->LoadAdditionalSound1(m_HurtSound3);
+	}
+
+}
+

@@ -19,6 +19,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 	PROJECTTPS_API UClass* Z_Construct_UClass_UMonsterAnim_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_UMonsterAnim();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimInstance();
+	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 // End Cross Module References
 	static UEnum* EMonsterAnimType_StaticEnum()
 	{
@@ -227,6 +228,10 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_eMonsterAnim_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_m_eMonsterAnim;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_HitMontage_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_HitMontage;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -257,9 +262,18 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 	};
 #endif
 	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_eMonsterAnim = { "m_eMonsterAnim", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMonsterAnim, m_eMonsterAnim), Z_Construct_UEnum_ProjectTPS_EMonsterAnimType, METADATA_PARAMS(Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_eMonsterAnim_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_eMonsterAnim_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_HitMontage_MetaData[] = {
+		{ "AllowPriavteAccess", "true" },
+		{ "Category", "MonsterAnim" },
+		{ "ModuleRelativePath", "Monster/MonsterAnim.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_HitMontage = { "m_HitMontage", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMonsterAnim, m_HitMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_HitMontage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_HitMontage_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMonsterAnim_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_eMonsterAnim_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_eMonsterAnim,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_HitMontage,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UMonsterAnim_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UMonsterAnim>::IsAbstract,
@@ -288,7 +302,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMonsterAnim, 3066250386);
+	IMPLEMENT_CLASS(UMonsterAnim, 2291678093);
 	template<> PROJECTTPS_API UClass* StaticClass<UMonsterAnim>()
 	{
 		return UMonsterAnim::StaticClass();

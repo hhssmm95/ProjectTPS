@@ -52,6 +52,23 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		TSubclassOf<class APrimaryWeapon> m_StartWeapon;
 
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UParticleSystem* m_HitParticle;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		USoundBase* m_HitSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		USoundBase* m_HurtSound1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		USoundBase* m_HurtSound2;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		USoundBase* m_HurtSound3;
+
+
 	class APlayerHUD* m_HUD;
 
 	bool m_bFire;
@@ -166,5 +183,8 @@ public:
 		return m_PlayerInfo->GetRemainMag();
 	}
 
+public:
+
 	void EquipSuppressor();
+	void EmitHitEffect(FVector ImpactLoc, FRotator Rot);
 };

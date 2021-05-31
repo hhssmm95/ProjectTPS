@@ -28,7 +28,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		EMonsterAnimType m_eMonsterAnim;
 
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UAnimMontage* m_HitMontage;
 
 public:
 	UMonsterAnim();
@@ -45,6 +46,8 @@ public:
 	}
 
 public:
+	void MonsterHitReaction();
+
 
 	UFUNCTION(BlueprintCallable)
 		void AnimNotify_MonsterAttackEnd();
