@@ -1,19 +1,35 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (G:\Git).
   Parsing headers for ProjectTPSEditor
     Running UnrealHeaderTool "G:\Git\ProjectTPS\ProjectTPS.uproject" "G:\Git\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\Development\ProjectTPSEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\han\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-  Reflection code generated for ProjectTPSEditor in 8.8844114 seconds
+  Reflection code generated for ProjectTPSEditor in 21.6871729 seconds
   Building ProjectTPSEditor...
   Using Visual Studio 2019 14.28.29336 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 8 actions with 8 processes...
-    [1/8] ProjectTPS.init.gen.cpp
-    [2/8] HitEffect.gen.cpp
-    [3/8] HitEffect.cpp
-    [4/8] PlayerCharacter.cpp
-    [5/8] Monster.cpp
-    [6/8] UE4Editor-ProjectTPS-0077.lib
-       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0077.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0077.exp 개체를 생성하고 있습니다.
-    [7/8] UE4Editor-ProjectTPS-0077.dll
-       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0077.suppressed.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0077.suppressed.exp 개체를 생성하고 있습니다.
-    [8/8] ProjectTPSEditor.target
-  Total time in Parallel executor: 100.35 seconds
-  Total execution time: 111.79 seconds
+  Building 24 actions with 8 processes...
+    [1/24] MonsterSpawnPoint.cpp
+    [2/24] BTTaskStopInvestigating.cpp
+    [3/24] BTTraceTargetTask.cpp
+    [4/24] BTWaitTask.cpp
+    [5/24] BTAttackTargetTask.cpp
+    [6/24] BTCheckDistanceDecorator.cpp
+    [7/24] BTTaskSetMonsterAnimation.cpp
+    [8/24] BTTaskMonsterMoveTo.cpp
+    [9/24] MonsterAnim.cpp
+    [10/24] Bullet.cpp
+    [11/24] MonsterSpawnPoint.gen.cpp
+    [12/24] Monster.cpp
+    [13/24] BTPatrolTask.cpp
+    [14/24] BTTask_SimpleRotateTo.cpp
+    [15/24] BTTask_Death.cpp
+    [16/24] MonsterAIController.cpp
+    [17/24] ProjectTPS.init.gen.cpp
+    [18/24] MonsterAnim.gen.cpp
+    [19/24] Monster.gen.cpp
+    [20/24] BTTaskSetMonsterAnimation.gen.cpp
+    [21/24] BTTask_Death.gen.cpp
+    [22/24] UE4Editor-ProjectTPS-0105.lib
+       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0105.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0105.exp 개체를 생성하고 있습니다.
+    [23/24] UE4Editor-ProjectTPS-0105.dll
+       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0105.suppressed.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0105.suppressed.exp 개체를 생성하고 있습니다.
+    [24/24] ProjectTPSEditor.target
+  Total time in Parallel executor: 118.84 seconds
+  Total execution time: 143.32 seconds

@@ -34,12 +34,15 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		class UBlackboardData* m_AIBlackBoard;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		bool m_bDeath;
+
 protected:
 
 	virtual void OnPossess(APawn* InPawn) override;
 	virtual void OnUnPossess() override;
 
-//public:
-	//void PerceptionInit();
+public:
+	void SetDeath();
 	
 };

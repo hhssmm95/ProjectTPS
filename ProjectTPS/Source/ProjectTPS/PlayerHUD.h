@@ -40,6 +40,7 @@ public:
 	}
 
 	void UpdatePlayerHP(float HP);
-
+	void HeadShot();
+	void BodyShot();
 	
 };

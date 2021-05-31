@@ -17,6 +17,7 @@ public:
 
 protected:
 
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		UCapsuleComponent* m_Body;
 
@@ -33,6 +34,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		int32 m_Damage;
 
+	class APlayerCharacter* m_Player;
 
 protected:
 	// Called when the game starts or when spawned

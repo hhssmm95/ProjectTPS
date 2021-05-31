@@ -19,6 +19,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	class UPlayerEquipWidget* m_PlayerEquipWidget;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UHitMarkerWidget* m_HitMarkerWidget;
+
 
 protected:
 	virtual void NativePreConstruct();
@@ -34,5 +37,10 @@ public:
 	UPlayerEquipWidget* GetPlayerEquipWidget()	const
 	{
 		return m_PlayerEquipWidget;
+	}
+
+	UHitMarkerWidget* GetHitMarkerWidget()	const
+	{
+		return m_HitMarkerWidget;
 	}
 };

@@ -18,6 +18,8 @@ void EmptyLinkFunctionForGeneratedCodeHitEffect() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_ProjectTPS();
 	ENGINE_API UClass* Z_Construct_UClass_UParticleSystemComponent_NoRegister();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
 	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AHitEffect::execOnEffectEnd)
@@ -27,6 +29,14 @@ void EmptyLinkFunctionForGeneratedCodeHitEffect() {}
 		P_NATIVE_BEGIN;
 		P_THIS->OnEffectEnd(Z_Param_particle);
 		P_NATIVE_END;
+	}
+	static FName NAME_AHitEffect_OnEmitNiagaraBlood = FName(TEXT("OnEmitNiagaraBlood"));
+	void AHitEffect::OnEmitNiagaraBlood(FVector ImpactLocaction, FRotator Rotation)
+	{
+		HitEffect_eventOnEmitNiagaraBlood_Parms Parms;
+		Parms.ImpactLocaction=ImpactLocaction;
+		Parms.Rotation=Rotation;
+		ProcessEvent(FindFunctionChecked(NAME_AHitEffect_OnEmitNiagaraBlood),&Parms);
 	}
 	void AHitEffect::StaticRegisterNativesAHitEffect()
 	{
@@ -76,6 +86,38 @@ void EmptyLinkFunctionForGeneratedCodeHitEffect() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AHitEffect_OnEmitNiagaraBlood_Statics
+	{
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ImpactLocaction;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_Rotation;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AHitEffect_OnEmitNiagaraBlood_Statics::NewProp_ImpactLocaction = { "ImpactLocaction", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(HitEffect_eventOnEmitNiagaraBlood_Parms, ImpactLocaction), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AHitEffect_OnEmitNiagaraBlood_Statics::NewProp_Rotation = { "Rotation", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(HitEffect_eventOnEmitNiagaraBlood_Parms, Rotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AHitEffect_OnEmitNiagaraBlood_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AHitEffect_OnEmitNiagaraBlood_Statics::NewProp_ImpactLocaction,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AHitEffect_OnEmitNiagaraBlood_Statics::NewProp_Rotation,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AHitEffect_OnEmitNiagaraBlood_Statics::Function_MetaDataParams[] = {
+		{ "Category", "HitMarker" },
+		{ "ModuleRelativePath", "HitEffect.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AHitEffect_OnEmitNiagaraBlood_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHitEffect, nullptr, "OnEmitNiagaraBlood", nullptr, nullptr, sizeof(HitEffect_eventOnEmitNiagaraBlood_Parms), Z_Construct_UFunction_AHitEffect_OnEmitNiagaraBlood_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AHitEffect_OnEmitNiagaraBlood_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08820800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AHitEffect_OnEmitNiagaraBlood_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AHitEffect_OnEmitNiagaraBlood_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AHitEffect_OnEmitNiagaraBlood()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AHitEffect_OnEmitNiagaraBlood_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_AHitEffect_NoRegister()
 	{
 		return AHitEffect::StaticClass();
@@ -117,6 +159,7 @@ void EmptyLinkFunctionForGeneratedCodeHitEffect() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AHitEffect_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AHitEffect_OnEffectEnd, "OnEffectEnd" }, // 1753356986
+		{ &Z_Construct_UFunction_AHitEffect_OnEmitNiagaraBlood, "OnEmitNiagaraBlood" }, // 3301859080
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHitEffect_Statics::Class_MetaDataParams[] = {
@@ -201,7 +244,7 @@ void EmptyLinkFunctionForGeneratedCodeHitEffect() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AHitEffect, 2792286220);
+	IMPLEMENT_CLASS(AHitEffect, 629547800);
 	template<> PROJECTTPS_API UClass* StaticClass<AHitEffect>()
 	{
 		return AHitEffect::StaticClass();

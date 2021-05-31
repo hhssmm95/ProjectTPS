@@ -261,3 +261,11 @@ void APlayerCharacter::EmitHitEffect(FVector ImpactLoc, FRotator Rot)
 
 }
 
+void APlayerCharacter::ShowHitMark()
+{
+	m_HUD->BodyShot();
+}
+void APlayerCharacter::ShowHeadShotMark()
+{
+	m_HUD->HeadShot();
+}

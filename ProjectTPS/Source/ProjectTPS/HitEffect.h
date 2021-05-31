@@ -3,7 +3,6 @@
 #pragma once
 
 #include "GameInfo.h"
-
 #include "GameFramework/Actor.h"
 #include "HitEffect.generated.h"
 
@@ -62,5 +61,10 @@ public:
 	void LoadAdditionalSound1(USoundBase* Sound);
 	void LoadAdditionalSound2(USoundBase* Sound);
 
-
+	UFUNCTION(BlueprintImplementableEvent, Category = "HitMarker")
+	void OnEmitNiagaraBlood(FVector ImpactLocaction, FRotator Rotation);
+	void EmitNiagaraBlood(FVector ImpactLocaction, FRotator Rotation)
+	{
+		OnEmitNiagaraBlood(ImpactLocaction, Rotation);
+	}
 };

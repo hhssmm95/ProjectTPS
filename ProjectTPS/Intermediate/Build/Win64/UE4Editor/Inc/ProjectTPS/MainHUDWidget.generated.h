@@ -62,7 +62,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMainHUDWidget); \
 
 #define ProjectTPS_Source_ProjectTPS_UI_MainHUDWidget_h_13_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__m_PlayerHPWidget() { return STRUCT_OFFSET(UMainHUDWidget, m_PlayerHPWidget); } \
-	FORCEINLINE static uint32 __PPO__m_PlayerEquipWidget() { return STRUCT_OFFSET(UMainHUDWidget, m_PlayerEquipWidget); }
+	FORCEINLINE static uint32 __PPO__m_PlayerEquipWidget() { return STRUCT_OFFSET(UMainHUDWidget, m_PlayerEquipWidget); } \
+	FORCEINLINE static uint32 __PPO__m_HitMarkerWidget() { return STRUCT_OFFSET(UMainHUDWidget, m_HitMarkerWidget); }
 
 
 #define ProjectTPS_Source_ProjectTPS_UI_MainHUDWidget_h_10_PROLOG

@@ -187,4 +187,6 @@ public:
 
 	void EquipSuppressor();
 	void EmitHitEffect(FVector ImpactLoc, FRotator Rot);
+	void ShowHitMark();
+	void ShowHeadShotMark();
 };

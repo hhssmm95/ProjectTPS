@@ -85,6 +85,13 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		}
 		return ReturnEnum;
 	}
+	DEFINE_FUNCTION(UMonsterAnim::execAnimNotify_MonsterDeathEnd)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AnimNotify_MonsterDeathEnd();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UMonsterAnim::execAnimNotify_MonsterSuspectEnd)
 	{
 		P_FINISH;
@@ -118,6 +125,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		UClass* Class = UMonsterAnim::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "AnimNotify_MonsterAttackEnd", &UMonsterAnim::execAnimNotify_MonsterAttackEnd },
+			{ "AnimNotify_MonsterDeathEnd", &UMonsterAnim::execAnimNotify_MonsterDeathEnd },
 			{ "AnimNotify_MonsterLongAttack", &UMonsterAnim::execAnimNotify_MonsterLongAttack },
 			{ "AnimNotify_MonsterNearAttack", &UMonsterAnim::execAnimNotify_MonsterNearAttack },
 			{ "AnimNotify_MonsterSuspectEnd", &UMonsterAnim::execAnimNotify_MonsterSuspectEnd },
@@ -143,6 +151,28 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterAttackEnd_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterDeathEnd_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterDeathEnd_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Monster/MonsterAnim.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterDeathEnd_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMonsterAnim, nullptr, "AnimNotify_MonsterDeathEnd", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterDeathEnd_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterDeathEnd_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterDeathEnd()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterDeathEnd_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -232,6 +262,11 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_HitMontage_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_HitMontage;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_bDeath_MetaData[];
+#endif
+		static void NewProp_m_bDeath_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_bDeath;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -242,6 +277,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UMonsterAnim_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterAttackEnd, "AnimNotify_MonsterAttackEnd" }, // 848965571
+		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterDeathEnd, "AnimNotify_MonsterDeathEnd" }, // 2395741203
 		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterLongAttack, "AnimNotify_MonsterLongAttack" }, // 1250493243
 		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterNearAttack, "AnimNotify_MonsterNearAttack" }, // 2536851774
 		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterSuspectEnd, "AnimNotify_MonsterSuspectEnd" }, // 1008508225
@@ -270,10 +306,23 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_HitMontage = { "m_HitMontage", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMonsterAnim, m_HitMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_HitMontage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_HitMontage_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_bDeath_MetaData[] = {
+		{ "AllowPriavteAccess", "true" },
+		{ "Category", "MonsterAnim" },
+		{ "ModuleRelativePath", "Monster/MonsterAnim.h" },
+	};
+#endif
+	void Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_bDeath_SetBit(void* Obj)
+	{
+		((UMonsterAnim*)Obj)->m_bDeath = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_bDeath = { "m_bDeath", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UMonsterAnim), &Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_bDeath_SetBit, METADATA_PARAMS(Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_bDeath_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_bDeath_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMonsterAnim_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_eMonsterAnim_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_eMonsterAnim,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_HitMontage,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_bDeath,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UMonsterAnim_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UMonsterAnim>::IsAbstract,
@@ -302,7 +351,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMonsterAnim, 2291678093);
+	IMPLEMENT_CLASS(UMonsterAnim, 1787394806);
 	template<> PROJECTTPS_API UClass* StaticClass<UMonsterAnim>()
 	{
 		return UMonsterAnim::StaticClass();

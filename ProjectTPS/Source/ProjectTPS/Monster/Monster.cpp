@@ -37,6 +37,13 @@ AMonster::AMonster()
 
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("MonsterBody"));
 
+	static ConstructorHelpers::FClassFinder<AHitEffect> HeadshotEffectAsset(TEXT("Blueprint'/Game/Monster/BP_HitEffect.BP_HitEffect_C'"));
+	
+	if (HeadshotEffectAsset.Succeeded())
+		m_HeadshotEffect = HeadshotEffectAsset.Class;
+
+	m_bDeath = false;
+	m_IsDeathEnd = false;
 }
 
 // Called when the game starts or when spawned
@@ -45,7 +52,8 @@ void AMonster::BeginPlay()
 	Super::BeginPlay();
 
 	m_MonsterAnim = Cast<UMonsterAnim>(GetMesh()->GetAnimInstance());
-
+	m_HPMax = 200;
+	m_HP = 200;
 	//m_SightDistance = 3000.f;
 	//m_SightAngle = 30.f;
 
@@ -184,15 +192,28 @@ void AMonster::MonsterSuspectEnd()
 	m_eMonsterAIType = MonsterAI::Idle;
 }
 
+void AMonster::MonsterDeathEnd()
+{
+	m_IsDeathEnd = true;
+}
+
 float AMonster::TakeDamage(float Damage, struct FDamageEvent const& DamageEvent,
 	AController* EventInstigator, AActor* DamageCauser)
 {
 	Damage = Super::TakeDamage(Damage, DamageEvent, EventInstigator, DamageCauser);
 
 	m_HP -= Damage;
+	PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("Enemy HP : %d"), m_HP));
+	if (m_HP <= 0)
+	{
+		m_bDeath = true;
+		m_eMonsterAIType = MonsterAI::Death;
+		AMonsterAIController* pController = Cast<AMonsterAIController>(GetController());
+		pController->SetDeath();
+	}
 
 	m_MonsterAnim->MonsterHitReaction();
-
+	
 
 	return Damage;
 }
@@ -205,7 +226,7 @@ void AMonster::EmitHitEffect(FVector ImpactLoc, FRotator Rot)
 	AHitEffect* pEffect = GetWorld()->SpawnActor<AHitEffect>(AHitEffect::StaticClass(),
 		ImpactLoc, Rot, params);
 
-	pEffect->SetActorScale3D(FVector(0.1f, 0.1f, 0.1f));
+	pEffect->SetActorScale3D(FVector(0.5f, 0.5f, 0.5f));
 
 	pEffect->LoadParticle(m_HitParticle);
 	pEffect->LoadSound(m_HitSound);
@@ -227,13 +248,11 @@ void AMonster::EmitHeadshotEffect(FVector ImpactLoc, FRotator Rot)
 	FActorSpawnParameters	params;
 	params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
-	AHitEffect* pEffect = GetWorld()->SpawnActor<AHitEffect>(AHitEffect::StaticClass(),
+	AHitEffect* pEffect = GetWorld()->SpawnActor<AHitEffect>(m_HeadshotEffect,
 		ImpactLoc, Rot, params);
 
 	pEffect->SetActorScale3D(FVector(0.5f, 0.5f, 0.5f));
 
-	//pEffect->LoadParticle(m_HeadShotParticle);
-	//m_HeadShotParticle->
 	pEffect->LoadSound(m_HeadShotSound);
 
 	int32 RandSound = FMath::FRandRange(0, 1);

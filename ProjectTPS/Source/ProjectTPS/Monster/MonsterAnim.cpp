@@ -50,7 +50,15 @@ void UMonsterAnim::AnimNotify_MonsterSuspectEnd()
 	pMonster->MonsterSuspectEnd();
 }
 
+void UMonsterAnim::AnimNotify_MonsterDeathEnd()
+{
+	AMonster* pMonster = Cast<AMonster>(TryGetPawnOwner());
+
+	pMonster->MonsterDeathEnd();
+}
+
 void UMonsterAnim::MonsterHitReaction()
 {
-	Montage_Play(m_HitMontage);
+	if(!m_bDeath)
+		Montage_Play(m_HitMontage);
 }

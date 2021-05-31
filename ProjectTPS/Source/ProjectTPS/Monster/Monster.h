@@ -105,6 +105,9 @@ protected:
 		USoundBase* m_HurtSound2;
 
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		TSubclassOf<class AHitEffect> m_HeadshotEffect;
+
 
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -134,6 +137,7 @@ protected:
 	bool m_bWait;
 
 	bool m_bDeath;
+	bool m_IsDeathEnd;
 
 public:
 	// Sets default values for this character's properties
@@ -155,7 +159,7 @@ public:
 	void MonsterNearAttack();
 	void MonsterLongAttack();
 	void MonsterSuspectEnd();
-
+	void MonsterDeathEnd();
 public:
 
 	float GetWalkSpeed() const
@@ -188,6 +192,11 @@ public:
 	UMonsterAnim* GetMonsterAnim()
 	{
 		return m_MonsterAnim;
+	}
+
+	bool IsDeathEnd()
+	{
+		return m_IsDeathEnd;
 	}
 
 

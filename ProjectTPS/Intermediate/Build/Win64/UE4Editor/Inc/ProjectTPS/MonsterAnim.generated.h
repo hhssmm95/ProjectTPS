@@ -16,6 +16,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterAnim_h_25_SPARSE_DATA
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterAnim_h_25_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execAnimNotify_MonsterDeathEnd); \
 	DECLARE_FUNCTION(execAnimNotify_MonsterSuspectEnd); \
 	DECLARE_FUNCTION(execAnimNotify_MonsterLongAttack); \
 	DECLARE_FUNCTION(execAnimNotify_MonsterNearAttack); \
@@ -24,6 +25,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterAnim_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execAnimNotify_MonsterDeathEnd); \
 	DECLARE_FUNCTION(execAnimNotify_MonsterSuspectEnd); \
 	DECLARE_FUNCTION(execAnimNotify_MonsterLongAttack); \
 	DECLARE_FUNCTION(execAnimNotify_MonsterNearAttack); \
@@ -74,7 +76,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMonsterAnim); \
 
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterAnim_h_25_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__m_eMonsterAnim() { return STRUCT_OFFSET(UMonsterAnim, m_eMonsterAnim); } \
-	FORCEINLINE static uint32 __PPO__m_HitMontage() { return STRUCT_OFFSET(UMonsterAnim, m_HitMontage); }
+	FORCEINLINE static uint32 __PPO__m_HitMontage() { return STRUCT_OFFSET(UMonsterAnim, m_HitMontage); } \
+	FORCEINLINE static uint32 __PPO__m_bDeath() { return STRUCT_OFFSET(UMonsterAnim, m_bDeath); }
 
 
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterAnim_h_22_PROLOG

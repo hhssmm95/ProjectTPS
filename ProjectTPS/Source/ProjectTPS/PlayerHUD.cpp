@@ -4,6 +4,7 @@
 #include "PlayerHUD.h"
 #include "UI/MainHUDWidget.h"
 #include "UI/PlayerHPWidget.h"
+#include "UI/HitMarkerWidget.h"
 
 
 APlayerHUD::APlayerHUD()
@@ -40,4 +41,14 @@ void APlayerHUD::Tick(float DeltaTime)
 void APlayerHUD::UpdatePlayerHP(float HP)
 {
 	m_MainHUDWidget->GetPlayerHPWidget()->SetHPBar(HP);
+}
+
+void APlayerHUD::HeadShot()
+{
+	m_MainHUDWidget->GetHitMarkerWidget()->CallHeadShotEvent();
+}
+
+void APlayerHUD::BodyShot()
+{
+	m_MainHUDWidget->GetHitMarkerWidget()->CallBodyShotEvent();
 }

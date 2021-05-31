@@ -37,6 +37,8 @@ void ABullet::BeginPlay()
 	//m_Movement->OnProjectileStop.AddDynamic(this, &ABullet::ProjectileStop);
 	m_Body->OnComponentHit.AddDynamic(this, &ABullet::OnBulletHit);
 	m_Body->OnComponentBeginOverlap.AddDynamic(this, &ABullet::OnBulletBeginOverlap);
+
+	m_Player = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
 }
 
 // Called every frame
@@ -80,39 +82,36 @@ void ABullet::OnBulletBeginOverlap(UPrimitiveComponent* OverlappedComponent,
 void ABullet::OnBulletHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, 
 	UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	APlayerCharacter* pPlayer = Cast<APlayerCharacter>(OtherActor);
+	APlayerCharacter* PlayerCheck = Cast<APlayerCharacter>(OtherActor);
 	FDamageEvent DmgEvent;
 
 	FVector vDir = GetActorLocation() - Hit.ImpactPoint;
 	vDir.Normalize();
 	FRotator	vRot = vDir.ToOrientationRotator();
 
-	if (pPlayer)
+	if (PlayerCheck)
 	{
-		pPlayer->TakeDamage(m_Damage, DmgEvent, pPlayer->GetController(), pPlayer);
+		PlayerCheck->TakeDamage(m_Damage, DmgEvent, PlayerCheck->GetController(), this);
 	}
 	else
 	{
 		AMonster* pMonster = Cast<AMonster>(OtherActor);
-		pMonster->TakeDamage(m_Damage, DmgEvent, pMonster->GetController(), pMonster);
-
-		PrintViewport(2.f, FColor::Blue, Hit.BoneName.ToString());
 
 		if (Hit.BoneName.ToString() == TEXT("head"))
 		{
+			pMonster->TakeDamage(m_Damage*3, DmgEvent, pMonster->GetController(), this);
 			PrintViewport(2.f, FColor::Blue, TEXT("HeadShot!"));
 			pMonster->EmitHeadshotEffect(Hit.ImpactPoint, vRot);
+			m_Player->ShowHeadShotMark();
 		}
 		else
 		{
+			pMonster->TakeDamage(m_Damage, DmgEvent, pMonster->GetController(), this);
 			PrintViewport(2.f, FColor::Yellow, TEXT("BodyShot"));
 			pMonster->EmitHitEffect(Hit.ImpactPoint, vRot);
+			m_Player->ShowHitMark();
 		}
 
-		//if (Surface == EPhysicalSurface::SurfaceType1)
-		//	PrintViewport(2.f, FColor::Blue, TEXT("HeadShot!"));
-		//else
-		//	PrintViewport(2.f, FColor::Yellow, TEXT("BodyShot"));
 	}
 
 	Destroy();

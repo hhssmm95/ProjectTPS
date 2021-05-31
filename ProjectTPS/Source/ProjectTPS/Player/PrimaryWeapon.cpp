@@ -88,7 +88,7 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 
 			bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), CameraPos, CameraPos + CameraForward * 100000.f,
 				UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1), true, IgnoreActor,
-				EDrawDebugTrace::ForDuration, result, true);
+				EDrawDebugTrace::None, result, true);
 
 			if (bHit)
 			{

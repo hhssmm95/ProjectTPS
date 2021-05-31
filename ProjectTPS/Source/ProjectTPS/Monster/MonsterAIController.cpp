@@ -42,7 +42,17 @@ void AMonsterAIController::OnPossess(APawn* InPawn)
 void AMonsterAIController::OnUnPossess()
 {
 	Super::OnUnPossess();
-}/*
+}
+
+void AMonsterAIController::SetDeath()
+{
+	m_bDeath = true;
+	Blackboard->SetValueAsBool(TEXT("Death"), true);
+	Blackboard->SetValueAsBool(TEXT("IsInvestigating"), false);
+	StopMovement();
+}
+
+/*
 
 void AMonsterAIController::PerceptionInit()
 {

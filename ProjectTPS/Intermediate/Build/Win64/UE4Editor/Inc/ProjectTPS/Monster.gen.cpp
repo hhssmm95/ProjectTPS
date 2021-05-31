@@ -24,6 +24,7 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	PROJECTTPS_API UClass* Z_Construct_UClass_AHitEffect_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_AEffectNormal_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_ABullet_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
@@ -411,6 +412,10 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_HurtSound2;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_HeadshotEffect_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_m_HeadshotEffect;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_LongAttackMuzzle_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FClassPropertyParams NewProp_m_LongAttackMuzzle;
@@ -628,6 +633,14 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMonster_Statics::NewProp_m_HurtSound2 = { "m_HurtSound2", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMonster, m_HurtSound2), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMonster_Statics::NewProp_m_HurtSound2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonster_Statics::NewProp_m_HurtSound2_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonster_Statics::NewProp_m_HeadshotEffect_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Monster" },
+		{ "ModuleRelativePath", "Monster/Monster.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_AMonster_Statics::NewProp_m_HeadshotEffect = { "m_HeadshotEffect", nullptr, (EPropertyFlags)0x0024080000000005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMonster, m_HeadshotEffect), Z_Construct_UClass_AHitEffect_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_AMonster_Statics::NewProp_m_HeadshotEffect_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonster_Statics::NewProp_m_HeadshotEffect_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonster_Statics::NewProp_m_LongAttackMuzzle_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Monster" },
@@ -683,6 +696,7 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_HitParticle,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_HurtSound1,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_HurtSound2,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_HeadshotEffect,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_LongAttackMuzzle,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_LongAttackBullet,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_PatrolPoint_Inner,
@@ -716,7 +730,7 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMonster, 1648552058);
+	IMPLEMENT_CLASS(AMonster, 2258929337);
 	template<> PROJECTTPS_API UClass* StaticClass<AMonster>()
 	{
 		return AMonster::StaticClass();

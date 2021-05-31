@@ -31,6 +31,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		UAnimMontage* m_HitMontage;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		bool m_bDeath;
 public:
 	UMonsterAnim();
 
@@ -45,6 +47,11 @@ public:
 		m_eMonsterAnim = AnimType;
 	}
 
+	void SetDeath()
+	{
+		m_bDeath = true;
+	}
+
 public:
 	void MonsterHitReaction();
 
@@ -57,4 +64,6 @@ public:
 		void AnimNotify_MonsterLongAttack();
 	UFUNCTION(BlueprintCallable)
 		void AnimNotify_MonsterSuspectEnd();
+	UFUNCTION(BlueprintCallable)
+		void AnimNotify_MonsterDeathEnd();
 };
