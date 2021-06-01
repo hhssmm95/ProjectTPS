@@ -45,7 +45,6 @@ void APrimaryWeapon::BeginPlay()
 
 	m_PlayerHUD = Cast<APlayerHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
 	m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(m_CurrentMagMax);
-	m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetRemainMagText(m_RemainMag);
 
 	m_CurrentMag = m_CurrentMagMax;
 }
@@ -121,6 +120,10 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 				m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(--m_CurrentMag);
 				if (m_CurrentMag < 0)
 					m_CurrentMag = 0;
+				
+				if (m_CurrentMag == 0)
+					m_Player->MagEmpty();
+
 				Delay = true;
 			}
 			else
@@ -161,6 +164,22 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 			Delay = true;
 		}
 	}
+}
+
+void APrimaryWeapon::Reload()
+{
+	if (m_CurrentMagMax - m_CurrentMag <= m_Player->GetRemainMag())
+	{
+		m_Player->AddRemainMag((int32)-(m_CurrentMagMax - m_CurrentMag));
+		m_CurrentMag += m_CurrentMagMax - m_CurrentMag;
+	}
+	else
+	{
+		m_CurrentMag += m_Player->GetRemainMag();
+		m_Player->SetRemainMag(0);
+	}
+	m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(m_CurrentMagMax);
+	m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetRemainMagText(m_Player->GetRemainMag());
 }
 
 void APrimaryWeapon::EquipSuppressor()

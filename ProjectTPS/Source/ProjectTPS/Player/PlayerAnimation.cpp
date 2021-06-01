@@ -12,7 +12,13 @@ UPlayerAnimation::UPlayerAnimation()
 	if (RifleFireAsset.Succeeded())
 		m_RifleFireMontage = RifleFireAsset.Object;
 
+	static ConstructorHelpers::FObjectFinder<UAnimMontage>		ReloadAsset(TEXT("AnimMontage'/Game/Player/Animation/Player_Reload_Rifle_Hip_Montage.Player_Reload_Rifle_Hip_Montage'"));
+
+	if (ReloadAsset.Succeeded())
+		m_RifleReloadMontage = ReloadAsset.Object;
+
 	m_bHitReacting = false;
+	m_MagEmpty = false;
 }
 
 void UPlayerAnimation::NativeInitializeAnimation()
@@ -44,7 +50,8 @@ void UPlayerAnimation::Death()
 
 void UPlayerAnimation::RifleFire()
 {
-	Montage_Play(m_RifleFireMontage);
+	if (!m_MagEmpty && !Montage_IsPlaying(m_RifleReloadMontage))
+		Montage_Play(m_RifleFireMontage);
 }
 
 void UPlayerAnimation::RifleStop()
@@ -52,9 +59,13 @@ void UPlayerAnimation::RifleStop()
 	Montage_Stop(0.2f, m_RifleFireMontage);
 }
 
+void UPlayerAnimation::ReloadMontage()
+{
+	Montage_Play(m_RifleReloadMontage);
+}
+
 void UPlayerAnimation::HitReaction()
 {
-
 		int32	iRand = FMath::RandRange(0, 3);
 
 		switch (iRand)
@@ -75,4 +86,10 @@ void UPlayerAnimation::HitReaction()
 			Montage_Play(m_HitMontage4);
 			break;
 		}
+}
+
+void UPlayerAnimation::AnimNotify_ReloadEnd()
+{
+	m_pPlayer = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	m_pPlayer->ReloadEnd();
 }

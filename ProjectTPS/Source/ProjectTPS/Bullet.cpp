@@ -99,14 +99,14 @@ void ABullet::OnBulletHit(UPrimitiveComponent* HitComponent, AActor* OtherActor,
 
 		if (Hit.BoneName.ToString() == TEXT("head"))
 		{
-			pMonster->TakeDamage(m_Damage*3, DmgEvent, pMonster->GetController(), this);
+			pMonster->TakeDamage(m_Damage*3, DmgEvent, m_Player->GetController(), m_Player);
 			PrintViewport(2.f, FColor::Blue, TEXT("HeadShot!"));
 			pMonster->EmitHeadshotEffect(Hit.ImpactPoint, vRot);
 			m_Player->ShowHeadShotMark();
 		}
 		else
 		{
-			pMonster->TakeDamage(m_Damage, DmgEvent, pMonster->GetController(), this);
+			pMonster->TakeDamage(m_Damage, DmgEvent, m_Player->GetController(), m_Player);
 			PrintViewport(2.f, FColor::Yellow, TEXT("BodyShot"));
 			pMonster->EmitHitEffect(Hit.ImpactPoint, vRot);
 			m_Player->ShowHitMark();

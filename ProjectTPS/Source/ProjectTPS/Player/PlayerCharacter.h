@@ -3,6 +3,7 @@
 #pragma once
 
 #include "PlayerInfo.h"
+#include "../PlayerHUD.h"
 #include "GameFramework/Character.h"
 #include "PlayerCharacter.generated.h"
 
@@ -44,10 +45,11 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		bool m_IsAiming;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		bool m_IsReloading;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		class APrimaryWeapon* m_PrimaryWeapon;
-
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		TSubclassOf<class APrimaryWeapon> m_StartWeapon;
@@ -72,7 +74,7 @@ protected:
 	class APlayerHUD* m_HUD;
 
 	bool m_bFire;
-
+	bool m_bMagEmpty;
 public:/*
 	EMoveDir GetDirection() const
 	{
@@ -101,6 +103,8 @@ public:
 	void InputJump();
 	void AimPress();
 	void AimRelease();
+	void ReloadStart();
+	void ReloadEnd();
 
 	void PrimaryFire();
 	void PrimaryStop();
@@ -118,6 +122,9 @@ public:
 
 
 public:
+	void MagEmpty();
+
+
 	void SetHP(int32 HP)
 	{
 		m_PlayerInfo->SetHP(HP);
@@ -142,7 +149,6 @@ public:
 	{
 		m_PlayerInfo->SetRemainMag(RemainMag);
 	}
-
 
 
 	void AddHP(int32 HP);

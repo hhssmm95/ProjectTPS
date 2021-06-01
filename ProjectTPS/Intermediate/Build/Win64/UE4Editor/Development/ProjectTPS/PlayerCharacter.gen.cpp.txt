@@ -682,4 +682,6 @@ E:\UE_4.26\Engine\Source\Runtime\Slate\Public\Framework/Docking/LayoutService.h
 E:\UE_4.26\Engine\Source\Runtime\AIModule\Classes\Blueprint/AIBlueprintHelperLibrary.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AIBlueprintHelperLibrary.generated.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerInfo.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\../PlayerHUD.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerHUD.generated.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerCharacter.generated.h

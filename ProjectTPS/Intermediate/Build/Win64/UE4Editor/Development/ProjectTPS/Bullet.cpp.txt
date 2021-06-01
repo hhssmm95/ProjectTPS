@@ -683,6 +683,8 @@ G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\Bullet.gener
 G:\Git\ProjectTPS\Source\ProjectTPS\Player/PlayerCharacter.h
 G:\Git\ProjectTPS\Source\ProjectTPS\Player\PlayerInfo.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerInfo.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\../PlayerHUD.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerHUD.generated.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerCharacter.generated.h
 G:\Git\ProjectTPS\Source\ProjectTPS\Monster/Monster.h
 G:\Git\ProjectTPS\Source\ProjectTPS\Monster\MonsterAnim.h

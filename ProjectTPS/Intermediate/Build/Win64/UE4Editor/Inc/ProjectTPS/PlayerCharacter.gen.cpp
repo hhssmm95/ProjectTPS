@@ -117,6 +117,11 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		static void NewProp_m_IsAiming_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_IsAiming;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_IsReloading_MetaData[];
+#endif
+		static void NewProp_m_IsReloading_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_IsReloading;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_PrimaryWeapon_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_PrimaryWeapon;
@@ -232,6 +237,18 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_IsAiming = { "m_IsAiming", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(APlayerCharacter), &Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_IsAiming_SetBit, METADATA_PARAMS(Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_IsAiming_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_IsAiming_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_IsReloading_MetaData[] = {
+		{ "AllowPriavteAccess", "true" },
+		{ "Category", "PlayerCharacter" },
+		{ "ModuleRelativePath", "Player/PlayerCharacter.h" },
+	};
+#endif
+	void Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_IsReloading_SetBit(void* Obj)
+	{
+		((APlayerCharacter*)Obj)->m_IsReloading = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_IsReloading = { "m_IsReloading", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(APlayerCharacter), &Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_IsReloading_SetBit, METADATA_PARAMS(Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_IsReloading_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_IsReloading_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_PrimaryWeapon_MetaData[] = {
 		{ "AllowPriavteAccess", "true" },
 		{ "Category", "PlayerCharacter" },
@@ -295,6 +312,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_pPlayerAnim,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_UpperYaw,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_IsAiming,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_IsReloading,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_PrimaryWeapon,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_StartWeapon,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_HitParticle,
@@ -330,7 +348,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayerCharacter, 3409761761);
+	IMPLEMENT_CLASS(APlayerCharacter, 142638561);
 	template<> PROJECTTPS_API UClass* StaticClass<APlayerCharacter>()
 	{
 		return APlayerCharacter::StaticClass();

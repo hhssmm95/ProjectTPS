@@ -87,6 +87,7 @@ public:
 	void EquipSuppressor();
 
 	void Fire(FVector CameraPos, FVector CameraForward);
+	void Reload();
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

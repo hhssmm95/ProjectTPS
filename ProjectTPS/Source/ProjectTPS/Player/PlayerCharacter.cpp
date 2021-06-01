@@ -5,9 +5,10 @@
 #include "PlayerAnimation.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "PrimaryWeapon.h"
-#include "../PlayerHUD.h"
 #include "../HitCameraShake.h"
 #include "../HitEffect.h"
+#include "../UI/MainHUDWidget.h"
+#include "../UI/PlayerEquipWidget.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -47,10 +48,10 @@ APlayerCharacter::APlayerCharacter()
 	GetCharacterMovement()->MaxWalkSpeed = 500.f;
 	GetCharacterMovement()->JumpZVelocity = 500.f;
 	m_UpperYaw = 0.f;
-
+	m_bMagEmpty = false;
 	SetHPMax(1000);
 	SetHP(1000);
-
+	
 	GetCapsuleComponent()->SetCollisionProfileName("PlayerBody");
 }
 
@@ -75,6 +76,9 @@ void APlayerCharacter::BeginPlay()
 
 	m_HUD = Cast<APlayerHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
 	m_HUD->UpdatePlayerHP(m_PlayerInfo->GetHPPercent());
+
+	SetRemainMag(100);
+	m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetRemainMagText(GetRemainMag());
 }
 
 // Called every frame
@@ -83,7 +87,7 @@ void APlayerCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 
-	if (m_bFire)
+	if (m_bFire && !m_IsReloading)
 	{
 		m_PrimaryWeapon->Fire(m_Camera->GetComponentLocation(), m_Camera->GetForwardVector());
 
@@ -107,7 +111,8 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Pressed, this, &APlayerCharacter::PrimaryFire);
 	PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Released, this, &APlayerCharacter::PrimaryStop);
 	PlayerInputComponent->BindAction(TEXT("SuppressorShot(Debug)"), EInputEvent::IE_Pressed, this, &APlayerCharacter::EquipSuppressor);
-	
+
+	PlayerInputComponent->BindAction(TEXT("Reload"), EInputEvent::IE_Pressed, this, &APlayerCharacter::ReloadStart);
 
 }
 
@@ -179,6 +184,25 @@ void APlayerCharacter::AimRelease()
 	}
 }
 
+void APlayerCharacter::MagEmpty()
+{
+	m_bMagEmpty = true;
+	m_pPlayerAnim->SetMagEmpty(true);
+}
+void APlayerCharacter::ReloadStart()
+{
+	
+	m_pPlayerAnim->ReloadMontage();
+	m_IsReloading = true;
+}
+
+void APlayerCharacter::ReloadEnd()
+{
+	m_pPlayerAnim->SetMagEmpty(false);
+	m_PrimaryWeapon->Reload();
+	m_IsReloading = false;
+	m_bMagEmpty = false;
+}
 void APlayerCharacter::PrimaryFire()
 {
 	if (!m_bIsDead)

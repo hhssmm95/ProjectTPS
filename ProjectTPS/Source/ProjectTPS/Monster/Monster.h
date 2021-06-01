@@ -226,7 +226,7 @@ public:
 	}
 
 
-	bool IsDeathEnd() const
+	bool GetIsDeath() const
 	{
 		return m_bDeath;
 	}
