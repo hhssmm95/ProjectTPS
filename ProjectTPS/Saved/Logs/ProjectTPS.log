@@ -5424,3 +5424,1141 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2021.06.02-12.02.16:755][744]AssetCheck: New page: 애셋 저장: HUD_Box
 [2021.06.02-12.02.16:755][744]LogContentValidation: Display: Texture2D /Game/UI/HUD_Box.HUD_Box 유효성 검사
 [2021.06.02-12.02.19:723][ 11]AssetReimport: /Game/UI/HUD_Box 새 애셋 임포트중.
+[2021.06.02-12.02.33:381][ 79]LogAssetEditorSubsystem: Opening Asset editor for Texture2D /Game/UI/HUD_Box.HUD_Box
+[2021.06.02-12.02.33:817][ 79]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'TextureEditor' in 0.0009 seconds. Added 1 classes and 2 folders.
+[2021.06.02-12.02.48:850][130]LogTexture: Display: 텍스처 빌드: HUD_Box (BGRA8, 420X420)
+[2021.06.02-12.02.49:921][182]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/UI/HUD_Box" FILE="G:/Git/ProjectTPS/Content/UI/HUD_Box.uasset" SILENT=true
+[2021.06.02-12.02.49:931][182]LogSavePackage: Moving 'G:/Git/ProjectTPS/Saved/HUD_Box5A07914B4D9F1EE486B93BBDE56251AD.tmp' to 'G:/Git/ProjectTPS/Content/UI/HUD_Box.uasset'
+[2021.06.02-12.02.49:955][182]AssetCheck: New page: 애셋 저장: HUD_Box
+[2021.06.02-12.02.49:955][182]LogContentValidation: Display: Texture2D /Game/UI/HUD_Box.HUD_Box 유효성 검사
+[2021.06.02-12.02.58:252][889]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/UI/UI_MainHUDWidget.UI_MainHUDWidget
+[2021.06.02-12.03.41:009][990]LogEditorTransaction: Undo 위젯 크기조정
+[2021.06.02-12.04.50:750][409]BlueprintLog: New page: UI_MainHUDWidget 컴파일
+[2021.06.02-12.04.51:139][409]LogUObjectHash: Compacting FUObjectHashTables data took  10.61ms
+[2021.06.02-12.04.55:883][705]LogTemp: Repeating last play command: 선택된 뷰포트
+[2021.06.02-12.04.55:899][705]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.06.02-12.04.55:899][705]PIE: New page: PIE 세션: Main (2021. 6. 3. 오전 6:04:55)
+[2021.06.02-12.04.55:900][705]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.04.55:919][705]LogPlayLevel: PIE: StaticDuplicateObject took: (0.019456s)
+[2021.06.02-12.04.55:920][705]LogAIModule: Creating AISystem for world Main
+[2021.06.02-12.04.55:921][705]LogPlayLevel: PIE: World Init took: (0.002051s)
+[2021.06.02-12.04.55:921][705]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/Main.Main to /Game/Levels/UEDPIE_0_Main.Main (0.021743s)
+[2021.06.02-12.04.56:094][705]LogUObjectHash: Compacting FUObjectHashTables data took   6.23ms
+[2021.06.02-12.04.56:095][705]LogAudio: Display: Creating Audio Device:                 Id: 50, Scope: Unique, Realtime: True
+[2021.06.02-12.04.56:097][705]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.06.02-12.04.56:097][705]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.06.02-12.04.56:097][705]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.06.02-12.04.56:097][705]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.06.02-12.04.56:097][705]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2021.06.02-12.04.56:097][705]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2021.06.02-12.04.56:097][705]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2021.06.02-12.04.56:097][705]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.06.02-12.04.56:097][705]LogAudio: Display: Using built-in audio occlusion.
+[2021.06.02-12.04.56:098][705]LogAudioMixer: Display: Initializing audio mixer.
+[2021.06.02-12.04.56:130][705]LogAudioMixer: Display: 0: FrontLeft
+[2021.06.02-12.04.56:130][705]LogAudioMixer: Display: 1: FrontRight
+[2021.06.02-12.04.56:171][705]LogAudioMixer: Display: Using Audio Device 스피커(5- USB Audio Device)
+[2021.06.02-12.04.56:171][705]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.06.02-12.04.56:171][705]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.06.02-12.04.56:172][705]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.06.02-12.04.56:172][705]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.06.02-12.04.56:172][705]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.06.02-12.04.56:172][705]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.06.02-12.04.56:192][705]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.06.02-12.04.56:192][705]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.06.02-12.04.56:192][705]LogInit: FAudioDevice initialized.
+[2021.06.02-12.04.56:193][705]LogAudio: Display: Audio Device (ID: 50) registered with world 'Main'.
+[2021.06.02-12.04.56:203][705]LogLoad: Game class is 'BPGameMode_C'
+[2021.06.02-12.04.56:205][705]LogWorld: Bringing World /Game/Levels/UEDPIE_0_Main.Main up for play (max tick rate 0) at 2021.06.02-21.04.56
+[2021.06.02-12.04.56:205][705]LogWorld: Bringing up level for play took: 0.001130
+[2021.06.02-12.04.56:205][705]LogOnline: OSS: Creating online subsystem instance for: :Context_57
+[2021.06.02-12.04.56:209][705]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently_IncludingInitialMouseDown -> CapturePermanently
+[2021.06.02-12.04.56:211][705]PIE: 서버가 로그인했습니다.
+[2021.06.02-12.04.56:212][705]PIE: 에디터에서 플레이 총 시작 시간 0.321초입니다.
+[2021.06.02-12.04.59:055][950]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.04.59:055][950]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.04.59:056][950]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.04.59:171][959]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.04.59:171][959]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.04.59:171][959]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.04.59:562][990]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.04.59:562][990]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.04.59:562][990]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.04.59:689][  0]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.04.59:690][  0]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.04.59:690][  0]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.04.59:815][ 10]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.04.59:815][ 10]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.04.59:815][ 10]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.04.59:935][ 20]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.04.59:935][ 20]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.04.59:935][ 20]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.04.59:999][ 25]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.04.59:999][ 25]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.04.59:999][ 25]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.05.00:636][ 76]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.00:636][ 76]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.00:636][ 76]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.05.00:760][ 86]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.00:760][ 86]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.00:760][ 86]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.05.00:882][ 96]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.00:882][ 96]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.00:882][ 96]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.05.01:007][105]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.01:007][105]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.01:007][105]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.05.02:907][254]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.02:907][254]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.02:907][254]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.05.03:028][264]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.03:028][264]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.03:028][264]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.05.03:541][304]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.03:541][304]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.03:541][304]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.05.04:344][372]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.04:344][372]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.04:344][372]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.05.04:461][382]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.04:461][382]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.04:461][382]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.05.09:514][829]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.05.09:514][829]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.05.09:514][829]LogWorld: UWorld::CleanupWorld for Main, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.05.09:515][829]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.05.09:521][829]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.06.02-12.05.09:530][829]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.05.09:573][829]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.05.09:573][829]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.05.09:575][829]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.05.09:602][829]LogUObjectHash: Compacting FUObjectHashTables data took   4.05ms
+[2021.06.02-12.05.09:657][830]LogPlayLevel: Display: Destroying online subsystem :Context_57
+[2021.06.02-12.05.31:240][ 75]BlueprintLog: New page: UI_MainHUDWidget 컴파일
+[2021.06.02-12.05.31:293][ 75]LogUObjectHash: Compacting FUObjectHashTables data took   5.82ms
+[2021.06.02-12.05.32:676][163]LogTemp: Repeating last play command: 선택된 뷰포트
+[2021.06.02-12.05.32:690][163]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.06.02-12.05.32:690][163]PIE: New page: PIE 세션: Main (2021. 6. 3. 오전 6:05:32)
+[2021.06.02-12.05.32:690][163]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.05.32:702][163]LogPlayLevel: PIE: StaticDuplicateObject took: (0.011394s)
+[2021.06.02-12.05.32:703][163]LogAIModule: Creating AISystem for world Main
+[2021.06.02-12.05.32:703][163]LogPlayLevel: PIE: World Init took: (0.001416s)
+[2021.06.02-12.05.32:703][163]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/Main.Main to /Game/Levels/UEDPIE_0_Main.Main (0.012984s)
+[2021.06.02-12.05.32:752][163]LogUObjectHash: Compacting FUObjectHashTables data took   5.61ms
+[2021.06.02-12.05.32:752][163]LogAudio: Display: Creating Audio Device:                 Id: 51, Scope: Unique, Realtime: True
+[2021.06.02-12.05.32:752][163]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.06.02-12.05.32:752][163]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.06.02-12.05.32:752][163]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.06.02-12.05.32:752][163]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.06.02-12.05.32:752][163]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2021.06.02-12.05.32:752][163]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2021.06.02-12.05.32:752][163]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2021.06.02-12.05.32:752][163]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.06.02-12.05.32:753][163]LogAudio: Display: Using built-in audio occlusion.
+[2021.06.02-12.05.32:753][163]LogAudioMixer: Display: Initializing audio mixer.
+[2021.06.02-12.05.32:781][163]LogAudioMixer: Display: 0: FrontLeft
+[2021.06.02-12.05.32:781][163]LogAudioMixer: Display: 1: FrontRight
+[2021.06.02-12.05.32:818][163]LogAudioMixer: Display: Using Audio Device 스피커(5- USB Audio Device)
+[2021.06.02-12.05.32:819][163]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.06.02-12.05.32:819][163]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.06.02-12.05.32:819][163]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.06.02-12.05.32:819][163]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.06.02-12.05.32:819][163]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.06.02-12.05.32:819][163]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.06.02-12.05.32:836][163]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.06.02-12.05.32:836][163]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.06.02-12.05.32:836][163]LogInit: FAudioDevice initialized.
+[2021.06.02-12.05.32:836][163]LogAudio: Display: Audio Device (ID: 51) registered with world 'Main'.
+[2021.06.02-12.05.32:847][163]LogLoad: Game class is 'BPGameMode_C'
+[2021.06.02-12.05.32:850][163]LogWorld: Bringing World /Game/Levels/UEDPIE_0_Main.Main up for play (max tick rate 0) at 2021.06.02-21.05.32
+[2021.06.02-12.05.32:850][163]LogWorld: Bringing up level for play took: 0.000917
+[2021.06.02-12.05.32:850][163]LogOnline: OSS: Creating online subsystem instance for: :Context_58
+[2021.06.02-12.05.32:853][163]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently_IncludingInitialMouseDown -> CapturePermanently
+[2021.06.02-12.05.32:854][163]PIE: 서버가 로그인했습니다.
+[2021.06.02-12.05.32:855][163]PIE: 에디터에서 플레이 총 시작 시간 0.171초입니다.
+[2021.06.02-12.05.35:880][427]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.35:880][427]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.35:880][427]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.05.36:014][437]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.36:014][437]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.36:014][437]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.05.36:385][464]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.36:385][464]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.36:385][464]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.05.36:465][471]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.36:465][471]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.36:465][471]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.05.36:513][475]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.36:513][475]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.36:513][475]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.05.36:640][485]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.36:640][485]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.36:640][485]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.05.37:576][562]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.37:576][562]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.37:576][562]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.05.37:697][571]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.37:697][571]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.37:698][571]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.05.39:201][695]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.39:201][695]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.39:201][695]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.05.39:322][705]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.39:322][705]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.39:322][705]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.05.40:312][783]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.05.40:312][783]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.05.40:313][783]LogWorld: UWorld::CleanupWorld for Main, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.05.40:313][783]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.05.40:322][783]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.06.02-12.05.40:331][783]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.05.40:374][783]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2021.06.02-12.05.40:374][783]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.05.40:375][783]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.05.40:398][783]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.05.40:405][783]LogUObjectHash: Compacting FUObjectHashTables data took   4.83ms
+[2021.06.02-12.05.40:446][784]LogPlayLevel: Display: Destroying online subsystem :Context_58
+[2021.06.02-12.05.41:030][833]LogTemp: Repeating last play command: 선택된 뷰포트
+[2021.06.02-12.05.41:044][833]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.06.02-12.05.41:044][833]PIE: New page: PIE 세션: Main (2021. 6. 3. 오전 6:05:41)
+[2021.06.02-12.05.41:076][833]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.05.41:087][833]LogPlayLevel: PIE: StaticDuplicateObject took: (0.010886s)
+[2021.06.02-12.05.41:089][833]LogAIModule: Creating AISystem for world Main
+[2021.06.02-12.05.41:089][833]LogPlayLevel: PIE: World Init took: (0.001377s)
+[2021.06.02-12.05.41:089][833]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/Main.Main to /Game/Levels/UEDPIE_0_Main.Main (0.012485s)
+[2021.06.02-12.05.41:134][833]LogUObjectHash: Compacting FUObjectHashTables data took   4.36ms
+[2021.06.02-12.05.41:135][833]LogAudio: Display: Creating Audio Device:                 Id: 52, Scope: Unique, Realtime: True
+[2021.06.02-12.05.41:135][833]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.06.02-12.05.41:135][833]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.06.02-12.05.41:135][833]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.06.02-12.05.41:135][833]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.06.02-12.05.41:135][833]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2021.06.02-12.05.41:135][833]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2021.06.02-12.05.41:135][833]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2021.06.02-12.05.41:135][833]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.06.02-12.05.41:136][833]LogAudio: Display: Using built-in audio occlusion.
+[2021.06.02-12.05.41:136][833]LogAudioMixer: Display: Initializing audio mixer.
+[2021.06.02-12.05.41:171][833]LogAudioMixer: Display: 0: FrontLeft
+[2021.06.02-12.05.41:171][833]LogAudioMixer: Display: 1: FrontRight
+[2021.06.02-12.05.41:213][833]LogAudioMixer: Display: Using Audio Device 스피커(5- USB Audio Device)
+[2021.06.02-12.05.41:213][833]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.06.02-12.05.41:213][833]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.06.02-12.05.41:214][833]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.06.02-12.05.41:214][833]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.06.02-12.05.41:214][833]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.06.02-12.05.41:214][833]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.06.02-12.05.41:232][833]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.06.02-12.05.41:232][833]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.06.02-12.05.41:232][833]LogInit: FAudioDevice initialized.
+[2021.06.02-12.05.41:232][833]LogAudio: Display: Audio Device (ID: 52) registered with world 'Main'.
+[2021.06.02-12.05.41:242][833]LogLoad: Game class is 'BPGameMode_C'
+[2021.06.02-12.05.41:244][833]LogWorld: Bringing World /Game/Levels/UEDPIE_0_Main.Main up for play (max tick rate 0) at 2021.06.02-21.05.41
+[2021.06.02-12.05.41:244][833]LogWorld: Bringing up level for play took: 0.001128
+[2021.06.02-12.05.41:245][833]LogOnline: OSS: Creating online subsystem instance for: :Context_59
+[2021.06.02-12.05.41:248][833]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently_IncludingInitialMouseDown -> CapturePermanently
+[2021.06.02-12.05.41:249][833]PIE: 서버가 로그인했습니다.
+[2021.06.02-12.05.41:250][833]PIE: 에디터에서 플레이 총 시작 시간 0.212초입니다.
+[2021.06.02-12.05.43:541][ 31]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.43:541][ 31]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.43:541][ 31]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] SuppressorNoise
+[2021.06.02-12.05.44:096][ 74]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.44:097][ 74]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.44:097][ 74]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] SuppressorNoise
+[2021.06.02-12.05.44:225][ 85]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.44:225][ 85]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.44:225][ 85]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] SuppressorNoise
+[2021.06.02-12.05.44:342][ 95]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.44:342][ 95]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.44:342][ 95]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] SuppressorNoise
+[2021.06.02-12.05.44:549][112]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.44:549][112]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.44:549][112]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] SuppressorNoise
+[2021.06.02-12.05.44:670][122]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.44:670][122]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.44:670][122]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] SuppressorNoise
+[2021.06.02-12.05.45:625][196]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.45:625][196]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.45:625][196]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] SuppressorNoise
+[2021.06.02-12.05.45:954][222]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.45:954][222]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.45:954][222]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] SuppressorNoise
+[2021.06.02-12.05.46:570][273]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.46:570][273]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.46:570][273]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] SuppressorNoise
+[2021.06.02-12.05.46:689][283]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.46:690][283]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.05.46:690][283]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] SuppressorNoise
+[2021.06.02-12.05.48:078][392]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.48:078][392]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.48:078][392]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.05.48:200][402]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.48:200][402]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.48:200][402]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.05.48:327][412]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.48:327][412]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.48:327][412]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.05.49:293][488]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.49:293][488]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.05.49:293][488]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.05.50:923][625]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.05.50:923][625]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.05.50:923][625]LogWorld: UWorld::CleanupWorld for Main, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.05.50:924][625]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.05.50:934][625]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.06.02-12.05.50:943][625]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.05.50:986][625]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.05.50:987][625]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.05.50:988][625]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.05.51:017][625]LogUObjectHash: Compacting FUObjectHashTables data took   5.05ms
+[2021.06.02-12.05.51:068][626]LogPlayLevel: Display: Destroying online subsystem :Context_59
+[2021.06.02-12.06.02:654][149]BlueprintLog: New page: UI_MainHUDWidget 컴파일
+[2021.06.02-12.06.02:706][149]LogUObjectHash: Compacting FUObjectHashTables data took   5.48ms
+[2021.06.02-12.06.04:327][244]LogTemp: Repeating last play command: 선택된 뷰포트
+[2021.06.02-12.06.04:341][244]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.06.02-12.06.04:341][244]PIE: New page: PIE 세션: Main (2021. 6. 3. 오전 6:06:04)
+[2021.06.02-12.06.04:366][244]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.06.04:378][244]LogPlayLevel: PIE: StaticDuplicateObject took: (0.011258s)
+[2021.06.02-12.06.04:379][244]LogAIModule: Creating AISystem for world Main
+[2021.06.02-12.06.04:380][244]LogPlayLevel: PIE: World Init took: (0.001495s)
+[2021.06.02-12.06.04:380][244]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/Main.Main to /Game/Levels/UEDPIE_0_Main.Main (0.012953s)
+[2021.06.02-12.06.04:425][244]LogUObjectHash: Compacting FUObjectHashTables data took   5.39ms
+[2021.06.02-12.06.04:426][244]LogAudio: Display: Creating Audio Device:                 Id: 53, Scope: Unique, Realtime: True
+[2021.06.02-12.06.04:426][244]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.06.02-12.06.04:426][244]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.06.02-12.06.04:426][244]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.06.02-12.06.04:426][244]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.06.02-12.06.04:426][244]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2021.06.02-12.06.04:426][244]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2021.06.02-12.06.04:426][244]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2021.06.02-12.06.04:426][244]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.06.02-12.06.04:427][244]LogAudio: Display: Using built-in audio occlusion.
+[2021.06.02-12.06.04:427][244]LogAudioMixer: Display: Initializing audio mixer.
+[2021.06.02-12.06.04:456][244]LogAudioMixer: Display: 0: FrontLeft
+[2021.06.02-12.06.04:456][244]LogAudioMixer: Display: 1: FrontRight
+[2021.06.02-12.06.04:494][244]LogAudioMixer: Display: Using Audio Device 스피커(5- USB Audio Device)
+[2021.06.02-12.06.04:494][244]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.06.02-12.06.04:494][244]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.06.02-12.06.04:494][244]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.06.02-12.06.04:495][244]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.06.02-12.06.04:495][244]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.06.02-12.06.04:495][244]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.06.02-12.06.04:512][244]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.06.02-12.06.04:512][244]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.06.02-12.06.04:512][244]LogInit: FAudioDevice initialized.
+[2021.06.02-12.06.04:512][244]LogAudio: Display: Audio Device (ID: 53) registered with world 'Main'.
+[2021.06.02-12.06.04:524][244]LogLoad: Game class is 'BPGameMode_C'
+[2021.06.02-12.06.04:527][244]LogWorld: Bringing World /Game/Levels/UEDPIE_0_Main.Main up for play (max tick rate 0) at 2021.06.02-21.06.04
+[2021.06.02-12.06.04:527][244]LogWorld: Bringing up level for play took: 0.001191
+[2021.06.02-12.06.04:527][244]LogOnline: OSS: Creating online subsystem instance for: :Context_60
+[2021.06.02-12.06.04:530][244]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently_IncludingInitialMouseDown -> CapturePermanently
+[2021.06.02-12.06.04:531][244]PIE: 서버가 로그인했습니다.
+[2021.06.02-12.06.04:532][244]PIE: 에디터에서 플레이 총 시작 시간 0.197초입니다.
+[2021.06.02-12.06.08:617][602]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.08:618][602]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.08:618][602]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.09:191][649]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.09:191][649]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.09:191][649]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.06.09:336][661]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.09:336][661]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.09:336][661]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.06.09:466][671]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.09:466][671]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.09:466][671]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.06.09:585][681]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.09:586][681]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.09:586][681]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.06.09:990][713]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.09:991][713]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.09:991][713]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.06.10:116][723]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.10:116][723]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.10:116][723]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.06.10:240][732]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.10:241][732]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.10:241][732]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.06.10:365][742]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.10:366][742]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.10:366][742]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.06.11:358][818]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.11:358][818]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.11:358][818]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.06.11:442][825]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.11:442][825]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.06.11:442][825]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.06.21:623][664]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.06.21:623][664]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.06.21:624][664]LogWorld: UWorld::CleanupWorld for Main, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.06.21:625][664]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.06.21:637][664]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.06.02-12.06.21:646][664]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.06.21:689][664]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.06.21:689][664]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.06.21:690][664]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.06.21:717][664]LogUObjectHash: Compacting FUObjectHashTables data took   4.33ms
+[2021.06.02-12.06.21:769][665]LogPlayLevel: Display: Destroying online subsystem :Context_60
+[2021.06.02-12.07.02:504][954]BlueprintLog: New page: UI_MainHUDWidget 컴파일
+[2021.06.02-12.07.02:554][954]LogUObjectHash: Compacting FUObjectHashTables data took   5.90ms
+[2021.06.02-12.07.04:203][ 52]LogTemp: Repeating last play command: 선택된 뷰포트
+[2021.06.02-12.07.04:218][ 52]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.06.02-12.07.04:218][ 52]PIE: New page: PIE 세션: Main (2021. 6. 3. 오전 6:07:04)
+[2021.06.02-12.07.04:218][ 52]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.07.04:229][ 52]LogPlayLevel: PIE: StaticDuplicateObject took: (0.010823s)
+[2021.06.02-12.07.04:230][ 52]LogAIModule: Creating AISystem for world Main
+[2021.06.02-12.07.04:230][ 52]LogPlayLevel: PIE: World Init took: (0.001504s)
+[2021.06.02-12.07.04:230][ 52]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/Main.Main to /Game/Levels/UEDPIE_0_Main.Main (0.012508s)
+[2021.06.02-12.07.04:278][ 52]LogUObjectHash: Compacting FUObjectHashTables data took   5.72ms
+[2021.06.02-12.07.04:279][ 52]LogAudio: Display: Creating Audio Device:                 Id: 54, Scope: Unique, Realtime: True
+[2021.06.02-12.07.04:279][ 52]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.06.02-12.07.04:279][ 52]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.06.02-12.07.04:279][ 52]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.06.02-12.07.04:279][ 52]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.06.02-12.07.04:279][ 52]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2021.06.02-12.07.04:279][ 52]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2021.06.02-12.07.04:279][ 52]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2021.06.02-12.07.04:279][ 52]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.06.02-12.07.04:280][ 52]LogAudio: Display: Using built-in audio occlusion.
+[2021.06.02-12.07.04:280][ 52]LogAudioMixer: Display: Initializing audio mixer.
+[2021.06.02-12.07.04:307][ 52]LogAudioMixer: Display: 0: FrontLeft
+[2021.06.02-12.07.04:307][ 52]LogAudioMixer: Display: 1: FrontRight
+[2021.06.02-12.07.04:347][ 52]LogAudioMixer: Display: Using Audio Device 스피커(5- USB Audio Device)
+[2021.06.02-12.07.04:347][ 52]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.06.02-12.07.04:347][ 52]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.06.02-12.07.04:347][ 52]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.06.02-12.07.04:348][ 52]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.06.02-12.07.04:348][ 52]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.06.02-12.07.04:348][ 52]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.06.02-12.07.04:365][ 52]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.06.02-12.07.04:365][ 52]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.06.02-12.07.04:365][ 52]LogInit: FAudioDevice initialized.
+[2021.06.02-12.07.04:365][ 52]LogAudio: Display: Audio Device (ID: 54) registered with world 'Main'.
+[2021.06.02-12.07.04:378][ 52]LogLoad: Game class is 'BPGameMode_C'
+[2021.06.02-12.07.04:380][ 52]LogWorld: Bringing World /Game/Levels/UEDPIE_0_Main.Main up for play (max tick rate 0) at 2021.06.02-21.07.04
+[2021.06.02-12.07.04:380][ 52]LogWorld: Bringing up level for play took: 0.001171
+[2021.06.02-12.07.04:381][ 52]LogOnline: OSS: Creating online subsystem instance for: :Context_61
+[2021.06.02-12.07.04:383][ 52]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently_IncludingInitialMouseDown -> CapturePermanently
+[2021.06.02-12.07.04:384][ 52]PIE: 서버가 로그인했습니다.
+[2021.06.02-12.07.04:385][ 52]PIE: 에디터에서 플레이 총 시작 시간 0.174초입니다.
+[2021.06.02-12.07.08:393][400]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.08:393][400]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.08:393][400]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.08:536][411]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.08:536][411]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.08:536][411]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.08:659][416]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.08:659][416]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.08:659][416]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.09:012][445]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:012][445]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:012][445]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.09:134][455]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:134][455]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:134][455]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.09:253][465]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:253][465]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:253][465]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.09:381][475]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:381][475]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:381][475]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.09:506][485]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:506][485]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:506][485]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.09:606][493]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:606][493]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:606][493]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.09:632][495]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:632][495]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:632][495]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.09:868][513]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:868][513]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:868][513]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.09:989][522]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:989][522]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.09:989][522]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.10:119][532]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.10:119][532]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.10:119][532]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.10:868][588]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.10:868][588]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.10:868][588]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.10:990][598]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.10:990][598]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.10:990][598]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.11:113][608]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.11:113][608]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.11:113][608]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.33:383][484]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.07.33:383][484]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.07.33:383][484]LogWorld: UWorld::CleanupWorld for Main, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.07.33:384][484]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.07.33:394][484]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.06.02-12.07.33:402][484]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.07.33:444][484]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2021.06.02-12.07.33:445][484]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.07.33:446][484]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.07.33:467][484]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.07.33:473][484]LogUObjectHash: Compacting FUObjectHashTables data took   4.41ms
+[2021.06.02-12.07.33:523][485]LogPlayLevel: Display: Destroying online subsystem :Context_61
+[2021.06.02-12.07.37:632][823]LogUObjectHash: Compacting FUObjectHashTables data took   4.13ms
+[2021.06.02-12.07.37:650][823]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/UI/UI_MainHUDWidget" FILE="G:/Git/ProjectTPS/Content/UI/UI_MainHUDWidget.uasset" SILENT=true
+[2021.06.02-12.07.37:722][823]LogSavePackage: Moving 'G:/Git/ProjectTPS/Saved/UI_MainHUDWidgetAAA06F3A4DBC183B449436890581DBF7.tmp' to 'G:/Git/ProjectTPS/Content/UI/UI_MainHUDWidget.uasset'
+[2021.06.02-12.07.37:742][823]AssetCheck: New page: 애셋 저장: UI_MainHUDWidget
+[2021.06.02-12.07.37:742][823]LogContentValidation: Display: WidgetBlueprint /Game/UI/UI_MainHUDWidget.UI_MainHUDWidget 유효성 검사
+[2021.06.02-12.07.51:192][ 79]LogTemp: Repeating last play command: 선택된 뷰포트
+[2021.06.02-12.07.51:207][ 79]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.06.02-12.07.51:207][ 79]PIE: New page: PIE 세션: Main (2021. 6. 3. 오전 6:07:51)
+[2021.06.02-12.07.51:247][ 79]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.07.51:258][ 79]LogPlayLevel: PIE: StaticDuplicateObject took: (0.010937s)
+[2021.06.02-12.07.51:259][ 79]LogAIModule: Creating AISystem for world Main
+[2021.06.02-12.07.51:260][ 79]LogPlayLevel: PIE: World Init took: (0.001836s)
+[2021.06.02-12.07.51:260][ 79]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/Main.Main to /Game/Levels/UEDPIE_0_Main.Main (0.012984s)
+[2021.06.02-12.07.51:311][ 79]LogUObjectHash: Compacting FUObjectHashTables data took   4.81ms
+[2021.06.02-12.07.51:315][ 79]LogAudio: Display: Creating Audio Device:                 Id: 55, Scope: Unique, Realtime: True
+[2021.06.02-12.07.51:315][ 79]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.06.02-12.07.51:315][ 79]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.06.02-12.07.51:315][ 79]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.06.02-12.07.51:315][ 79]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.06.02-12.07.51:315][ 79]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2021.06.02-12.07.51:315][ 79]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2021.06.02-12.07.51:315][ 79]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2021.06.02-12.07.51:315][ 79]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.06.02-12.07.51:316][ 79]LogAudio: Display: Using built-in audio occlusion.
+[2021.06.02-12.07.51:316][ 79]LogAudioMixer: Display: Initializing audio mixer.
+[2021.06.02-12.07.51:347][ 79]LogAudioMixer: Display: 0: FrontLeft
+[2021.06.02-12.07.51:347][ 79]LogAudioMixer: Display: 1: FrontRight
+[2021.06.02-12.07.51:387][ 79]LogAudioMixer: Display: Using Audio Device 스피커(5- USB Audio Device)
+[2021.06.02-12.07.51:387][ 79]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.06.02-12.07.51:387][ 79]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.06.02-12.07.51:387][ 79]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.06.02-12.07.51:388][ 79]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.06.02-12.07.51:388][ 79]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.06.02-12.07.51:388][ 79]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.06.02-12.07.51:404][ 79]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.06.02-12.07.51:404][ 79]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.06.02-12.07.51:404][ 79]LogInit: FAudioDevice initialized.
+[2021.06.02-12.07.51:404][ 79]LogAudio: Display: Audio Device (ID: 55) registered with world 'Main'.
+[2021.06.02-12.07.51:416][ 79]LogLoad: Game class is 'BPGameMode_C'
+[2021.06.02-12.07.51:418][ 79]LogWorld: Bringing World /Game/Levels/UEDPIE_0_Main.Main up for play (max tick rate 0) at 2021.06.02-21.07.51
+[2021.06.02-12.07.51:418][ 79]LogWorld: Bringing up level for play took: 0.001064
+[2021.06.02-12.07.51:418][ 79]LogOnline: OSS: Creating online subsystem instance for: :Context_67
+[2021.06.02-12.07.51:422][ 79]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently_IncludingInitialMouseDown -> CapturePermanently
+[2021.06.02-12.07.51:422][ 79]PIE: 서버가 로그인했습니다.
+[2021.06.02-12.07.51:423][ 79]PIE: 에디터에서 플레이 총 시작 시간 0.223초입니다.
+[2021.06.02-12.07.54:997][383]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.54:997][383]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.54:997][383]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.55:139][394]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.55:139][394]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.55:139][394]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.55:404][413]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.55:404][413]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.55:404][413]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.55:456][417]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.55:456][417]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.55:456][417]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.55:579][426]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.55:579][426]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.55:579][426]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.55:699][435]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.55:699][435]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.55:699][435]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.55:821][445]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.55:821][445]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.55:821][445]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.55:951][455]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.55:951][455]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.55:951][455]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.56:738][516]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.56:738][516]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.56:738][516]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.56:860][525]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.56:860][525]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.56:860][525]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.56:984][534]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.56:984][534]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.56:984][534]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.57:314][560]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.57:314][560]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.07.57:314][560]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.07.58:683][665]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.07.58:683][665]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.07.58:683][665]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.07.58:819][675]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.07.58:819][675]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.07.58:819][675]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.07.58:942][683]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.07.58:942][683]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.07.58:942][683]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.07.59:062][692]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.07.59:062][692]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.07.59:062][692]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.07.59:182][701]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.07.59:182][701]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.07.59:182][701]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.07.59:313][711]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.07.59:313][711]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.07.59:313][711]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.08.00:025][766]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.08.00:025][766]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.08.00:025][766]LogWorld: UWorld::CleanupWorld for Main, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.08.00:026][766]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.08.00:035][766]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.06.02-12.08.00:044][766]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.08.00:090][766]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2021.06.02-12.08.00:090][766]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.08.00:091][766]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.08.00:110][766]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.08.00:117][766]LogUObjectHash: Compacting FUObjectHashTables data took   4.32ms
+[2021.06.02-12.08.00:166][767]LogPlayLevel: Display: Destroying online subsystem :Context_67
+[2021.06.02-12.09.20:551][299]LogTemp: Repeating last play command: 선택된 뷰포트
+[2021.06.02-12.09.20:568][299]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.06.02-12.09.20:569][299]PIE: New page: PIE 세션: Main (2021. 6. 3. 오전 6:09:20)
+[2021.06.02-12.09.20:616][299]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.09.20:629][299]LogPlayLevel: PIE: StaticDuplicateObject took: (0.012448s)
+[2021.06.02-12.09.20:629][299]LogAIModule: Creating AISystem for world Main
+[2021.06.02-12.09.20:630][299]LogPlayLevel: PIE: World Init took: (0.001635s)
+[2021.06.02-12.09.20:630][299]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/Main.Main to /Game/Levels/UEDPIE_0_Main.Main (0.014289s)
+[2021.06.02-12.09.20:681][299]LogUObjectHash: Compacting FUObjectHashTables data took   6.60ms
+[2021.06.02-12.09.20:691][299]LogAudio: Display: Creating Audio Device:                 Id: 56, Scope: Unique, Realtime: True
+[2021.06.02-12.09.20:691][299]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.06.02-12.09.20:691][299]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.06.02-12.09.20:691][299]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.06.02-12.09.20:691][299]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.06.02-12.09.20:691][299]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2021.06.02-12.09.20:691][299]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2021.06.02-12.09.20:691][299]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2021.06.02-12.09.20:691][299]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.06.02-12.09.20:692][299]LogAudio: Display: Using built-in audio occlusion.
+[2021.06.02-12.09.20:692][299]LogAudioMixer: Display: Initializing audio mixer.
+[2021.06.02-12.09.20:721][299]LogAudioMixer: Display: 0: FrontLeft
+[2021.06.02-12.09.20:721][299]LogAudioMixer: Display: 1: FrontRight
+[2021.06.02-12.09.20:767][299]LogAudioMixer: Display: Using Audio Device 스피커(5- USB Audio Device)
+[2021.06.02-12.09.20:767][299]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.06.02-12.09.20:767][299]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.06.02-12.09.20:767][299]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.06.02-12.09.20:768][299]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.06.02-12.09.20:768][299]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.06.02-12.09.20:768][299]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.06.02-12.09.20:789][299]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.06.02-12.09.20:789][299]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.06.02-12.09.20:789][299]LogInit: FAudioDevice initialized.
+[2021.06.02-12.09.20:789][299]LogAudio: Display: Audio Device (ID: 56) registered with world 'Main'.
+[2021.06.02-12.09.20:798][299]LogLoad: Game class is 'BPGameMode_C'
+[2021.06.02-12.09.20:800][299]LogWorld: Bringing World /Game/Levels/UEDPIE_0_Main.Main up for play (max tick rate 0) at 2021.06.02-21.09.20
+[2021.06.02-12.09.20:801][299]LogWorld: Bringing up level for play took: 0.001263
+[2021.06.02-12.09.20:801][299]LogOnline: OSS: Creating online subsystem instance for: :Context_68
+[2021.06.02-12.09.20:805][299]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently_IncludingInitialMouseDown -> CapturePermanently
+[2021.06.02-12.09.20:806][299]PIE: 서버가 로그인했습니다.
+[2021.06.02-12.09.20:807][299]PIE: 에디터에서 플레이 총 시작 시간 0.246초입니다.
+[2021.06.02-12.09.23:470][528]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.23:470][528]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.23:470][528]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.09.23:605][539]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.23:605][539]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.23:605][539]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.09.23:922][564]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.23:922][564]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.23:922][564]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.09.24:044][574]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.24:044][574]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.24:044][574]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.09.24:174][584]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.24:174][584]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.24:174][584]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.09.24:414][602]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.24:414][602]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.24:414][602]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.09.24:544][612]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.24:544][612]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.24:544][612]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.09.24:664][622]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.24:664][622]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.24:664][622]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.09.25:638][701]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.25:638][701]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.25:638][701]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.09.25:768][712]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.25:768][712]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.25:768][712]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.09.26:071][737]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.26:071][737]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.26:071][737]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.09.26:198][747]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.26:198][747]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.26:198][747]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.09.26:336][757]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.26:336][757]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.26:336][757]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.09.26:406][762]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.26:406][762]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.26:406][762]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.09.26:460][766]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.26:460][766]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.09.26:460][766]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.09.44:303][215]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.09.44:303][215]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.09.44:303][215]LogWorld: UWorld::CleanupWorld for Main, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.09.44:305][215]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.09.44:316][215]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.06.02-12.09.44:325][215]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.09.44:369][215]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2021.06.02-12.09.44:369][215]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.09.44:370][215]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.09.44:391][215]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.09.44:400][215]LogUObjectHash: Compacting FUObjectHashTables data took   5.82ms
+[2021.06.02-12.09.44:458][216]LogPlayLevel: Display: Destroying online subsystem :Context_68
+[2021.06.02-12.11.38:196][223]LogSlate: Only BGRA pngs, bmps or icos are supported in by External Image Picker
+[2021.06.02-12.12.07:170][212]LogTemp: Repeating last play command: 선택된 뷰포트
+[2021.06.02-12.12.07:185][212]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.06.02-12.12.07:185][212]PIE: New page: PIE 세션: Main (2021. 6. 3. 오전 6:12:07)
+[2021.06.02-12.12.07:206][212]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.12.07:219][212]LogPlayLevel: PIE: StaticDuplicateObject took: (0.012449s)
+[2021.06.02-12.12.07:221][212]LogAIModule: Creating AISystem for world Main
+[2021.06.02-12.12.07:221][212]LogPlayLevel: PIE: World Init took: (0.002037s)
+[2021.06.02-12.12.07:221][212]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/Main.Main to /Game/Levels/UEDPIE_0_Main.Main (0.014791s)
+[2021.06.02-12.12.07:336][212]LogUObjectHash: Compacting FUObjectHashTables data took   7.37ms
+[2021.06.02-12.12.07:340][212]LogAudio: Display: Creating Audio Device:                 Id: 57, Scope: Unique, Realtime: True
+[2021.06.02-12.12.07:340][212]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.06.02-12.12.07:340][212]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.06.02-12.12.07:340][212]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.06.02-12.12.07:340][212]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.06.02-12.12.07:340][212]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2021.06.02-12.12.07:340][212]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2021.06.02-12.12.07:340][212]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2021.06.02-12.12.07:340][212]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.06.02-12.12.07:340][212]LogAudio: Display: Using built-in audio occlusion.
+[2021.06.02-12.12.07:340][212]LogAudioMixer: Display: Initializing audio mixer.
+[2021.06.02-12.12.07:370][212]LogAudioMixer: Display: 0: FrontLeft
+[2021.06.02-12.12.07:370][212]LogAudioMixer: Display: 1: FrontRight
+[2021.06.02-12.12.07:410][212]LogAudioMixer: Display: Using Audio Device 스피커(5- USB Audio Device)
+[2021.06.02-12.12.07:411][212]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.06.02-12.12.07:411][212]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.06.02-12.12.07:411][212]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.06.02-12.12.07:411][212]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.06.02-12.12.07:411][212]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.06.02-12.12.07:411][212]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.06.02-12.12.07:430][212]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.06.02-12.12.07:430][212]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.06.02-12.12.07:430][212]LogInit: FAudioDevice initialized.
+[2021.06.02-12.12.07:430][212]LogAudio: Display: Audio Device (ID: 57) registered with world 'Main'.
+[2021.06.02-12.12.07:440][212]LogLoad: Game class is 'BPGameMode_C'
+[2021.06.02-12.12.07:442][212]LogWorld: Bringing World /Game/Levels/UEDPIE_0_Main.Main up for play (max tick rate 0) at 2021.06.02-21.12.07
+[2021.06.02-12.12.07:442][212]LogWorld: Bringing up level for play took: 0.001315
+[2021.06.02-12.12.07:442][212]LogOnline: OSS: Creating online subsystem instance for: :Context_69
+[2021.06.02-12.12.07:446][212]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently_IncludingInitialMouseDown -> CapturePermanently
+[2021.06.02-12.12.07:447][212]PIE: 서버가 로그인했습니다.
+[2021.06.02-12.12.07:447][212]PIE: 에디터에서 플레이 총 시작 시간 0.27초입니다.
+[2021.06.02-12.12.24:518][597]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.24:518][597]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.24:518][597]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.24:644][606]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.24:644][606]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.24:645][606]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.24:772][615]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.24:772][615]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.24:772][615]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.24:894][624]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.24:894][624]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.24:894][624]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.25:020][633]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.25:020][633]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.25:020][633]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.25:138][642]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.25:138][642]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.25:138][642]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.25:262][652]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.25:262][652]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.25:262][652]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.25:392][662]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.25:392][662]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.25:392][662]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.25:525][672]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.25:525][672]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.25:525][672]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.25:651][681]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.25:651][681]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.25:651][681]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.25:775][690]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.25:775][690]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.25:775][690]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.26:783][768]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.26:783][768]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.26:783][768]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.30:280][ 43]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.30:280][ 43]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.30:280][ 43]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.30:406][ 53]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.30:406][ 53]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.30:406][ 53]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.30:814][ 85]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.30:814][ 85]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.30:814][ 85]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.30:946][ 96]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.30:946][ 96]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.30:946][ 96]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.31:302][124]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.31:302][124]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.31:302][124]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.31:423][134]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.31:423][134]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.31:423][134]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.31:547][144]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.31:547][144]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.31:547][144]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.31:856][167]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.31:856][167]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.31:856][167]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.31:989][177]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.31:989][177]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.31:989][177]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.32:109][186]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.32:109][186]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.12.32:109][186]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] SuppressorNoise
+[2021.06.02-12.12.45:559][298]LogProjectileMovement: Warning: BP_Bullet_C_0 is outside the world bounds!
+[2021.06.02-12.12.47:542][461]LogProjectileMovement: Warning: BP_Bullet_C_9 is outside the world bounds!
+[2021.06.02-12.12.47:667][471]LogProjectileMovement: Warning: BP_Bullet_C_10 is outside the world bounds!
+[2021.06.02-12.12.47:836][484]LogProjectileMovement: Warning: BP_Bullet_C_11 is outside the world bounds!
+[2021.06.02-12.12.47:961][493]LogProjectileMovement: Warning: BP_Bullet_C_12 is outside the world bounds!
+[2021.06.02-12.12.48:230][514]LogProjectileMovement: Warning: BP_Bullet_C_13 is outside the world bounds!
+[2021.06.02-12.12.48:322][521]LogProjectileMovement: Warning: BP_Bullet_C_14 is outside the world bounds!
+[2021.06.02-12.12.48:633][547]LogProjectileMovement: Warning: BP_Bullet_C_15 is outside the world bounds!
+[2021.06.02-12.12.48:752][557]LogProjectileMovement: Warning: BP_Bullet_C_16 is outside the world bounds!
+[2021.06.02-12.12.48:859][566]LogProjectileMovement: Warning: BP_Bullet_C_17 is outside the world bounds!
+[2021.06.02-12.12.49:120][586]LogProjectileMovement: Warning: BP_Bullet_C_18 is outside the world bounds!
+[2021.06.02-12.12.49:493][615]LogProjectileMovement: Warning: BP_Bullet_C_21 is outside the world bounds!
+[2021.06.02-12.12.49:624][624]LogProjectileMovement: Warning: BP_Bullet_C_22 is outside the world bounds!
+[2021.06.02-12.12.49:755][634]LogProjectileMovement: Warning: BP_Bullet_C_23 is outside the world bounds!
+[2021.06.02-12.12.49:885][644]LogProjectileMovement: Warning: BP_Bullet_C_24 is outside the world bounds!
+[2021.06.02-12.12.50:011][653]LogProjectileMovement: Warning: BP_Bullet_C_25 is outside the world bounds!
+[2021.06.02-12.12.50:140][663]LogProjectileMovement: Warning: BP_Bullet_C_26 is outside the world bounds!
+[2021.06.02-12.12.50:301][676]LogProjectileMovement: Warning: BP_Bullet_C_27 is outside the world bounds!
+[2021.06.02-12.12.59:633][424]LogProjectileMovement: Warning: BP_Bullet_C_42 is outside the world bounds!
+[2021.06.02-12.12.59:744][432]LogProjectileMovement: Warning: BP_Bullet_C_43 is outside the world bounds!
+[2021.06.02-12.12.59:760][433]LogProjectileMovement: Warning: BP_Bullet_C_35 is outside the world bounds!
+[2021.06.02-12.12.59:870][441]LogProjectileMovement: Warning: BP_Bullet_C_36 is outside the world bounds!
+[2021.06.02-12.12.59:870][441]LogProjectileMovement: Warning: BP_Bullet_C_44 is outside the world bounds!
+[2021.06.02-12.12.59:870][441]LogProjectileMovement: Warning: BP_Bullet_C_41 is outside the world bounds!
+[2021.06.02-12.13.00:102][459]LogProjectileMovement: Warning: BP_Bullet_C_38 is outside the world bounds!
+[2021.06.02-12.13.00:147][462]LogProjectileMovement: Warning: BP_Bullet_C_39 is outside the world bounds!
+[2021.06.02-12.13.00:222][468]LogProjectileMovement: Warning: BP_Bullet_C_28 is outside the world bounds!
+[2021.06.02-12.13.00:235][469]LogProjectileMovement: Warning: BP_Bullet_C_45 is outside the world bounds!
+[2021.06.02-12.13.00:260][471]LogProjectileMovement: Warning: BP_Bullet_C_30 is outside the world bounds!
+[2021.06.02-12.13.00:287][473]LogProjectileMovement: Warning: BP_Bullet_C_29 is outside the world bounds!
+[2021.06.02-12.13.00:287][473]LogProjectileMovement: Warning: BP_Bullet_C_31 is outside the world bounds!
+[2021.06.02-12.13.00:442][486]LogProjectileMovement: Warning: BP_Bullet_C_32 is outside the world bounds!
+[2021.06.02-12.13.00:455][487]LogProjectileMovement: Warning: BP_Bullet_C_33 is outside the world bounds!
+[2021.06.02-12.13.03:751][727]LogProjectileMovement: Warning: BP_Bullet_C_56 is outside the world bounds!
+[2021.06.02-12.13.03:974][742]LogProjectileMovement: Warning: BP_Bullet_C_57 is outside the world bounds!
+[2021.06.02-12.13.07:610][ 36]LogProjectileMovement: Warning: BP_Bullet_C_69 is outside the world bounds!
+[2021.06.02-12.13.10:139][236]LogProjectileMovement: Warning: BP_Bullet_C_68 is outside the world bounds!
+[2021.06.02-12.13.14:797][615]LogProjectileMovement: Warning: BP_Bullet_C_73 is outside the world bounds!
+[2021.06.02-12.13.14:820][617]LogProjectileMovement: Warning: BP_Bullet_C_72 is outside the world bounds!
+[2021.06.02-12.13.14:963][629]LogProjectileMovement: Warning: BP_Bullet_C_74 is outside the world bounds!
+[2021.06.02-12.13.15:094][639]LogProjectileMovement: Warning: BP_Bullet_C_75 is outside the world bounds!
+[2021.06.02-12.13.15:287][653]LogProjectileMovement: Warning: BP_Bullet_C_70 is outside the world bounds!
+[2021.06.02-12.13.15:364][656]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.13.15:364][656]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.13.15:364][656]LogWorld: UWorld::CleanupWorld for Main, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.13.15:366][656]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.13.15:373][656]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.06.02-12.13.15:383][656]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.13.15:425][656]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2021.06.02-12.13.15:425][656]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.13.15:426][656]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.13.15:445][656]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.13.15:453][656]LogUObjectHash: Compacting FUObjectHashTables data took   5.77ms
+[2021.06.02-12.13.15:486][657]LogPlayLevel: Display: Destroying online subsystem :Context_69
+[2021.06.02-12.13.16:504][739]LogTemp: Repeating last play command: 선택된 뷰포트
+[2021.06.02-12.13.16:519][739]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.06.02-12.13.16:519][739]PIE: New page: PIE 세션: Main (2021. 6. 3. 오전 6:13:16)
+[2021.06.02-12.13.16:519][739]LogPlayLevel: Creating play world package: /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.13.16:529][739]LogPlayLevel: PIE: StaticDuplicateObject took: (0.010697s)
+[2021.06.02-12.13.16:531][739]LogAIModule: Creating AISystem for world Main
+[2021.06.02-12.13.16:531][739]LogPlayLevel: PIE: World Init took: (0.002059s)
+[2021.06.02-12.13.16:531][739]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/Main.Main to /Game/Levels/UEDPIE_0_Main.Main (0.012961s)
+[2021.06.02-12.13.16:578][739]LogUObjectHash: Compacting FUObjectHashTables data took   5.22ms
+[2021.06.02-12.13.16:579][739]LogAudio: Display: Creating Audio Device:                 Id: 58, Scope: Unique, Realtime: True
+[2021.06.02-12.13.16:579][739]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.06.02-12.13.16:579][739]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.06.02-12.13.16:579][739]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.06.02-12.13.16:579][739]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.06.02-12.13.16:579][739]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2021.06.02-12.13.16:579][739]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2021.06.02-12.13.16:579][739]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2021.06.02-12.13.16:579][739]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.06.02-12.13.16:580][739]LogAudio: Display: Using built-in audio occlusion.
+[2021.06.02-12.13.16:580][739]LogAudioMixer: Display: Initializing audio mixer.
+[2021.06.02-12.13.16:609][739]LogAudioMixer: Display: 0: FrontLeft
+[2021.06.02-12.13.16:609][739]LogAudioMixer: Display: 1: FrontRight
+[2021.06.02-12.13.16:646][739]LogAudioMixer: Display: Using Audio Device 스피커(5- USB Audio Device)
+[2021.06.02-12.13.16:647][739]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.06.02-12.13.16:647][739]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.06.02-12.13.16:647][739]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.06.02-12.13.16:648][739]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.06.02-12.13.16:648][739]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.06.02-12.13.16:648][739]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.06.02-12.13.16:664][739]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.06.02-12.13.16:664][739]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.06.02-12.13.16:664][739]LogInit: FAudioDevice initialized.
+[2021.06.02-12.13.16:664][739]LogAudio: Display: Audio Device (ID: 58) registered with world 'Main'.
+[2021.06.02-12.13.16:672][739]LogLoad: Game class is 'BPGameMode_C'
+[2021.06.02-12.13.16:673][739]LogWorld: Bringing World /Game/Levels/UEDPIE_0_Main.Main up for play (max tick rate 0) at 2021.06.02-21.13.16
+[2021.06.02-12.13.16:674][739]LogWorld: Bringing up level for play took: 0.001109
+[2021.06.02-12.13.16:674][739]LogOnline: OSS: Creating online subsystem instance for: :Context_70
+[2021.06.02-12.13.16:678][739]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently_IncludingInitialMouseDown -> CapturePermanently
+[2021.06.02-12.13.16:679][739]PIE: 서버가 로그인했습니다.
+[2021.06.02-12.13.16:680][739]PIE: 에디터에서 플레이 총 시작 시간 0.168초입니다.
+[2021.06.02-12.13.27:127][617]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.27:127][617]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.27:127][617]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.28:181][704]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.28:181][704]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.28:181][704]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.28:269][711]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.28:269][711]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.28:269][711]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.29:012][772]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.29:012][772]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.29:012][772]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.29:089][778]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.29:089][778]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.29:089][778]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.30:007][853]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.30:008][853]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.30:008][853]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.30:954][929]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.30:954][929]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.30:954][929]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.31:020][934]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.31:021][934]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.31:021][934]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.31:090][939]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.31:090][939]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.31:090][939]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.31:127][942]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.31:127][942]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.31:127][942]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.32:172][ 28]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.32:172][ 28]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.32:172][ 28]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.32:496][ 54]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.32:496][ 54]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.32:496][ 54]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.33:708][152]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.33:708][152]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.33:708][152]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.33:749][155]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.33:749][155]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.33:749][155]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.33:749][155]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.33:749][155]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.33:749][155]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.13.34:618][226]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.34:618][226]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.34:618][226]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.13.34:932][249]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.34:932][249]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.34:932][249]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.34:932][249]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.34:932][249]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.34:932][249]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.13.44:302][  7]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.44:302][  7]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.44:302][  7]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.44:302][  7]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.44:302][  7]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.44:302][  7]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.13.45:355][ 85]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.45:355][ 85]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.45:355][ 85]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.45:355][ 85]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.45:355][ 85]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.45:355][ 85]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.13.45:404][ 89]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.45:405][ 89]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.45:405][ 89]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.45:405][ 89]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.45:405][ 89]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.45:405][ 89]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.13.46:575][184]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.46:575][184]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] None
+[2021.06.02-12.13.46:575][184]LogBlueprintUserMessages: [BP_MonsterAIController_C_0] GunShotNoise
+[2021.06.02-12.13.46:575][184]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.46:575][184]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.46:575][184]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.13.47:012][215]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.47:012][215]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.47:012][215]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.13.47:135][223]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.47:136][223]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.47:136][223]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.13.47:253][232]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.47:253][232]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.47:253][232]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.13.47:391][242]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.47:391][242]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.47:391][242]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.13.48:416][326]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.48:416][326]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] None
+[2021.06.02-12.13.48:416][326]LogBlueprintUserMessages: [BP_MonsterAIController_C_1] GunShotNoise
+[2021.06.02-12.13.52:293][648]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.13.52:293][648]LogWorld: BeginTearingDown for /Game/Levels/UEDPIE_0_Main
+[2021.06.02-12.13.52:294][648]LogWorld: UWorld::CleanupWorld for Main, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.13.52:295][648]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.13.52:304][648]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.06.02-12.13.52:314][648]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.13.52:360][648]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2021.06.02-12.13.52:360][648]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.13.52:361][648]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.06.02-12.13.52:381][648]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.06.02-12.13.52:389][648]LogUObjectHash: Compacting FUObjectHashTables data took   5.50ms
+[2021.06.02-12.13.52:436][649]LogPlayLevel: Display: Destroying online subsystem :Context_70
+[2021.06.02-12.15.24:949][530]LogContentBrowser: Deferred new asset file creation: NewWidgetBlueprint
+[2021.06.02-12.15.24:977][530]LogContentBrowser: Creating deferred item: NewWidgetBlueprint
+[2021.06.02-12.15.45:836][641]LogContentBrowser: Attempting asset rename: NewWidgetBlueprint -> UI_AbilityWindowWidget
+[2021.06.02-12.15.45:847][641]LogPackageName: SearchForPackageOnDisk took   0.000s, but failed to resolve /Game/UI/UI_AbilityWindowWidget.
+[2021.06.02-12.15.45:848][641]LogContentBrowser: End creating deferred item NewWidgetBlueprint
+[2021.06.02-12.15.47:525][787]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/UI/UI_AbilityWindowWidget.UI_AbilityWindowWidget
+[2021.06.02-12.25.43:559][504]AssetReimport: New page: 처리중인 소스 콘텐츠 변경사항 오전 6:25:43
+[2021.06.02-12.25.43:561][504]LogFactory: FactoryCreateFile: Texture with ReimportTextureFactory (0 0 G:/Git/ProjectTPS/Content/UI/HUD_BoxBig.png)
+[2021.06.02-12.25.43:808][505]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/UI/HUD_BoxBig" FILE="G:/Git/ProjectTPS/Content/UI/HUD_BoxBig.uasset" SILENT=true
+[2021.06.02-12.25.43:823][505]LogSavePackage: Moving 'G:/Git/ProjectTPS/Saved/HUD_BoxBigCF894A5B472831AC82AB52BC6DE91E15.tmp' to 'G:/Git/ProjectTPS/Content/UI/HUD_BoxBig.uasset'
+[2021.06.02-12.25.43:969][506]AssetCheck: New page: 애셋 저장: HUD_BoxBig
+[2021.06.02-12.25.43:969][506]LogContentValidation: Display: Texture2D /Game/UI/HUD_BoxBig.HUD_BoxBig 유효성 검사
+[2021.06.02-12.25.46:901][759]AssetReimport: /Game/UI/HUD_BoxBig 새 애셋 임포트중.
+[2021.06.02-12.25.47:878][840]LogAssetEditorSubsystem: Opening Asset editor for Texture2D /Game/UI/HUD_BoxBig.HUD_BoxBig
+[2021.06.02-12.25.53:614][246]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/UI/HUD_BoxBig" FILE="G:/Git/ProjectTPS/Content/UI/HUD_BoxBig.uasset" SILENT=true
+[2021.06.02-12.25.53:624][246]LogSavePackage: Moving 'G:/Git/ProjectTPS/Saved/HUD_BoxBig3841146C4CCB8BC3D9AAC9839F195CD3.tmp' to 'G:/Git/ProjectTPS/Content/UI/HUD_BoxBig.uasset'
+[2021.06.02-12.25.53:650][246]AssetCheck: New page: 애셋 저장: HUD_BoxBig
+[2021.06.02-12.25.53:650][246]LogContentValidation: Display: Texture2D /Game/UI/HUD_BoxBig.HUD_BoxBig 유효성 검사
+[2021.06.02-12.35.53:614][840]BlueprintLog: New page: UI_AbilityWindowWidget 컴파일
+[2021.06.02-12.35.53:699][840]LogUObjectHash: Compacting FUObjectHashTables data took   7.43ms
+[2021.06.02-12.36.07:375][885]LogContentBrowser: Deferred new asset file creation: NewWidgetBlueprint
+[2021.06.02-12.36.07:400][885]LogContentBrowser: Creating deferred item: NewWidgetBlueprint
+[2021.06.02-12.36.18:273][945]LogContentBrowser: Attempting asset rename: NewWidgetBlueprint -> UI_AblitySlot
+[2021.06.02-12.36.18:278][945]LogPackageName: SearchForPackageOnDisk took   0.000s, but failed to resolve /Game/UI/UI_AblitySlot.
+[2021.06.02-12.36.18:278][945]LogContentBrowser: End creating deferred item NewWidgetBlueprint
+[2021.06.02-12.36.28:270][852]LogContentBrowser: Attempting asset rename: UI_AblitySlot -> UI_AblityWindowSlot
+[2021.06.02-12.36.28:415][852]LogMetaData: Removing '/Game/UI/UI_AblityWindowSlot.SKEL_UI_AblityWindowSlot_C' ref from Metadata '/Game/UI/UI_AblitySlot.PackageMetaData'
+[2021.06.02-12.36.28:416][852]LogMetaData: Removing '/Game/UI/UI_AblityWindowSlot.UI_AblityWindowSlot_C' ref from Metadata '/Game/UI/UI_AblitySlot.PackageMetaData'
+[2021.06.02-12.36.28:416][852]LogMetaData: Removing '/Game/UI/UI_AblityWindowSlot.UI_AblityWindowSlot:EventGraph.K2Node_Event_0' ref from Metadata '/Game/UI/UI_AblitySlot.PackageMetaData'
+[2021.06.02-12.36.28:416][852]LogMetaData: Removing '/Game/UI/UI_AblityWindowSlot.UI_AblityWindowSlot:EventGraph.K2Node_Event_1' ref from Metadata '/Game/UI/UI_AblitySlot.PackageMetaData'
+[2021.06.02-12.36.28:416][852]LogMetaData: Removing '/Game/UI/UI_AblityWindowSlot.UI_AblityWindowSlot:EventGraph.K2Node_Event_2' ref from Metadata '/Game/UI/UI_AblitySlot.PackageMetaData'
+[2021.06.02-12.36.28:475][852]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/UI/UI_AblityWindowSlot" FILE="G:/Git/ProjectTPS/Content/UI/UI_AblityWindowSlot.uasset" SILENT=true
+[2021.06.02-12.36.28:492][852]LogSavePackage: Moving 'G:/Git/ProjectTPS/Saved/UI_AblityWindowSlot82A0DB204C34E95AE899D3B3FD5B57D5.tmp' to 'G:/Git/ProjectTPS/Content/UI/UI_AblityWindowSlot.uasset'
+[2021.06.02-12.36.28:658][852]LogUObjectHash: Compacting FUObjectHashTables data took   7.25ms
+[2021.06.02-12.36.28:723][852]LogUObjectHash: Compacting FUObjectHashTables data took   3.74ms
+[2021.06.02-12.36.28:772][852]LogUObjectHash: Compacting FUObjectHashTables data took   1.00ms
+[2021.06.02-12.36.28:868][852]LogPackageName: SearchForPackageOnDisk took   0.001s to resolve /Game/UI/UI_AblityWindowSlot.
+[2021.06.02-12.36.28:878][852]AssetCheck: New page: 애셋 저장: UI_AblityWindowSlot
+[2021.06.02-12.36.28:878][852]LogContentValidation: Display: WidgetBlueprint /Game/UI/UI_AblityWindowSlot.UI_AblityWindowSlot 유효성 검사
+[2021.06.02-12.36.30:249][969]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/UI/UI_AblityWindowSlot.UI_AblityWindowSlot
+[2021.06.02-12.38.54:089][993]LogUObjectHash: Compacting FUObjectHashTables data took   6.78ms
+[2021.06.02-12.38.54:091][993]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Levels/Main' took 0.072
+[2021.06.02-12.38.54:091][993]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/UI/UI_AblityWindowSlot] ([1] browsable assets)...
+[2021.06.02-12.38.54:091][993]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI/UI_AblityWindowSlot]
+[2021.06.02-12.38.54:091][993]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/UI/UI_AblityWindowSlot" FILE="G:/Git/ProjectTPS/Saved/Autosaves/Game/UI/UI_AblityWindowSlot_Auto6.uasset" SILENT=false AUTOSAVING=true
+[2021.06.02-12.38.54:108][993]LogSavePackage: Moving 'G:/Git/ProjectTPS/Saved/UI_AblityWindowSlot_Auto67FC659E042A97568D444B5B7F891DA8D.tmp' to 'G:/Git/ProjectTPS/Saved/Autosaves/Game/UI/UI_AblityWindowSlot_Auto6.uasset'
+[2021.06.02-12.38.54:109][993]LogFileHelpers: Auto-saving content packages took 0.018
+[2021.06.02-12.42.36:234][ 26]LogSlate: Last resort fallback font was requested. Font: '/Game/UI/digital-7.digital-7', Character: '텍 (U+d14d)'
+[2021.06.02-12.42.36:338][ 26]LogSlate: Took 0.101711 seconds to synchronously load lazily loaded font '../../../Engine/Content/SlateDebug/Fonts/LastResort.ttf' (5269K)
+[2021.06.02-12.43.28:547][771]LogSlate: Window '색상 선택 툴' being destroyed
+[2021.06.02-12.44.04:019][245]BlueprintLog: New page: UI_AblityWindowSlot 컴파일
+[2021.06.02-12.44.04:086][245]LogUObjectHash: Compacting FUObjectHashTables data took   6.22ms
+[2021.06.02-12.44.26:111][120]LogSlate: Window '색상 선택 툴' being destroyed
+[2021.06.02-12.44.27:956][207]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/UI/UI_AblityWindowSlot" FILE="G:/Git/ProjectTPS/Content/UI/UI_AblityWindowSlot.uasset" SILENT=true
+[2021.06.02-12.44.28:005][207]LogSavePackage: Moving 'G:/Git/ProjectTPS/Saved/UI_AblityWindowSlotE618E22F4C35401FFEACC68F4190B59F.tmp' to 'G:/Git/ProjectTPS/Content/UI/UI_AblityWindowSlot.uasset'
+[2021.06.02-12.44.28:027][207]AssetCheck: New page: 애셋 저장: UI_AblityWindowSlot
+[2021.06.02-12.44.28:027][207]LogContentValidation: Display: WidgetBlueprint /Game/UI/UI_AblityWindowSlot.UI_AblityWindowSlot 유효성 검사
+[2021.06.02-12.44.29:002][254]BlueprintLog: New page: UI_AblityWindowSlot 컴파일
+[2021.06.02-12.44.29:097][254]LogUObjectHash: Compacting FUObjectHashTables data took   6.86ms
+[2021.06.02-12.44.44:783][941]LogSlate: Window 'BT_MonsterAI' being destroyed
+[2021.06.02-12.44.44:798][941]LogSlate: Window 'BT_MonsterAI' being destroyed
+[2021.06.02-12.44.57:093][807]BlueprintLog: New page: UI_AblityWindowSlot 컴파일
+[2021.06.02-12.44.57:175][807]LogUObjectHash: Compacting FUObjectHashTables data took   5.92ms
+[2021.06.02-12.45.10:839][798]BlueprintLog: New page: UI_AblityWindowSlot 컴파일
+[2021.06.02-12.45.10:923][798]LogUObjectHash: Compacting FUObjectHashTables data took   5.32ms
+[2021.06.02-12.45.27:371][207]LogSlate: Prevented a slow task dialog from being summoned while a context menu was open
+[2021.06.02-12.45.37:511][142]BlueprintLog: New page: UI_AblityWindowSlot 컴파일
+[2021.06.02-12.45.37:593][142]LogUObjectHash: Compacting FUObjectHashTables data took   5.53ms
+[2021.06.02-12.45.40:933][370]LogUObjectHash: Compacting FUObjectHashTables data took   5.86ms
+[2021.06.02-12.45.40:973][370]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/UI/UI_AbilityWindowWidget" FILE="G:/Git/ProjectTPS/Content/UI/UI_AbilityWindowWidget.uasset" SILENT=true
+[2021.06.02-12.45.41:016][370]LogSavePackage: Moving 'G:/Git/ProjectTPS/Saved/UI_AbilityWindowWidget32B4CDEE4188DFC3F09249972A8575F8.tmp' to 'G:/Git/ProjectTPS/Content/UI/UI_AbilityWindowWidget.uasset'
+[2021.06.02-12.45.41:018][370]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/UI/UI_AblityWindowSlot" FILE="G:/Git/ProjectTPS/Content/UI/UI_AblityWindowSlot.uasset" SILENT=true
+[2021.06.02-12.45.41:060][370]LogSavePackage: Moving 'G:/Git/ProjectTPS/Saved/UI_AblityWindowSlot098D90F54739748CFADF34ABC75FFB17.tmp' to 'G:/Git/ProjectTPS/Content/UI/UI_AblityWindowSlot.uasset'
+[2021.06.02-12.45.41:076][370]LogPackageName: SearchForPackageOnDisk took   0.000s to resolve /Game/UI/UI_AbilityWindowWidget.
+[2021.06.02-12.45.41:085][370]AssetCheck: New page: 애셋 저장: 애셋이 다수입니다.
+[2021.06.02-12.45.41:085][370]LogContentValidation: Display: WidgetBlueprint /Game/UI/UI_AblityWindowSlot.UI_AblityWindowSlot 유효성 검사
+[2021.06.02-12.45.41:085][370]LogContentValidation: Display: WidgetBlueprint /Game/UI/UI_AbilityWindowWidget.UI_AbilityWindowWidget 유효성 검사
+[2021.06.02-12.45.54:252][333]LogSlate: Prevented a slow task dialog from being summoned while a context menu was open
+[2021.06.02-12.46.51:373][611]BlueprintLog: New page: UI_AbilityWindowWidget 컴파일
+[2021.06.02-12.46.51:474][611]LogUObjectHash: Compacting FUObjectHashTables data took   5.95ms
+[2021.06.02-12.46.56:996][985]BlueprintLog: New page: UI_AbilityWindowWidget 컴파일
+[2021.06.02-12.46.57:085][985]LogUObjectHash: Compacting FUObjectHashTables data took   7.86ms
+[2021.06.02-12.47.03:910][475]BlueprintLog: New page: UI_AbilityWindowWidget 컴파일
+[2021.06.02-12.47.03:992][475]LogUObjectHash: Compacting FUObjectHashTables data took   5.93ms
+[2021.06.02-12.47.45:034][508]BlueprintLog: New page: UI_AbilityWindowWidget 컴파일
+[2021.06.02-12.47.45:119][508]LogUObjectHash: Compacting FUObjectHashTables data took   6.51ms
+[2021.06.02-12.48.59:011][490]BlueprintLog: New page: UI_AbilityWindowWidget 컴파일
+[2021.06.02-12.48.59:099][490]LogUObjectHash: Compacting FUObjectHashTables data took   8.02ms
+[2021.06.02-12.49.05:372][938]BlueprintLog: New page: UI_AbilityWindowWidget 컴파일
+[2021.06.02-12.49.05:459][938]LogUObjectHash: Compacting FUObjectHashTables data took   7.36ms
+[2021.06.02-12.49.08:683][154]BlueprintLog: New page: UI_AbilityWindowWidget 컴파일
+[2021.06.02-12.49.08:773][154]LogUObjectHash: Compacting FUObjectHashTables data took   5.61ms
+[2021.06.02-12.49.39:048][334]BlueprintLog: New page: UI_AbilityWindowWidget 컴파일
+[2021.06.02-12.49.39:133][334]LogUObjectHash: Compacting FUObjectHashTables data took   6.04ms
+[2021.06.02-12.49.42:809][560]BlueprintLog: New page: UI_AbilityWindowWidget 컴파일
+[2021.06.02-12.49.42:896][560]LogUObjectHash: Compacting FUObjectHashTables data took   6.03ms
+[2021.06.02-12.49.50:737][101]BlueprintLog: New page: UI_AbilityWindowWidget 컴파일
+[2021.06.02-12.49.50:824][101]LogUObjectHash: Compacting FUObjectHashTables data took   7.95ms
+[2021.06.02-12.49.55:830][438]BlueprintLog: New page: UI_AbilityWindowWidget 컴파일
+[2021.06.02-12.49.55:916][438]LogUObjectHash: Compacting FUObjectHashTables data took   6.16ms
+[2021.06.02-12.50.28:016][ 71]LogUObjectHash: Compacting FUObjectHashTables data took   6.94ms
+[2021.06.02-12.50.28:017][ 71]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Levels/Main' took 0.073
+[2021.06.02-12.50.28:018][ 71]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/UI/UI_AbilityWindowWidget] ([1] browsable assets)...
+[2021.06.02-12.50.28:018][ 71]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI/UI_AbilityWindowWidget]
+[2021.06.02-12.50.28:018][ 71]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/UI/UI_AbilityWindowWidget" FILE="G:/Git/ProjectTPS/Saved/Autosaves/Game/UI/UI_AbilityWindowWidget_Auto7.uasset" SILENT=false AUTOSAVING=true
+[2021.06.02-12.50.28:062][ 71]LogSavePackage: Moving 'G:/Git/ProjectTPS/Saved/UI_AbilityWindowWidget_Auto79A0A08744015E0276F75A8BD0B6E4603.tmp' to 'G:/Git/ProjectTPS/Saved/Autosaves/Game/UI/UI_AbilityWindowWidget_Auto7.uasset'
+[2021.06.02-12.50.28:067][ 71]LogFileHelpers: Auto-saving content packages took 0.049
+[2021.06.02-12.51.56:422][990]BlueprintLog: New page: UI_AblityWindowSlot 컴파일
+[2021.06.02-12.51.56:538][990]LogUObjectHash: Compacting FUObjectHashTables data took   6.41ms
+[2021.06.02-12.52.14:396][280]LogEditorTransaction: Undo 위젯 제거
+[2021.06.02-12.52.29:990][394]LogEditorTransaction: Undo 위젯 대체
+[2021.06.02-12.52.33:040][587]LogEditorTransaction: Undo Height Override 편집
+[2021.06.02-12.52.33:426][596]LogEditorTransaction: Undo Width Override 편집
+[2021.06.02-12.52.33:655][606]LogEditorTransaction: Undo Height Override 편집 조건 변경됨
+[2021.06.02-12.52.33:948][630]LogEditorTransaction: Undo Width Override 편집 조건 변경됨
+[2021.06.02-12.52.34:184][651]LogEditorTransaction: Undo 위젯 래핑
+[2021.06.02-12.52.34:503][680]LogEditorTransaction: Undo 위젯 래핑
+[2021.06.02-12.52.35:307][755]LogEditorTransaction: Undo Tile Alignment 편집
+[2021.06.02-12.52.42:047][287]BlueprintLog: New page: UI_AblityWindowSlot 컴파일
+[2021.06.02-12.52.42:146][287]LogUObjectHash: Compacting FUObjectHashTables data took   6.17ms
+[2021.06.02-12.53.16:691][788]BlueprintLog: New page: UI_AbilityWindowWidget 컴파일
+[2021.06.02-12.53.16:776][788]LogUObjectHash: Compacting FUObjectHashTables data took   6.36ms
+[2021.06.02-12.54.58:858][486]LogUObjectHash: Compacting FUObjectHashTables data took   6.18ms
+[2021.06.02-12.54.58:895][486]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/UI/UI_AbilityWindowWidget" FILE="G:/Git/ProjectTPS/Content/UI/UI_AbilityWindowWidget.uasset" SILENT=true
+[2021.06.02-12.54.58:940][486]LogSavePackage: Moving 'G:/Git/ProjectTPS/Saved/UI_AbilityWindowWidget95574B0343C2C6F6BC45929FFD5715B7.tmp' to 'G:/Git/ProjectTPS/Content/UI/UI_AbilityWindowWidget.uasset'
+[2021.06.02-12.54.58:943][486]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/UI/UI_AblityWindowSlot" FILE="G:/Git/ProjectTPS/Content/UI/UI_AblityWindowSlot.uasset" SILENT=true
+[2021.06.02-12.54.58:983][486]LogSavePackage: Moving 'G:/Git/ProjectTPS/Saved/UI_AblityWindowSlotF24B0B83463471A8C9978591F062FB50.tmp' to 'G:/Git/ProjectTPS/Content/UI/UI_AblityWindowSlot.uasset'
+[2021.06.02-12.54.59:008][486]AssetCheck: New page: 애셋 저장: 애셋이 다수입니다.
+[2021.06.02-12.54.59:008][486]LogContentValidation: Display: WidgetBlueprint /Game/UI/UI_AblityWindowSlot.UI_AblityWindowSlot 유효성 검사
+[2021.06.02-12.54.59:009][486]LogContentValidation: Display: WidgetBlueprint /Game/UI/UI_AbilityWindowWidget.UI_AbilityWindowWidget 유효성 검사
+[2021.06.02-12.55.00:419][561]LogUObjectHash: Compacting FUObjectHashTables data took   4.66ms
+[2021.06.02-12.55.02:260][676]LogSlate: Window 'UI_AblityWindowSlot' being destroyed
+[2021.06.02-12.55.02:267][676]LogSlate: Window 'UI_AblityWindowSlot' being destroyed
+[2021.06.02-12.55.02:344][676]LogWorld: UWorld::CleanupWorld for World_3, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.55.02:344][676]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.55.02:899][676]LogWorld: UWorld::CleanupWorld for World_4, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.55.02:899][676]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.55.03:465][676]LogWorld: UWorld::CleanupWorld for World_6, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.55.03:465][676]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.55.03:481][676]LogWorld: UWorld::CleanupWorld for World_5, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.55.03:481][676]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.55.03:738][676]LogWorld: UWorld::CleanupWorld for World_15, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.55.03:738][676]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.55.03:755][676]LogWorld: UWorld::CleanupWorld for World_14, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.55.03:755][676]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.55.03:899][676]LogWorld: UWorld::CleanupWorld for World_18, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.55.03:899][676]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.06.02-12.55.03:915][676]LogWorld: UWorld::CleanupWorld for World_17, bSessionEnded=true, bCleanupResources=true
+[2021.06.02-12.55.03:915][676]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
