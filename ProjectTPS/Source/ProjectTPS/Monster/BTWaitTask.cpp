@@ -56,6 +56,11 @@ void UBTWaitTask::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory,
 			FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
 
 		}
+
+		//if (OwnerComp.GetBlackboardComponent()->GetValueAsBool(TEXT("IsPanic")))
+		//{
+		//	FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
+		//}
 	}
 
 	if (!ManualWaitTimeControl)

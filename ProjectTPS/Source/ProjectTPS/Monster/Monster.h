@@ -136,7 +136,9 @@ protected:
 	float m_WaitTimeAcc;
 	bool m_bWait;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	bool m_bDeath;
+
 	bool m_IsDeathEnd;
 
 public:

@@ -6,7 +6,7 @@
 
 UMonsterAnim::UMonsterAnim()
 {
-
+	m_bDeath = false;
 }
 
 void UMonsterAnim::NativeInitializeAnimation()

@@ -204,11 +204,14 @@ float AMonster::TakeDamage(float Damage, struct FDamageEvent const& DamageEvent,
 
 	m_HP -= Damage;
 	PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("Enemy HP : %d"), m_HP));
+	AMonsterAIController* pController = Cast<AMonsterAIController>(GetController());
+	pController->Panic();
+
 	if (m_HP <= 0)
 	{
 		m_bDeath = true;
 		m_eMonsterAIType = MonsterAI::Death;
-		AMonsterAIController* pController = Cast<AMonsterAIController>(GetController());
+		m_MonsterAnim->SetDeath();
 		pController->SetDeath();
 	}
 
@@ -231,16 +234,17 @@ void AMonster::EmitHitEffect(FVector ImpactLoc, FRotator Rot)
 	pEffect->LoadParticle(m_HitParticle);
 	pEffect->LoadSound(m_HitSound);
 
-	int32 RandSound = FMath::FRandRange(0, 1);
+	int32 RandSound = FMath::FRandRange(0, 2);
 
 	switch (RandSound)
 	{
 	case 0:
 		pEffect->LoadAdditionalSound1(m_HurtSound1);
+		break;
 
 	case 1:
 		pEffect->LoadAdditionalSound1(m_HurtSound2);
-
+		break;
 	}
 }
 void AMonster::EmitHeadshotEffect(FVector ImpactLoc, FRotator Rot)
@@ -255,16 +259,16 @@ void AMonster::EmitHeadshotEffect(FVector ImpactLoc, FRotator Rot)
 
 	pEffect->LoadSound(m_HeadShotSound);
 
-	int32 RandSound = FMath::FRandRange(0, 1);
+	int32 RandSound = FMath::FRandRange(0, 2);
 
 	switch (RandSound)
 	{
 	case 0:
 		pEffect->LoadAdditionalSound1(m_HurtSound1);
-
+		break;
 	case 1:
 		pEffect->LoadAdditionalSound1(m_HurtSound2);
-
+		break;
 	}
 }
 

@@ -48,6 +48,9 @@ void UBTPatrolTask::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemor
 
 	if(pMonster->GetIsDeath())
 		FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
+
+	if(OwnerComp.GetBlackboardComponent()->GetValueAsBool(TEXT("IsPanic")))
+		FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
 	// 이동 타겟을 얻어온다.
 	AActor* pMoveTarget = pMonster->GetPatrolPoint();
 

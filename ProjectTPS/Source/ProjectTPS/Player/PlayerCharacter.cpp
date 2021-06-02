@@ -269,18 +269,19 @@ void APlayerCharacter::EmitHitEffect(FVector ImpactLoc, FRotator Rot)
 	pEffect->LoadParticle(m_HitParticle);
 	pEffect->LoadSound(m_HitSound);
 	
-	int32 RandSound = FMath::FRandRange(0, 2);
+	int32 RandSound = FMath::FRandRange(0, 3);
 
 	switch (RandSound)
 	{
 	case 0: 
 		pEffect->LoadAdditionalSound1(m_HurtSound1);
-
+		break;
 	case 1:
 		pEffect->LoadAdditionalSound1(m_HurtSound2);
-
+		break;
 	case 2:
 		pEffect->LoadAdditionalSound1(m_HurtSound3);
+		break;
 	}
 
 }

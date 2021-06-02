@@ -59,7 +59,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UBTTaskMonsterMoveTo); \
 
 
 #define ProjectTPS_Source_ProjectTPS_Monster_BTTaskMonsterMoveTo_h_15_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__BlackboardKeyName() { return STRUCT_OFFSET(UBTTaskMonsterMoveTo, BlackboardKeyName); }
+	FORCEINLINE static uint32 __PPO__BlackboardKeyName() { return STRUCT_OFFSET(UBTTaskMonsterMoveTo, BlackboardKeyName); } \
+	FORCEINLINE static uint32 __PPO__IsRun() { return STRUCT_OFFSET(UBTTaskMonsterMoveTo, IsRun); }
 
 
 #define ProjectTPS_Source_ProjectTPS_Monster_BTTaskMonsterMoveTo_h_12_PROLOG

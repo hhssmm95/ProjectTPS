@@ -178,7 +178,7 @@ void APrimaryWeapon::Reload()
 		m_CurrentMag += m_Player->GetRemainMag();
 		m_Player->SetRemainMag(0);
 	}
-	m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(m_CurrentMagMax);
+	m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(m_CurrentMag);
 	m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetRemainMagText(m_Player->GetRemainMag());
 }
 

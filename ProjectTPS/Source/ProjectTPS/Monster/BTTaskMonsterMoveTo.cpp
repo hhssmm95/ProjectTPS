@@ -15,6 +15,7 @@ UBTTaskMonsterMoveTo::UBTTaskMonsterMoveTo()
 	TargetActor = nullptr;
 	TargetLocation = FVector::ZeroVector;
 	TargetIsActor = false;
+	IsRun = false;
 }
 
 EBTNodeResult::Type UBTTaskMonsterMoveTo::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
@@ -24,14 +25,27 @@ EBTNodeResult::Type UBTTaskMonsterMoveTo::ExecuteTask(UBehaviorTreeComponent& Ow
 	TargetActor = Cast<AActor>(OwnerComp.GetBlackboardComponent()->GetValueAsObject(BlackboardKeyName));
 	TargetLocation = OwnerComp.GetBlackboardComponent()->GetValueAsVector(BlackboardKeyName);
 
+	//PrintViewport(20.f, FColor::Green, OwnerComp.GetName());
+	//PrintViewport(20.f, FColor::Blue, OwnerComp.GetAIOwner()->GetName());
+	//PrintViewport(20.f, FColor::Yellow, OwnerComp.GetAIOwner()->GetPawn()->GetName());
+
 	if (TargetActor)
 	{
 		TargetIsActor = true;
 
 		AMonster* pMonster = Cast<AMonster>(OwnerComp.GetAIOwner()->GetPawn());
 
-		pMonster->SetMonsterAIType(MonsterAI::Patrol);
-		pMonster->GetCharacterMovement()->MaxWalkSpeed = pMonster->GetWalkSpeed();
+		if (IsRun)
+		{
+
+			pMonster->SetMonsterAIType(MonsterAI::Trace);
+			pMonster->GetCharacterMovement()->MaxWalkSpeed = pMonster->GetRunSpeed();
+		}
+		else
+		{
+			pMonster->SetMonsterAIType(MonsterAI::Patrol);
+			pMonster->GetCharacterMovement()->MaxWalkSpeed = pMonster->GetWalkSpeed();
+		}
 
 		return EBTNodeResult::InProgress;
 	}
@@ -39,13 +53,23 @@ EBTNodeResult::Type UBTTaskMonsterMoveTo::ExecuteTask(UBehaviorTreeComponent& Ow
 	{
 		AMonster* pMonster = Cast<AMonster>(OwnerComp.GetAIOwner()->GetPawn());
 
-		pMonster->SetMonsterAIType(MonsterAI::Patrol);
-		pMonster->GetCharacterMovement()->MaxWalkSpeed = pMonster->GetWalkSpeed();
+		if (IsRun)
+		{
+
+			pMonster->SetMonsterAIType(MonsterAI::Trace);
+			pMonster->GetCharacterMovement()->MaxWalkSpeed = pMonster->GetRunSpeed();
+		}
+		else
+		{
+			pMonster->SetMonsterAIType(MonsterAI::Patrol);
+			pMonster->GetCharacterMovement()->MaxWalkSpeed = pMonster->GetWalkSpeed();
+		}
 
 		return EBTNodeResult::InProgress;
 	}
 	else
 		return EBTNodeResult::Failed;
+
 }
 
 void UBTTaskMonsterMoveTo::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds)
@@ -54,13 +78,14 @@ void UBTTaskMonsterMoveTo::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* No
 
 	ACharacter* pTarget = Cast<ACharacter>(OwnerComp.GetBlackboardComponent()->GetValueAsObject(TEXT("Target")));
 
-	if (pTarget)
+	if (pTarget)              
 	{
 		OwnerComp.GetBlackboardComponent()->SetValueAsBool(TEXT("IsInvestigating"), false);
 		FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
 	}
 
 
+	TargetLocation = OwnerComp.GetBlackboardComponent()->GetValueAsVector(BlackboardKeyName);
 	AMonster* pMonster = Cast<AMonster>(OwnerComp.GetAIOwner()->GetPawn());
 
 
@@ -68,7 +93,6 @@ void UBTTaskMonsterMoveTo::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* No
 		UAIBlueprintHelperLibrary::SimpleMoveToActor(OwnerComp.GetAIOwner(), TargetActor);
 	else
 		UAIBlueprintHelperLibrary::SimpleMoveToLocation(OwnerComp.GetAIOwner(), TargetLocation);
-
 
 
 	FVector	vLoc = pMonster->GetActorLocation();

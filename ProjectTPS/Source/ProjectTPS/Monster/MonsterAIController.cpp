@@ -29,7 +29,8 @@ void AMonsterAIController::OnPossess(APawn* InPawn)
 
 		Blackboard->SetValueAsFloat(TEXT("AttackDistance1"), pMonster->GetCloseAttackDistance());
 		Blackboard->SetValueAsFloat(TEXT("AttackDistance2"), pMonster->GetLongAttackDistance());
-
+		Blackboard->SetValueAsVector(TEXT("BeforePanicLocation"), FVector::ZeroVector);
+		Blackboard->SetValueAsVector(TEXT("RandomLocation"), FVector::ZeroVector);
 		////Cast<MonsterAI>(Blackboard->GetValueAsEnum(TEXT("MonsterAI")))
 		if (!RunBehaviorTree(m_AITree))
 		{
@@ -50,6 +51,11 @@ void AMonsterAIController::SetDeath()
 	Blackboard->SetValueAsBool(TEXT("Death"), true);
 	Blackboard->SetValueAsBool(TEXT("IsInvestigating"), false);
 	StopMovement();
+}
+void AMonsterAIController::Panic()
+{
+	if(Blackboard->GetValueAsObject(TEXT("Target")) == nullptr)
+		Blackboard->SetValueAsBool(TEXT("IsPanic"), true);
 }
 
 /*
