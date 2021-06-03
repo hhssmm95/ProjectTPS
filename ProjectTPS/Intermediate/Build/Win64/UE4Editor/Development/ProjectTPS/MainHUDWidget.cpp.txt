@@ -783,3 +783,5 @@ G:\Git\ProjectTPS\Source\ProjectTPS\UI\PlayerEquipWidget.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerEquipWidget.generated.h
 G:\Git\ProjectTPS\Source\ProjectTPS\UI\HitMarkerWidget.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\HitMarkerWidget.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\UI\AbilityWindowWidget.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\AbilityWindowWidget.generated.h

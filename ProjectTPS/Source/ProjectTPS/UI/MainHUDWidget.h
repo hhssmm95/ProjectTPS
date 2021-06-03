@@ -20,13 +20,18 @@ protected:
 	class UPlayerEquipWidget* m_PlayerEquipWidget;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		class UHitMarkerWidget* m_HitMarkerWidget;
+	class UHitMarkerWidget* m_HitMarkerWidget;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	class UAbilityWindowWidget* m_AbilityWindowWidget;
 
 protected:
 	virtual void NativePreConstruct();
 	virtual void NativeConstruct();
 	virtual void NativeTick(const FGeometry& MyGeometry, float InDeltaTime);
+
+public:
+	void AbilityWindowToggle();
 
 public:
 	UPlayerHPWidget* GetPlayerHPWidget()	const

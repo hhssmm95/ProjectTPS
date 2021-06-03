@@ -5,6 +5,7 @@
 #include "UI/MainHUDWidget.h"
 #include "UI/PlayerHPWidget.h"
 #include "UI/HitMarkerWidget.h"
+#include "UI/AbilityWindowWidget.h"
 
 
 APlayerHUD::APlayerHUD()
@@ -32,6 +33,10 @@ void APlayerHUD::BeginPlay()
 	}
 }
 
+void APlayerHUD::AbilityWindowToggle()
+{
+	m_MainHUDWidget->AbilityWindowToggle();
+}
 
 void APlayerHUD::Tick(float DeltaTime)
 {

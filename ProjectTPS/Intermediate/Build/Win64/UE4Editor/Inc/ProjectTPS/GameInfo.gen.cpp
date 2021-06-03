@@ -13,9 +13,80 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeGameInfo() {}
 // Cross Module References
-	PROJECTTPS_API UEnum* Z_Construct_UEnum_ProjectTPS_EMoveDir();
+	PROJECTTPS_API UEnum* Z_Construct_UEnum_ProjectTPS_EAbility();
 	UPackage* Z_Construct_UPackage__Script_ProjectTPS();
+	PROJECTTPS_API UEnum* Z_Construct_UEnum_ProjectTPS_EMoveDir();
 // End Cross Module References
+	static UEnum* EAbility_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_ProjectTPS_EAbility, Z_Construct_UPackage__Script_ProjectTPS(), TEXT("EAbility"));
+		}
+		return Singleton;
+	}
+	template<> PROJECTTPS_API UEnum* StaticEnum<EAbility>()
+	{
+		return EAbility_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EAbility(EAbility_StaticEnum, TEXT("/Script/ProjectTPS"), TEXT("EAbility"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_ProjectTPS_EAbility_Hash() { return 545166536U; }
+	UEnum* Z_Construct_UEnum_ProjectTPS_EAbility()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_ProjectTPS();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("EAbility"), 0, Get_Z_Construct_UEnum_ProjectTPS_EAbility_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "EAbility::None", (int64)EAbility::None },
+				{ "EAbility::Assult1", (int64)EAbility::Assult1 },
+				{ "EAbility::Assult2", (int64)EAbility::Assult2 },
+				{ "EAbility::Assult3", (int64)EAbility::Assult3 },
+				{ "EAbility::Defence1", (int64)EAbility::Defence1 },
+				{ "EAbility::Defence2", (int64)EAbility::Defence2 },
+				{ "EAbility::Defence3", (int64)EAbility::Defence3 },
+				{ "EAbility::Utility1", (int64)EAbility::Utility1 },
+				{ "EAbility::Utility2", (int64)EAbility::Utility2 },
+				{ "EAbility::Utility3", (int64)EAbility::Utility3 },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "Assult1.Name", "EAbility::Assult1" },
+				{ "Assult2.Name", "EAbility::Assult2" },
+				{ "Assult3.Name", "EAbility::Assult3" },
+				{ "BlueprintType", "true" },
+				{ "Defence1.Name", "EAbility::Defence1" },
+				{ "Defence2.Name", "EAbility::Defence2" },
+				{ "Defence3.Name", "EAbility::Defence3" },
+				{ "ModuleRelativePath", "GameInfo.h" },
+				{ "None.Name", "EAbility::None" },
+				{ "Utility1.Name", "EAbility::Utility1" },
+				{ "Utility2.Name", "EAbility::Utility2" },
+				{ "Utility3.Name", "EAbility::Utility3" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_ProjectTPS,
+				nullptr,
+				"EAbility",
+				"EAbility",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				EEnumFlags::None,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::EnumClass,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
 	static UEnum* EMoveDir_StaticEnum()
 	{
 		static UEnum* Singleton = nullptr;

@@ -5,6 +5,7 @@
 #include "EngineMinimal.h"
 #include "Engine.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
+#include "Engine/DataTable.h"
 
 DECLARE_LOG_CATEGORY_EXTERN(UEKR1, Log, All);
 #define LOG_CALLINFO	(FString(__FUNCTION__) + TEXT("{") + FString::FromInt(__LINE__) + TEXT("}"))
@@ -25,6 +26,21 @@ enum class EMoveDir : uint8
 	BackwardLeft,
 	Left,
 	ForwardLeft
+};
+
+UENUM(BlueprintType)
+enum class EAbility : uint8
+{
+	None,
+	Assult1,
+	Assult2,
+	Assult3,
+	Defence1,
+	Defence2,
+	Defence3,
+	Utility1,
+	Utility2,
+	Utility3
 };
 
 class PROJECTTPS_API GameInfo

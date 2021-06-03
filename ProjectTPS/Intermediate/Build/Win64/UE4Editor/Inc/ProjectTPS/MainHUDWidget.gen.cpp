@@ -20,6 +20,7 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 	PROJECTTPS_API UClass* Z_Construct_UClass_UPlayerHPWidget_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_UPlayerEquipWidget_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_UHitMarkerWidget_NoRegister();
+	PROJECTTPS_API UClass* Z_Construct_UClass_UAbilityWindowWidget_NoRegister();
 // End Cross Module References
 	void UMainHUDWidget::StaticRegisterNativesUMainHUDWidget()
 	{
@@ -46,6 +47,10 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_HitMarkerWidget_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_HitMarkerWidget;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_AbilityWindowWidget_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_AbilityWindowWidget;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -87,10 +92,20 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_HitMarkerWidget = { "m_HitMarkerWidget", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_HitMarkerWidget), Z_Construct_UClass_UHitMarkerWidget_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_HitMarkerWidget_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_HitMarkerWidget_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AbilityWindowWidget_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "MainHUDWidget" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/MainHUDWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AbilityWindowWidget = { "m_AbilityWindowWidget", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_AbilityWindowWidget), Z_Construct_UClass_UAbilityWindowWidget_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AbilityWindowWidget_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AbilityWindowWidget_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMainHUDWidget_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_PlayerHPWidget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_PlayerEquipWidget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_HitMarkerWidget,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AbilityWindowWidget,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UMainHUDWidget_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UMainHUDWidget>::IsAbstract,
@@ -119,7 +134,7 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMainHUDWidget, 2469501466);
+	IMPLEMENT_CLASS(UMainHUDWidget, 2285040993);
 	template<> PROJECTTPS_API UClass* StaticClass<UMainHUDWidget>()
 	{
 		return UMainHUDWidget::StaticClass();

@@ -113,7 +113,9 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction(TEXT("SuppressorShot(Debug)"), EInputEvent::IE_Pressed, this, &APlayerCharacter::EquipSuppressor);
 
 	PlayerInputComponent->BindAction(TEXT("Reload"), EInputEvent::IE_Pressed, this, &APlayerCharacter::ReloadStart);
+	PlayerInputComponent->BindAction(TEXT("AbilityWindowToggle"), EInputEvent::IE_Pressed, this, &APlayerCharacter::AbilityWindowVisiblity);
 
+	
 }
 
 
@@ -293,4 +295,10 @@ void APlayerCharacter::ShowHitMark()
 void APlayerCharacter::ShowHeadShotMark()
 {
 	m_HUD->HeadShot();
+}
+
+
+void APlayerCharacter::AbilityWindowVisiblity()
+{
+	m_HUD->AbilityWindowToggle();
 }

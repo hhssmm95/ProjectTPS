@@ -38,9 +38,9 @@ public:
 	{
 		return m_MainHUDWidget;
 	}
+	void AbilityWindowToggle();
 
 	void UpdatePlayerHP(float HP);
 	void HeadShot();
 	void BodyShot();
-	
 };

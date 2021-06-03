@@ -17,6 +17,21 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define CURRENT_FILE_ID ProjectTPS_Source_ProjectTPS_GameInfo_h
 
 
+#define FOREACH_ENUM_EABILITY(op) \
+	op(EAbility::None) \
+	op(EAbility::Assult1) \
+	op(EAbility::Assult2) \
+	op(EAbility::Assult3) \
+	op(EAbility::Defence1) \
+	op(EAbility::Defence2) \
+	op(EAbility::Defence3) \
+	op(EAbility::Utility1) \
+	op(EAbility::Utility2) \
+	op(EAbility::Utility3) 
+
+enum class EAbility : uint8;
+template<> PROJECTTPS_API UEnum* StaticEnum<EAbility>();
+
 #define FOREACH_ENUM_EMOVEDIR(op) \
 	op(EMoveDir::None) \
 	op(EMoveDir::Forward) \
