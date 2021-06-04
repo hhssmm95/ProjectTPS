@@ -4,6 +4,7 @@
 #include "AbilitySlotWidget.h"
 #include "Components/Image.h"
 #include "Components/TextBlock.h"
+#include "Components/Border.h"
 #include "AbilitySlotData.h"
 
 void UAbilitySlotWidget::NativePreConstruct()
@@ -12,7 +13,7 @@ void UAbilitySlotWidget::NativePreConstruct()
 
 	m_SlotIcon = Cast<UImage>(GetWidgetFromName(TEXT("SlotImage")));
 	m_SlotText = Cast<UTextBlock>(GetWidgetFromName(TEXT("SlotText")));
-
+	m_SlotBorder = Cast<UBorder>(GetWidgetFromName(TEXT("SlotBorder")));
 }
 
 void UAbilitySlotWidget::NativeConstruct()
@@ -39,6 +40,11 @@ void UAbilitySlotWidget::SetSlotTexture(UTexture2D* pTex)
 void UAbilitySlotWidget::SetSlotText(const FString& Text)
 {
 	m_SlotText->SetText(FText::FromString(Text));
+}
+
+void UAbilitySlotWidget::SetSlotBorderColor(FColor Color)
+{
+	m_SlotBorder->SetBrushColor(Color.ReinterpretAsLinear());
 }
 
 void UAbilitySlotWidget::SetData(UAbilitySlotData* pData)

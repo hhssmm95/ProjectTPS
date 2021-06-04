@@ -66,6 +66,10 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFPlayerAbilityInfo
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Desc_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStrPropertyParams NewProp_Desc;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Sign_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_Sign;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -104,11 +108,20 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFPlayerAbilityInfo
 	};
 #endif
 	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FPlayerAbilityInfo_Statics::NewProp_Desc = { "Desc", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerAbilityInfo, Desc), METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerAbilityInfo_Statics::NewProp_Desc_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerAbilityInfo_Statics::NewProp_Desc_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FPlayerAbilityInfo_Statics::NewProp_Sign_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerAbilityInfo" },
+		{ "ModuleRelativePath", "ProjectTPSGameInstance.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FPlayerAbilityInfo_Statics::NewProp_Sign = { "Sign", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerAbilityInfo, Sign), METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerAbilityInfo_Statics::NewProp_Sign_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerAbilityInfo_Statics::NewProp_Sign_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FPlayerAbilityInfo_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerAbilityInfo_Statics::NewProp_Name,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerAbilityInfo_Statics::NewProp_Key_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerAbilityInfo_Statics::NewProp_Key,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerAbilityInfo_Statics::NewProp_Desc,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerAbilityInfo_Statics::NewProp_Sign,
 	};
 	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FPlayerAbilityInfo_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_ProjectTPS,
@@ -138,7 +151,7 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFPlayerAbilityInfo
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FPlayerAbilityInfo_Hash() { return 1894431585U; }
+	uint32 Get_Z_Construct_UScriptStruct_FPlayerAbilityInfo_Hash() { return 2988224572U; }
 	void UProjectTPSGameInstance::StaticRegisterNativesUProjectTPSGameInstance()
 	{
 	}

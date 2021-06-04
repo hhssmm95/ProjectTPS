@@ -73,6 +73,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UAbilitySlotWidget); \
 	FORCEINLINE static uint32 __PPO__m_Index() { return STRUCT_OFFSET(UAbilitySlotWidget, m_Index); } \
 	FORCEINLINE static uint32 __PPO__m_SlotIcon() { return STRUCT_OFFSET(UAbilitySlotWidget, m_SlotIcon); } \
 	FORCEINLINE static uint32 __PPO__m_SlotText() { return STRUCT_OFFSET(UAbilitySlotWidget, m_SlotText); } \
+	FORCEINLINE static uint32 __PPO__m_SlotBorder() { return STRUCT_OFFSET(UAbilitySlotWidget, m_SlotBorder); } \
 	FORCEINLINE static uint32 __PPO__m_AbilityKey() { return STRUCT_OFFSET(UAbilitySlotWidget, m_AbilityKey); } \
 	FORCEINLINE static uint32 __PPO__m_AbilityName() { return STRUCT_OFFSET(UAbilitySlotWidget, m_AbilityName); } \
 	FORCEINLINE static uint32 __PPO__m_AbilityDescription() { return STRUCT_OFFSET(UAbilitySlotWidget, m_AbilityDescription); }

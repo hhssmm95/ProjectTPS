@@ -6,6 +6,8 @@
 #include "PlayerEquipWidget.h"
 #include "HitMarkerWidget.h"
 #include "AbilityWindowWidget.h"
+#include "Components/TextBlock.h"
+#include "Components/BackgroundBlur.h"
 
 void UMainHUDWidget::NativePreConstruct()
 {
@@ -16,7 +18,10 @@ void UMainHUDWidget::NativePreConstruct()
 	m_PlayerEquipWidget = Cast<UPlayerEquipWidget>(GetWidgetFromName(TEXT("UI_EquipWidget")));
 	m_HitMarkerWidget = Cast<UHitMarkerWidget>(GetWidgetFromName(TEXT("UI_HitMarker")));
 	m_AbilityWindowWidget = Cast<UAbilityWindowWidget>(GetWidgetFromName(TEXT("UI_AbilityWindowWidget")));
-		
+	m_AbilitySlotText1 = Cast<UTextBlock>(GetWidgetFromName(TEXT("AbilitySlotText1")));
+	m_AbilitySlotText2 = Cast<UTextBlock>(GetWidgetFromName(TEXT("AbilitySlotText2")));
+	m_BackgroundBlur = Cast<UBackgroundBlur>(GetWidgetFromName(TEXT("MainHUDBlur")));
+	m_SlotInit = false;
 }
 
 void UMainHUDWidget::NativeConstruct()
@@ -31,6 +36,12 @@ void UMainHUDWidget::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
 
 void UMainHUDWidget::AbilityWindowToggle()
 {
+	if (!m_SlotInit)
+	{
+		m_AbilityWindowWidget->InitAbilitySlot(m_AbilitySlotText1, m_AbilitySlotText2);
+		m_SlotInit = true;
+	}
+
 	if (m_AbilityWindowWidget->GetVisibility() == ESlateVisibility::Collapsed)
 	{
 		m_AbilityWindowWidget->SetVisibility(ESlateVisibility::Visible);
@@ -38,6 +49,8 @@ void UMainHUDWidget::AbilityWindowToggle()
 		FInputModeGameAndUI	inputMode;
 		GetWorld()->GetFirstPlayerController()->SetInputMode(inputMode);
 		GetWorld()->GetFirstPlayerController()->bShowMouseCursor = true;
+		//m_BackgroundBlur->BlurStrength = 6.666f;
+		m_BackgroundBlur->SetBlurStrength(6.666f);
 	}
 	else
 	{
@@ -45,6 +58,9 @@ void UMainHUDWidget::AbilityWindowToggle()
 		FInputModeGameOnly	inputMode;
 		GetWorld()->GetFirstPlayerController()->SetInputMode(inputMode);
 		GetWorld()->GetFirstPlayerController()->bShowMouseCursor = false;
+		//m_BackgroundBlur->BlurStrength = 0.f;
+		m_BackgroundBlur->SetBlurStrength(0.f);
+		
 	}
 	
 }

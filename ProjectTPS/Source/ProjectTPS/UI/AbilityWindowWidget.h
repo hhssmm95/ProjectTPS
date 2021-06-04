@@ -26,7 +26,7 @@ protected:
 		class UTextBlock* m_SelectNameText;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		class UTextBlock* m_SelectDescText;
+		class URichTextBlock* m_SelectDescText;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		class UTextBlock* m_AbilityPointText;
@@ -37,6 +37,22 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		int32 m_AbilityPoint;
 
+	class UTextBlock* m_AbilitySlotText1;
+	class UTextBlock* m_AbilitySlotText2;
+
+	/*class UImage* m_AbilitySlotImage1;
+	class UImage* m_AbilitySlotImage2;*/
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		int32 AssultLevel;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		int32 DefenceLevel;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		int32 UtilityLevel;
+
+	class UAbilitySlotData* m_CurrentSlotData;
 protected:
 	virtual void NativePreConstruct();
 	virtual void NativeConstruct();
@@ -54,4 +70,15 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 		void ClickSlot2Button();
+
+	UFUNCTION()
+		void SlotDoubleClick(UObject* pObj);
+
+
+	void InitAbilitySlot(class UTextBlock* slot1, class UTextBlock* slot2)
+	{
+		m_AbilitySlotText1 = slot1;
+		m_AbilitySlotText2 = slot2;
+	}
+
 };

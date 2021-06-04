@@ -66,7 +66,9 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UAbilitySlotData); \
 	FORCEINLINE static uint32 __PPO__m_AbilityDescription() { return STRUCT_OFFSET(UAbilitySlotData, m_AbilityDescription); } \
 	FORCEINLINE static uint32 __PPO__m_SlotTexture() { return STRUCT_OFFSET(UAbilitySlotData, m_SlotTexture); } \
 	FORCEINLINE static uint32 __PPO__m_SlotText() { return STRUCT_OFFSET(UAbilitySlotData, m_SlotText); } \
-	FORCEINLINE static uint32 __PPO__m_SlotIndex() { return STRUCT_OFFSET(UAbilitySlotData, m_SlotIndex); }
+	FORCEINLINE static uint32 __PPO__m_SlotSign() { return STRUCT_OFFSET(UAbilitySlotData, m_SlotSign); } \
+	FORCEINLINE static uint32 __PPO__m_SlotIndex() { return STRUCT_OFFSET(UAbilitySlotData, m_SlotIndex); } \
+	FORCEINLINE static uint32 __PPO__m_SlotWidget() { return STRUCT_OFFSET(UAbilitySlotData, m_SlotWidget); }
 
 
 #define ProjectTPS_Source_ProjectTPS_UI_AbilitySlotData_h_10_PROLOG

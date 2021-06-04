@@ -17,6 +17,7 @@ class UObject;
 #define ProjectTPS_Source_ProjectTPS_UI_AbilityWindowWidget_h_13_SPARSE_DATA
 #define ProjectTPS_Source_ProjectTPS_UI_AbilityWindowWidget_h_13_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execSlotDoubleClick); \
 	DECLARE_FUNCTION(execClickSlot2Button); \
 	DECLARE_FUNCTION(execClickSlot1Button); \
 	DECLARE_FUNCTION(execSlotClick);
@@ -24,6 +25,7 @@ class UObject;
 
 #define ProjectTPS_Source_ProjectTPS_UI_AbilityWindowWidget_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execSlotDoubleClick); \
 	DECLARE_FUNCTION(execClickSlot2Button); \
 	DECLARE_FUNCTION(execClickSlot1Button); \
 	DECLARE_FUNCTION(execSlotClick);
@@ -81,7 +83,10 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UAbilityWindowWidget); \
 	FORCEINLINE static uint32 __PPO__m_SelectDescText() { return STRUCT_OFFSET(UAbilityWindowWidget, m_SelectDescText); } \
 	FORCEINLINE static uint32 __PPO__m_AbilityPointText() { return STRUCT_OFFSET(UAbilityWindowWidget, m_AbilityPointText); } \
 	FORCEINLINE static uint32 __PPO__m_TileView() { return STRUCT_OFFSET(UAbilityWindowWidget, m_TileView); } \
-	FORCEINLINE static uint32 __PPO__m_AbilityPoint() { return STRUCT_OFFSET(UAbilityWindowWidget, m_AbilityPoint); }
+	FORCEINLINE static uint32 __PPO__m_AbilityPoint() { return STRUCT_OFFSET(UAbilityWindowWidget, m_AbilityPoint); } \
+	FORCEINLINE static uint32 __PPO__AssultLevel() { return STRUCT_OFFSET(UAbilityWindowWidget, AssultLevel); } \
+	FORCEINLINE static uint32 __PPO__DefenceLevel() { return STRUCT_OFFSET(UAbilityWindowWidget, DefenceLevel); } \
+	FORCEINLINE static uint32 __PPO__UtilityLevel() { return STRUCT_OFFSET(UAbilityWindowWidget, UtilityLevel); }
 
 
 #define ProjectTPS_Source_ProjectTPS_UI_AbilityWindowWidget_h_10_PROLOG

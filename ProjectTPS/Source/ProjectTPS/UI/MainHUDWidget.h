@@ -25,6 +25,16 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	class UAbilityWindowWidget* m_AbilityWindowWidget;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	class UBackgroundBlur* m_BackgroundBlur;
+
+	class UTextBlock* m_AbilitySlotText1;
+	class UTextBlock* m_AbilitySlotText2;
+
+	/*class UImage* m_AbilitySlotImage1;
+	class UImage* m_AbilitySlotImage2;*/
+
+	bool m_SlotInit;
 protected:
 	virtual void NativePreConstruct();
 	virtual void NativeConstruct();

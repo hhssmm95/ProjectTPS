@@ -21,8 +21,17 @@ void EmptyLinkFunctionForGeneratedCodeAbilityWindowWidget() {}
 	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_URichTextBlock_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UTileView_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(UAbilityWindowWidget::execSlotDoubleClick)
+	{
+		P_GET_OBJECT(UObject,Z_Param_pObj);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SlotDoubleClick(Z_Param_pObj);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UAbilityWindowWidget::execClickSlot2Button)
 	{
 		P_FINISH;
@@ -52,6 +61,7 @@ void EmptyLinkFunctionForGeneratedCodeAbilityWindowWidget() {}
 			{ "ClickSlot1Button", &UAbilityWindowWidget::execClickSlot1Button },
 			{ "ClickSlot2Button", &UAbilityWindowWidget::execClickSlot2Button },
 			{ "SlotClick", &UAbilityWindowWidget::execSlotClick },
+			{ "SlotDoubleClick", &UAbilityWindowWidget::execSlotDoubleClick },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -131,6 +141,38 @@ void EmptyLinkFunctionForGeneratedCodeAbilityWindowWidget() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UAbilityWindowWidget_SlotDoubleClick_Statics
+	{
+		struct AbilityWindowWidget_eventSlotDoubleClick_Parms
+		{
+			UObject* pObj;
+		};
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_pObj;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UAbilityWindowWidget_SlotDoubleClick_Statics::NewProp_pObj = { "pObj", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AbilityWindowWidget_eventSlotDoubleClick_Parms, pObj), Z_Construct_UClass_UObject_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAbilityWindowWidget_SlotDoubleClick_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbilityWindowWidget_SlotDoubleClick_Statics::NewProp_pObj,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAbilityWindowWidget_SlotDoubleClick_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/AbilityWindowWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UAbilityWindowWidget_SlotDoubleClick_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAbilityWindowWidget, nullptr, "SlotDoubleClick", nullptr, nullptr, sizeof(AbilityWindowWidget_eventSlotDoubleClick_Parms), Z_Construct_UFunction_UAbilityWindowWidget_SlotDoubleClick_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilityWindowWidget_SlotDoubleClick_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UAbilityWindowWidget_SlotDoubleClick_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilityWindowWidget_SlotDoubleClick_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UAbilityWindowWidget_SlotDoubleClick()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UAbilityWindowWidget_SlotDoubleClick_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_UAbilityWindowWidget_NoRegister()
 	{
 		return UAbilityWindowWidget::StaticClass();
@@ -174,6 +216,18 @@ void EmptyLinkFunctionForGeneratedCodeAbilityWindowWidget() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_AbilityPoint_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_AbilityPoint;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AssultLevel_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_AssultLevel;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DefenceLevel_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_DefenceLevel;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_UtilityLevel_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_UtilityLevel;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -186,6 +240,7 @@ void EmptyLinkFunctionForGeneratedCodeAbilityWindowWidget() {}
 		{ &Z_Construct_UFunction_UAbilityWindowWidget_ClickSlot1Button, "ClickSlot1Button" }, // 26610048
 		{ &Z_Construct_UFunction_UAbilityWindowWidget_ClickSlot2Button, "ClickSlot2Button" }, // 1535055086
 		{ &Z_Construct_UFunction_UAbilityWindowWidget_SlotClick, "SlotClick" }, // 2248282529
+		{ &Z_Construct_UFunction_UAbilityWindowWidget_SlotDoubleClick, "SlotDoubleClick" }, // 1002960498
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityWindowWidget_Statics::Class_MetaDataParams[] = {
@@ -237,7 +292,7 @@ void EmptyLinkFunctionForGeneratedCodeAbilityWindowWidget() {}
 		{ "ModuleRelativePath", "UI/AbilityWindowWidget.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_m_SelectDescText = { "m_SelectDescText", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UAbilityWindowWidget, m_SelectDescText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_m_SelectDescText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_m_SelectDescText_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_m_SelectDescText = { "m_SelectDescText", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UAbilityWindowWidget, m_SelectDescText), Z_Construct_UClass_URichTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_m_SelectDescText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_m_SelectDescText_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_m_AbilityPointText_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -264,6 +319,32 @@ void EmptyLinkFunctionForGeneratedCodeAbilityWindowWidget() {}
 	};
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_m_AbilityPoint = { "m_AbilityPoint", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UAbilityWindowWidget, m_AbilityPoint), METADATA_PARAMS(Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_m_AbilityPoint_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_m_AbilityPoint_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_AssultLevel_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "AbilityWindowWidget" },
+		{ "Comment", "/*class UImage* m_AbilitySlotImage1;\n\x09""class UImage* m_AbilitySlotImage2;*/" },
+		{ "ModuleRelativePath", "UI/AbilityWindowWidget.h" },
+		{ "ToolTip", "class UImage* m_AbilitySlotImage1;\n       class UImage* m_AbilitySlotImage2;" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_AssultLevel = { "AssultLevel", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UAbilityWindowWidget, AssultLevel), METADATA_PARAMS(Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_AssultLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_AssultLevel_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_DefenceLevel_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "AbilityWindowWidget" },
+		{ "ModuleRelativePath", "UI/AbilityWindowWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_DefenceLevel = { "DefenceLevel", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UAbilityWindowWidget, DefenceLevel), METADATA_PARAMS(Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_DefenceLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_DefenceLevel_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_UtilityLevel_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "AbilityWindowWidget" },
+		{ "ModuleRelativePath", "UI/AbilityWindowWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_UtilityLevel = { "UtilityLevel", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UAbilityWindowWidget, UtilityLevel), METADATA_PARAMS(Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_UtilityLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_UtilityLevel_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UAbilityWindowWidget_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_m_TitleBack,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_m_Slot1Button,
@@ -273,6 +354,9 @@ void EmptyLinkFunctionForGeneratedCodeAbilityWindowWidget() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_m_AbilityPointText,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_m_TileView,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_m_AbilityPoint,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_AssultLevel,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_DefenceLevel,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilityWindowWidget_Statics::NewProp_UtilityLevel,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UAbilityWindowWidget_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UAbilityWindowWidget>::IsAbstract,
@@ -301,7 +385,7 @@ void EmptyLinkFunctionForGeneratedCodeAbilityWindowWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UAbilityWindowWidget, 1169089814);
+	IMPLEMENT_CLASS(UAbilityWindowWidget, 2942391923);
 	template<> PROJECTTPS_API UClass* StaticClass<UAbilityWindowWidget>()
 	{
 		return UAbilityWindowWidget::StaticClass();

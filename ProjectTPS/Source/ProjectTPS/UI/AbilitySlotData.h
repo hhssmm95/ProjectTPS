@@ -30,9 +30,25 @@ protected:
 		FString m_SlotText;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		FString m_SlotSign;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		int32 m_SlotIndex;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UAbilitySlotWidget* m_SlotWidget;
+
 public:
+	UAbilitySlotWidget* GetSlotWidget()
+	{
+		return m_SlotWidget;
+	}
+
+	FString GetSlotSign()	const
+	{
+		return m_SlotSign;
+	}
+
 	int32 GetSlotIndex()	const
 	{
 		return m_SlotIndex;
@@ -63,6 +79,15 @@ public:
 		return m_SlotText;
 	}
 public:
+	void SetSlotWidget(UAbilitySlotWidget* widget)
+	{
+		m_SlotWidget = widget;
+	}
+	void SetSlotSign(const FString& Sign)
+	{
+		m_SlotSign = Sign;
+	}
+
 	void SetSlotIndex(int32 index)
 	{
 		m_SlotIndex = index;

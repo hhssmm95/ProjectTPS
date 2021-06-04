@@ -10,6 +10,8 @@
 #include "AbilitySlotData.h"
 #include "../Player/PlayerCharacter.h"
 #include "../ProjectTPSGameInstance.h"
+#include "Components/RichTextBlock.h"
+#include "AbilitySlotWidget.h"
 
 
 void UAbilityWindowWidget::NativePreConstruct()
@@ -19,15 +21,15 @@ void UAbilityWindowWidget::NativePreConstruct()
 	m_Slot2Button = Cast<UButton>(GetWidgetFromName(TEXT("EquipSlot2Button")));
 	m_TileView = Cast<UTileView>(GetWidgetFromName(TEXT("AbilityTileView")));
 	m_SelectNameText = Cast<UTextBlock>(GetWidgetFromName(TEXT("SelectAbilityNameText")));
-	m_SelectDescText = Cast<UTextBlock>(GetWidgetFromName(TEXT("SelectAbilityDescriptionText")));
+	m_SelectDescText = Cast<URichTextBlock>(GetWidgetFromName(TEXT("SelectAbilityDescriptionText")));
 	m_AbilityPointText = Cast<UTextBlock>(GetWidgetFromName(TEXT("AbilityPointText")));
 
-
 	m_TileView->OnItemClicked().AddUObject(this, &UAbilityWindowWidget::SlotClick);
+	m_TileView->OnItemDoubleClicked().AddUObject(this, &UAbilityWindowWidget::SlotDoubleClick);
 	//m_TileView->OnItemIsHoveredChanged().AddUObject(this, &UAbilityWindowWidget::MouseHovered);
 	m_Slot1Button->OnClicked.AddDynamic(this, &UAbilityWindowWidget::ClickSlot1Button);
 	m_Slot2Button->OnClicked.AddDynamic(this, &UAbilityWindowWidget::ClickSlot2Button);
-
+	
 }
 
 
@@ -50,7 +52,6 @@ void UAbilityWindowWidget::InitSlot()
 	FString RawKeyName;
 	//EAbility	AbilityKey = EAbility::None;
 	//FString	IconPath;
-	FString SlotText;
 
 	for (int32 i = 0; i < 9; ++i)
 	{
@@ -65,47 +66,38 @@ void UAbilityWindowWidget::InitSlot()
 		case 0:
 			RawKeyName = TEXT("Assult1");
 			//IconPath = TEXT("Texture2D'/Game/UI/sword.sword'");
-			SlotText = TEXT("A1");
 			break;
 		case 1:
 			RawKeyName = TEXT("Assult2");
 			//IconPath = TEXT("Texture2D'/Game/UI/sword.sword'");
-			SlotText = TEXT("A2");
 			break;
 		case 2:
 			RawKeyName = TEXT("Assult3");
 			//IconPath = TEXT("Texture2D'/Game/UI/sword.sword'");
-			SlotText = TEXT("A3");
 			break;
 		case 3:
 			RawKeyName = TEXT("Defence1");
 			//IconPath = TEXT("Texture2D'/Game/UI/sword.sword'");
-			SlotText = TEXT("D1");
 			break;
 		case 4:
 			RawKeyName = TEXT("Defence2");
 			//IconPath = TEXT("Texture2D'/Game/UI/sword.sword'");
-			SlotText = TEXT("D2");
 			break;
 		case 5:
 			RawKeyName = TEXT("Defence3");
 			//IconPath = TEXT("Texture2D'/Game/UI/sword.sword'");
-			SlotText = TEXT("D3");
 			break;
 		case 6:
 			RawKeyName = TEXT("Utility1");
 			//IconPath = TEXT("Texture2D'/Game/UI/sword.sword'");
-			SlotText = TEXT("U1");
 			break;
 		case 7:
 			RawKeyName = TEXT("Utility2");
 			//IconPath = TEXT("Texture2D'/Game/UI/sword.sword'");
-			SlotText = TEXT("U2");
 			break;
 		case 8:
 			RawKeyName = TEXT("Utility3");
 			//IconPath = TEXT("Texture2D'/Game/UI/sword.sword'");
-			SlotText = TEXT("U3");
 			break;
 		}
 
@@ -114,10 +106,13 @@ void UAbilityWindowWidget::InitSlot()
 		pData->SetAbilityName(pItemInfo->Name);
 		pData->SetAbilityKey(pItemInfo->Key);
 		//pData->SetSlotTexture(IconPath);
-		pData->SetSlotText(SlotText);
+		pData->SetSlotSign(pItemInfo->Sign);
+		pData->SetSlotText(pItemInfo->Sign);
 		pData->SetAbilityDesc(pItemInfo->Desc);
 		m_TileView->AddItem(pData);
 	}
+
+	m_AbilityPoint = 9;
 }
 
 void UAbilityWindowWidget::SlotClick(UObject* pObj)
@@ -126,57 +121,122 @@ void UAbilityWindowWidget::SlotClick(UObject* pObj)
 	m_SelectNameText->SetText(FText::FromString(pSlotData->GetAbilityName()));
 	m_SelectDescText->SetText(FText::FromString(pSlotData->GetAbilityDesc()));
 
+	m_CurrentSlotData = pSlotData;
 }
 
 void UAbilityWindowWidget::ClickSlot1Button()
 {
-
+	if(m_AbilitySlotText2->GetText().ToString() != m_CurrentSlotData->GetSlotSign())
+		m_AbilitySlotText1->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
+	else
+	{
+		m_AbilitySlotText2->SetText(m_AbilitySlotText1->GetText());
+		m_AbilitySlotText1->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
+	}
+	
+	
 
 }
 
 void UAbilityWindowWidget::ClickSlot2Button()
 {
-
+	if (m_AbilitySlotText1->GetText().ToString() != m_CurrentSlotData->GetSlotSign())
+		m_AbilitySlotText2->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
+	else
+	{
+		m_AbilitySlotText1->SetText(m_AbilitySlotText2->GetText());
+		m_AbilitySlotText2->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
+	}
 
 }
-//
-//void UAbilityWindowWidget::MouseHovered(UObject* pObj, bool isHovered)
-//{
-//	if (isHovered)
-//	{
-//		UInventoryItemData* pData = Cast<UInventoryItemData>(pObj);
-//		float mouseX;
-//		float mouseY;
-//		UGameplayStatics::GetPlayerController(GetWorld(), 0)->GetMousePosition(mouseX, mouseY);
-//		//UE_LOG(MyLog, Warning, TEXT("Mouse Location: %f, %f"), mouseX, mouseY);
-//
-//		if (pData)
-//		{
-//			m_InfoWidget->SetInfoIcon(pData->GetIconTexture());
-//			m_InfoWidget->SetNameText(pData->GetItemName());
-//			m_InfoWidget->SetGradeText(pData->GetItemGrade());
-//			m_InfoWidget->SetDescText(pData->GetDesc());
-//			m_InfoWidget->SetSellText(pData->GetSell());
-//
-//			//m_InfoWidget->SetPositionInViewport(FVector2D(mouseX, mouseY), false);
-//
-//			m_InfoWidget->SetVisibility(ESlateVisibility::Visible);
-//
-//			//m_InfoWidget->SetRenderTranslation(FVector2D(mouseX, mouseY));
-//			//PrintViewport(1.f, FColor::Blue, TEXT("Item Click"));
-//
-//		}
-//	}
-//	else
-//	{
-//		//m_InfoWidget->SetRenderTranslation(FVector2D(mouseX, mouseY));
-//		m_InfoWidget->SetVisibility(ESlateVisibility::Collapsed);
-//	}
-//}
 
-//
-//void UAbilityWindowWidget::CloseButtonClick()
-//{
-//	SetVisibility(ESlateVisibility::Collapsed);
-//}
 
+void UAbilityWindowWidget::SlotDoubleClick(UObject* pObj)
+{
+	UAbilitySlotData* pSlotData = Cast<UAbilitySlotData>(pObj);
+
+	UAbilitySlotWidget* pSlotWidget = Cast<UAbilitySlotWidget>(pSlotData->GetSlotWidget());
+
+	if (pSlotWidget && m_AbilityPoint > 0)
+	{
+		
+		switch (pSlotData->GetAbilityKey())
+		{
+		case EAbility::Assult1:
+			if (AssultLevel == 0)
+			{
+				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Red);
+				m_AbilityPoint--;
+				AssultLevel = 1;
+			}
+			break;
+		case EAbility::Assult2:
+			if (AssultLevel == 1)
+			{
+				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Red);
+				m_AbilityPoint--;
+				AssultLevel = 2;
+			}
+			break;
+		case EAbility::Assult3:
+			if (AssultLevel == 2)
+			{
+				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Red);
+				m_AbilityPoint--;
+				AssultLevel = 3;
+			}
+			break;
+		case EAbility::Defence1:
+
+			if (DefenceLevel == 0)
+			{
+				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Blue);
+				m_AbilityPoint--;
+				DefenceLevel = 1;
+			}
+			break;
+		case EAbility::Defence2:
+			if (DefenceLevel == 1)
+			{
+				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Blue);
+				m_AbilityPoint--;
+				DefenceLevel = 2;
+			}
+			break;
+		case EAbility::Defence3:
+			if (DefenceLevel == 2)
+			{
+				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Blue);
+				m_AbilityPoint--;
+				DefenceLevel = 3;
+			}
+			break;
+		case EAbility::Utility1:
+			if (UtilityLevel == 0)
+			{
+				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Green);
+				m_AbilityPoint--;
+				UtilityLevel = 1;
+			}
+			break;
+		case EAbility::Utility2:
+			if (UtilityLevel == 1)
+			{
+				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Green);
+				m_AbilityPoint--;
+				UtilityLevel = 2;
+			}
+			break;
+		case EAbility::Utility3:
+			if (UtilityLevel == 2)
+			{
+				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Green);
+				m_AbilityPoint--;
+				UtilityLevel = 3;
+			}
+			break;
+		}
+		if (m_AbilityPoint < 0)
+			m_AbilityPoint = 0;
+	}
+}

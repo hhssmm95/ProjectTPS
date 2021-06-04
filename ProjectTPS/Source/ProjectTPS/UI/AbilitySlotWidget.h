@@ -24,6 +24,10 @@ protected:
 		class UTextBlock* m_SlotText;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UBorder* m_SlotBorder;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		EAbility m_AbilityKey;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -42,6 +46,7 @@ public:
 	void SetSlotTexture(const FString& Path);
 	void SetSlotTexture(UTexture2D* pTexture);
 	void SetSlotText(const FString& Text);
+	void SetSlotBorderColor(FColor Color);
 
 public:
 	UFUNCTION(BlueprintCallable)

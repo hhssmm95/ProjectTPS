@@ -20,6 +20,7 @@ void EmptyLinkFunctionForGeneratedCodeAbilitySlotWidget() {}
 	PROJECTTPS_API UClass* Z_Construct_UClass_UAbilitySlotData_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UBorder_NoRegister();
 	PROJECTTPS_API UEnum* Z_Construct_UEnum_ProjectTPS_EAbility();
 // End Cross Module References
 	DEFINE_FUNCTION(UAbilitySlotWidget::execSetData)
@@ -93,6 +94,10 @@ void EmptyLinkFunctionForGeneratedCodeAbilitySlotWidget() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SlotText_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_SlotText;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SlotBorder_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_SlotBorder;
 		static const UE4CodeGen_Private::FBytePropertyParams NewProp_m_AbilityKey_Underlying;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_AbilityKey_MetaData[];
@@ -149,6 +154,15 @@ void EmptyLinkFunctionForGeneratedCodeAbilitySlotWidget() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_SlotText = { "m_SlotText", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UAbilitySlotWidget, m_SlotText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_SlotText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_SlotText_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_SlotBorder_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "AbilitySlotWidget" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/AbilitySlotWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_SlotBorder = { "m_SlotBorder", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UAbilitySlotWidget, m_SlotBorder), Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_SlotBorder_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_SlotBorder_MetaData)) };
 	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_AbilityKey_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_AbilityKey_MetaData[] = {
@@ -178,6 +192,7 @@ void EmptyLinkFunctionForGeneratedCodeAbilitySlotWidget() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_Index,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_SlotIcon,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_SlotText,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_SlotBorder,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_AbilityKey_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_AbilityKey,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilitySlotWidget_Statics::NewProp_m_AbilityName,
@@ -210,7 +225,7 @@ void EmptyLinkFunctionForGeneratedCodeAbilitySlotWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UAbilitySlotWidget, 319913350);
+	IMPLEMENT_CLASS(UAbilitySlotWidget, 1785110909);
 	template<> PROJECTTPS_API UClass* StaticClass<UAbilitySlotWidget>()
 	{
 		return UAbilitySlotWidget::StaticClass();

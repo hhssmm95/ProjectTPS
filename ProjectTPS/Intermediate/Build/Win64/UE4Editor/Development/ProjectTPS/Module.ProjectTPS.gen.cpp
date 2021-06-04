@@ -12,6 +12,7 @@
 #include "G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/BTWaitTask.gen.cpp"
 #include "G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/Bullet.gen.cpp"
 #include "G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/EffectNormal.gen.cpp"
+#include "G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/GameInfo.gen.cpp"
 #include "G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/HitCameraShake.gen.cpp"
 #include "G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/HitEffect.gen.cpp"
 #include "G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/HitMarkerWidget.gen.cpp"
