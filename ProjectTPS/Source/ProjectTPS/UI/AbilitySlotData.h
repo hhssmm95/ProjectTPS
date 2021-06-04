@@ -38,7 +38,14 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		class UAbilitySlotWidget* m_SlotWidget;
 
+	bool m_SlotAvailable;
 public:
+
+	bool GetSlotAvailable()
+	{
+		return m_SlotAvailable;
+	}
+
 	UAbilitySlotWidget* GetSlotWidget()
 	{
 		return m_SlotWidget;
@@ -79,6 +86,11 @@ public:
 		return m_SlotText;
 	}
 public:
+
+	void SetSlotAvailable(bool enable)
+	{
+		m_SlotAvailable = enable;
+	}
 	void SetSlotWidget(UAbilitySlotWidget* widget)
 	{
 		m_SlotWidget = widget;

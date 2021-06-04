@@ -24,7 +24,6 @@
 			"MonsterPatrolPoint.cpp.obj",
 			"MonsterSpawnPoint.cpp.obj",
 			"PlayerAnimation.cpp.obj",
-			"PlayerCharacter.cpp.obj",
 			"PlayerInfo.cpp.obj",
 			"PrimaryWeapon.cpp.obj",
 			"PlayerHUD.cpp.obj",
@@ -32,14 +31,17 @@
 			"ProjectTPSGameInstance.cpp.obj",
 			"ProjectTPSGameModeBase.cpp.obj",
 			"AbilitySlotData.cpp.obj",
+			"AbilitySlotWidget.cpp.obj",
 			"HitMarkerWidget.cpp.obj",
 			"PlayerEquipWidget.cpp.obj",
 			"PlayerHPWidget.cpp.obj",
-			"AbilitySlotWidget.cpp.obj",
+			"PlayerCharacter.cpp.obj",
 			"AbilityWindowWidget.cpp.obj",
 			"MainHUDWidget.cpp.obj"
 		],
 		"Module.ProjectTPS.gen.cpp.obj": [
+			"AbilitySlotData.gen.cpp.obj",
+			"AbilitySlotWidget.gen.cpp.obj",
 			"BTAttackTargetTask.gen.cpp.obj",
 			"BTCheckDistanceDecorator.gen.cpp.obj",
 			"BTPatrolTask.gen.cpp.obj",
@@ -57,6 +59,7 @@
 			"HitCameraShake.gen.cpp.obj",
 			"HitEffect.gen.cpp.obj",
 			"HitMarkerWidget.gen.cpp.obj",
+			"MainHUDWidget.gen.cpp.obj",
 			"Monster.gen.cpp.obj",
 			"MonsterAIController.gen.cpp.obj",
 			"MonsterAnim.gen.cpp.obj",
@@ -69,13 +72,10 @@
 			"PlayerHUD.gen.cpp.obj",
 			"PlayerInfo.gen.cpp.obj",
 			"PrimaryWeapon.gen.cpp.obj",
+			"ProjectTPSGameInstance.gen.cpp.obj",
 			"ProjectTPSGameModeBase.gen.cpp.obj",
-			"AbilitySlotData.gen.cpp.obj",
-			"AbilitySlotWidget.gen.cpp.obj",
 			"AbilityWindowWidget.gen.cpp.obj",
-			"MainHUDWidget.gen.cpp.obj",
-			"ProjectTPS.init.gen.cpp.obj",
-			"ProjectTPSGameInstance.gen.cpp.obj"
+			"ProjectTPS.init.gen.cpp.obj"
 		]
 	}
 }

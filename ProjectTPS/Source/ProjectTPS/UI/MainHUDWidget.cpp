@@ -44,6 +44,8 @@ void UMainHUDWidget::AbilityWindowToggle()
 
 	if (m_AbilityWindowWidget->GetVisibility() == ESlateVisibility::Collapsed)
 	{
+		UGameplayStatics::SetGamePaused(GetWorld(), true);
+
 		m_AbilityWindowWidget->SetVisibility(ESlateVisibility::Visible);
 
 		FInputModeGameAndUI	inputMode;
@@ -54,6 +56,8 @@ void UMainHUDWidget::AbilityWindowToggle()
 	}
 	else
 	{
+		UGameplayStatics::SetGamePaused(GetWorld(), false);
+
 		m_AbilityWindowWidget->SetVisibility(ESlateVisibility::Collapsed);
 		FInputModeGameOnly	inputMode;
 		GetWorld()->GetFirstPlayerController()->SetInputMode(inputMode);

@@ -814,6 +814,8 @@ E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\UserWidgetPool.gene
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\ListViewBase.generated.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\ListView.generated.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\TileView.generated.h
+E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/Border.h
+E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\Border.generated.h
 G:\Git\ProjectTPS\Source\ProjectTPS\UI\AbilitySlotData.h
 E:\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/NoExportTypes.h
 E:\UE_4.26\Engine\Source\Runtime\Core\Public\Math/UnitConversion.h

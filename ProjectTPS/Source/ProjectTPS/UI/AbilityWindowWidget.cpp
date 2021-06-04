@@ -7,6 +7,7 @@
 #include "Components/Button.h"
 #include "Components/TextBlock.h"
 #include "Components/TileView.h"
+#include "Components/Border.h"
 #include "AbilitySlotData.h"
 #include "../Player/PlayerCharacter.h"
 #include "../ProjectTPSGameInstance.h"
@@ -23,6 +24,13 @@ void UAbilityWindowWidget::NativePreConstruct()
 	m_SelectNameText = Cast<UTextBlock>(GetWidgetFromName(TEXT("SelectAbilityNameText")));
 	m_SelectDescText = Cast<URichTextBlock>(GetWidgetFromName(TEXT("SelectAbilityDescriptionText")));
 	m_AbilityPointText = Cast<UTextBlock>(GetWidgetFromName(TEXT("AbilityPointText")));
+
+	m_AssultLine1 = Cast<UBorder>(GetWidgetFromName(TEXT("AssultLine1")));
+	m_AssultLine2 = Cast<UBorder>(GetWidgetFromName(TEXT("AssultLine2")));
+	m_DefenceLine1 = Cast<UBorder>(GetWidgetFromName(TEXT("DefenceLine1")));
+	m_DefenceLine2 = Cast<UBorder>(GetWidgetFromName(TEXT("DefenceLine2")));
+	m_UtilityLine1 = Cast<UBorder>(GetWidgetFromName(TEXT("UtilityLine1")));
+	m_UtilityLine2 = Cast<UBorder>(GetWidgetFromName(TEXT("UtilityLine2")));
 
 	m_TileView->OnItemClicked().AddUObject(this, &UAbilityWindowWidget::SlotClick);
 	m_TileView->OnItemDoubleClicked().AddUObject(this, &UAbilityWindowWidget::SlotDoubleClick);
@@ -113,6 +121,7 @@ void UAbilityWindowWidget::InitSlot()
 	}
 
 	m_AbilityPoint = 9;
+	UpdateAbilityPoint();
 }
 
 void UAbilityWindowWidget::SlotClick(UObject* pObj)
@@ -126,28 +135,34 @@ void UAbilityWindowWidget::SlotClick(UObject* pObj)
 
 void UAbilityWindowWidget::ClickSlot1Button()
 {
-	if(m_AbilitySlotText2->GetText().ToString() != m_CurrentSlotData->GetSlotSign())
-		m_AbilitySlotText1->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
-	else
+	if (m_CurrentSlotData != nullptr && m_CurrentSlotData->GetSlotAvailable())
 	{
-		m_AbilitySlotText2->SetText(m_AbilitySlotText1->GetText());
-		m_AbilitySlotText1->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
+		if (m_AbilitySlotText2->GetText().ToString() != m_CurrentSlotData->GetSlotSign())
+		{
+			m_AbilitySlotText1->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
+		}
+		else
+		{
+			m_AbilitySlotText2->SetText(m_AbilitySlotText1->GetText());
+			m_AbilitySlotText1->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
+		}
 	}
-	
-	
-
 }
 
 void UAbilityWindowWidget::ClickSlot2Button()
 {
-	if (m_AbilitySlotText1->GetText().ToString() != m_CurrentSlotData->GetSlotSign())
-		m_AbilitySlotText2->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
-	else
+	if (m_CurrentSlotData != nullptr && m_CurrentSlotData->GetSlotAvailable())
 	{
-		m_AbilitySlotText1->SetText(m_AbilitySlotText2->GetText());
-		m_AbilitySlotText2->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
+		if (m_AbilitySlotText1->GetText().ToString() != m_CurrentSlotData->GetSlotSign())
+		{
+			m_AbilitySlotText2->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
+		}
+		else
+		{
+			m_AbilitySlotText1->SetText(m_AbilitySlotText2->GetText());
+			m_AbilitySlotText2->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
+		}
 	}
-
 }
 
 
@@ -168,6 +183,8 @@ void UAbilityWindowWidget::SlotDoubleClick(UObject* pObj)
 				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Red);
 				m_AbilityPoint--;
 				AssultLevel = 1;
+				pSlotData->SetSlotAvailable(true);
+
 			}
 			break;
 		case EAbility::Assult2:
@@ -176,6 +193,13 @@ void UAbilityWindowWidget::SlotDoubleClick(UObject* pObj)
 				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Red);
 				m_AbilityPoint--;
 				AssultLevel = 2;
+				pSlotData->SetSlotAvailable(true);
+				FLinearColor BorderColor;
+				BorderColor.R = 1.f;
+				BorderColor.G = 0.1f;
+				BorderColor.B = 0.f;
+				BorderColor.A = 1.f;
+				m_AssultLine1->SetBrushColor(BorderColor);
 			}
 			break;
 		case EAbility::Assult3:
@@ -184,6 +208,13 @@ void UAbilityWindowWidget::SlotDoubleClick(UObject* pObj)
 				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Red);
 				m_AbilityPoint--;
 				AssultLevel = 3;
+				pSlotData->SetSlotAvailable(true);
+				FLinearColor BorderColor;
+				BorderColor.R = 1.f;
+				BorderColor.G = 0.1f;
+				BorderColor.B = 0.f;
+				BorderColor.A = 1.f;
+				m_AssultLine2->SetBrushColor(BorderColor);
 			}
 			break;
 		case EAbility::Defence1:
@@ -193,6 +224,7 @@ void UAbilityWindowWidget::SlotDoubleClick(UObject* pObj)
 				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Blue);
 				m_AbilityPoint--;
 				DefenceLevel = 1;
+				pSlotData->SetSlotAvailable(true);
 			}
 			break;
 		case EAbility::Defence2:
@@ -201,6 +233,14 @@ void UAbilityWindowWidget::SlotDoubleClick(UObject* pObj)
 				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Blue);
 				m_AbilityPoint--;
 				DefenceLevel = 2;
+				pSlotData->SetSlotAvailable(true);
+
+				FLinearColor BorderColor;
+				BorderColor.R = 0.f;
+				BorderColor.G = 0.5f;
+				BorderColor.B = 1.f;
+				BorderColor.A = 1.f;
+				m_DefenceLine1->SetBrushColor(BorderColor);
 			}
 			break;
 		case EAbility::Defence3:
@@ -209,6 +249,14 @@ void UAbilityWindowWidget::SlotDoubleClick(UObject* pObj)
 				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Blue);
 				m_AbilityPoint--;
 				DefenceLevel = 3;
+				pSlotData->SetSlotAvailable(true);
+
+				FLinearColor BorderColor;
+				BorderColor.R = 0.f;
+				BorderColor.G = 0.5f;
+				BorderColor.B = 1.f;
+				BorderColor.A = 1.f;
+				m_DefenceLine2->SetBrushColor(BorderColor);
 			}
 			break;
 		case EAbility::Utility1:
@@ -217,6 +265,7 @@ void UAbilityWindowWidget::SlotDoubleClick(UObject* pObj)
 				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Green);
 				m_AbilityPoint--;
 				UtilityLevel = 1;
+				pSlotData->SetSlotAvailable(true);
 			}
 			break;
 		case EAbility::Utility2:
@@ -225,6 +274,14 @@ void UAbilityWindowWidget::SlotDoubleClick(UObject* pObj)
 				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Green);
 				m_AbilityPoint--;
 				UtilityLevel = 2;
+				pSlotData->SetSlotAvailable(true);
+
+				FLinearColor BorderColor;
+				BorderColor.R = 0.3f;
+				BorderColor.G = 1.f;
+				BorderColor.B = 0.f;
+				BorderColor.A = 1.f;
+				m_UtilityLine1->SetBrushColor(BorderColor);
 			}
 			break;
 		case EAbility::Utility3:
@@ -233,10 +290,23 @@ void UAbilityWindowWidget::SlotDoubleClick(UObject* pObj)
 				pSlotData->GetSlotWidget()->SetSlotBorderColor(FColor::Green);
 				m_AbilityPoint--;
 				UtilityLevel = 3;
+				pSlotData->SetSlotAvailable(true);
+				FLinearColor BorderColor;
+				BorderColor.R = 0.3f;
+				BorderColor.G = 1.f;
+				BorderColor.B = 0.f;
+				BorderColor.A = 1.f;
+				m_UtilityLine2->SetBrushColor(BorderColor);
 			}
 			break;
 		}
 		if (m_AbilityPoint < 0)
 			m_AbilityPoint = 0;
+		UpdateAbilityPoint();
 	}
+}
+
+void UAbilityWindowWidget::UpdateAbilityPoint()
+{
+	m_AbilityPointText->SetText(FText::FromString(FString::FromInt(m_AbilityPoint)));
 }

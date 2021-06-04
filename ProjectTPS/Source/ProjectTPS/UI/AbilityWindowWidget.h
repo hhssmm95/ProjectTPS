@@ -40,9 +40,11 @@ protected:
 	class UTextBlock* m_AbilitySlotText1;
 	class UTextBlock* m_AbilitySlotText2;
 
+	class UAbilitySlotData* m_CurrentSlotData;
 	/*class UImage* m_AbilitySlotImage1;
 	class UImage* m_AbilitySlotImage2;*/
 
+public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		int32 AssultLevel;
 
@@ -52,7 +54,25 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		int32 UtilityLevel;
 
-	class UAbilitySlotData* m_CurrentSlotData;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UBorder* m_AssultLine1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UBorder* m_AssultLine2;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UBorder* m_DefenceLine1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UBorder* m_DefenceLine2;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UBorder* m_UtilityLine1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UBorder* m_UtilityLine2;
+
+
 protected:
 	virtual void NativePreConstruct();
 	virtual void NativeConstruct();
@@ -74,6 +94,8 @@ public:
 	UFUNCTION()
 		void SlotDoubleClick(UObject* pObj);
 
+	UFUNCTION()
+		void UpdateAbilityPoint();
 
 	void InitAbilitySlot(class UTextBlock* slot1, class UTextBlock* slot2)
 	{
