@@ -37,7 +37,8 @@ void UAbilityWindowWidget::NativePreConstruct()
 	//m_TileView->OnItemIsHoveredChanged().AddUObject(this, &UAbilityWindowWidget::MouseHovered);
 	m_Slot1Button->OnClicked.AddDynamic(this, &UAbilityWindowWidget::ClickSlot1Button);
 	m_Slot2Button->OnClicked.AddDynamic(this, &UAbilityWindowWidget::ClickSlot2Button);
-	
+	m_Slot1Key = EAbility::None;
+	m_Slot2Key = EAbility::None;
 }
 
 
@@ -133,35 +134,143 @@ void UAbilityWindowWidget::SlotClick(UObject* pObj)
 	m_CurrentSlotData = pSlotData;
 }
 
+void UAbilityWindowWidget::SetAbility1Cooltime(EAbility Key)
+{
+
+	switch (Key)
+	{
+	case EAbility::Assult1:
+		m_Player->SetSlot1Cooltime(10.f);
+		break;
+	case EAbility::Assult2:
+		m_Player->SetSlot1Cooltime(10.f);
+		break;
+	case EAbility::Assult3:
+		m_Player->SetSlot1Cooltime(10.f);
+		break;
+	case EAbility::Defence1:
+		m_Player->SetSlot1Cooltime(10.f);
+		break;
+	case EAbility::Defence2:
+		m_Player->SetSlot1Cooltime(10.f);
+		break;
+	case EAbility::Defence3:
+		m_Player->SetSlot1Cooltime(10.f);
+		break;
+	case EAbility::Utility1:
+		m_Player->SetSlot1Cooltime(10.f);
+		break;
+	case EAbility::Utility2:
+		m_Player->SetSlot1Cooltime(10.f);
+		break;
+	case EAbility::Utility3:
+		m_Player->SetSlot1Cooltime(10.f);
+		break;
+	default:
+		m_Player->SetSlot2Cooltime(10.f);
+		break;
+	}
+
+}
+
+void UAbilityWindowWidget::SetAbility2Cooltime(EAbility Key)
+{
+
+	switch (Key)
+	{
+	case EAbility::Assult1:
+		m_Player->SetSlot2Cooltime(10.f);
+		break;
+	case EAbility::Assult2:
+		m_Player->SetSlot2Cooltime(10.f);
+		break;
+	case EAbility::Assult3:
+		m_Player->SetSlot2Cooltime(10.f);
+		break;
+	case EAbility::Defence1:
+		m_Player->SetSlot2Cooltime(10.f);
+		break;
+	case EAbility::Defence2:
+		m_Player->SetSlot2Cooltime(10.f);
+		break;
+	case EAbility::Defence3:
+		m_Player->SetSlot2Cooltime(10.f);
+		break;
+	case EAbility::Utility1:
+		m_Player->SetSlot2Cooltime(10.f);
+		break;
+	case EAbility::Utility2:
+		m_Player->SetSlot2Cooltime(10.f);
+		break;
+	case EAbility::Utility3:
+		m_Player->SetSlot2Cooltime(10.f);
+		break;
+	default:
+		m_Player->SetSlot2Cooltime(10.f);
+		break;
+	}
+
+}
 void UAbilityWindowWidget::ClickSlot1Button()
 {
+	if (!m_Player)
+		m_Player = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
+
 	if (m_CurrentSlotData != nullptr && m_CurrentSlotData->GetSlotAvailable())
 	{
+
 		if (m_AbilitySlotText2->GetText().ToString() != m_CurrentSlotData->GetSlotSign())
 		{
 			m_AbilitySlotText1->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
+			m_Slot1Key = m_CurrentSlotData->GetAbilityKey();
+			//SetAbilityEnable(m_CurrentSlotData->GetAbilityKey());
 		}
 		else
 		{
 			m_AbilitySlotText2->SetText(m_AbilitySlotText1->GetText());
 			m_AbilitySlotText1->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
+			m_Slot2Key = m_Slot1Key;
+			m_Slot1Key = m_CurrentSlotData->GetAbilityKey();
 		}
+		SetAbility1Cooltime(m_Slot1Key);
+		SetAbility2Cooltime(m_Slot2Key);
+		m_Player->SetSlot1Ability(EAbility::None);
+		m_Player->SetSlot2Ability(EAbility::None);
+		m_Player->SetSlot1Ability(m_Slot1Key);
+		m_Player->SetSlot2Ability(m_Slot2Key);
+		m_Player->SetSlot1Enable(true);
+		/*SetAllAbilityDisable();
+		SetAbilityEnable(m_Slot1Key);
+		SetAbilityEnable(m_Slot2Key);*/
 	}
 }
 
 void UAbilityWindowWidget::ClickSlot2Button()
 {
+	if (!m_Player)
+		m_Player = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
+
 	if (m_CurrentSlotData != nullptr && m_CurrentSlotData->GetSlotAvailable())
 	{
 		if (m_AbilitySlotText1->GetText().ToString() != m_CurrentSlotData->GetSlotSign())
 		{
 			m_AbilitySlotText2->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
+			m_Slot2Key = m_CurrentSlotData->GetAbilityKey();
 		}
 		else
 		{
 			m_AbilitySlotText1->SetText(m_AbilitySlotText2->GetText());
 			m_AbilitySlotText2->SetText(FText::FromString(m_CurrentSlotData->GetSlotSign()));
+			m_Slot1Key = m_Slot2Key;
+			m_Slot2Key = m_CurrentSlotData->GetAbilityKey();
 		}
+		SetAbility1Cooltime(m_Slot1Key);
+		SetAbility2Cooltime(m_Slot2Key);
+		m_Player->SetSlot1Ability(EAbility::None);
+		m_Player->SetSlot2Ability(EAbility::None);
+		m_Player->SetSlot1Ability(m_Slot1Key);
+		m_Player->SetSlot2Ability(m_Slot2Key);
+		m_Player->SetSlot2Enable(true);
 	}
 }
 

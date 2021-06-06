@@ -46,8 +46,11 @@ void UBTPatrolTask::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemor
 	if (pTarget)
 		FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
 
-	if(pMonster->GetIsDeath())
+	if (pMonster->GetIsDeath())
+	{
+		OwnerComp.GetAIOwner()->StopMovement();
 		FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
+	}
 
 	if(OwnerComp.GetBlackboardComponent()->GetValueAsBool(TEXT("IsPanic")))
 		FinishLatentTask(OwnerComp, EBTNodeResult::Failed);

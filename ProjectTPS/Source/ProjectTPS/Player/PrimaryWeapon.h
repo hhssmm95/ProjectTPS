@@ -39,11 +39,14 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		int32 m_RemainMag;
-
+	
 protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TSubclassOf<class ABullet>	m_BulletClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		TSubclassOf<class ABullet>	m_BurstBulletClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		USoundBase* m_SuppressorSoundClass;
@@ -63,6 +66,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TSubclassOf<class AEffectNormal>	m_MuzzleClass;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		TSubclassOf<class AEffectNormal>	m_BurstMuzzleClass;
 
 
 
@@ -78,15 +83,22 @@ protected:
 
 	bool m_bSuppressorUsing;
 
+	bool m_bBurst;
+	float m_BurstTime;
+	float m_BurstTimeAcc;
 public:
 	USkeletalMeshComponent* GetMesh()	const
 	{
 		return m_Mesh;
 	}
 
+	void BurstMode(float BurstTime);
+	void BurstEnd();
+
 	void EquipSuppressor();
 
 	void Fire(FVector CameraPos, FVector CameraForward);
+	void AutoFire(FVector CameraPos,  FVector TargetPos);
 	void Reload();
 protected:
 	// Called when the game starts or when spawned

@@ -84,9 +84,15 @@ void UBTTaskMonsterMoveTo::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* No
 		FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
 	}
 
-
-	TargetLocation = OwnerComp.GetBlackboardComponent()->GetValueAsVector(BlackboardKeyName);
 	AMonster* pMonster = Cast<AMonster>(OwnerComp.GetAIOwner()->GetPawn());
+
+	if (pMonster->GetIsDeath())
+	{
+
+		OwnerComp.GetAIOwner()->StopMovement();
+		FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
+	}
+	TargetLocation = OwnerComp.GetBlackboardComponent()->GetValueAsVector(BlackboardKeyName);
 
 
 	if (TargetIsActor)

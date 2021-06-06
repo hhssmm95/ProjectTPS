@@ -21,11 +21,14 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		UPlayerInfo* m_PlayerInfo;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		UCameraComponent* m_Camera;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		USpringArmComponent* m_Arm;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		class UWidgetComponent* m_AimLock;
 
 	//UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		//USceneComponent* m_Scene;
@@ -71,11 +74,31 @@ protected:
 		USoundBase* m_HurtSound3;
 
 
+	FVector m_AssistLoc;
+	bool m_bAimAssist;
+	float m_AimAssistTime;
+	float m_AimAssistTimeAcc;
+
 	class APlayerHUD* m_HUD;
+
+	float m_AutoShotRange;
 
 	bool m_bFire;
 	bool m_bMagEmpty;
-public:/*
+
+	bool m_Slot1AbilityEnable;
+	bool m_Slot2AbilityEnable;
+
+	float m_Slot1AbilityCooltime;
+	float m_Slot2AbilityCooltime;
+
+	EAbility m_eSlot1Ability;
+	EAbility m_eSlot2Ability;
+
+	//float m_Slot1AbilityAcc;
+	//float m_Slot2AbilityAcc;
+public:
+	/*
 	EMoveDir GetDirection() const
 	{
 		return m_eDirection;
@@ -98,6 +121,7 @@ public:
 
 	void AddUpperYawInput(float fScale);
 
+	void Detection();
 
 public:
 	void InputJump();
@@ -111,6 +135,9 @@ public:
 
 	void AbilityWindowVisiblity();
 
+public:
+	void UseAbility1();
+	void UseAbility2();
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -124,8 +151,80 @@ public:
 
 
 public:
-	void MagEmpty();
 
+	
+	void SetSlot1Enable(bool Enable)
+	{
+		m_Slot1AbilityEnable = Enable;
+	}
+
+	void SetSlot2Enable(bool Enable)
+	{
+		m_Slot2AbilityEnable = Enable;
+	}
+
+	void SetSlot1Cooltime(float Cooltime)
+	{
+		m_Slot1AbilityCooltime = Cooltime;
+	}
+
+	void SetSlot2Cooltime(float Cooltime)
+	{
+		m_Slot2AbilityCooltime = Cooltime;
+	}
+
+	void SetSlot1Ability(EAbility Key)
+	{
+		m_eSlot1Ability = Key;
+	}
+
+	void SetSlot2Ability(EAbility Key)
+	{
+		m_eSlot2Ability = Key;
+	}
+
+	/*
+	void SetAssult1Enable(bool Enable)
+	{
+		m_PlayerInfo->SetAssult1Enable(Enable);
+	}
+	void SetAssult2Enable(bool Enable)
+	{
+		m_PlayerInfo->SetAssult2Enable(Enable);
+	}
+	void SetAssult3Enable(bool Enable)
+	{
+		m_PlayerInfo->SetAssult3Enable(Enable);
+	}
+
+	void SetDefence1Enable(bool Enable)
+	{
+		m_PlayerInfo->SetDefence1Enable(Enable);
+	}
+	void SetDefence2Enable(bool Enable)
+	{
+		m_PlayerInfo->SetDefence2Enable(Enable);
+	}
+	void SetDefence3Enable(bool Enable)
+	{
+		m_PlayerInfo->SetDefence3Enable(Enable);
+	}
+
+	void SetUtility1Enable(bool Enable)
+	{
+		m_PlayerInfo->SetUtility1Enable(Enable);
+	}
+	void SetUtility2Enable(bool Enable)
+	{
+		m_PlayerInfo->SetUtility2Enable(Enable);
+	}
+	void SetUtility3Enable(bool Enable)
+	{
+		m_PlayerInfo->SetUtility3Enable(Enable);
+	}
+	*/
+public:
+	void MagEmpty();
 
 	void SetHP(int32 HP)
 	{
@@ -197,4 +296,5 @@ public:
 	void EmitHitEffect(FVector ImpactLoc, FRotator Rot);
 	void ShowHitMark();
 	void ShowHeadShotMark();
+	void AimAssist();
 };

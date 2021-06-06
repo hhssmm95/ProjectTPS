@@ -9,6 +9,8 @@
 #include "../HitEffect.h"
 #include "../UI/MainHUDWidget.h"
 #include "../UI/PlayerEquipWidget.h"
+#include "../Monster/Monster.h"
+#include "Components/WidgetComponent.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -37,9 +39,11 @@ APlayerCharacter::APlayerCharacter()
 	m_Arm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Arm"));
 	m_Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	//m_Scene = CreateDefaultSubobject<USceneComponent>(TEXT("Scene"));
+	m_AimLock = CreateDefaultSubobject<UWidgetComponent>(TEXT("AimLock"));
 
 	m_Camera->SetupAttachment(m_Arm);
 	m_Arm->SetupAttachment(GetCapsuleComponent());
+	m_AimLock->SetupAttachment(GetCapsuleComponent());
 	//m_Scene->SetupAttachment(GetCapsuleComponent());
 	//m_eDirection = EMoveDir::None;
 
@@ -49,10 +53,13 @@ APlayerCharacter::APlayerCharacter()
 	GetCharacterMovement()->JumpZVelocity = 500.f;
 	m_UpperYaw = 0.f;
 	m_bMagEmpty = false;
+	m_AutoShotRange = 3000.f;
 	SetHPMax(1000);
 	SetHP(1000);
 	
 	GetCapsuleComponent()->SetCollisionProfileName("PlayerBody");
+	m_AimLock->SetWidgetSpace(EWidgetSpace::Screen);
+	m_AimAssistTime = 10.f;
 }
 
 // Called when the game starts or when spawned
@@ -79,18 +86,33 @@ void APlayerCharacter::BeginPlay()
 
 	SetRemainMag(100);
 	m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetRemainMagText(GetRemainMag());
+	m_AimLock->SetVisibility(false);
 }
 
 // Called every frame
 void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	Detection();
 
 	if (m_bFire && !m_IsReloading)
 	{
-		m_PrimaryWeapon->Fire(m_Camera->GetComponentLocation(), m_Camera->GetForwardVector());
+		if (m_bAimAssist)
+			m_PrimaryWeapon->AutoFire(m_Camera->GetComponentLocation(), m_AssistLoc);
+		else
+			m_PrimaryWeapon->Fire(m_Camera->GetComponentLocation(), m_Camera->GetForwardVector());
 
+	}
+
+	if (m_bAimAssist)
+	{
+		if (m_AimAssistTimeAcc >= m_AimAssistTime)
+		{
+			m_AimLock->SetVisibility(false);
+			m_bAimAssist = false;
+			m_AimAssistTimeAcc = 0.f;
+		}
+		m_AimAssistTimeAcc += DeltaTime;
 	}
 }
 
@@ -111,6 +133,8 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Pressed, this, &APlayerCharacter::PrimaryFire);
 	PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Released, this, &APlayerCharacter::PrimaryStop);
 	PlayerInputComponent->BindAction(TEXT("SuppressorShot(Debug)"), EInputEvent::IE_Pressed, this, &APlayerCharacter::EquipSuppressor);
+	PlayerInputComponent->BindAction(TEXT("AbilitySlot1"), EInputEvent::IE_Pressed, this, &APlayerCharacter::UseAbility1);
+	PlayerInputComponent->BindAction(TEXT("AbilitySlot2"), EInputEvent::IE_Pressed, this, &APlayerCharacter::UseAbility2);
 
 	PlayerInputComponent->BindAction(TEXT("Reload"), EInputEvent::IE_Pressed, this, &APlayerCharacter::ReloadStart);
 	PlayerInputComponent->BindAction(TEXT("AbilityWindowToggle"), EInputEvent::IE_Pressed, this, &APlayerCharacter::AbilityWindowVisiblity).bExecuteWhenPaused = true;
@@ -160,6 +184,70 @@ void APlayerCharacter::LookUp(float fScale)
 	}
 }
 
+void APlayerCharacter::UseAbility1()
+{
+	if (m_Slot1AbilityEnable && m_eSlot1Ability != EAbility::None)
+	{
+		m_Slot1AbilityEnable = false;
+		m_HUD->GetMainHUDWidget()->ActiveSlot1Cooltime(m_Slot1AbilityCooltime);
+
+		switch (m_eSlot1Ability)
+		{
+		case EAbility::Assult1:
+			m_PrimaryWeapon->BurstMode(m_Slot1AbilityCooltime);
+			break;
+		case EAbility::Assult2:
+			break;
+		case EAbility::Assult3:
+			AimAssist();
+			break;
+		case EAbility::Defence1:
+			break;
+		case EAbility::Defence2:
+			break;
+		case EAbility::Defence3:
+			break;
+		case EAbility::Utility1:
+			break;
+		case EAbility::Utility2:
+			break;
+		case EAbility::Utility3:
+			break;
+		}
+	}
+}
+void APlayerCharacter::UseAbility2()
+{
+	if (m_Slot2AbilityEnable && m_eSlot2Ability != EAbility::None)
+	{
+		m_Slot2AbilityEnable = false;
+		m_HUD->GetMainHUDWidget()->ActiveSlot2Cooltime(m_Slot2AbilityCooltime);
+
+		switch (m_eSlot2Ability)
+		{
+		case EAbility::Assult1:
+			m_PrimaryWeapon->BurstMode(m_Slot2AbilityCooltime);
+			break;
+		case EAbility::Assult2:
+			break;
+		case EAbility::Assult3:
+			AimAssist();
+			break;
+		case EAbility::Defence1:
+			break;
+		case EAbility::Defence2:
+			break;
+		case EAbility::Defence3:
+			break;
+		case EAbility::Utility1:
+			break;
+		case EAbility::Utility2:
+			break;
+		case EAbility::Utility3:
+			break;
+		}
+	}
+}
 
 void APlayerCharacter::InputJump()
 {
@@ -301,4 +389,46 @@ void APlayerCharacter::ShowHeadShotMark()
 void APlayerCharacter::AbilityWindowVisiblity()
 {
 	m_HUD->AbilityWindowToggle();
+}
+
+void APlayerCharacter::AimAssist()
+{
+	m_bAimAssist = true;
+}
+
+void APlayerCharacter::Detection()
+{
+	if (m_bAimAssist)
+	{
+		FVector StartLoc = m_Camera->GetComponentLocation();
+		FVector EndLoc = StartLoc + m_Camera->GetForwardVector() * m_AutoShotRange;
+
+		TArray<AActor*> IgnoreActor;
+		IgnoreActor.Add(this);
+
+		FHitResult result;
+
+		bool bHit = UKismetSystemLibrary::CapsuleTraceSingle(GetWorld(), StartLoc, EndLoc, 600, 500,
+			UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel7), true, IgnoreActor,
+			EDrawDebugTrace::ForDuration, result, true, FLinearColor::Red, FLinearColor::Green, 0.01f);
+
+		if (bHit)
+		{
+			AMonster* pMonster = Cast<AMonster>(result.Actor);
+			FVector vLoc = m_Camera->GetRelativeLocation() - pMonster->GetActorLocation();
+			FVector TargetLoc = pMonster->GetActorLocation() + FVector(0.f, 0.f, 68.f);
+			m_AimLock->SetVisibility(true);
+			/*m_AimLock->SetRelativeRotation(UKismetMathLibrary::FindLookAtRotation(m_Camera->GetRelativeLocation(),
+				m_AimLock->GetRelativeLocation()));*/
+			m_AimLock->SetWorldLocation(TargetLoc);
+			m_AimLock->SetWorldRotation(FRotator(vLoc.Normalize()));
+			m_AssistLoc = TargetLoc;
+		}
+		else
+		{
+			m_AimLock->SetVisibility(false);
+		}
+
+
+	}
 }

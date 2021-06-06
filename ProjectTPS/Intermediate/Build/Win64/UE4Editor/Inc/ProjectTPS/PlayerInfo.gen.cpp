@@ -60,17 +60,62 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_RemainMag;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Assult_Level_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Assult1Enable_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_Assult_Level;
+		static void NewProp_m_Assult1Enable_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_Assult1Enable;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Defend_Level_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Assult2Enable_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_Defend_Level;
+		static void NewProp_m_Assult2Enable_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_Assult2Enable;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Utility_Level_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Assult3Enable_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_Utility_Level;
+		static void NewProp_m_Assult3Enable_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_Assult3Enable;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Defence1Enable_MetaData[];
+#endif
+		static void NewProp_m_Defence1Enable_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_Defence1Enable;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Defence2Enable_MetaData[];
+#endif
+		static void NewProp_m_Defence2Enable_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_Defence2Enable;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Defence3Enable_MetaData[];
+#endif
+		static void NewProp_m_Defence3Enable_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_Defence3Enable;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Utility1Enable_MetaData[];
+#endif
+		static void NewProp_m_Utility1Enable_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_Utility1Enable;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Utility2Enable_MetaData[];
+#endif
+		static void NewProp_m_Utility2Enable_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_Utility2Enable;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Utility3Enable_MetaData[];
+#endif
+		static void NewProp_m_Utility3Enable_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_Utility3Enable;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_AssultLevel_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_AssultLevel;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_DefenceLevel_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_DefenceLevel;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_UtilityLevel_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_UtilityLevel;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_AbilityPoint_MetaData[];
 #endif
@@ -172,29 +217,137 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_RemainMag = { "m_RemainMag", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_RemainMag), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_RemainMag_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_RemainMag_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult_Level_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult1Enable_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PlayerInfo" },
 		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult_Level = { "m_Assult_Level", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_Assult_Level), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult_Level_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult_Level_MetaData)) };
+	void Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult1Enable_SetBit(void* Obj)
+	{
+		((UPlayerInfo*)Obj)->m_Assult1Enable = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult1Enable = { "m_Assult1Enable", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UPlayerInfo), &Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult1Enable_SetBit, METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult1Enable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult1Enable_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defend_Level_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult2Enable_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PlayerInfo" },
 		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defend_Level = { "m_Defend_Level", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_Defend_Level), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defend_Level_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defend_Level_MetaData)) };
+	void Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult2Enable_SetBit(void* Obj)
+	{
+		((UPlayerInfo*)Obj)->m_Assult2Enable = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult2Enable = { "m_Assult2Enable", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UPlayerInfo), &Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult2Enable_SetBit, METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult2Enable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult2Enable_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility_Level_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult3Enable_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PlayerInfo" },
 		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility_Level = { "m_Utility_Level", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_Utility_Level), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility_Level_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility_Level_MetaData)) };
+	void Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult3Enable_SetBit(void* Obj)
+	{
+		((UPlayerInfo*)Obj)->m_Assult3Enable = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult3Enable = { "m_Assult3Enable", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UPlayerInfo), &Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult3Enable_SetBit, METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult3Enable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult3Enable_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence1Enable_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerInfo" },
+		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
+	};
+#endif
+	void Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence1Enable_SetBit(void* Obj)
+	{
+		((UPlayerInfo*)Obj)->m_Defence1Enable = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence1Enable = { "m_Defence1Enable", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UPlayerInfo), &Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence1Enable_SetBit, METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence1Enable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence1Enable_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence2Enable_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerInfo" },
+		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
+	};
+#endif
+	void Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence2Enable_SetBit(void* Obj)
+	{
+		((UPlayerInfo*)Obj)->m_Defence2Enable = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence2Enable = { "m_Defence2Enable", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UPlayerInfo), &Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence2Enable_SetBit, METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence2Enable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence2Enable_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence3Enable_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerInfo" },
+		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
+	};
+#endif
+	void Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence3Enable_SetBit(void* Obj)
+	{
+		((UPlayerInfo*)Obj)->m_Defence3Enable = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence3Enable = { "m_Defence3Enable", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UPlayerInfo), &Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence3Enable_SetBit, METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence3Enable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence3Enable_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility1Enable_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerInfo" },
+		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
+	};
+#endif
+	void Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility1Enable_SetBit(void* Obj)
+	{
+		((UPlayerInfo*)Obj)->m_Utility1Enable = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility1Enable = { "m_Utility1Enable", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UPlayerInfo), &Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility1Enable_SetBit, METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility1Enable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility1Enable_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility2Enable_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerInfo" },
+		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
+	};
+#endif
+	void Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility2Enable_SetBit(void* Obj)
+	{
+		((UPlayerInfo*)Obj)->m_Utility2Enable = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility2Enable = { "m_Utility2Enable", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UPlayerInfo), &Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility2Enable_SetBit, METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility2Enable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility2Enable_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility3Enable_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerInfo" },
+		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
+	};
+#endif
+	void Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility3Enable_SetBit(void* Obj)
+	{
+		((UPlayerInfo*)Obj)->m_Utility3Enable = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility3Enable = { "m_Utility3Enable", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UPlayerInfo), &Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility3Enable_SetBit, METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility3Enable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility3Enable_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_AssultLevel_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerInfo" },
+		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_AssultLevel = { "m_AssultLevel", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_AssultLevel), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_AssultLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_AssultLevel_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_DefenceLevel_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerInfo" },
+		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_DefenceLevel = { "m_DefenceLevel", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_DefenceLevel), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_DefenceLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_DefenceLevel_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_UtilityLevel_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerInfo" },
+		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_UtilityLevel = { "m_UtilityLevel", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_UtilityLevel), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_UtilityLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_UtilityLevel_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_AbilityPoint_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -267,9 +420,18 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CurrentMag,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CurrentMagMax,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_RemainMag,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult_Level,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defend_Level,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility_Level,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult1Enable,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult2Enable,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult3Enable,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence1Enable,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence2Enable,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Defence3Enable,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility1Enable,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility2Enable,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Utility3Enable,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_AssultLevel,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_DefenceLevel,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_UtilityLevel,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_AbilityPoint,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSnipeMode,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSuperSuppressor,
@@ -304,7 +466,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UPlayerInfo, 1278168337);
+	IMPLEMENT_CLASS(UPlayerInfo, 360826026);
 	template<> PROJECTTPS_API UClass* StaticClass<UPlayerInfo>()
 	{
 		return UPlayerInfo::StaticClass();

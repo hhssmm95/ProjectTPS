@@ -40,7 +40,11 @@ protected:
 	class UTextBlock* m_AbilitySlotText1;
 	class UTextBlock* m_AbilitySlotText2;
 
+	EAbility m_Slot1Key;
+	EAbility m_Slot2Key;
+
 	class UAbilitySlotData* m_CurrentSlotData;
+	//class UAbilitySlotData* m_PreviousSlotData;
 	/*class UImage* m_AbilitySlotImage1;
 	class UImage* m_AbilitySlotImage2;*/
 
@@ -72,6 +76,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		class UBorder* m_UtilityLine2;
 
+	class APlayerCharacter* m_Player;
 
 protected:
 	virtual void NativePreConstruct();
@@ -80,6 +85,8 @@ protected:
 
 protected:
 	void InitSlot();
+	void SetAbility1Cooltime(EAbility Key);
+	void SetAbility2Cooltime(EAbility Key);
 
 public:
 	UFUNCTION(BlueprintCallable)

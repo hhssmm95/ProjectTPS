@@ -22,6 +22,7 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 	PROJECTTPS_API UClass* Z_Construct_UClass_UHitMarkerWidget_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_UAbilityWindowWidget_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UBackgroundBlur_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UProgressBar_NoRegister();
 // End Cross Module References
 	void UMainHUDWidget::StaticRegisterNativesUMainHUDWidget()
 	{
@@ -56,6 +57,14 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BackgroundBlur_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_BackgroundBlur;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SlotProgress1_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_SlotProgress1;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SlotProgress2_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_SlotProgress2;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -115,12 +124,32 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BackgroundBlur = { "m_BackgroundBlur", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_BackgroundBlur), Z_Construct_UClass_UBackgroundBlur_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BackgroundBlur_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BackgroundBlur_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress1_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "MainHUDWidget" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/MainHUDWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress1 = { "m_SlotProgress1", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_SlotProgress1), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress1_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress2_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "MainHUDWidget" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/MainHUDWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress2 = { "m_SlotProgress2", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_SlotProgress2), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress2_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMainHUDWidget_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_PlayerHPWidget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_PlayerEquipWidget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_HitMarkerWidget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AbilityWindowWidget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BackgroundBlur,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress1,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress2,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UMainHUDWidget_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UMainHUDWidget>::IsAbstract,
@@ -149,7 +178,7 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMainHUDWidget, 1075760970);
+	IMPLEMENT_CLASS(UMainHUDWidget, 589784795);
 	template<> PROJECTTPS_API UClass* StaticClass<UMainHUDWidget>()
 	{
 		return UMainHUDWidget::StaticClass();

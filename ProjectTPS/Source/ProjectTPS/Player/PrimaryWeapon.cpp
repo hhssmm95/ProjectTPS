@@ -10,6 +10,7 @@
 #include "../UI/PlayerEquipWidget.h"
 #include "PlayerCharacter.h"
 #include "Perception/AISense_Hearing.h"
+#include "../Monster/Monster.h"
 
 // Sets default values
 APrimaryWeapon::APrimaryWeapon()
@@ -56,12 +57,23 @@ void APrimaryWeapon::Tick(float DeltaTime)
 
 	if (Delay)
 	{
+		DelayTimeAcc += DeltaTime;
 		if (DelayTimeAcc >= DelayTime)
 		{
 			Delay = false;
 			DelayTimeAcc = 0.f;
 		}
-		DelayTimeAcc += DeltaTime;
+	}
+
+	if (m_bBurst)
+	{
+		m_BurstTimeAcc += DeltaTime;
+		if (m_BurstTimeAcc >= m_BurstTime)
+		{
+			m_bBurst = false;
+			BurstEnd();
+			m_BurstTimeAcc = 0.f;
+		}
 	}
 }
 
@@ -72,6 +84,117 @@ void APrimaryWeapon::LoadMesh(const FString& strPath)
 
 	if (IsValid(pMesh))
 		m_Mesh->SetSkeletalMesh(pMesh);
+}
+
+void APrimaryWeapon::BurstMode(float BurstTime)
+{
+	m_bBurst = true;
+	m_BurstTime = BurstTime;
+	DelayTime = 0.06f;
+	GetMesh()->SetRenderCustomDepth(true);
+}
+void APrimaryWeapon::BurstEnd()
+{
+	m_bBurst = false;
+	DelayTime = 0.12f;
+	GetMesh()->SetRenderCustomDepth(false);
+}
+
+void APrimaryWeapon::AutoFire(FVector CameraPos, FVector TargetPos)
+{
+	if (!Delay)
+	{
+		if (m_CurrentMag > 0)
+		{
+			FHitResult result;
+
+			TArray<AActor*> IgnoreActor;
+			IgnoreActor.Add(this);
+
+			FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("FireMuzzle"));
+			FRotator vMuzzleRot = GetActorRotation();
+			AEffectNormal* Muzzle;
+			if (!m_bSuppressorUsing)
+			{
+				if (m_bBurst)
+				{
+					Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_BurstMuzzleClass, vMuzzlePos,
+						vMuzzleRot);
+				}
+				else
+				{
+					Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
+						vMuzzleRot);
+				}
+
+			}
+			if (m_bSuppressorUsing)
+			{
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_SuppressorSoundClass, GetActorLocation());
+				UAISense_Hearing::ReportNoiseEvent(GetWorld(), GetActorLocation(), 1.f,
+					m_Player, 3000.f, TEXT("SuppressorNoise"));
+
+			}
+			else
+			{
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_MuzzleSoundClass, GetActorLocation());
+				UAISense_Hearing::ReportNoiseEvent(GetWorld(), GetActorLocation(), 1.f,
+					m_Player, 3000.f, TEXT("GunShotNoise"));
+			}
+
+
+			bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), CameraPos, TargetPos,
+				UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1), true, IgnoreActor,
+				EDrawDebugTrace::ForDuration, result, true, FLinearColor::Red, FLinearColor::Green, 0.1f);
+
+			if (bHit)
+			{
+				AMonster* pMonster = Cast<AMonster>(result.Actor);
+				if (pMonster)
+				{
+					FDamageEvent DmgEvent;
+
+					FVector vDir = GetActorLocation() - result.ImpactPoint;
+					vDir.Normalize();
+					FRotator	vRot = vDir.ToOrientationRotator();
+
+					if (result.BoneName.ToString() == TEXT("head"))
+					{
+						pMonster->TakeDamage(m_Damage * 3, DmgEvent, m_Player->GetController(), m_Player);
+						PrintViewport(2.f, FColor::Blue, TEXT("HeadShot!"));
+						pMonster->EmitHeadshotEffect(result.ImpactPoint, vRot);
+						m_Player->ShowHeadShotMark();
+					}
+					else
+					{
+						pMonster->TakeDamage(m_Damage, DmgEvent, m_Player->GetController(), m_Player);
+						PrintViewport(2.f, FColor::Yellow, TEXT("BodyShot"));
+						pMonster->EmitHitEffect(result.ImpactPoint, vRot);
+						m_Player->ShowHitMark();
+					}
+				}
+
+			}
+			else
+			{
+			
+
+			}
+
+			m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(--m_CurrentMag);
+			if (m_CurrentMag < 0)
+				m_CurrentMag = 0;
+
+			if (m_CurrentMag == 0)
+				m_Player->MagEmpty();
+
+		}
+		else
+		{
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_EmptySoundClass, GetActorLocation());
+		}
+		Delay = true;
+	}
 }
 
 void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
@@ -94,14 +217,37 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 				FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("FireMuzzle"));
 				FRotator vMuzzleRot = GetActorRotation();
 
+				AEffectNormal* Muzzle;
 				if (!m_bSuppressorUsing)
-					AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
-					vMuzzleRot);
+				{
+					if (m_bBurst)
+					{
+						Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_BurstMuzzleClass, vMuzzlePos,
+							vMuzzleRot);
+					}
+					else
+					{
+						Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
+							vMuzzleRot);
+					}
+
+				}
 
 
-				FRotator BulletRot = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 80.f, result.ImpactPoint);
-				ABullet* Bullet = GetWorld()->SpawnActor<ABullet>(m_BulletClass, vMuzzlePos + GetActorForwardVector() * 80.f,
-					BulletRot);
+				FRotator BulletRot = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 40.f, result.ImpactPoint);
+				ABullet* Bullet;
+				if (m_bBurst)
+				{
+					Bullet = GetWorld()->SpawnActor<ABullet>(m_BurstBulletClass, vMuzzlePos + GetActorForwardVector() * 40.f,
+						BulletRot);
+				}
+				else
+				{
+					Bullet = GetWorld()->SpawnActor<ABullet>(m_BulletClass, vMuzzlePos + GetActorForwardVector() * 40.f,
+						BulletRot);
+				}
+
+				 
 
 				if (m_bSuppressorUsing)
 				{
@@ -130,13 +276,34 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 			{
 				FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("FireMuzzle"));
 				FRotator vMuzzleRot = GetActorRotation();
+				AEffectNormal* Muzzle;
+				if (!m_bSuppressorUsing)
+				{
+					if (m_bBurst)
+					{
+						Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_BurstMuzzleClass, vMuzzlePos,
+							vMuzzleRot);
+					}
+					else
+					{
+						Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
+							vMuzzleRot);
+					}
+						
+				}
 
-				if(!m_bSuppressorUsing)
-					AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_MuzzleClass, vMuzzlePos,
-					vMuzzleRot);
+				ABullet* Bullet;
+				if (m_bBurst)
+				{
+					Bullet = GetWorld()->SpawnActor<ABullet>(m_BurstBulletClass, vMuzzlePos + GetActorForwardVector() * 40.f,
+						GetActorRotation());
+				}
+				else
+				{
+					Bullet = GetWorld()->SpawnActor<ABullet>(m_BulletClass, vMuzzlePos + GetActorForwardVector() * 40.f,
+						GetActorRotation());
+				}
 
-				ABullet* Bullet = GetWorld()->SpawnActor<ABullet>(m_BulletClass, vMuzzlePos + GetActorForwardVector() * 80.f,
-					GetActorRotation());
 
 				if (m_bSuppressorUsing)
 				{

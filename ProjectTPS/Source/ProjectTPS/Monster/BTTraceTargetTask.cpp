@@ -56,6 +56,11 @@ void UBTTraceTargetTask::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* Node
 
 	ACharacter* pTarget = Cast<ACharacter>(pController->GetBlackboardComponent()->GetValueAsObject(TEXT("Target")));
 
+	if (pMonster->GetIsDeath())
+	{
+		OwnerComp.GetAIOwner()->StopMovement();
+		FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
+	}
 
 	if (!pTarget)
 	{

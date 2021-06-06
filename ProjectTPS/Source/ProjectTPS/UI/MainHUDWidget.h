@@ -28,6 +28,11 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	class UBackgroundBlur* m_BackgroundBlur;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UProgressBar* m_SlotProgress1;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UProgressBar* m_SlotProgress2;
+
 	class UTextBlock* m_AbilitySlotText1;
 	class UTextBlock* m_AbilitySlotText2;
 
@@ -35,6 +40,14 @@ protected:
 	class UImage* m_AbilitySlotImage2;*/
 
 	bool m_SlotInit;
+	bool m_bSlot1Disable;
+	bool m_bSlot2Disable;
+
+	float m_Slot1Cooltime;
+	float m_Slot2Cooltime;
+	float m_Slot1CooltimeAcc;
+	float m_Slot2CooltimeAcc;
+
 protected:
 	virtual void NativePreConstruct();
 	virtual void NativeConstruct();
@@ -42,7 +55,8 @@ protected:
 
 public:
 	void AbilityWindowToggle();
-
+	void ActiveSlot1Cooltime(float Cooltime);
+	void ActiveSlot2Cooltime(float Cooltime);
 public:
 	UPlayerHPWidget* GetPlayerHPWidget()	const
 	{

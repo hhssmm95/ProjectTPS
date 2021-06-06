@@ -75,6 +75,10 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 #endif
 		static const UE4CodeGen_Private::FClassPropertyParams NewProp_m_BulletClass;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BurstBulletClass_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_m_BurstBulletClass;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SuppressorSoundClass_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_SuppressorSoundClass;
@@ -98,6 +102,10 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_MuzzleClass_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FClassPropertyParams NewProp_m_MuzzleClass;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BurstMuzzleClass_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_m_BurstMuzzleClass;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -188,6 +196,14 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BulletClass = { "m_BulletClass", nullptr, (EPropertyFlags)0x0024080000000005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_BulletClass), Z_Construct_UClass_ABullet_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BulletClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BulletClass_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstBulletClass_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PrimaryWeapon" },
+		{ "ModuleRelativePath", "Player/PrimaryWeapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstBulletClass = { "m_BurstBulletClass", nullptr, (EPropertyFlags)0x0024080000000005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_BurstBulletClass), Z_Construct_UClass_ABullet_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstBulletClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstBulletClass_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SuppressorSoundClass_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PrimaryWeapon" },
@@ -235,6 +251,14 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 	};
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleClass = { "m_MuzzleClass", nullptr, (EPropertyFlags)0x0024080000000005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_MuzzleClass), Z_Construct_UClass_AEffectNormal_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleClass_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstMuzzleClass_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PrimaryWeapon" },
+		{ "ModuleRelativePath", "Player/PrimaryWeapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstMuzzleClass = { "m_BurstMuzzleClass", nullptr, (EPropertyFlags)0x0024080000000005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_BurstMuzzleClass), Z_Construct_UClass_AEffectNormal_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstMuzzleClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstMuzzleClass_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APrimaryWeapon_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_Mesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_RootScene,
@@ -245,12 +269,14 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_CurrentMagMax,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_RemainMag,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BulletClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstBulletClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SuppressorSoundClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_EquipSoundClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_DischargeSoundClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleSoundClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_EmptySoundClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstMuzzleClass,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APrimaryWeapon_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<APrimaryWeapon>::IsAbstract,
@@ -279,7 +305,7 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APrimaryWeapon, 4174564294);
+	IMPLEMENT_CLASS(APrimaryWeapon, 3798895675);
 	template<> PROJECTTPS_API UClass* StaticClass<APrimaryWeapon>()
 	{
 		return APrimaryWeapon::StaticClass();

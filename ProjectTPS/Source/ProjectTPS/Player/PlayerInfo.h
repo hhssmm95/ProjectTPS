@@ -40,13 +40,35 @@ protected:
 protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		int32 m_Assult_Level;
+		bool m_Assult1Enable;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		bool m_Assult2Enable;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		bool m_Assult3Enable;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		int32 m_Defend_Level;
+		bool m_Defence1Enable;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		bool m_Defence2Enable;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		bool m_Defence3Enable;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		int32 m_Utility_Level;
+		bool m_Utility1Enable;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		bool m_Utility2Enable;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		bool m_Utility3Enable;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		int32 m_AssultLevel;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		int32 m_DefenceLevel;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		int32 m_UtilityLevel;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		int32 m_AbilityPoint;
@@ -87,6 +109,64 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 public:
+	void SetAssult1Enable(bool Enable)
+	{
+		m_Assult1Enable = Enable;
+	}
+	void SetAssult2Enable(bool Enable)
+	{
+		m_Assult2Enable = Enable;
+	}
+	void SetAssult3Enable(bool Enable)
+	{
+		m_Assult3Enable = Enable;
+	}
+
+	void SetDefence1Enable(bool Enable)
+	{
+		m_Defence1Enable = Enable;
+	}
+	void SetDefence2Enable(bool Enable)
+	{
+		m_Defence2Enable = Enable;
+	}
+	void SetDefence3Enable(bool Enable)
+	{
+		m_Defence3Enable = Enable;
+	}
+
+	void SetUtility1Enable(bool Enable)
+	{
+		m_Utility1Enable = Enable;
+	}
+	void SetUtility2Enable(bool Enable)
+	{
+		m_Utility2Enable = Enable;
+	}
+	void SetUtility3Enable(bool Enable)
+	{
+		m_Utility3Enable = Enable;
+	}
+
+public:
+
+	void SetAssultLevel(int32 Level)
+	{
+		m_AssultLevel = Level;
+	}
+	void SetDefenceLevel(int32 Level)
+	{
+		m_DefenceLevel = Level;
+	}
+	void SetUtilityLevel(int32 Level)
+	{
+		m_UtilityLevel = Level;
+	}
+
+	void SetAbilityPoint(int32 Point)
+	{
+		m_AbilityPoint = Point;
+	}
 	void SetHP(int32 HP)
 	{
 		m_HP = HP;

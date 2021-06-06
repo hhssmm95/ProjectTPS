@@ -66,9 +66,18 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UPlayerInfo); \
 	FORCEINLINE static uint32 __PPO__m_CurrentMag() { return STRUCT_OFFSET(UPlayerInfo, m_CurrentMag); } \
 	FORCEINLINE static uint32 __PPO__m_CurrentMagMax() { return STRUCT_OFFSET(UPlayerInfo, m_CurrentMagMax); } \
 	FORCEINLINE static uint32 __PPO__m_RemainMag() { return STRUCT_OFFSET(UPlayerInfo, m_RemainMag); } \
-	FORCEINLINE static uint32 __PPO__m_Assult_Level() { return STRUCT_OFFSET(UPlayerInfo, m_Assult_Level); } \
-	FORCEINLINE static uint32 __PPO__m_Defend_Level() { return STRUCT_OFFSET(UPlayerInfo, m_Defend_Level); } \
-	FORCEINLINE static uint32 __PPO__m_Utility_Level() { return STRUCT_OFFSET(UPlayerInfo, m_Utility_Level); } \
+	FORCEINLINE static uint32 __PPO__m_Assult1Enable() { return STRUCT_OFFSET(UPlayerInfo, m_Assult1Enable); } \
+	FORCEINLINE static uint32 __PPO__m_Assult2Enable() { return STRUCT_OFFSET(UPlayerInfo, m_Assult2Enable); } \
+	FORCEINLINE static uint32 __PPO__m_Assult3Enable() { return STRUCT_OFFSET(UPlayerInfo, m_Assult3Enable); } \
+	FORCEINLINE static uint32 __PPO__m_Defence1Enable() { return STRUCT_OFFSET(UPlayerInfo, m_Defence1Enable); } \
+	FORCEINLINE static uint32 __PPO__m_Defence2Enable() { return STRUCT_OFFSET(UPlayerInfo, m_Defence2Enable); } \
+	FORCEINLINE static uint32 __PPO__m_Defence3Enable() { return STRUCT_OFFSET(UPlayerInfo, m_Defence3Enable); } \
+	FORCEINLINE static uint32 __PPO__m_Utility1Enable() { return STRUCT_OFFSET(UPlayerInfo, m_Utility1Enable); } \
+	FORCEINLINE static uint32 __PPO__m_Utility2Enable() { return STRUCT_OFFSET(UPlayerInfo, m_Utility2Enable); } \
+	FORCEINLINE static uint32 __PPO__m_Utility3Enable() { return STRUCT_OFFSET(UPlayerInfo, m_Utility3Enable); } \
+	FORCEINLINE static uint32 __PPO__m_AssultLevel() { return STRUCT_OFFSET(UPlayerInfo, m_AssultLevel); } \
+	FORCEINLINE static uint32 __PPO__m_DefenceLevel() { return STRUCT_OFFSET(UPlayerInfo, m_DefenceLevel); } \
+	FORCEINLINE static uint32 __PPO__m_UtilityLevel() { return STRUCT_OFFSET(UPlayerInfo, m_UtilityLevel); } \
 	FORCEINLINE static uint32 __PPO__m_AbilityPoint() { return STRUCT_OFFSET(UPlayerInfo, m_AbilityPoint); } \
 	FORCEINLINE static uint32 __PPO__m_HaveSnipeMode() { return STRUCT_OFFSET(UPlayerInfo, m_HaveSnipeMode); } \
 	FORCEINLINE static uint32 __PPO__m_HaveSuperSuppressor() { return STRUCT_OFFSET(UPlayerInfo, m_HaveSuperSuppressor); } \
