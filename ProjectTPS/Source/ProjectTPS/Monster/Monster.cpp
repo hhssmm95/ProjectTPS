@@ -35,7 +35,7 @@ AMonster::AMonster()
 	m_LongAttackDistance = 1000.f;
 	m_Attack = 100.f;
 
-	GetCapsuleComponent()->SetCollisionProfileName(TEXT("MonsterBody"));
+	//GetCapsuleComponent()->SetCollisionProfileName(TEXT("MonsterBody"));
 
 	static ConstructorHelpers::FClassFinder<AHitEffect> HeadshotEffectAsset(TEXT("Blueprint'/Game/Monster/BP_HitEffect.BP_HitEffect_C'"));
 	

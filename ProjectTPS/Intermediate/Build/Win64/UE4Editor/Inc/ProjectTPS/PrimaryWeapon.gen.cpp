@@ -22,6 +22,7 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	PROJECTTPS_API UClass* Z_Construct_UClass_ABullet_NoRegister();
+	PROJECTTPS_API UClass* Z_Construct_UClass_AExplosiveBullet_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_AEffectNormal_NoRegister();
 // End Cross Module References
@@ -79,6 +80,10 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 #endif
 		static const UE4CodeGen_Private::FClassPropertyParams NewProp_m_BurstBulletClass;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_ExplosiveBulletClass_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_m_ExplosiveBulletClass;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SuppressorSoundClass_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_SuppressorSoundClass;
@@ -98,6 +103,10 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_EmptySoundClass_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_EmptySoundClass;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BurstModeSoundClass_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_BurstModeSoundClass;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_MuzzleClass_MetaData[];
 #endif
@@ -204,6 +213,14 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstBulletClass = { "m_BurstBulletClass", nullptr, (EPropertyFlags)0x0024080000000005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_BurstBulletClass), Z_Construct_UClass_ABullet_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstBulletClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstBulletClass_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ExplosiveBulletClass_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PrimaryWeapon" },
+		{ "ModuleRelativePath", "Player/PrimaryWeapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ExplosiveBulletClass = { "m_ExplosiveBulletClass", nullptr, (EPropertyFlags)0x0024080000000005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_ExplosiveBulletClass), Z_Construct_UClass_AExplosiveBullet_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ExplosiveBulletClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ExplosiveBulletClass_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SuppressorSoundClass_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PrimaryWeapon" },
@@ -244,6 +261,14 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_EmptySoundClass = { "m_EmptySoundClass", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_EmptySoundClass), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_EmptySoundClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_EmptySoundClass_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstModeSoundClass_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PrimaryWeapon" },
+		{ "ModuleRelativePath", "Player/PrimaryWeapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstModeSoundClass = { "m_BurstModeSoundClass", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_BurstModeSoundClass), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstModeSoundClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstModeSoundClass_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleClass_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PrimaryWeapon" },
@@ -270,11 +295,13 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_RemainMag,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BulletClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstBulletClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ExplosiveBulletClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SuppressorSoundClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_EquipSoundClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_DischargeSoundClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleSoundClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_EmptySoundClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstModeSoundClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_MuzzleClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstMuzzleClass,
 	};
@@ -305,7 +332,7 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APrimaryWeapon, 3798895675);
+	IMPLEMENT_CLASS(APrimaryWeapon, 3881045394);
 	template<> PROJECTTPS_API UClass* StaticClass<APrimaryWeapon>()
 	{
 		return APrimaryWeapon::StaticClass();

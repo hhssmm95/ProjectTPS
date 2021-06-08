@@ -11,6 +11,7 @@
 #include "PlayerCharacter.h"
 #include "Perception/AISense_Hearing.h"
 #include "../Monster/Monster.h"
+#include "../ExplosiveBullet.h"
 
 // Sets default values
 APrimaryWeapon::APrimaryWeapon()
@@ -23,7 +24,6 @@ APrimaryWeapon::APrimaryWeapon()
 	m_RootScene = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
 
 	m_SuppressorMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Suppressor"));
-
 	SetRootComponent(m_RootScene);
 
 	m_Mesh->SetupAttachment(m_RootScene);
@@ -92,6 +92,7 @@ void APrimaryWeapon::BurstMode(float BurstTime)
 	m_BurstTime = BurstTime;
 	DelayTime = 0.06f;
 	GetMesh()->SetRenderCustomDepth(true);
+	UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_BurstModeSoundClass, GetActorLocation());
 }
 void APrimaryWeapon::BurstEnd()
 {
@@ -333,6 +334,101 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 	}
 }
 
+void APrimaryWeapon::ExplosiveFire(FVector CameraPos, FVector CameraForward)
+{
+	if (!Delay)
+	{
+		if (m_CurrentMag > 0)
+		{
+			FHitResult result;
+
+			TArray<AActor*> IgnoreActor;
+			IgnoreActor.Add(this);
+
+			bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), CameraPos, CameraPos + CameraForward * 100000.f,
+				UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1), true, IgnoreActor,
+				EDrawDebugTrace::None, result, true);
+
+			if (bHit)
+			{
+				FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("FireMuzzle"));
+				FRotator vMuzzleRot = GetActorRotation();
+
+				AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_BurstMuzzleClass, 
+					vMuzzlePos,	vMuzzleRot);
+
+
+				FRotator BulletRot = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 40.f, result.ImpactPoint);
+				AExplosiveBullet* Bullet = GetWorld()->SpawnActor<AExplosiveBullet>(m_ExplosiveBulletClass,
+					vMuzzlePos + GetActorForwardVector() * 40.f, BulletRot);
+				
+
+
+
+				if (m_bSuppressorUsing)
+				{
+					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_SuppressorSoundClass, GetActorLocation());
+					UAISense_Hearing::ReportNoiseEvent(GetWorld(), GetActorLocation(), 1.f,
+						m_Player, 3000.f, TEXT("SuppressorNoise"));
+
+				}
+				else
+				{
+					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_MuzzleSoundClass, GetActorLocation());
+					UAISense_Hearing::ReportNoiseEvent(GetWorld(), GetActorLocation(), 1.f,
+						m_Player, 3000.f, TEXT("GunShotNoise"));
+				}
+
+				m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(--m_CurrentMag);
+				if (m_CurrentMag < 0)
+					m_CurrentMag = 0;
+
+				if (m_CurrentMag == 0)
+					m_Player->MagEmpty();
+
+				Delay = true;
+			}
+			else
+			{
+				FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("FireMuzzle"));
+				FRotator vMuzzleRot = GetActorRotation();
+
+				AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_BurstMuzzleClass,
+					vMuzzlePos, vMuzzleRot);
+
+
+				AExplosiveBullet* Bullet = GetWorld()->SpawnActor<AExplosiveBullet>(m_ExplosiveBulletClass,
+					vMuzzlePos + GetActorForwardVector() * 40.f, GetActorRotation());
+
+
+
+				if (m_bSuppressorUsing)
+				{
+					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_SuppressorSoundClass, GetActorLocation());
+					UAISense_Hearing::ReportNoiseEvent(GetWorld(), GetActorLocation(), 1.f,
+						m_Player, 3000.f, TEXT("SuppressorNoise"));
+
+				}
+				else
+				{
+					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_MuzzleSoundClass, GetActorLocation());
+					UAISense_Hearing::ReportNoiseEvent(GetWorld(), GetActorLocation(), 1.f,
+						m_Player, 3000.f, TEXT("GunShotNoise"));
+				}
+
+				m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(--m_CurrentMag);
+				if (m_CurrentMag < 0)
+					m_CurrentMag = 0;
+				Delay = true;
+			}
+		}
+		else
+		{
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_EmptySoundClass, GetActorLocation());
+			Delay = true;
+		}
+	}
+}
 void APrimaryWeapon::Reload()
 {
 	if (m_CurrentMagMax - m_CurrentMag <= m_Player->GetRemainMag())

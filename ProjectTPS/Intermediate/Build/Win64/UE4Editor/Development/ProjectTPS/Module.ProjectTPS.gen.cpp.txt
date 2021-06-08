@@ -866,9 +866,6 @@ G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\BTTraceTarge
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/BTWaitTask.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/Monster/BTWaitTask.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\BTWaitTask.generated.h
-G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/Bullet.gen.cpp
-G:\Git\ProjectTPS\Source\ProjectTPS/Bullet.h
-G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\Bullet.generated.h
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/EffectNormal.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/EffectNormal.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\EffectNormal.generated.h
@@ -882,6 +879,9 @@ G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\HitEffect.ge
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/HitMarkerWidget.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/UI/HitMarkerWidget.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\HitMarkerWidget.generated.h
+G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/MainHUDWidget.gen.cpp
+G:\Git\ProjectTPS\Source\ProjectTPS/UI/MainHUDWidget.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\MainHUDWidget.generated.h
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/Monster.gen.cpp
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/MonsterAIController.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/Monster/MonsterAIController.h
@@ -919,6 +919,9 @@ G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerHPWidg
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/PlayerHUD.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/PlayerHUD.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerHUD.generated.h
+G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/PlayerInfo.gen.cpp
+G:\Git\ProjectTPS\Source\ProjectTPS/Player/PlayerInfo.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerInfo.generated.h
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/ProjectTPSGameInstance.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/ProjectTPSGameInstance.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\ProjectTPSGameInstance.generated.h

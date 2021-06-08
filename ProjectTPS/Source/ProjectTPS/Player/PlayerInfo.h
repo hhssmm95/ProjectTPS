@@ -248,6 +248,20 @@ public:
 	{
 		return m_RemainMag;
 	}
+	int32 GetAssultLevel()
+	{
+		return m_AssultLevel;
+	}
+
+	int32 GetDefenceLevel()
+	{
+		return m_DefenceLevel;
+	}
+
+	int32 GetUtilityLevel()
+	{
+		return m_UtilityLevel;
+	}
 
 
 

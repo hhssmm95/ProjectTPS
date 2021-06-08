@@ -30,6 +30,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		class UWidgetComponent* m_AimLock;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UParticleSystemComponent* m_AimAssistParticle;
 	//UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		//USceneComponent* m_Scene;
 	/*UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
@@ -94,6 +96,7 @@ protected:
 
 	EAbility m_eSlot1Ability;
 	EAbility m_eSlot2Ability;
+
 
 	//float m_Slot1AbilityAcc;
 	//float m_Slot2AbilityAcc;
@@ -181,6 +184,21 @@ public:
 	void SetSlot2Ability(EAbility Key)
 	{
 		m_eSlot2Ability = Key;
+	}
+
+	void SetAssultLevel(int32 Level)
+	{
+		m_PlayerInfo->SetAssultLevel(Level);
+	}
+
+	void SetDefenceLevel(int32 Level)
+	{
+		m_PlayerInfo->SetDefenceLevel(Level);
+	}
+
+	void SetUtilityLevel(int32 Level)
+	{
+		m_PlayerInfo->SetUtilityLevel(Level);
 	}
 
 	/*

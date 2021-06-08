@@ -40,10 +40,12 @@ APlayerCharacter::APlayerCharacter()
 	m_Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	//m_Scene = CreateDefaultSubobject<USceneComponent>(TEXT("Scene"));
 	m_AimLock = CreateDefaultSubobject<UWidgetComponent>(TEXT("AimLock"));
+	m_AimAssistParticle = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("AimAssistParticle"));
 
 	m_Camera->SetupAttachment(m_Arm);
 	m_Arm->SetupAttachment(GetCapsuleComponent());
 	m_AimLock->SetupAttachment(GetCapsuleComponent());
+	m_AimAssistParticle->SetupAttachment(GetCapsuleComponent());
 	//m_Scene->SetupAttachment(GetCapsuleComponent());
 	//m_eDirection = EMoveDir::None;
 
@@ -97,8 +99,12 @@ void APlayerCharacter::Tick(float DeltaTime)
 
 	if (m_bFire && !m_IsReloading)
 	{
+		int32 rand = FMath::RandRange(0, 3);
+
 		if (m_bAimAssist)
 			m_PrimaryWeapon->AutoFire(m_Camera->GetComponentLocation(), m_AssistLoc);
+		else if(!m_bAimAssist && rand == 0 && m_PlayerInfo->GetAssultLevel() >= 2)
+			m_PrimaryWeapon->ExplosiveFire(m_Camera->GetComponentLocation(), m_Camera->GetForwardVector());
 		else
 			m_PrimaryWeapon->Fire(m_Camera->GetComponentLocation(), m_Camera->GetForwardVector());
 
@@ -111,6 +117,7 @@ void APlayerCharacter::Tick(float DeltaTime)
 			m_AimLock->SetVisibility(false);
 			m_bAimAssist = false;
 			m_AimAssistTimeAcc = 0.f;
+			m_AimAssistParticle->SetVisibility(false);
 		}
 		m_AimAssistTimeAcc += DeltaTime;
 	}
@@ -394,6 +401,7 @@ void APlayerCharacter::AbilityWindowVisiblity()
 void APlayerCharacter::AimAssist()
 {
 	m_bAimAssist = true;
+	m_AimAssistParticle->SetVisibility(true);
 }
 
 void APlayerCharacter::Detection()

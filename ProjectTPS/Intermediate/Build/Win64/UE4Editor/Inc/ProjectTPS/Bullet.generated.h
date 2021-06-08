@@ -21,14 +21,12 @@ struct FHitResult;
 #define ProjectTPS_Source_ProjectTPS_Bullet_h_12_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnBulletHit); \
-	DECLARE_FUNCTION(execOnBulletBeginOverlap); \
 	DECLARE_FUNCTION(execProjectileStop);
 
 
 #define ProjectTPS_Source_ProjectTPS_Bullet_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnBulletHit); \
-	DECLARE_FUNCTION(execOnBulletBeginOverlap); \
 	DECLARE_FUNCTION(execProjectileStop);
 
 
@@ -79,7 +77,9 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ABullet); \
 	FORCEINLINE static uint32 __PPO__m_BulletParticle() { return STRUCT_OFFSET(ABullet, m_BulletParticle); } \
 	FORCEINLINE static uint32 __PPO__m_BulletTrail() { return STRUCT_OFFSET(ABullet, m_BulletTrail); } \
 	FORCEINLINE static uint32 __PPO__m_Movement() { return STRUCT_OFFSET(ABullet, m_Movement); } \
-	FORCEINLINE static uint32 __PPO__m_Damage() { return STRUCT_OFFSET(ABullet, m_Damage); }
+	FORCEINLINE static uint32 __PPO__m_Damage() { return STRUCT_OFFSET(ABullet, m_Damage); } \
+	FORCEINLINE static uint32 __PPO__m_HitParticle() { return STRUCT_OFFSET(ABullet, m_HitParticle); } \
+	FORCEINLINE static uint32 __PPO__m_HitSound() { return STRUCT_OFFSET(ABullet, m_HitSound); }
 
 
 #define ProjectTPS_Source_ProjectTPS_Bullet_h_9_PROLOG

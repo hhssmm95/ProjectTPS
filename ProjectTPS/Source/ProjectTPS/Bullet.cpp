@@ -4,6 +4,7 @@
 #include "Bullet.h"
 #include "Player/PlayerCharacter.h"
 #include "Monster/Monster.h"
+#include "HitEffect.h"
 
 // Sets default values
 ABullet::ABullet()
@@ -36,7 +37,7 @@ void ABullet::BeginPlay()
 
 	//m_Movement->OnProjectileStop.AddDynamic(this, &ABullet::ProjectileStop);
 	m_Body->OnComponentHit.AddDynamic(this, &ABullet::OnBulletHit);
-	m_Body->OnComponentBeginOverlap.AddDynamic(this, &ABullet::OnBulletBeginOverlap);
+	//m_Body->OnComponentBeginOverlap.AddDynamic(this, &ABullet::OnBulletBeginOverlap);
 
 	m_Player = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
 }
@@ -47,36 +48,36 @@ void ABullet::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-void ABullet::OnBulletBeginOverlap(UPrimitiveComponent* OverlappedComponent,
-	AActor* OtherActor, UPrimitiveComponent* OtherComp,
-	int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-	APlayerCharacter* pPlayer = Cast<APlayerCharacter>(OtherActor);
-	FDamageEvent DmgEvent;
-
-	FVector vDir = GetActorLocation() - SweepResult.ImpactPoint;
-	vDir.Normalize();
-	FRotator	vRot = vDir.ToOrientationRotator();
-
-	if (pPlayer)
-	{
-
-		pPlayer->TakeDamage(m_Damage, DmgEvent, pPlayer->GetController(), pPlayer);
-		pPlayer->EmitHitEffect(SweepResult.ImpactPoint, vRot);
-	}
-	else
-	{
-		AMonster* pMonster = Cast<AMonster>(OtherActor);
-		pMonster->TakeDamage(m_Damage, DmgEvent, pMonster->GetController(), pMonster);
-		/*if (SweepResult.PhysMaterial.Get()->SurfaceType == EPhysicalSurface::SurfaceType1)
-			PrintViewport(2.f, FColor::Blue, TEXT("HeadShot!"));
-		else
-			PrintViewport(2.f, FColor::Yellow, TEXT("BodyShot"));
-		*/
-	}
-
-	Destroy();
-}
+//void ABullet::OnBulletBeginOverlap(UPrimitiveComponent* OverlappedComponent,
+//	AActor* OtherActor, UPrimitiveComponent* OtherComp,
+//	int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+//{
+//	APlayerCharacter* pPlayer = Cast<APlayerCharacter>(OtherActor);
+//	FDamageEvent DmgEvent;
+//
+//	FVector vDir = GetActorLocation() - SweepResult.ImpactPoint;
+//	vDir.Normalize();
+//	FRotator	vRot = vDir.ToOrientationRotator();
+//
+//	if (pPlayer)
+//	{
+//
+//		pPlayer->TakeDamage(m_Damage, DmgEvent, pPlayer->GetController(), pPlayer);
+//		pPlayer->EmitHitEffect(SweepResult.ImpactPoint, vRot);
+//	}
+//	else
+//	{
+//		AMonster* pMonster = Cast<AMonster>(OtherActor);
+//		pMonster->TakeDamage(m_Damage, DmgEvent, pMonster->GetController(), pMonster);
+//		/*if (SweepResult.PhysMaterial.Get()->SurfaceType == EPhysicalSurface::SurfaceType1)
+//			PrintViewport(2.f, FColor::Blue, TEXT("HeadShot!"));
+//		else
+//			PrintViewport(2.f, FColor::Yellow, TEXT("BodyShot"));
+//		*/
+//	}
+//
+//	Destroy();
+//}
 
 
 void ABullet::OnBulletHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, 
@@ -84,6 +85,7 @@ void ABullet::OnBulletHit(UPrimitiveComponent* HitComponent, AActor* OtherActor,
 {
 	APlayerCharacter* PlayerCheck = Cast<APlayerCharacter>(OtherActor);
 	FDamageEvent DmgEvent;
+	AMonster* pMonster = Cast<AMonster>(OtherActor);
 
 	FVector vDir = GetActorLocation() - Hit.ImpactPoint;
 	vDir.Normalize();
@@ -93,9 +95,8 @@ void ABullet::OnBulletHit(UPrimitiveComponent* HitComponent, AActor* OtherActor,
 	{
 		PlayerCheck->TakeDamage(m_Damage, DmgEvent, PlayerCheck->GetController(), this);
 	}
-	else
+	else if(pMonster)
 	{
-		AMonster* pMonster = Cast<AMonster>(OtherActor);
 
 		if (Hit.BoneName.ToString() == TEXT("head"))
 		{
@@ -112,6 +113,18 @@ void ABullet::OnBulletHit(UPrimitiveComponent* HitComponent, AActor* OtherActor,
 			m_Player->ShowHitMark();
 		}
 
+	}
+	else
+	{
+		FActorSpawnParameters param;
+		param.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+
+		AHitEffect* Effect = GetWorld()->SpawnActor<AHitEffect>(AHitEffect::StaticClass(),
+			Hit.ImpactPoint, GetActorRotation(), param);
+
+		Effect->LoadParticle(m_HitParticle);
+		Effect->LoadSound(m_HitSound);
 	}
 
 	Destroy();

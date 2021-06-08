@@ -30,9 +30,14 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		UProjectileMovementComponent* m_Movement;
 
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		int32 m_Damage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		UParticleSystem* m_HitParticle;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USoundBase* m_HitSound;
 
 	class APlayerCharacter* m_Player;
 
@@ -49,10 +54,10 @@ public:
 		void ProjectileStop(const FHitResult& result);
 
 
-	UFUNCTION(BlueprintCallable)
-		void OnBulletBeginOverlap(UPrimitiveComponent* OverlappedComponent,
+	//UFUNCTION(BlueprintCallable)
+		/*void OnBulletBeginOverlap(UPrimitiveComponent* OverlappedComponent,
 			AActor* OtherActor, UPrimitiveComponent* OtherComp,
-			int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+			int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);*/
 	UFUNCTION()
 	void OnBulletHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 };

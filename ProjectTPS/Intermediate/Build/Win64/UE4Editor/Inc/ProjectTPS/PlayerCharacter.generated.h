@@ -71,6 +71,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayerCharacter); \
 	FORCEINLINE static uint32 __PPO__m_Camera() { return STRUCT_OFFSET(APlayerCharacter, m_Camera); } \
 	FORCEINLINE static uint32 __PPO__m_Arm() { return STRUCT_OFFSET(APlayerCharacter, m_Arm); } \
 	FORCEINLINE static uint32 __PPO__m_AimLock() { return STRUCT_OFFSET(APlayerCharacter, m_AimLock); } \
+	FORCEINLINE static uint32 __PPO__m_AimAssistParticle() { return STRUCT_OFFSET(APlayerCharacter, m_AimAssistParticle); } \
 	FORCEINLINE static uint32 __PPO__m_bIsDead() { return STRUCT_OFFSET(APlayerCharacter, m_bIsDead); } \
 	FORCEINLINE static uint32 __PPO__m_pPlayerAnim() { return STRUCT_OFFSET(APlayerCharacter, m_pPlayerAnim); } \
 	FORCEINLINE static uint32 __PPO__m_UpperYaw() { return STRUCT_OFFSET(APlayerCharacter, m_UpperYaw); } \

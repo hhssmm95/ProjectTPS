@@ -277,6 +277,9 @@ void UAbilityWindowWidget::ClickSlot2Button()
 
 void UAbilityWindowWidget::SlotDoubleClick(UObject* pObj)
 {
+	if (!m_Player)
+		m_Player = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
+
 	UAbilitySlotData* pSlotData = Cast<UAbilitySlotData>(pObj);
 
 	UAbilitySlotWidget* pSlotWidget = Cast<UAbilitySlotWidget>(pSlotData->GetSlotWidget());
@@ -412,6 +415,9 @@ void UAbilityWindowWidget::SlotDoubleClick(UObject* pObj)
 		if (m_AbilityPoint < 0)
 			m_AbilityPoint = 0;
 		UpdateAbilityPoint();
+		m_Player->SetAssultLevel(AssultLevel);
+		m_Player->SetDefenceLevel(DefenceLevel);
+		m_Player->SetUtilityLevel(UtilityLevel);
 	}
 }
 

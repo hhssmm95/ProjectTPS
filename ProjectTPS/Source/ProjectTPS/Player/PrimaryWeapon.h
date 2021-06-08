@@ -49,6 +49,9 @@ protected:
 		TSubclassOf<class ABullet>	m_BurstBulletClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		TSubclassOf<class AExplosiveBullet>	m_ExplosiveBulletClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		USoundBase* m_SuppressorSoundClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -62,6 +65,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		USoundBase* m_EmptySoundClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USoundBase* m_BurstModeSoundClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TSubclassOf<class AEffectNormal>	m_MuzzleClass;
@@ -98,6 +104,7 @@ public:
 	void EquipSuppressor();
 
 	void Fire(FVector CameraPos, FVector CameraForward);
+	void ExplosiveFire(FVector CameraPos, FVector CameraForward);
 	void AutoFire(FVector CameraPos,  FVector TargetPos);
 	void Reload();
 protected:
