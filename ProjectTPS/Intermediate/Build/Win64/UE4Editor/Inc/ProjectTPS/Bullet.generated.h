@@ -20,14 +20,12 @@ struct FHitResult;
 #define ProjectTPS_Source_ProjectTPS_Bullet_h_12_SPARSE_DATA
 #define ProjectTPS_Source_ProjectTPS_Bullet_h_12_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execOnBulletHit); \
-	DECLARE_FUNCTION(execProjectileStop);
+	DECLARE_FUNCTION(execOnBulletHit);
 
 
 #define ProjectTPS_Source_ProjectTPS_Bullet_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execOnBulletHit); \
-	DECLARE_FUNCTION(execProjectileStop);
+	DECLARE_FUNCTION(execOnBulletHit);
 
 
 #define ProjectTPS_Source_ProjectTPS_Bullet_h_12_INCLASS_NO_PURE_DECLS \

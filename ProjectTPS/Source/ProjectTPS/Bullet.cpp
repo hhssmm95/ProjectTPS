@@ -24,7 +24,7 @@ ABullet::ABullet()
 	m_BulletParticle->SetupAttachment(m_Body);
 	m_BulletTrail->SetupAttachment(m_Body);
 
-	//m_Body->SetCollisionProfileName(TEXT("PlayerName"));
+	m_Body->SetCollisionProfileName(TEXT("PlayerAttack"));
 	
 	m_Movement->InitialSpeed = 15000.f;
 	m_Damage = 1;
@@ -83,7 +83,6 @@ void ABullet::Tick(float DeltaTime)
 void ABullet::OnBulletHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, 
 	UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	APlayerCharacter* PlayerCheck = Cast<APlayerCharacter>(OtherActor);
 	FDamageEvent DmgEvent;
 	AMonster* pMonster = Cast<AMonster>(OtherActor);
 
@@ -91,11 +90,7 @@ void ABullet::OnBulletHit(UPrimitiveComponent* HitComponent, AActor* OtherActor,
 	vDir.Normalize();
 	FRotator	vRot = vDir.ToOrientationRotator();
 
-	if (PlayerCheck)
-	{
-		PlayerCheck->TakeDamage(m_Damage, DmgEvent, PlayerCheck->GetController(), this);
-	}
-	else if(pMonster)
+	if(pMonster)
 	{
 
 		if (Hit.BoneName.ToString() == TEXT("head"))
@@ -130,12 +125,9 @@ void ABullet::OnBulletHit(UPrimitiveComponent* HitComponent, AActor* OtherActor,
 	Destroy();
 
 }
-
-
-void ABullet::ProjectileStop(const FHitResult& result)
-{
-	Destroy();
-
-	//AEffectNormal* Bullet = GetWorld()->SpawnActor<AEffectNormal>(m_HitClass, 
-		//result.ImpactPoint, result.ImpactNormal.Rotation());
-}
+//
+//
+//void ABullet::ProjectileStop(const FHitResult& result)
+//{
+//	Destroy();
+//}

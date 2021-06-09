@@ -49,9 +49,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-public:
+public:/*
 	UFUNCTION()
-		void ProjectileStop(const FHitResult& result);
+		void ProjectileStop(const FHitResult& result);*/
 
 
 	//UFUNCTION(BlueprintCallable)

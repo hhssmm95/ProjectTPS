@@ -121,7 +121,7 @@ void UAbilityWindowWidget::InitSlot()
 		m_TileView->AddItem(pData);
 	}
 
-	m_AbilityPoint = 9;
+	//m_AbilityPoint = 9;
 	UpdateAbilityPoint();
 }
 
@@ -278,8 +278,11 @@ void UAbilityWindowWidget::ClickSlot2Button()
 void UAbilityWindowWidget::SlotDoubleClick(UObject* pObj)
 {
 	if (!m_Player)
+	{
 		m_Player = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	}
 
+	GetPlayerAbilityPoint();
 	UAbilitySlotData* pSlotData = Cast<UAbilitySlotData>(pObj);
 
 	UAbilitySlotWidget* pSlotWidget = Cast<UAbilitySlotWidget>(pSlotData->GetSlotWidget());
@@ -421,7 +424,19 @@ void UAbilityWindowWidget::SlotDoubleClick(UObject* pObj)
 	}
 }
 
+
 void UAbilityWindowWidget::UpdateAbilityPoint()
 {
+	if(m_Player)
+		m_Player->SetAbilityPoint(m_AbilityPoint);
+
+	m_AbilityPointText->SetText(FText::FromString(FString::FromInt(m_AbilityPoint)));
+}
+
+
+void UAbilityWindowWidget::GetPlayerAbilityPoint()
+{
+	if(m_Player)
+		m_AbilityPoint = m_Player->GetAbilityPoint();
 	m_AbilityPointText->SetText(FText::FromString(FString::FromInt(m_AbilityPoint)));
 }

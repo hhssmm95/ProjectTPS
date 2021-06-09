@@ -114,7 +114,7 @@ protected:
 	TSubclassOf<class AEffectNormal> m_LongAttackMuzzle;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-	TSubclassOf<class ABullet> m_LongAttackBullet;
+	TSubclassOf<class AEnemyBullet> m_LongAttackBullet;
 
 protected:
 

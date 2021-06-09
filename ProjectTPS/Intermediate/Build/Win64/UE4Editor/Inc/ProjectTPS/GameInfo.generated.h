@@ -46,4 +46,12 @@ template<> PROJECTTPS_API UEnum* StaticEnum<EAbility>();
 enum class EMoveDir : uint8;
 template<> PROJECTTPS_API UEnum* StaticEnum<EMoveDir>();
 
+#define FOREACH_ENUM_EITEMTYPE(op) \
+	op(EItemType::None) \
+	op(EItemType::Ammo) \
+	op(EItemType::AbilityPoint) 
+
+enum class EItemType : uint8;
+template<> PROJECTTPS_API UEnum* StaticEnum<EItemType>();
+
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

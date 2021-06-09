@@ -83,7 +83,9 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayerCharacter); \
 	FORCEINLINE static uint32 __PPO__m_HitSound() { return STRUCT_OFFSET(APlayerCharacter, m_HitSound); } \
 	FORCEINLINE static uint32 __PPO__m_HurtSound1() { return STRUCT_OFFSET(APlayerCharacter, m_HurtSound1); } \
 	FORCEINLINE static uint32 __PPO__m_HurtSound2() { return STRUCT_OFFSET(APlayerCharacter, m_HurtSound2); } \
-	FORCEINLINE static uint32 __PPO__m_HurtSound3() { return STRUCT_OFFSET(APlayerCharacter, m_HurtSound3); }
+	FORCEINLINE static uint32 __PPO__m_HurtSound3() { return STRUCT_OFFSET(APlayerCharacter, m_HurtSound3); } \
+	FORCEINLINE static uint32 __PPO__m_ShieldHP() { return STRUCT_OFFSET(APlayerCharacter, m_ShieldHP); } \
+	FORCEINLINE static uint32 __PPO__m_ShieldHPMax() { return STRUCT_OFFSET(APlayerCharacter, m_ShieldHPMax); }
 
 
 #define ProjectTPS_Source_ProjectTPS_Player_PlayerCharacter_h_10_PROLOG

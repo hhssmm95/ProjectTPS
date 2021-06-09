@@ -17,6 +17,7 @@ class UObject;
 #define ProjectTPS_Source_ProjectTPS_UI_AbilityWindowWidget_h_13_SPARSE_DATA
 #define ProjectTPS_Source_ProjectTPS_UI_AbilityWindowWidget_h_13_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execGetPlayerAbilityPoint); \
 	DECLARE_FUNCTION(execUpdateAbilityPoint); \
 	DECLARE_FUNCTION(execSlotDoubleClick); \
 	DECLARE_FUNCTION(execClickSlot2Button); \
@@ -26,6 +27,7 @@ class UObject;
 
 #define ProjectTPS_Source_ProjectTPS_UI_AbilityWindowWidget_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetPlayerAbilityPoint); \
 	DECLARE_FUNCTION(execUpdateAbilityPoint); \
 	DECLARE_FUNCTION(execSlotDoubleClick); \
 	DECLARE_FUNCTION(execClickSlot2Button); \

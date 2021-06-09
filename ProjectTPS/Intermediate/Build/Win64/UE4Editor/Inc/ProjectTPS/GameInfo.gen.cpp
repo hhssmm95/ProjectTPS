@@ -16,6 +16,7 @@ void EmptyLinkFunctionForGeneratedCodeGameInfo() {}
 	PROJECTTPS_API UEnum* Z_Construct_UEnum_ProjectTPS_EAbility();
 	UPackage* Z_Construct_UPackage__Script_ProjectTPS();
 	PROJECTTPS_API UEnum* Z_Construct_UEnum_ProjectTPS_EMoveDir();
+	PROJECTTPS_API UEnum* Z_Construct_UEnum_ProjectTPS_EItemType();
 // End Cross Module References
 	static UEnum* EAbility_StaticEnum()
 	{
@@ -143,6 +144,62 @@ void EmptyLinkFunctionForGeneratedCodeGameInfo() {}
 				nullptr,
 				"EMoveDir",
 				"EMoveDir",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				EEnumFlags::None,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::EnumClass,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
+	static UEnum* EItemType_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_ProjectTPS_EItemType, Z_Construct_UPackage__Script_ProjectTPS(), TEXT("EItemType"));
+		}
+		return Singleton;
+	}
+	template<> PROJECTTPS_API UEnum* StaticEnum<EItemType>()
+	{
+		return EItemType_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EItemType(EItemType_StaticEnum, TEXT("/Script/ProjectTPS"), TEXT("EItemType"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_ProjectTPS_EItemType_Hash() { return 2972578156U; }
+	UEnum* Z_Construct_UEnum_ProjectTPS_EItemType()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_ProjectTPS();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("EItemType"), 0, Get_Z_Construct_UEnum_ProjectTPS_EItemType_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "EItemType::None", (int64)EItemType::None },
+				{ "EItemType::Ammo", (int64)EItemType::Ammo },
+				{ "EItemType::AbilityPoint", (int64)EItemType::AbilityPoint },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "AbilityPoint.Name", "EItemType::AbilityPoint" },
+				{ "Ammo.Name", "EItemType::Ammo" },
+				{ "BlueprintType", "true" },
+				{ "ModuleRelativePath", "GameInfo.h" },
+				{ "None.Name", "EItemType::None" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_ProjectTPS,
+				nullptr,
+				"EItemType",
+				"EItemType",
 				Enumerators,
 				UE_ARRAY_COUNT(Enumerators),
 				RF_Public|RF_Transient|RF_MarkAsNative,

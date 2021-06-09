@@ -1,15 +1,14 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (G:\Git).
-  Waiting for 'git status' command to complete
   Building ProjectTPSEditor...
   Using Visual Studio 2019 14.28.29336 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  [Adaptive unity build] Excluded from ProjectTPS unity file: Bullet.cpp, ExplosiveBullet.cpp, Monster.cpp, PlayerCharacter.cpp, PrimaryWeapon.cpp, AbilityWindowWidget.cpp
-  [Adaptive unity build] Excluded from ProjectTPS.gen unity file: Bullet.gen.cpp, ExplosiveBullet.gen.cpp, PlayerCharacter.gen.cpp, PrimaryWeapon.gen.cpp, ProjectTPS.init.gen.cpp
+  [Adaptive unity build] Excluded from ProjectTPS unity file: Bullet.cpp, DropItem.cpp, EnemyBullet.cpp, Monster.cpp, PlayerCharacter.cpp, AbilityWindowWidget.cpp
+  [Adaptive unity build] Excluded from ProjectTPS.gen unity file: AbilityWindowWidget.gen.cpp, Bullet.gen.cpp, DropItem.gen.cpp, EnemyBullet.gen.cpp, GameInfo.gen.cpp, Monster.gen.cpp, PlayerCharacter.gen.cpp, ProjectTPS.init.gen.cpp
   Building 4 actions with 8 processes...
-    [1/4] ExplosiveBullet.cpp
-    [2/4] UE4Editor-ProjectTPS-0275.lib
-       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0275.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0275.exp 개체를 생성하고 있습니다.
-    [3/4] UE4Editor-ProjectTPS-0275.dll
-       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0275.suppressed.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0275.suppressed.exp 개체를 생성하고 있습니다.
+    [1/4] DropItem.cpp
+    [2/4] UE4Editor-ProjectTPS-0296.lib
+       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0296.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0296.exp 개체를 생성하고 있습니다.
+    [3/4] UE4Editor-ProjectTPS-0296.dll
+       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0296.suppressed.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0296.suppressed.exp 개체를 생성하고 있습니다.
     [4/4] ProjectTPSEditor.target
-  Total time in Parallel executor: 48.03 seconds
-  Total execution time: 50.98 seconds
+  Total time in Parallel executor: 18.61 seconds
+  Total execution time: 20.28 seconds

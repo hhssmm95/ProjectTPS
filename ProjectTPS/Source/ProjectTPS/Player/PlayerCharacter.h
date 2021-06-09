@@ -75,11 +75,19 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		USoundBase* m_HurtSound3;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		int32 m_ShieldHP;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		int32 m_ShieldHPMax;
 
 	FVector m_AssistLoc;
 	bool m_bAimAssist;
 	float m_AimAssistTime;
 	float m_AimAssistTimeAcc;
+
+	bool m_bShield;
+	float m_ShieldTime;
+	float m_ShieldTimeAcc;
 
 	class APlayerHUD* m_HUD;
 
@@ -201,6 +209,11 @@ public:
 		m_PlayerInfo->SetUtilityLevel(Level);
 	}
 
+	void SetAbilityPoint(int32 Point)
+	{
+		m_PlayerInfo->SetAbilityPoint(Point);
+	}
+
 	/*
 	void SetAssult1Enable(bool Enable)
 	{
@@ -279,6 +292,10 @@ public:
 	{
 		m_PlayerInfo->AddRemainMag(RemainMag);
 	}
+	void AddAbilityPoint(int32 Point)
+	{
+		m_PlayerInfo->AddAbilityPoint(Point);
+	}
 
 
 
@@ -308,6 +325,11 @@ public:
 		return m_PlayerInfo->GetRemainMag();
 	}
 
+	int32 GetAbilityPoint()
+	{
+		return m_PlayerInfo->GetAbilityPoint();
+	}
+
 public:
 
 	void EquipSuppressor();
@@ -315,4 +337,6 @@ public:
 	void ShowHitMark();
 	void ShowHeadShotMark();
 	void AimAssist();
+	void PlasmaShield();
+	void UpdateRemainMag();
 };

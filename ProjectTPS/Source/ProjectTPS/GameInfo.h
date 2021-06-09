@@ -15,6 +15,14 @@ void PrintViewport(float fTime, const FColor& Color, const FString& strText);
 
 
 UENUM(BlueprintType)
+enum class EItemType : uint8
+{
+	None,
+	Ammo,
+	AbilityPoint
+};
+
+UENUM(BlueprintType)
 enum class EMoveDir : uint8
 {
 	None,

@@ -25,6 +25,13 @@ void EmptyLinkFunctionForGeneratedCodeAbilityWindowWidget() {}
 	UMG_API UClass* Z_Construct_UClass_UTileView_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UBorder_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(UAbilityWindowWidget::execGetPlayerAbilityPoint)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->GetPlayerAbilityPoint();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UAbilityWindowWidget::execUpdateAbilityPoint)
 	{
 		P_FINISH;
@@ -68,6 +75,7 @@ void EmptyLinkFunctionForGeneratedCodeAbilityWindowWidget() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ClickSlot1Button", &UAbilityWindowWidget::execClickSlot1Button },
 			{ "ClickSlot2Button", &UAbilityWindowWidget::execClickSlot2Button },
+			{ "GetPlayerAbilityPoint", &UAbilityWindowWidget::execGetPlayerAbilityPoint },
 			{ "SlotClick", &UAbilityWindowWidget::execSlotClick },
 			{ "SlotDoubleClick", &UAbilityWindowWidget::execSlotDoubleClick },
 			{ "UpdateAbilityPoint", &UAbilityWindowWidget::execUpdateAbilityPoint },
@@ -115,6 +123,28 @@ void EmptyLinkFunctionForGeneratedCodeAbilityWindowWidget() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UAbilityWindowWidget_ClickSlot2Button_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UAbilityWindowWidget_GetPlayerAbilityPoint_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAbilityWindowWidget_GetPlayerAbilityPoint_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/AbilityWindowWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UAbilityWindowWidget_GetPlayerAbilityPoint_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAbilityWindowWidget, nullptr, "GetPlayerAbilityPoint", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UAbilityWindowWidget_GetPlayerAbilityPoint_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilityWindowWidget_GetPlayerAbilityPoint_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UAbilityWindowWidget_GetPlayerAbilityPoint()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UAbilityWindowWidget_GetPlayerAbilityPoint_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -294,6 +324,7 @@ void EmptyLinkFunctionForGeneratedCodeAbilityWindowWidget() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_UAbilityWindowWidget_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UAbilityWindowWidget_ClickSlot1Button, "ClickSlot1Button" }, // 26610048
 		{ &Z_Construct_UFunction_UAbilityWindowWidget_ClickSlot2Button, "ClickSlot2Button" }, // 1535055086
+		{ &Z_Construct_UFunction_UAbilityWindowWidget_GetPlayerAbilityPoint, "GetPlayerAbilityPoint" }, // 4163503800
 		{ &Z_Construct_UFunction_UAbilityWindowWidget_SlotClick, "SlotClick" }, // 2248282529
 		{ &Z_Construct_UFunction_UAbilityWindowWidget_SlotDoubleClick, "SlotDoubleClick" }, // 1002960498
 		{ &Z_Construct_UFunction_UAbilityWindowWidget_UpdateAbilityPoint, "UpdateAbilityPoint" }, // 483831007
@@ -499,7 +530,7 @@ void EmptyLinkFunctionForGeneratedCodeAbilityWindowWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UAbilityWindowWidget, 2668304144);
+	IMPLEMENT_CLASS(UAbilityWindowWidget, 1600704184);
 	template<> PROJECTTPS_API UClass* StaticClass<UAbilityWindowWidget>()
 	{
 		return UAbilityWindowWidget::StaticClass();

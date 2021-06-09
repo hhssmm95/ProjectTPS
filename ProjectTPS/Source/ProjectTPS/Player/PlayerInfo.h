@@ -210,6 +210,10 @@ public:
 	{
 		m_RemainMag += RemainMag;
 	}
+	void AddAbilityPoint(int32 Point)
+	{
+		m_AbilityPoint += Point;
+	}
 
 
 
@@ -263,6 +267,10 @@ public:
 		return m_UtilityLevel;
 	}
 
+	int32 GetAbilityPoint()
+	{
+		return m_AbilityPoint;
+	}
 
 
 

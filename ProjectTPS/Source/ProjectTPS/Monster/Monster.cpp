@@ -4,7 +4,7 @@
 #include "Monster.h"
 #include "MonsterAIController.h"
 #include "../Player/PlayerCharacter.h"
-#include "../Bullet.h"
+#include "EnemyBullet.h"
 #include "../EffectNormal.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "../HitEffect.h"
@@ -183,7 +183,7 @@ void AMonster::MonsterLongAttack()
 	FRotator BulletRot = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 80.f, 
 		FVector(m_TargetLoc.X, m_TargetLoc.Y, m_TargetLoc.Z + 50.f));
 
-	ABullet* Bullet = GetWorld()->SpawnActor<ABullet>(m_LongAttackBullet, vMuzzlePos + GetActorForwardVector() * 80.f,
+	AEnemyBullet* Bullet = GetWorld()->SpawnActor<AEnemyBullet>(m_LongAttackBullet, vMuzzlePos + GetActorForwardVector() * 80.f,
 		BulletRot);
 }
 

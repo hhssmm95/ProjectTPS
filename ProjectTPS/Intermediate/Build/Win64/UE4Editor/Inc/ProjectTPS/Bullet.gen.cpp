@@ -39,20 +39,11 @@ void EmptyLinkFunctionForGeneratedCodeBullet() {}
 		P_THIS->OnBulletHit(Z_Param_HitComponent,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_NormalImpulse,Z_Param_Out_Hit);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(ABullet::execProjectileStop)
-	{
-		P_GET_STRUCT_REF(FHitResult,Z_Param_Out_result);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->ProjectileStop(Z_Param_Out_result);
-		P_NATIVE_END;
-	}
 	void ABullet::StaticRegisterNativesABullet()
 	{
 		UClass* Class = ABullet::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "OnBulletHit", &ABullet::execOnBulletHit },
-			{ "ProjectileStop", &ABullet::execProjectileStop },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -130,46 +121,6 @@ void EmptyLinkFunctionForGeneratedCodeBullet() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_ABullet_ProjectileStop_Statics
-	{
-		struct Bullet_eventProjectileStop_Parms
-		{
-			FHitResult result;
-		};
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_result_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FStructPropertyParams NewProp_result;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABullet_ProjectileStop_Statics::NewProp_result_MetaData[] = {
-		{ "NativeConst", "" },
-	};
-#endif
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ABullet_ProjectileStop_Statics::NewProp_result = { "result", nullptr, (EPropertyFlags)0x0010008008000182, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Bullet_eventProjectileStop_Parms, result), Z_Construct_UScriptStruct_FHitResult, METADATA_PARAMS(Z_Construct_UFunction_ABullet_ProjectileStop_Statics::NewProp_result_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ABullet_ProjectileStop_Statics::NewProp_result_MetaData)) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABullet_ProjectileStop_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABullet_ProjectileStop_Statics::NewProp_result,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABullet_ProjectileStop_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Bullet.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ABullet_ProjectileStop_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABullet, nullptr, "ProjectileStop", nullptr, nullptr, sizeof(Bullet_eventProjectileStop_Parms), Z_Construct_UFunction_ABullet_ProjectileStop_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABullet_ProjectileStop_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ABullet_ProjectileStop_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ABullet_ProjectileStop_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_ABullet_ProjectileStop()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ABullet_ProjectileStop_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
 	UClass* Z_Construct_UClass_ABullet_NoRegister()
 	{
 		return ABullet::StaticClass();
@@ -219,7 +170,6 @@ void EmptyLinkFunctionForGeneratedCodeBullet() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ABullet_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ABullet_OnBulletHit, "OnBulletHit" }, // 3238109351
-		{ &Z_Construct_UFunction_ABullet_ProjectileStop, "ProjectileStop" }, // 3448868653
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABullet_Statics::Class_MetaDataParams[] = {
@@ -323,7 +273,7 @@ void EmptyLinkFunctionForGeneratedCodeBullet() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ABullet, 1553889777);
+	IMPLEMENT_CLASS(ABullet, 1296270828);
 	template<> PROJECTTPS_API UClass* StaticClass<ABullet>()
 	{
 		return ABullet::StaticClass();

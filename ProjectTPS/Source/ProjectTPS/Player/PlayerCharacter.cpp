@@ -62,6 +62,8 @@ APlayerCharacter::APlayerCharacter()
 	GetCapsuleComponent()->SetCollisionProfileName("PlayerBody");
 	m_AimLock->SetWidgetSpace(EWidgetSpace::Screen);
 	m_AimAssistTime = 10.f;
+	m_ShieldTime = 10.f;
+	SetAbilityPoint(9);
 }
 
 // Called when the game starts or when spawned
@@ -120,6 +122,17 @@ void APlayerCharacter::Tick(float DeltaTime)
 			m_AimAssistParticle->SetVisibility(false);
 		}
 		m_AimAssistTimeAcc += DeltaTime;
+	}
+
+	if (m_bShield)
+	{
+		if (m_ShieldTimeAcc >= m_ShieldTime)
+		{
+			GetMesh()->SetRenderCustomDepth(false);
+			m_bShield = false;
+			m_ShieldTimeAcc = 0.f;
+		}
+		m_ShieldTimeAcc += DeltaTime;
 	}
 }
 
@@ -209,6 +222,7 @@ void APlayerCharacter::UseAbility1()
 			AimAssist();
 			break;
 		case EAbility::Defence1:
+			PlasmaShield();
 			break;
 		case EAbility::Defence2:
 			break;
@@ -241,6 +255,7 @@ void APlayerCharacter::UseAbility2()
 			AimAssist();
 			break;
 		case EAbility::Defence1:
+			PlasmaShield();
 			break;
 		case EAbility::Defence2:
 			break;
@@ -333,9 +348,30 @@ float APlayerCharacter::TakeDamage(float Damage, struct FDamageEvent const& Dama
 {
 	Damage = Super::TakeDamage(Damage, DamageEvent, EventInstigator, DamageCauser);
 
-	AddHP((int32)-Damage);
+	if (m_bShield && m_ShieldHP >= (int32)Damage)
+	{
+		m_ShieldHP -= (int32)Damage;
 
-	m_pPlayerAnim->HitReaction();
+		if (0.3f >= ((float)m_ShieldHP / (float)m_ShieldHPMax))
+		{
+			GetMesh()->SetCustomDepthStencilValue(6);
+		}
+	}
+	else if (m_bShield && m_ShieldHP < (int32)Damage)
+	{
+		m_ShieldHP -= (int32)Damage;
+		AddHP(m_ShieldHP);
+
+		m_bShield = false;
+		GetMesh()->SetRenderCustomDepth(false);
+		m_ShieldTimeAcc = 0.f;
+		m_pPlayerAnim->HitReaction();
+	}
+	else if (!m_bShield)
+	{
+		AddHP((int32)-Damage);
+		m_pPlayerAnim->HitReaction();
+	}
 
 
 	GetController<APlayerController>()->ClientStartCameraShake(UHitCameraShake::StaticClass(),
@@ -439,4 +475,18 @@ void APlayerCharacter::Detection()
 
 
 	}
+}
+
+void APlayerCharacter::PlasmaShield()
+{
+	m_bShield = true;
+	m_ShieldHP = m_ShieldHPMax;
+	GetMesh()->SetRenderCustomDepth(true);
+	GetMesh()->SetCustomDepthStencilValue(5);
+	
+}
+
+void APlayerCharacter::UpdateRemainMag()
+{
+	m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetRemainMagText(GetRemainMag());
 }

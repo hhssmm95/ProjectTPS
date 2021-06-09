@@ -104,6 +104,8 @@ public:
 	UFUNCTION()
 		void UpdateAbilityPoint();
 
+	UFUNCTION()
+		void GetPlayerAbilityPoint();
 	void InitAbilitySlot(class UTextBlock* slot1, class UTextBlock* slot2)
 	{
 		m_AbilitySlotText1 = slot1;
