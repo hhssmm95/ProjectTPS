@@ -39,7 +39,7 @@ void UPlayerAnimation::NativeUpdateAnimation(float DeltaSeconds)
 
 void UPlayerAnimation::JumpStart()
 {
-	if (m_bIsDead)
+	if (!m_bIsDead)
 	{
 		m_ePlayerAnim = PlayerAnimType::Jump;
 	}

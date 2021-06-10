@@ -4,6 +4,7 @@
 		"Module.ProjectTPS.cpp.obj": [
 			"BTTask_SimpleRotateTo.cpp.obj",
 			"Bullet.cpp.obj",
+			"DropItem.cpp.obj",
 			"EffectNormal.cpp.obj",
 			"ExplosiveBullet.cpp.obj",
 			"GameInfo.cpp.obj",
@@ -12,6 +13,7 @@
 			"BTAttackTargetTask.cpp.obj",
 			"BTCheckDistanceDecorator.cpp.obj",
 			"BTPatrolTask.cpp.obj",
+			"BTTask_Death.cpp.obj",
 			"BTTask_Panic.cpp.obj",
 			"BTTaskMonsterMoveTo.cpp.obj",
 			"BTTaskSetMonsterAnimation.cpp.obj",
@@ -19,6 +21,7 @@
 			"BTTraceTargetTask.cpp.obj",
 			"BTWaitTask.cpp.obj",
 			"EnemyBullet.cpp.obj",
+			"Monster.cpp.obj",
 			"MonsterAIController.cpp.obj",
 			"MonsterAnim.cpp.obj",
 			"MonsterPatrolPoint.cpp.obj",
@@ -31,16 +34,13 @@
 			"ProjectTPSGameModeBase.cpp.obj",
 			"AbilitySlotData.cpp.obj",
 			"AbilitySlotWidget.cpp.obj",
-			"AbilityWindowWidget.cpp.obj",
 			"HitMarkerWidget.cpp.obj",
 			"MainHUDWidget.cpp.obj",
 			"PlayerEquipWidget.cpp.obj",
 			"PlayerHPWidget.cpp.obj",
-			"DropItem.cpp.obj",
-			"BTTask_Death.cpp.obj",
-			"Monster.cpp.obj",
 			"PlayerAnimation.cpp.obj",
-			"PlayerCharacter.cpp.obj"
+			"PlayerCharacter.cpp.obj",
+			"AbilityWindowWidget.cpp.obj"
 		],
 		"Module.ProjectTPS.gen.cpp.obj": [
 			"AbilitySlotData.gen.cpp.obj",
@@ -58,6 +58,7 @@
 			"BTTraceTargetTask.gen.cpp.obj",
 			"BTWaitTask.gen.cpp.obj",
 			"Bullet.gen.cpp.obj",
+			"DropItem.gen.cpp.obj",
 			"EffectNormal.gen.cpp.obj",
 			"EnemyBullet.gen.cpp.obj",
 			"ExplosiveBullet.gen.cpp.obj",
@@ -66,6 +67,7 @@
 			"HitEffect.gen.cpp.obj",
 			"HitMarkerWidget.gen.cpp.obj",
 			"MainHUDWidget.gen.cpp.obj",
+			"Monster.gen.cpp.obj",
 			"MonsterAIController.gen.cpp.obj",
 			"MonsterAnim.gen.cpp.obj",
 			"MonsterPatrolPoint.gen.cpp.obj",
@@ -74,13 +76,11 @@
 			"PlayerEquipWidget.gen.cpp.obj",
 			"PlayerHPWidget.gen.cpp.obj",
 			"PlayerHUD.gen.cpp.obj",
+			"PlayerInfo.gen.cpp.obj",
 			"PrimaryWeapon.gen.cpp.obj",
 			"ProjectTPSGameInstance.gen.cpp.obj",
 			"ProjectTPSGameModeBase.gen.cpp.obj",
-			"DropItem.gen.cpp.obj",
-			"Monster.gen.cpp.obj",
 			"PlayerCharacter.gen.cpp.obj",
-			"PlayerInfo.gen.cpp.obj",
 			"ProjectTPS.init.gen.cpp.obj"
 		]
 	}

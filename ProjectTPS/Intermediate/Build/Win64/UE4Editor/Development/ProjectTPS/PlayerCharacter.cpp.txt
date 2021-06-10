@@ -695,6 +695,8 @@ G:\Git\ProjectTPS\Source\ProjectTPS\Player\../HitCameraShake.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\HitCameraShake.generated.h
 G:\Git\ProjectTPS\Source\ProjectTPS\Player\../HitEffect.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\HitEffect.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\../EffectNormal.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\EffectNormal.generated.h
 G:\Git\ProjectTPS\Source\ProjectTPS\Player\../UI/MainHUDWidget.h
 E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Blueprint/UserWidget.h
 E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/SlateWrapperTypes.h

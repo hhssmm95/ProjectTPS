@@ -869,6 +869,9 @@ G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\BTWaitTask.g
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/Bullet.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/Bullet.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\Bullet.generated.h
+G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/DropItem.gen.cpp
+G:\Git\ProjectTPS\Source\ProjectTPS/DropItem.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\DropItem.generated.h
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/EffectNormal.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/EffectNormal.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\EffectNormal.generated.h
@@ -891,6 +894,7 @@ G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\HitMarkerWid
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/MainHUDWidget.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/UI/MainHUDWidget.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\MainHUDWidget.generated.h
+G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/Monster.gen.cpp
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/MonsterAIController.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/Monster/MonsterAIController.h
 E:\UE_4.26\Engine\Source\Runtime\AIModule\Classes\AIController.h
@@ -927,6 +931,9 @@ G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerHPWidg
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/PlayerHUD.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/PlayerHUD.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerHUD.generated.h
+G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/PlayerInfo.gen.cpp
+G:\Git\ProjectTPS\Source\ProjectTPS/Player/PlayerInfo.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerInfo.generated.h
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/PrimaryWeapon.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/Player/PrimaryWeapon.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PrimaryWeapon.generated.h

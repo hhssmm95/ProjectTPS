@@ -7,6 +7,7 @@
 #include "PrimaryWeapon.h"
 #include "../HitCameraShake.h"
 #include "../HitEffect.h"
+#include "../EffectNormal.h"
 #include "../UI/MainHUDWidget.h"
 #include "../UI/PlayerEquipWidget.h"
 #include "../Monster/Monster.h"
@@ -41,7 +42,7 @@ APlayerCharacter::APlayerCharacter()
 	//m_Scene = CreateDefaultSubobject<USceneComponent>(TEXT("Scene"));
 	m_AimLock = CreateDefaultSubobject<UWidgetComponent>(TEXT("AimLock"));
 	m_AimAssistParticle = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("AimAssistParticle"));
-
+	
 	m_Camera->SetupAttachment(m_Arm);
 	m_Arm->SetupAttachment(GetCapsuleComponent());
 	m_AimLock->SetupAttachment(GetCapsuleComponent());
@@ -63,7 +64,11 @@ APlayerCharacter::APlayerCharacter()
 	m_AimLock->SetWidgetSpace(EWidgetSpace::Screen);
 	m_AimAssistTime = 10.f;
 	m_ShieldTime = 10.f;
+	m_OverloadTime = 10.f;
 	SetAbilityPoint(9);
+	m_bDashEnable = true;
+	m_DashEnableTime = 3.f;
+	m_DashingTime = 0.25f;
 }
 
 // Called when the game starts or when spawned
@@ -91,6 +96,7 @@ void APlayerCharacter::BeginPlay()
 	SetRemainMag(100);
 	m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetRemainMagText(GetRemainMag());
 	m_AimLock->SetVisibility(false);
+
 }
 
 // Called every frame
@@ -111,6 +117,56 @@ void APlayerCharacter::Tick(float DeltaTime)
 			m_PrimaryWeapon->Fire(m_Camera->GetComponentLocation(), m_Camera->GetForwardVector());
 
 	}
+	if (m_bIsRightDashing)
+	{
+		if (m_DashingTimeAcc >= m_DashingTime)
+		{
+			m_bIsRightDashing = false;
+			m_DashingTimeAcc = 0.f;
+			GetCharacterMovement()->MaxAcceleration = 2048.f;
+			GetCharacterMovement()->MaxWalkSpeed = 500.f;
+			m_bIsDashing = false;
+		}
+		AddMovementInput(GetActorRightVector());
+
+		FVector vLoc = GetMesh()->GetSocketLocation(TEXT("BoosterRSocket"));
+
+		if (m_ThrusterParticle)
+		{
+			m_Thruster->SetActorLocation(vLoc);
+		}
+		m_DashingTimeAcc += DeltaTime;
+	}
+
+	if (m_bIsLeftDashing)
+	{
+		if (m_DashingTimeAcc >= m_DashingTime)
+		{
+			m_bIsLeftDashing = false;
+			m_DashingTimeAcc = 0.f;
+			GetCharacterMovement()->MaxAcceleration = 2048.f;
+			GetCharacterMovement()->MaxWalkSpeed = 500.f;
+			m_bIsDashing = false;
+		}
+		AddMovementInput(-GetActorRightVector());
+		FVector vLoc = GetMesh()->GetSocketLocation(TEXT("BoosterLSocket"));
+
+		if (m_Thruster)
+		{
+			m_Thruster->SetActorLocation(vLoc);
+		}
+		m_DashingTimeAcc += DeltaTime;
+	}
+
+	//if (!m_bDashEnable)
+	//{
+	//	if (m_DashEnableTimeAcc >= m_DashEnableTime)
+	//	{
+	//		m_bDashEnable = true;
+	//		m_DashEnableTimeAcc = 0.f;
+	//	}
+	//	m_DashEnableTimeAcc += DeltaTime;
+	//}
 
 	if (m_bAimAssist)
 	{
@@ -128,20 +184,56 @@ void APlayerCharacter::Tick(float DeltaTime)
 	{
 		if (m_ShieldTimeAcc >= m_ShieldTime)
 		{
-			GetMesh()->SetRenderCustomDepth(false);
+			if (m_bOverload && (float)m_ShieldHP / (float)m_ShieldHPMax > 0.3f)
+			{
+				GetMesh()->SetCustomDepthStencilValue(5);
+			}
+			else if (m_bOverload && (float)m_ShieldHP / (float)m_ShieldHPMax <= 0.3f)
+			{
+				GetMesh()->SetCustomDepthStencilValue(6);
+			}
+			else if (!m_bOverload)
+			{
+				GetMesh()->SetRenderCustomDepth(false);
+			}
 			m_bShield = false;
 			m_ShieldTimeAcc = 0.f;
 		}
 		m_ShieldTimeAcc += DeltaTime;
 	}
 
+	if (m_bOverload)
+	{
+		if (m_OverloadTimeAcc >= m_OverloadTime)
+		{
+			if (m_bShield && (float)m_ShieldHP / (float)m_ShieldHPMax > 0.3f)
+			{
+				GetMesh()->SetCustomDepthStencilValue(5);
+			}
+			else if (m_bShield && (float)m_ShieldHP / (float)m_ShieldHPMax <= 0.3f)
+			{
+				GetMesh()->SetCustomDepthStencilValue(6);
+			}
+			else if(!m_bShield)
+			{
+				GetMesh()->SetRenderCustomDepth(false);
+			}
+				m_bOverload = false;
+				m_OverloadTimeAcc = 0.f;
+			
+		}
+		m_OverloadTimeAcc += DeltaTime;
+	}
+
 	if (!m_bIsDead)
 	{
 		if (m_HPRegenTimeAcc >= m_HPRegenTime)
 		{
-			if (m_PlayerInfo->GetDefenceLevel() >= 2)
+			if (m_bOverload)
+				AddHP(m_PlayerInfo->GetHPRegen()* 20.f);
+			else if (!m_bOverload && m_PlayerInfo->GetDefenceLevel() >= 2)
 				AddHP(m_PlayerInfo->GetHPRegen()*1.75f);
-			else
+			else if(!m_bOverload && m_PlayerInfo->GetDefenceLevel() < 2)
 				AddHP(m_PlayerInfo->GetHPRegen());
 			m_HPRegenTimeAcc = 0.f;
 
@@ -176,6 +268,8 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction(TEXT("Reload"), EInputEvent::IE_Pressed, this, &APlayerCharacter::ReloadStart);
 	PlayerInputComponent->BindAction(TEXT("AbilityWindowToggle"), EInputEvent::IE_Pressed, this, &APlayerCharacter::AbilityWindowVisiblity).bExecuteWhenPaused = true;
 
+	PlayerInputComponent->BindAction(TEXT("DashRight"), EInputEvent::IE_Pressed, this, &APlayerCharacter::DashRight);
+	PlayerInputComponent->BindAction(TEXT("DashLeft"), EInputEvent::IE_Pressed, this, &APlayerCharacter::DashLeft);
 	
 }
 
@@ -183,14 +277,14 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 void APlayerCharacter::MoveFront(float fScale)
 {
 
-	if (!m_bIsDead)
+	if (!m_bIsDead && GetCharacterMovement()->IsMovingOnGround() && !m_bIsDashing)
 		AddMovementInput(GetActorForwardVector(), fScale);
 
 
 }
 void APlayerCharacter::MoveSide(float fScale)
 {
-	if (!m_bIsDead)
+	if (!m_bIsDead && GetCharacterMovement()->IsMovingOnGround() && !m_bIsDashing)
 		AddMovementInput(GetActorRightVector(), fScale);
 
 	
@@ -199,7 +293,7 @@ void APlayerCharacter::MoveSide(float fScale)
 void APlayerCharacter::Turn(float fScale)
 {
 
-	if (!m_bIsDead)
+	if (!m_bIsDead && !m_bIsDashing)
 	{
 		AddControllerYawInput(fScale * 45.f * GetWorld()->GetDeltaSeconds());
 	}
@@ -208,13 +302,13 @@ void APlayerCharacter::Turn(float fScale)
 
 void APlayerCharacter::AddUpperYawInput(float fScale)
 {
-	if (fScale > 0.f || fScale < 0.f && !m_bIsDead)
+	if (fScale > 0.f || fScale < 0.f && !m_bIsDead && !m_bIsDashing)
 		m_UpperYaw += fScale;
 }
 void APlayerCharacter::LookUp(float fScale)
 {
 
-	if (!m_bIsDead)
+	if (!m_bIsDead && !m_bIsDashing)
 	{
 		//
 		AddControllerPitchInput(fScale * 45.f * GetWorld()->GetDeltaSeconds());
@@ -223,7 +317,7 @@ void APlayerCharacter::LookUp(float fScale)
 
 void APlayerCharacter::UseAbility1()
 {
-	if (m_Slot1AbilityEnable && m_eSlot1Ability != EAbility::None && !m_bIsDead)
+	if (m_Slot1AbilityEnable && m_eSlot1Ability != EAbility::None && !m_bIsDead && !m_bIsDashing)
 	{
 		m_Slot1AbilityEnable = false;
 		m_HUD->GetMainHUDWidget()->ActiveSlot1Cooltime(m_Slot1AbilityCooltime);
@@ -233,21 +327,16 @@ void APlayerCharacter::UseAbility1()
 		case EAbility::Assult1:
 			m_PrimaryWeapon->BurstMode(m_Slot1AbilityCooltime);
 			break;
-		case EAbility::Assult2:
-			break;
 		case EAbility::Assult3:
 			AimAssist();
 			break;
 		case EAbility::Defence1:
 			PlasmaShield();
 			break;
-		case EAbility::Defence2:
-			break;
 		case EAbility::Defence3:
+			ReactorOverload();
 			break;
 		case EAbility::Utility1:
-			break;
-		case EAbility::Utility2:
 			break;
 		case EAbility::Utility3:
 			break;
@@ -256,7 +345,7 @@ void APlayerCharacter::UseAbility1()
 }
 void APlayerCharacter::UseAbility2()
 {
-	if (m_Slot2AbilityEnable && m_eSlot2Ability != EAbility::None && !m_bIsDead)
+	if (m_Slot2AbilityEnable && m_eSlot2Ability != EAbility::None && !m_bIsDead && !m_bIsDashing)
 	{
 		m_Slot2AbilityEnable = false;
 		m_HUD->GetMainHUDWidget()->ActiveSlot2Cooltime(m_Slot2AbilityCooltime);
@@ -266,21 +355,16 @@ void APlayerCharacter::UseAbility2()
 		case EAbility::Assult1:
 			m_PrimaryWeapon->BurstMode(m_Slot2AbilityCooltime);
 			break;
-		case EAbility::Assult2:
-			break;
 		case EAbility::Assult3:
 			AimAssist();
 			break;
 		case EAbility::Defence1:
 			PlasmaShield();
 			break;
-		case EAbility::Defence2:
-			break;
 		case EAbility::Defence3:
+			ReactorOverload();
 			break;
 		case EAbility::Utility1:
-			break;
-		case EAbility::Utility2:
 			break;
 		case EAbility::Utility3:
 			break;
@@ -509,10 +593,133 @@ void APlayerCharacter::PlasmaShield()
 	m_ShieldHP = m_ShieldHPMax;
 	GetMesh()->SetRenderCustomDepth(true);
 	GetMesh()->SetCustomDepthStencilValue(5);
-	
+
+	if (m_bOverload)
+	{
+		if ((float)m_ShieldHP / (float)m_ShieldHPMax > 0.3f)
+		{
+			GetMesh()->SetCustomDepthStencilValue(7);
+		}
+		else
+		{
+			GetMesh()->SetCustomDepthStencilValue(8);
+		}
+	}
+	else
+	{
+		GetMesh()->SetCustomDepthStencilValue(5);
+	}
 }
 
 void APlayerCharacter::UpdateRemainMag()
 {
 	m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetRemainMagText(GetRemainMag());
+}
+
+void APlayerCharacter::ReactorOverload()
+{
+	m_bOverload = true;
+	GetMesh()->SetRenderCustomDepth(true);
+	if (m_bShield)
+	{
+		if ((float)m_ShieldHP / (float)m_ShieldHPMax > 0.3f)
+		{
+			GetMesh()->SetCustomDepthStencilValue(7);
+		}
+		else
+		{
+			GetMesh()->SetCustomDepthStencilValue(8);
+		}
+	}
+	else
+	{
+		GetMesh()->SetCustomDepthStencilValue(2);
+	}
+
+}
+
+
+void APlayerCharacter::DashRight()
+{
+	if (m_Slot1AbilityEnable && m_eSlot1Ability == EAbility::Utility1 && !m_bIsDead && !m_bIsDashing)
+	{
+		m_Slot1AbilityEnable = false;
+		m_HUD->GetMainHUDWidget()->ActiveSlot1Cooltime(m_Slot1AbilityCooltime);
+
+		GetCharacterMovement()->MaxAcceleration = 50000.f;
+		GetCharacterMovement()->MaxWalkSpeed = 4000.f;
+		m_bIsRightDashing = true;
+		m_bIsDashing = true;
+
+		FVector vLoc = GetMesh()->GetSocketLocation(TEXT("BoosterRSocket"));
+		FRotator vRot = GetMesh()->GetSocketRotation(TEXT("BoosterRSocket"));
+
+		m_Thruster = GetWorld()->SpawnActor<AEffectNormal>(m_ThrusterParticle, vLoc, vRot);
+		m_Thruster->SetActorScale3D(FVector(0.3f, 0.3f, 0.3f));
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ThrusterSound, GetActorLocation());
+	}
+	
+	else if (m_Slot2AbilityEnable && m_eSlot2Ability == EAbility::Utility1 && !m_bIsDead && !m_bIsDashing)
+	{
+		m_Slot2AbilityEnable = false;
+		m_HUD->GetMainHUDWidget()->ActiveSlot2Cooltime(m_Slot2AbilityCooltime);
+
+		GetCharacterMovement()->MaxAcceleration = 50000.f;
+		GetCharacterMovement()->MaxWalkSpeed = 4000.f;
+		m_bIsRightDashing = true;
+		m_bIsDashing = true;
+
+		FVector vLoc = GetMesh()->GetSocketLocation(TEXT("BoosterRSocket"));
+		FRotator vRot = GetMesh()->GetSocketRotation(TEXT("BoosterRSocket"));
+
+		m_Thruster = GetWorld()->SpawnActor<AEffectNormal>(m_ThrusterParticle, vLoc, vRot);
+		m_Thruster->SetActorScale3D(FVector(0.3f, 0.3f, 0.3f));
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ThrusterSound, GetActorLocation());
+	}
+
+	
+}
+
+void APlayerCharacter::DashLeft()
+{
+	if (m_Slot1AbilityEnable && m_eSlot1Ability == EAbility::Utility1 && !m_bIsDead && !m_bIsDashing)
+	{
+		m_Slot1AbilityEnable = false;
+		m_HUD->GetMainHUDWidget()->ActiveSlot1Cooltime(m_Slot1AbilityCooltime);
+
+		GetCharacterMovement()->MaxAcceleration = 50000.f;
+		GetCharacterMovement()->MaxWalkSpeed = 4000.f;
+		m_bIsLeftDashing = true;
+		m_bIsDashing = true;
+
+		FVector vLoc = GetMesh()->GetSocketLocation(TEXT("BoosterLSocket"));
+		FRotator vRot = GetMesh()->GetSocketRotation(TEXT("BoosterLSocket"));
+
+		m_Thruster = GetWorld()->SpawnActor<AEffectNormal>(m_ThrusterParticle, vLoc, vRot);
+		m_Thruster->SetActorScale3D(FVector(0.3f, 0.3f, 0.3f));
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ThrusterSound, GetActorLocation());
+
+	}
+	
+	else if (m_Slot2AbilityEnable && m_eSlot2Ability == EAbility::Utility1 && !m_bIsDead && !m_bIsDashing)
+	{
+		m_Slot2AbilityEnable = false;
+		m_HUD->GetMainHUDWidget()->ActiveSlot2Cooltime(m_Slot2AbilityCooltime);
+
+		GetCharacterMovement()->MaxAcceleration = 50000.f;
+		GetCharacterMovement()->MaxWalkSpeed = 4000.f;
+		m_bIsLeftDashing = true;
+		m_bDashEnable = false;
+		m_bIsDashing = true;
+
+		FVector vLoc = GetMesh()->GetSocketLocation(TEXT("BoosterLSocket"));
+		FRotator vRot = GetMesh()->GetSocketRotation(TEXT("BoosterLSocket"));
+
+		m_Thruster = GetWorld()->SpawnActor<AEffectNormal>(m_ThrusterParticle, vLoc, vRot);
+		m_Thruster->SetActorScale3D(FVector(0.3f, 0.3f, 0.3f));
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ThrusterSound, GetActorLocation());
+
+	
+	}
+
 }

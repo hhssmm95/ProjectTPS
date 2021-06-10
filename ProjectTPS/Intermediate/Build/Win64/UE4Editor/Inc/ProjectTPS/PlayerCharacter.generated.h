@@ -86,7 +86,10 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayerCharacter); \
 	FORCEINLINE static uint32 __PPO__m_HurtSound3() { return STRUCT_OFFSET(APlayerCharacter, m_HurtSound3); } \
 	FORCEINLINE static uint32 __PPO__m_ShieldHP() { return STRUCT_OFFSET(APlayerCharacter, m_ShieldHP); } \
 	FORCEINLINE static uint32 __PPO__m_ShieldHPMax() { return STRUCT_OFFSET(APlayerCharacter, m_ShieldHPMax); } \
-	FORCEINLINE static uint32 __PPO__m_HPRegenTime() { return STRUCT_OFFSET(APlayerCharacter, m_HPRegenTime); }
+	FORCEINLINE static uint32 __PPO__m_ThrusterParticle() { return STRUCT_OFFSET(APlayerCharacter, m_ThrusterParticle); } \
+	FORCEINLINE static uint32 __PPO__m_ThrusterSound() { return STRUCT_OFFSET(APlayerCharacter, m_ThrusterSound); } \
+	FORCEINLINE static uint32 __PPO__m_HPRegenTime() { return STRUCT_OFFSET(APlayerCharacter, m_HPRegenTime); } \
+	FORCEINLINE static uint32 __PPO__m_bDashEnable() { return STRUCT_OFFSET(APlayerCharacter, m_bDashEnable); }
 
 
 #define ProjectTPS_Source_ProjectTPS_Player_PlayerCharacter_h_10_PROLOG

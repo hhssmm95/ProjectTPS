@@ -158,7 +158,7 @@ void UAbilityWindowWidget::SetAbility1Cooltime(EAbility Key)
 		m_Player->SetSlot1Cooltime(10.f);
 		break;
 	case EAbility::Utility1:
-		m_Player->SetSlot1Cooltime(10.f);
+		m_Player->SetSlot1Cooltime(4.f);
 		break;
 	case EAbility::Utility2:
 		m_Player->SetSlot1Cooltime(10.f);
@@ -197,7 +197,7 @@ void UAbilityWindowWidget::SetAbility2Cooltime(EAbility Key)
 		m_Player->SetSlot2Cooltime(10.f);
 		break;
 	case EAbility::Utility1:
-		m_Player->SetSlot2Cooltime(10.f);
+		m_Player->SetSlot2Cooltime(4.f);
 		break;
 	case EAbility::Utility2:
 		m_Player->SetSlot2Cooltime(10.f);

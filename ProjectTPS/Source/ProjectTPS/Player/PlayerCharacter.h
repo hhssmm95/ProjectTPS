@@ -32,6 +32,7 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		UParticleSystemComponent* m_AimAssistParticle;
+
 	//UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		//USceneComponent* m_Scene;
 	/*UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
@@ -80,6 +81,14 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		int32 m_ShieldHPMax;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		TSubclassOf<class AEffectNormal> m_ThrusterParticle;
+
+	class AEffectNormal* m_Thruster;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		USoundBase* m_ThrusterSound;
+
 	FVector m_AssistLoc;
 	bool m_bAimAssist;
 	float m_AimAssistTime;
@@ -92,6 +101,22 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 	float m_HPRegenTime;
 	float m_HPRegenTimeAcc;
+
+	bool m_bOverload;
+	float m_OverloadTime;
+	float m_OverloadTimeAcc;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+	bool m_bDashEnable;
+
+	bool m_bIsRightDashing;
+	bool m_bIsLeftDashing;
+	bool m_bIsDashing;
+	float m_DashingTime;
+	float m_DashingTimeAcc;
+
+	float m_DashEnableTime;
+	float m_DashEnableTimeAcc;
 
 	class APlayerHUD* m_HUD;
 
@@ -147,6 +172,9 @@ public:
 
 	void PrimaryFire();
 	void PrimaryStop();
+
+	void DashRight();
+	void DashLeft ();
 
 	void AbilityWindowVisiblity();
 
@@ -351,5 +379,7 @@ public:
 	void ShowHeadShotMark();
 	void AimAssist();
 	void PlasmaShield();
+	void ReactorOverload();
 	void UpdateRemainMag();
+
 };
