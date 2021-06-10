@@ -19,6 +19,7 @@ UPlayerAnimation::UPlayerAnimation()
 
 	m_bHitReacting = false;
 	m_MagEmpty = false;
+	m_bIsDead = false;
 }
 
 void UPlayerAnimation::NativeInitializeAnimation()
@@ -38,7 +39,10 @@ void UPlayerAnimation::NativeUpdateAnimation(float DeltaSeconds)
 
 void UPlayerAnimation::JumpStart()
 {
-	m_ePlayerAnim = PlayerAnimType::Jump;
+	if (m_bIsDead)
+	{
+		m_ePlayerAnim = PlayerAnimType::Jump;
+	}
 
 }
 
@@ -50,8 +54,11 @@ void UPlayerAnimation::Death()
 
 void UPlayerAnimation::RifleFire()
 {
-	if (!m_MagEmpty && !Montage_IsPlaying(m_RifleReloadMontage))
-		Montage_Play(m_RifleFireMontage);
+	if (!m_bIsDead)
+	{
+		if (!m_MagEmpty && !Montage_IsPlaying(m_RifleReloadMontage))
+			Montage_Play(m_RifleFireMontage);
+	}
 }
 
 void UPlayerAnimation::RifleStop()
@@ -61,11 +68,16 @@ void UPlayerAnimation::RifleStop()
 
 void UPlayerAnimation::ReloadMontage()
 {
-	Montage_Play(m_RifleReloadMontage);
+	if (!m_bIsDead)
+	{
+		Montage_Play(m_RifleReloadMontage);
+	}
 }
 
 void UPlayerAnimation::HitReaction()
 {
+	if (!m_bIsDead)
+	{
 		int32	iRand = FMath::RandRange(0, 3);
 
 		switch (iRand)
@@ -86,6 +98,7 @@ void UPlayerAnimation::HitReaction()
 			Montage_Play(m_HitMontage4);
 			break;
 		}
+	}
 }
 
 void UPlayerAnimation::AnimNotify_ReloadEnd()

@@ -15,16 +15,20 @@ class PROJECTTPS_API UPlayerInfo : public UActorComponent
 protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		int32 m_HP;
+		float m_HP;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		int32 m_HPMax;
+		float m_HPMax;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		int32 m_Attack;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		int32 m_Armor;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		float m_HPRegen;
+
 
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -109,6 +113,7 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 public:
+
 	void SetAssult1Enable(bool Enable)
 	{
 		m_Assult1Enable = Enable;
@@ -167,11 +172,16 @@ public:
 	{
 		m_AbilityPoint = Point;
 	}
-	void SetHP(int32 HP)
+	void SetHPRegen(float Regen)
+	{
+		m_HPRegen = Regen;
+	}
+
+	void SetHP(float HP)
 	{
 		m_HP = HP;
 	}
-	void SetHPMax(int32 HPMax)
+	void SetHPMax(float HPMax)
 	{
 		m_HPMax = HPMax;
 	}
@@ -198,7 +208,7 @@ public:
 
 
 
-	void AddHP(int32 HP)
+	void AddHP(float HP)
 	{
 		m_HP += HP;
 	}
@@ -218,18 +228,23 @@ public:
 
 
 public:
-	int32 GetHP()
+	float GetHPRegen()
+	{
+		return m_HPRegen;
+	}
+
+	float GetHP()
 	{
 		return m_HP;
 	}
-	int32 GetHPMax()
+	float GetHPMax()
 	{
 		return m_HPMax;
 	}
 
 	float GetHPPercent()
 	{
-		return m_HP / (float)m_HPMax;
+		return m_HP / m_HPMax;
 	}
 
 	int32 GetAttack()

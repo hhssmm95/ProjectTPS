@@ -78,7 +78,7 @@ public:
 	virtual void NativeInitializeAnimation();
 	virtual void NativeUpdateAnimation(float DeltaSeconds);
 
-	void SetDead()
+	void SetIsDead()
 	{
 		m_bIsDead = true;
 	}

@@ -89,6 +89,10 @@ protected:
 	float m_ShieldTime;
 	float m_ShieldTimeAcc;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+	float m_HPRegenTime;
+	float m_HPRegenTimeAcc;
+
 	class APlayerHUD* m_HUD;
 
 	float m_AutoShotRange;
@@ -214,6 +218,11 @@ public:
 		m_PlayerInfo->SetAbilityPoint(Point);
 	}
 
+	void SetIsDead()
+	{
+		m_bIsDead = true;
+	}
+
 	/*
 	void SetAssult1Enable(bool Enable)
 	{
@@ -257,11 +266,11 @@ public:
 public:
 	void MagEmpty();
 
-	void SetHP(int32 HP)
+	void SetHP(float HP)
 	{
 		m_PlayerInfo->SetHP(HP);
 	}
-	void SetHPMax(int32 HPMax)
+	void SetHPMax(float HPMax)
 	{
 		m_PlayerInfo->SetHPMax(HPMax);
 	}
@@ -283,7 +292,7 @@ public:
 	}
 
 
-	void AddHP(int32 HP);
+	void AddHP(float HP);
 	void AddCurrentMag(int32 CurrentMag)
 	{
 		m_PlayerInfo->AddCurrentMag(CurrentMag);
@@ -300,11 +309,11 @@ public:
 
 
 public:
-	int32 GetHP()
+	float GetHP()
 	{
 		return m_PlayerInfo->GetHP();
 	}
-	int32 GetHPMax()
+	float GetHPMax()
 	{
 		return m_PlayerInfo->GetHPMax();
 	}
@@ -330,6 +339,10 @@ public:
 		return m_PlayerInfo->GetAbilityPoint();
 	}
 
+	bool GetIsDead()
+	{
+		return m_bIsDead;
+	}
 public:
 
 	void EquipSuppressor();

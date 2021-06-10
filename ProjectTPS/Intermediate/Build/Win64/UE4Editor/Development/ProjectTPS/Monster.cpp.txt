@@ -732,3 +732,5 @@ E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetMathLibrar
 E:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet\KismetMathLibrary.inl
 G:\Git\ProjectTPS\Source\ProjectTPS\Monster\../HitEffect.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\HitEffect.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Monster\../DropItem.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\DropItem.generated.h

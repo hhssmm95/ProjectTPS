@@ -116,6 +116,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<class AEnemyBullet> m_LongAttackBullet;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		TSubclassOf<class ADropItem> m_DropItem;
 protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -181,7 +183,7 @@ public:
 
 	void EmitHitEffect(FVector ImpactLoc, FRotator Rot);
 	void EmitHeadshotEffect(FVector ImpactLoc, FRotator Rot);
-
+	void ItemDrop();
 
 	UFUNCTION(BlueprintCallable)
 	void ChangeAnimation(EMonsterAnimType AnimType)

@@ -56,8 +56,8 @@ APlayerCharacter::APlayerCharacter()
 	m_UpperYaw = 0.f;
 	m_bMagEmpty = false;
 	m_AutoShotRange = 3000.f;
-	SetHPMax(1000);
-	SetHP(1000);
+	SetHPMax(1000.f);
+	SetHP(1000.f);
 	
 	GetCapsuleComponent()->SetCollisionProfileName("PlayerBody");
 	m_AimLock->SetWidgetSpace(EWidgetSpace::Screen);
@@ -134,6 +134,23 @@ void APlayerCharacter::Tick(float DeltaTime)
 		}
 		m_ShieldTimeAcc += DeltaTime;
 	}
+
+	if (!m_bIsDead)
+	{
+		if (m_HPRegenTimeAcc >= m_HPRegenTime)
+		{
+			if (m_PlayerInfo->GetDefenceLevel() >= 2)
+				AddHP(m_PlayerInfo->GetHPRegen()*1.75f);
+			else
+				AddHP(m_PlayerInfo->GetHPRegen());
+			m_HPRegenTimeAcc = 0.f;
+
+		}
+		if (GetHP() >= GetHPMax())
+			SetHP(GetHPMax());
+		m_HPRegenTimeAcc += DeltaTime;
+		m_HUD->UpdatePlayerHP(m_PlayerInfo->GetHPPercent());
+	}
 }
 
 // Called to bind functionality to input
@@ -191,7 +208,7 @@ void APlayerCharacter::Turn(float fScale)
 
 void APlayerCharacter::AddUpperYawInput(float fScale)
 {
-	if (fScale > 0.f || fScale < 0.f)
+	if (fScale > 0.f || fScale < 0.f && !m_bIsDead)
 		m_UpperYaw += fScale;
 }
 void APlayerCharacter::LookUp(float fScale)
@@ -206,7 +223,7 @@ void APlayerCharacter::LookUp(float fScale)
 
 void APlayerCharacter::UseAbility1()
 {
-	if (m_Slot1AbilityEnable && m_eSlot1Ability != EAbility::None)
+	if (m_Slot1AbilityEnable && m_eSlot1Ability != EAbility::None && !m_bIsDead)
 	{
 		m_Slot1AbilityEnable = false;
 		m_HUD->GetMainHUDWidget()->ActiveSlot1Cooltime(m_Slot1AbilityCooltime);
@@ -239,7 +256,7 @@ void APlayerCharacter::UseAbility1()
 }
 void APlayerCharacter::UseAbility2()
 {
-	if (m_Slot2AbilityEnable && m_eSlot2Ability != EAbility::None)
+	if (m_Slot2AbilityEnable && m_eSlot2Ability != EAbility::None && !m_bIsDead)
 	{
 		m_Slot2AbilityEnable = false;
 		m_HUD->GetMainHUDWidget()->ActiveSlot2Cooltime(m_Slot2AbilityCooltime);
@@ -303,9 +320,11 @@ void APlayerCharacter::MagEmpty()
 }
 void APlayerCharacter::ReloadStart()
 {
-	
-	m_pPlayerAnim->ReloadMontage();
-	m_IsReloading = true;
+	if (!m_bIsDead)
+	{
+		m_pPlayerAnim->ReloadMontage();
+		m_IsReloading = true;
+	}
 }
 
 void APlayerCharacter::ReloadEnd()
@@ -360,7 +379,7 @@ float APlayerCharacter::TakeDamage(float Damage, struct FDamageEvent const& Dama
 	else if (m_bShield && m_ShieldHP < (int32)Damage)
 	{
 		m_ShieldHP -= (int32)Damage;
-		AddHP(m_ShieldHP);
+		AddHP((float)m_ShieldHP);
 
 		m_bShield = false;
 		GetMesh()->SetRenderCustomDepth(false);
@@ -369,8 +388,14 @@ float APlayerCharacter::TakeDamage(float Damage, struct FDamageEvent const& Dama
 	}
 	else if (!m_bShield)
 	{
-		AddHP((int32)-Damage);
+		AddHP(-Damage);
 		m_pPlayerAnim->HitReaction();
+	}
+
+	if (GetHP() <= 0)
+	{
+		m_bIsDead = true;
+		m_pPlayerAnim->SetIsDead();
 	}
 
 
@@ -381,7 +406,7 @@ float APlayerCharacter::TakeDamage(float Damage, struct FDamageEvent const& Dama
 	return Damage;
 }
 
-void APlayerCharacter::AddHP(int32 HP)
+void APlayerCharacter::AddHP(float HP)
 {
 	m_PlayerInfo->AddHP(HP);
 
@@ -390,33 +415,34 @@ void APlayerCharacter::AddHP(int32 HP)
 
 void APlayerCharacter::EmitHitEffect(FVector ImpactLoc, FRotator Rot)
 {
-
-	FActorSpawnParameters	params;
-	params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-
-	AHitEffect* pEffect = GetWorld()->SpawnActor<AHitEffect>(AHitEffect::StaticClass(),
-		ImpactLoc, Rot, params);
-
-	pEffect->SetActorScale3D(FVector(0.1f, 0.1f, 0.1f));
-
-	pEffect->LoadParticle(m_HitParticle);
-	pEffect->LoadSound(m_HitSound);
-	
-	int32 RandSound = FMath::FRandRange(0, 3);
-
-	switch (RandSound)
+	if (!m_bIsDead)
 	{
-	case 0: 
-		pEffect->LoadAdditionalSound1(m_HurtSound1);
-		break;
-	case 1:
-		pEffect->LoadAdditionalSound1(m_HurtSound2);
-		break;
-	case 2:
-		pEffect->LoadAdditionalSound1(m_HurtSound3);
-		break;
-	}
+		FActorSpawnParameters	params;
+		params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
+		AHitEffect* pEffect = GetWorld()->SpawnActor<AHitEffect>(AHitEffect::StaticClass(),
+			ImpactLoc, Rot, params);
+
+		pEffect->SetActorScale3D(FVector(0.1f, 0.1f, 0.1f));
+
+		pEffect->LoadParticle(m_HitParticle);
+		pEffect->LoadSound(m_HitSound);
+
+		int32 RandSound = FMath::FRandRange(0, 3);
+
+		switch (RandSound)
+		{
+		case 0:
+			pEffect->LoadAdditionalSound1(m_HurtSound1);
+			break;
+		case 1:
+			pEffect->LoadAdditionalSound1(m_HurtSound2);
+			break;
+		case 2:
+			pEffect->LoadAdditionalSound1(m_HurtSound3);
+			break;
+		}
+	}
 }
 
 void APlayerCharacter::ShowHitMark()

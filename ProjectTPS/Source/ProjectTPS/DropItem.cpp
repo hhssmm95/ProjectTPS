@@ -33,6 +33,7 @@ void ADropItem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
+	SetActorRotation(GetActorRotation() + FRotator(0.f, 2.f, 0.f));
 
 }
 
@@ -55,6 +56,7 @@ void ADropItem::OnItemBeginOverlap(UPrimitiveComponent* OverlappedComponent,
 				pPlayer->AddAbilityPoint(m_AbilityPoint);
 				break;
 		}
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_GetSound, GetActorLocation());
 	}
 
 	Destroy();

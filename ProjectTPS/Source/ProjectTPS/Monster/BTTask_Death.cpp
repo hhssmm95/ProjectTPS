@@ -41,6 +41,8 @@ void UBTTask_Death::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemor
 
 	if (pMonster->IsDeathEnd())
 	{
+		pMonster->ItemDrop();
+
 		pMonster->Destroy();
 
 		FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded);

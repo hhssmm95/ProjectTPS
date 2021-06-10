@@ -34,11 +34,11 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_HP_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_HP;
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_HP;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_HPMax_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_HPMax;
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_HPMax;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Attack_MetaData[];
 #endif
@@ -47,6 +47,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Armor_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_Armor;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_HPRegen_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_HPRegen;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_CurrentMag_MetaData[];
 #endif
@@ -167,7 +171,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HP = { "m_HP", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_HP), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HP_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HP_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HP = { "m_HP", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_HP), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HP_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HP_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HPMax_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -175,7 +179,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HPMax = { "m_HPMax", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_HPMax), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HPMax_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HPMax_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HPMax = { "m_HPMax", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_HPMax), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HPMax_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HPMax_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Attack_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -192,6 +196,14 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 	};
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Armor = { "m_Armor", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_Armor), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Armor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Armor_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HPRegen_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerInfo" },
+		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HPRegen = { "m_HPRegen", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_HPRegen), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HPRegen_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HPRegen_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CurrentMag_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -417,6 +429,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HPMax,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Attack,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Armor,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HPRegen,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CurrentMag,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CurrentMagMax,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_RemainMag,
@@ -466,7 +479,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UPlayerInfo, 360826026);
+	IMPLEMENT_CLASS(UPlayerInfo, 746827520);
 	template<> PROJECTTPS_API UClass* StaticClass<UPlayerInfo>()
 	{
 		return UPlayerInfo::StaticClass();

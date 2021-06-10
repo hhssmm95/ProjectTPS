@@ -8,7 +8,7 @@
 #include "../EffectNormal.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "../HitEffect.h"
-
+#include "../DropItem.h"
 // Sets default values
 AMonster::AMonster()
 {
@@ -272,4 +272,7 @@ void AMonster::EmitHeadshotEffect(FVector ImpactLoc, FRotator Rot)
 	}
 }
 
-
+void AMonster::ItemDrop()
+{
+	GetWorld()->SpawnActor<ADropItem>(m_DropItem, GetActorLocation(), GetActorRotation());
+}

@@ -22,6 +22,7 @@ void EmptyLinkFunctionForGeneratedCodeDropItem() {}
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 	PROJECTTPS_API UEnum* Z_Construct_UEnum_ProjectTPS_EItemType();
+	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(ADropItem::execOnItemBeginOverlap)
 	{
@@ -153,6 +154,10 @@ void EmptyLinkFunctionForGeneratedCodeDropItem() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_AbilityPoint_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_AbilityPoint;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_GetSound_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_GetSound;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -204,12 +209,21 @@ void EmptyLinkFunctionForGeneratedCodeDropItem() {}
 	};
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_ADropItem_Statics::NewProp_m_AbilityPoint = { "m_AbilityPoint", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADropItem, m_AbilityPoint), METADATA_PARAMS(Z_Construct_UClass_ADropItem_Statics::NewProp_m_AbilityPoint_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADropItem_Statics::NewProp_m_AbilityPoint_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADropItem_Statics::NewProp_m_GetSound_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "DropItem" },
+		{ "ModuleRelativePath", "DropItem.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADropItem_Statics::NewProp_m_GetSound = { "m_GetSound", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADropItem, m_GetSound), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADropItem_Statics::NewProp_m_GetSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADropItem_Statics::NewProp_m_GetSound_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADropItem_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADropItem_Statics::NewProp_m_Body,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADropItem_Statics::NewProp_m_ItemType_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADropItem_Statics::NewProp_m_ItemType,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADropItem_Statics::NewProp_m_AmmoAmount,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADropItem_Statics::NewProp_m_AbilityPoint,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADropItem_Statics::NewProp_m_GetSound,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADropItem_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ADropItem>::IsAbstract,
@@ -238,7 +252,7 @@ void EmptyLinkFunctionForGeneratedCodeDropItem() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADropItem, 890825521);
+	IMPLEMENT_CLASS(ADropItem, 1583513272);
 	template<> PROJECTTPS_API UClass* StaticClass<ADropItem>()
 	{
 		return ADropItem::StaticClass();

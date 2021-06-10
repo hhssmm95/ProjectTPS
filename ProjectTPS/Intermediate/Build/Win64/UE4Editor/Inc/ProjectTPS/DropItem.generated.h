@@ -73,7 +73,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADropItem); \
 	FORCEINLINE static uint32 __PPO__m_Body() { return STRUCT_OFFSET(ADropItem, m_Body); } \
 	FORCEINLINE static uint32 __PPO__m_ItemType() { return STRUCT_OFFSET(ADropItem, m_ItemType); } \
 	FORCEINLINE static uint32 __PPO__m_AmmoAmount() { return STRUCT_OFFSET(ADropItem, m_AmmoAmount); } \
-	FORCEINLINE static uint32 __PPO__m_AbilityPoint() { return STRUCT_OFFSET(ADropItem, m_AbilityPoint); }
+	FORCEINLINE static uint32 __PPO__m_AbilityPoint() { return STRUCT_OFFSET(ADropItem, m_AbilityPoint); } \
+	FORCEINLINE static uint32 __PPO__m_GetSound() { return STRUCT_OFFSET(ADropItem, m_GetSound); }
 
 
 #define ProjectTPS_Source_ProjectTPS_DropItem_h_9_PROLOG
