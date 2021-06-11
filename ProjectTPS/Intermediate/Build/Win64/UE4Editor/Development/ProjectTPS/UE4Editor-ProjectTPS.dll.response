@@ -34,9 +34,8 @@
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN
 "G:\Git\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
-"G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\PlayerAnimation.cpp.obj"
+"G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\DropItem.cpp.obj"
 "G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\PlayerCharacter.cpp.obj"
-"G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\AbilityWindowWidget.cpp.obj"
 "G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\Module.ProjectTPS.cpp.obj"
 "G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\PlayerCharacter.gen.cpp.obj"
 "G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\ProjectTPS.init.gen.cpp.obj"

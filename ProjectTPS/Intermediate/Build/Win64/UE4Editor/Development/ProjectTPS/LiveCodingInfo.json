@@ -4,7 +4,6 @@
 		"Module.ProjectTPS.cpp.obj": [
 			"BTTask_SimpleRotateTo.cpp.obj",
 			"Bullet.cpp.obj",
-			"DropItem.cpp.obj",
 			"EffectNormal.cpp.obj",
 			"ExplosiveBullet.cpp.obj",
 			"GameInfo.cpp.obj",
@@ -26,6 +25,7 @@
 			"MonsterAnim.cpp.obj",
 			"MonsterPatrolPoint.cpp.obj",
 			"MonsterSpawnPoint.cpp.obj",
+			"PlayerAnimation.cpp.obj",
 			"PlayerInfo.cpp.obj",
 			"PrimaryWeapon.cpp.obj",
 			"PlayerHUD.cpp.obj",
@@ -34,13 +34,13 @@
 			"ProjectTPSGameModeBase.cpp.obj",
 			"AbilitySlotData.cpp.obj",
 			"AbilitySlotWidget.cpp.obj",
+			"AbilityWindowWidget.cpp.obj",
 			"HitMarkerWidget.cpp.obj",
 			"MainHUDWidget.cpp.obj",
 			"PlayerEquipWidget.cpp.obj",
 			"PlayerHPWidget.cpp.obj",
-			"PlayerAnimation.cpp.obj",
-			"PlayerCharacter.cpp.obj",
-			"AbilityWindowWidget.cpp.obj"
+			"DropItem.cpp.obj",
+			"PlayerCharacter.cpp.obj"
 		],
 		"Module.ProjectTPS.gen.cpp.obj": [
 			"AbilitySlotData.gen.cpp.obj",

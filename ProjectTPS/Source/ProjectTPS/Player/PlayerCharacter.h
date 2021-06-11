@@ -33,6 +33,11 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		UParticleSystemComponent* m_AimAssistParticle;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UParticleSystemComponent* m_TimeAccelParticle;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UPostProcessComponent* m_PostProcess;
+
 	//UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		//USceneComponent* m_Scene;
 	/*UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
@@ -89,6 +94,10 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		USoundBase* m_ThrusterSound;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		USoundBase* m_TimeAccelOnSound;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		USoundBase* m_TimeAccelOffSound;
 	FVector m_AssistLoc;
 	bool m_bAimAssist;
 	float m_AimAssistTime;
@@ -117,6 +126,10 @@ protected:
 
 	float m_DashEnableTime;
 	float m_DashEnableTimeAcc;
+
+	bool m_bTimeAccel;
+	float m_TimeAccelTime;
+	float m_TimeAccelTimeAcc;
 
 	class APlayerHUD* m_HUD;
 
@@ -381,5 +394,7 @@ public:
 	void PlasmaShield();
 	void ReactorOverload();
 	void UpdateRemainMag();
+	void GetAmmoFromItem(int Ammo);
+	void TimeAccecleration();
 
 };

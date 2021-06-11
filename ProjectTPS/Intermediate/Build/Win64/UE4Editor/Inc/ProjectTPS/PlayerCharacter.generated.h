@@ -72,6 +72,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayerCharacter); \
 	FORCEINLINE static uint32 __PPO__m_Arm() { return STRUCT_OFFSET(APlayerCharacter, m_Arm); } \
 	FORCEINLINE static uint32 __PPO__m_AimLock() { return STRUCT_OFFSET(APlayerCharacter, m_AimLock); } \
 	FORCEINLINE static uint32 __PPO__m_AimAssistParticle() { return STRUCT_OFFSET(APlayerCharacter, m_AimAssistParticle); } \
+	FORCEINLINE static uint32 __PPO__m_TimeAccelParticle() { return STRUCT_OFFSET(APlayerCharacter, m_TimeAccelParticle); } \
+	FORCEINLINE static uint32 __PPO__m_PostProcess() { return STRUCT_OFFSET(APlayerCharacter, m_PostProcess); } \
 	FORCEINLINE static uint32 __PPO__m_bIsDead() { return STRUCT_OFFSET(APlayerCharacter, m_bIsDead); } \
 	FORCEINLINE static uint32 __PPO__m_pPlayerAnim() { return STRUCT_OFFSET(APlayerCharacter, m_pPlayerAnim); } \
 	FORCEINLINE static uint32 __PPO__m_UpperYaw() { return STRUCT_OFFSET(APlayerCharacter, m_UpperYaw); } \
@@ -88,6 +90,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayerCharacter); \
 	FORCEINLINE static uint32 __PPO__m_ShieldHPMax() { return STRUCT_OFFSET(APlayerCharacter, m_ShieldHPMax); } \
 	FORCEINLINE static uint32 __PPO__m_ThrusterParticle() { return STRUCT_OFFSET(APlayerCharacter, m_ThrusterParticle); } \
 	FORCEINLINE static uint32 __PPO__m_ThrusterSound() { return STRUCT_OFFSET(APlayerCharacter, m_ThrusterSound); } \
+	FORCEINLINE static uint32 __PPO__m_TimeAccelOnSound() { return STRUCT_OFFSET(APlayerCharacter, m_TimeAccelOnSound); } \
+	FORCEINLINE static uint32 __PPO__m_TimeAccelOffSound() { return STRUCT_OFFSET(APlayerCharacter, m_TimeAccelOffSound); } \
 	FORCEINLINE static uint32 __PPO__m_HPRegenTime() { return STRUCT_OFFSET(APlayerCharacter, m_HPRegenTime); } \
 	FORCEINLINE static uint32 __PPO__m_bDashEnable() { return STRUCT_OFFSET(APlayerCharacter, m_bDashEnable); }
 

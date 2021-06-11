@@ -48,7 +48,7 @@ void ADropItem::OnItemBeginOverlap(UPrimitiveComponent* OverlappedComponent,
 		switch (m_ItemType)
 		{
 		case EItemType::Ammo:
-				pPlayer->AddRemainMag(m_AmmoAmount);
+				pPlayer->GetAmmoFromItem(m_AmmoAmount);
 				pPlayer->UpdateRemainMag();
 				break;
 

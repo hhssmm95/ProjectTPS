@@ -42,11 +42,14 @@ APlayerCharacter::APlayerCharacter()
 	//m_Scene = CreateDefaultSubobject<USceneComponent>(TEXT("Scene"));
 	m_AimLock = CreateDefaultSubobject<UWidgetComponent>(TEXT("AimLock"));
 	m_AimAssistParticle = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("AimAssistParticle"));
-	
+	m_TimeAccelParticle = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("TimeAccelParticle"));
+	m_PostProcess = CreateDefaultSubobject<UPostProcessComponent>(TEXT("PostProcess"));
 	m_Camera->SetupAttachment(m_Arm);
+	m_PostProcess->SetupAttachment(GetCapsuleComponent());
 	m_Arm->SetupAttachment(GetCapsuleComponent());
 	m_AimLock->SetupAttachment(GetCapsuleComponent());
 	m_AimAssistParticle->SetupAttachment(GetCapsuleComponent());
+	m_TimeAccelParticle->SetupAttachment(m_Camera);
 	//m_Scene->SetupAttachment(GetCapsuleComponent());
 	//m_eDirection = EMoveDir::None;
 
@@ -69,6 +72,13 @@ APlayerCharacter::APlayerCharacter()
 	m_bDashEnable = true;
 	m_DashEnableTime = 3.f;
 	m_DashingTime = 0.25f;
+
+	m_bTimeAccel = false;
+	m_TimeAccelTime = 5.f; 
+	//m_TimeAccelParticle->bAutoActivate = false;
+	m_TimeAccelParticle->SetVisibility(false);
+	m_PostProcess->bEnabled = false;
+
 }
 
 // Called when the game starts or when spawned
@@ -178,6 +188,22 @@ void APlayerCharacter::Tick(float DeltaTime)
 			m_AimAssistParticle->SetVisibility(false);
 		}
 		m_AimAssistTimeAcc += DeltaTime;
+	}
+
+	if (m_bTimeAccel)
+	{
+		if (m_TimeAccelTimeAcc >= m_TimeAccelTime)
+		{
+			m_bTimeAccel = false;
+			m_TimeAccelTimeAcc = 0.f;
+			UGameplayStatics::SetGlobalTimeDilation(GetWorld(), 1.0f);
+			this->CustomTimeDilation = 1.f;
+			m_PrimaryWeapon->CustomTimeDilation = 1.f;
+			m_TimeAccelParticle->SetVisibility(false);
+			m_PostProcess->bEnabled = false;
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_TimeAccelOffSound, GetActorLocation());
+		}
+		m_TimeAccelTimeAcc += DeltaTime;
 	}
 
 	if (m_bShield)
@@ -295,7 +321,10 @@ void APlayerCharacter::Turn(float fScale)
 
 	if (!m_bIsDead && !m_bIsDashing)
 	{
-		AddControllerYawInput(fScale * 45.f * GetWorld()->GetDeltaSeconds());
+		if (m_bTimeAccel)
+			AddControllerYawInput(fScale * 45.f * 10.f * GetWorld()->GetDeltaSeconds());
+		else
+			AddControllerYawInput(fScale * 45.f * GetWorld()->GetDeltaSeconds());
 	}
 
 }
@@ -310,8 +339,10 @@ void APlayerCharacter::LookUp(float fScale)
 
 	if (!m_bIsDead && !m_bIsDashing)
 	{
-		//
-		AddControllerPitchInput(fScale * 45.f * GetWorld()->GetDeltaSeconds());
+		if(m_bTimeAccel)
+			AddControllerPitchInput(fScale * 45.f * 10.f * GetWorld()->GetDeltaSeconds());
+		else
+			AddControllerPitchInput(fScale * 45.f * GetWorld()->GetDeltaSeconds());
 	}
 }
 
@@ -336,9 +367,8 @@ void APlayerCharacter::UseAbility1()
 		case EAbility::Defence3:
 			ReactorOverload();
 			break;
-		case EAbility::Utility1:
-			break;
 		case EAbility::Utility3:
+			TimeAccecleration();
 			break;
 		}
 	}
@@ -367,6 +397,7 @@ void APlayerCharacter::UseAbility2()
 		case EAbility::Utility1:
 			break;
 		case EAbility::Utility3:
+			TimeAccecleration();
 			break;
 		}
 	}
@@ -722,4 +753,30 @@ void APlayerCharacter::DashLeft()
 	
 	}
 
+}
+
+
+void APlayerCharacter::GetAmmoFromItem(int Ammo)
+{
+	if (m_PlayerInfo->GetUtilityLevel() >= 2)
+	{
+		AddRemainMag((int)(Ammo * 1.5f));
+	}
+	else
+	{
+		AddRemainMag((int)(Ammo));
+	}
+}
+
+
+void APlayerCharacter::TimeAccecleration()
+{
+	m_bTimeAccel = true;
+	UGameplayStatics::SetGlobalTimeDilation(GetWorld(), 0.1f);
+	this->CustomTimeDilation = 10.f;
+	m_PrimaryWeapon->CustomTimeDilation = 10.f;
+	m_TimeAccelParticle->SetVisibility(true);
+	m_TimeAccelParticle->ToggleActive();
+	m_PostProcess->bEnabled = true;
+	UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_TimeAccelOnSound, GetActorLocation());
 }
