@@ -35,8 +35,10 @@ void UAbilityWindowWidget::NativePreConstruct()
 	m_TileView->OnItemClicked().AddUObject(this, &UAbilityWindowWidget::SlotClick);
 	m_TileView->OnItemDoubleClicked().AddUObject(this, &UAbilityWindowWidget::SlotDoubleClick);
 	//m_TileView->OnItemIsHoveredChanged().AddUObject(this, &UAbilityWindowWidget::MouseHovered);
+
 	m_Slot1Button->OnClicked.AddDynamic(this, &UAbilityWindowWidget::ClickSlot1Button);
 	m_Slot2Button->OnClicked.AddDynamic(this, &UAbilityWindowWidget::ClickSlot2Button);
+
 	m_Slot1Key = EAbility::None;
 	m_Slot2Key = EAbility::None;
 }
@@ -273,7 +275,6 @@ void UAbilityWindowWidget::ClickSlot2Button()
 		m_Player->SetSlot2Enable(true);
 	}
 }
-
 
 void UAbilityWindowWidget::SlotDoubleClick(UObject* pObj)
 {

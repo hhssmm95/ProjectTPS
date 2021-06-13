@@ -65,6 +65,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMainHUDWidget); \
 	FORCEINLINE static uint32 __PPO__m_PlayerEquipWidget() { return STRUCT_OFFSET(UMainHUDWidget, m_PlayerEquipWidget); } \
 	FORCEINLINE static uint32 __PPO__m_HitMarkerWidget() { return STRUCT_OFFSET(UMainHUDWidget, m_HitMarkerWidget); } \
 	FORCEINLINE static uint32 __PPO__m_AbilityWindowWidget() { return STRUCT_OFFSET(UMainHUDWidget, m_AbilityWindowWidget); } \
+	FORCEINLINE static uint32 __PPO__m_ScopeAim() { return STRUCT_OFFSET(UMainHUDWidget, m_ScopeAim); } \
 	FORCEINLINE static uint32 __PPO__m_BackgroundBlur() { return STRUCT_OFFSET(UMainHUDWidget, m_BackgroundBlur); } \
 	FORCEINLINE static uint32 __PPO__m_SlotProgress1() { return STRUCT_OFFSET(UMainHUDWidget, m_SlotProgress1); } \
 	FORCEINLINE static uint32 __PPO__m_SlotProgress2() { return STRUCT_OFFSET(UMainHUDWidget, m_SlotProgress2); }

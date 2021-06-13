@@ -20,6 +20,7 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	PROJECTTPS_API UClass* Z_Construct_UClass_ABullet_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_AExplosiveBullet_NoRegister();
@@ -51,6 +52,14 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SuppressorMesh_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_SuppressorMesh;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_ScopeMesh_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_ScopeMesh;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_ScopeCamera_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_ScopeCamera;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Damage_MetaData[];
 #endif
@@ -156,6 +165,24 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SuppressorMesh = { "m_SuppressorMesh", nullptr, (EPropertyFlags)0x00200800000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_SuppressorMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SuppressorMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SuppressorMesh_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ScopeMesh_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PrimaryWeapon" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Player/PrimaryWeapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ScopeMesh = { "m_ScopeMesh", nullptr, (EPropertyFlags)0x00200800000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_ScopeMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ScopeMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ScopeMesh_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ScopeCamera_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PrimaryWeapon" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Player/PrimaryWeapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ScopeCamera = { "m_ScopeCamera", nullptr, (EPropertyFlags)0x00200800000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_ScopeCamera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ScopeCamera_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ScopeCamera_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_Damage_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -288,6 +315,8 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_Mesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_RootScene,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SuppressorMesh,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ScopeMesh,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ScopeCamera,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_Damage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_FireRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_CurrentMag,
@@ -332,7 +361,7 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APrimaryWeapon, 3881045394);
+	IMPLEMENT_CLASS(APrimaryWeapon, 183756016);
 	template<> PROJECTTPS_API UClass* StaticClass<APrimaryWeapon>()
 	{
 		return APrimaryWeapon::StaticClass();

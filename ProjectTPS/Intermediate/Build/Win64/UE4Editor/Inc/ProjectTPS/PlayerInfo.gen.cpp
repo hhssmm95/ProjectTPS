@@ -125,15 +125,15 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_AbilityPoint;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_HaveSnipeMode_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_HaveScope_MetaData[];
 #endif
-		static void NewProp_m_HaveSnipeMode_SetBit(void* Obj);
-		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_HaveSnipeMode;
+		static void NewProp_m_HaveScope_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_HaveScope;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_HaveSuperSuppressor_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_HaveSuppressor_MetaData[];
 #endif
-		static void NewProp_m_HaveSuperSuppressor_SetBit(void* Obj);
-		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_HaveSuperSuppressor;
+		static void NewProp_m_HaveSuppressor_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_HaveSuppressor;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_HaveNightVision_MetaData[];
 #endif
@@ -369,29 +369,29 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_AbilityPoint = { "m_AbilityPoint", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_AbilityPoint), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_AbilityPoint_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_AbilityPoint_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSnipeMode_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveScope_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PlayerInfo" },
 		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
 	};
 #endif
-	void Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSnipeMode_SetBit(void* Obj)
+	void Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveScope_SetBit(void* Obj)
 	{
-		((UPlayerInfo*)Obj)->m_HaveSnipeMode = 1;
+		((UPlayerInfo*)Obj)->m_HaveScope = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSnipeMode = { "m_HaveSnipeMode", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UPlayerInfo), &Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSnipeMode_SetBit, METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSnipeMode_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSnipeMode_MetaData)) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveScope = { "m_HaveScope", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UPlayerInfo), &Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveScope_SetBit, METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveScope_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveScope_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSuperSuppressor_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSuppressor_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PlayerInfo" },
 		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
 	};
 #endif
-	void Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSuperSuppressor_SetBit(void* Obj)
+	void Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSuppressor_SetBit(void* Obj)
 	{
-		((UPlayerInfo*)Obj)->m_HaveSuperSuppressor = 1;
+		((UPlayerInfo*)Obj)->m_HaveSuppressor = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSuperSuppressor = { "m_HaveSuperSuppressor", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UPlayerInfo), &Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSuperSuppressor_SetBit, METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSuperSuppressor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSuperSuppressor_MetaData)) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSuppressor = { "m_HaveSuppressor", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UPlayerInfo), &Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSuppressor_SetBit, METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSuppressor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSuppressor_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveNightVision_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -446,8 +446,8 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_DefenceLevel,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_UtilityLevel,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_AbilityPoint,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSnipeMode,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSuperSuppressor,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveScope,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveSuppressor,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveNightVision,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_HaveThermalVision,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_WaitTime,
@@ -479,7 +479,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UPlayerInfo, 746827520);
+	IMPLEMENT_CLASS(UPlayerInfo, 3748426647);
 	template<> PROJECTTPS_API UClass* StaticClass<UPlayerInfo>()
 	{
 		return UPlayerInfo::StaticClass();

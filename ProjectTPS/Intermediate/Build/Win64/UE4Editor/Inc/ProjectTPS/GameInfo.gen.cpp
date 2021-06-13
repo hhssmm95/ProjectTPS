@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeGameInfo() {}
 	UPackage* Z_Construct_UPackage__Script_ProjectTPS();
 	PROJECTTPS_API UEnum* Z_Construct_UEnum_ProjectTPS_EMoveDir();
 	PROJECTTPS_API UEnum* Z_Construct_UEnum_ProjectTPS_EItemType();
+	PROJECTTPS_API UEnum* Z_Construct_UEnum_ProjectTPS_EGearType();
 // End Cross Module References
 	static UEnum* EAbility_StaticEnum()
 	{
@@ -200,6 +201,66 @@ void EmptyLinkFunctionForGeneratedCodeGameInfo() {}
 				nullptr,
 				"EItemType",
 				"EItemType",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				EEnumFlags::None,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::EnumClass,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
+	static UEnum* EGearType_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_ProjectTPS_EGearType, Z_Construct_UPackage__Script_ProjectTPS(), TEXT("EGearType"));
+		}
+		return Singleton;
+	}
+	template<> PROJECTTPS_API UEnum* StaticEnum<EGearType>()
+	{
+		return EGearType_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EGearType(EGearType_StaticEnum, TEXT("/Script/ProjectTPS"), TEXT("EGearType"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_ProjectTPS_EGearType_Hash() { return 3494679245U; }
+	UEnum* Z_Construct_UEnum_ProjectTPS_EGearType()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_ProjectTPS();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("EGearType"), 0, Get_Z_Construct_UEnum_ProjectTPS_EGearType_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "EGearType::None", (int64)EGearType::None },
+				{ "EGearType::Suppressor", (int64)EGearType::Suppressor },
+				{ "EGearType::Scope", (int64)EGearType::Scope },
+				{ "EGearType::NightVision", (int64)EGearType::NightVision },
+				{ "EGearType::ThermalVision", (int64)EGearType::ThermalVision },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "BlueprintType", "true" },
+				{ "ModuleRelativePath", "GameInfo.h" },
+				{ "NightVision.Name", "EGearType::NightVision" },
+				{ "None.Name", "EGearType::None" },
+				{ "Scope.Name", "EGearType::Scope" },
+				{ "Suppressor.Name", "EGearType::Suppressor" },
+				{ "ThermalVision.Name", "EGearType::ThermalVision" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_ProjectTPS,
+				nullptr,
+				"EGearType",
+				"EGearType",
 				Enumerators,
 				UE_ARRAY_COUNT(Enumerators),
 				RF_Public|RF_Transient|RF_MarkAsNative,

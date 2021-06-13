@@ -13,6 +13,16 @@ DECLARE_LOG_CATEGORY_EXTERN(UEKR1, Log, All);
 
 void PrintViewport(float fTime, const FColor& Color, const FString& strText);
 
+UENUM(BlueprintType)
+enum class EGearType : uint8
+{
+	None,
+	Suppressor,
+	Scope,
+	NightVision,
+	ThermalVision
+
+};
 
 UENUM(BlueprintType)
 enum class EItemType : uint8

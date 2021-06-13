@@ -26,8 +26,11 @@ APrimaryWeapon::APrimaryWeapon()
 	m_SuppressorMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Suppressor"));
 	SetRootComponent(m_RootScene);
 
+	m_ScopeCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("ScopeCamera"));
+
 	m_Mesh->SetupAttachment(m_RootScene);
 	m_SuppressorMesh->SetupAttachment(m_RootScene);
+	m_ScopeCamera->SetupAttachment(m_Mesh);
 
 	Delay = false;
 	DelayTime = 0.12f;
@@ -41,19 +44,36 @@ APrimaryWeapon::APrimaryWeapon()
 void APrimaryWeapon::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	//InputComponent->BindAxis(TEXT("LookUp"), this, &APlayerCharacter::LookUp);
+	//InputComponent->BindAxis(TEXT("LookUp"), this, &APrimaryWeapon::LookUp);
 	m_Player = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
 
 	m_PlayerHUD = Cast<APlayerHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
 	m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(m_CurrentMagMax);
 
 	m_CurrentMag = m_CurrentMagMax;
+
+
+	m_ScopeMesh = Cast<UStaticMeshComponent>(GetDefaultSubobjectByName(TEXT("ScopeMesh")));
 }
+
+//
+//void APrimaryWeapon::LookUp(float fScale)
+//{
+//	m_Pitch = FMath::Clamp(m_Pitch + fScale, -60.f, 60.f);
+//
+//	m_ScopeCamera->SetRelativeRotation(FRotator(m_ScopeCamera->GetComponentRotation().Yaw, 
+//		-m_Pitch, m_ScopeCamera->GetComponentRotation().Roll));
+//	
+//}
 
 // Called every frame
 void APrimaryWeapon::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+
 
 	if (Delay)
 	{
@@ -211,7 +231,7 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 
 			bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), CameraPos, CameraPos + CameraForward * 100000.f,
 				UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1), true, IgnoreActor,
-				EDrawDebugTrace::None, result, true);
+				EDrawDebugTrace::ForDuration, result, true);
 
 			if (bHit)
 			{
@@ -459,6 +479,25 @@ void APrimaryWeapon::EquipSuppressor()
 
 		m_bSuppressorUsing = false;
 		m_SuppressorMesh->SetVisibility(false);
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_DischargeSoundClass, GetActorLocation());
+
+	}
+}
+
+void APrimaryWeapon::EquipScope()
+{
+	if (!m_bScopeUsing)
+	{
+		m_bScopeUsing = true;
+		m_ScopeMesh->SetVisibility(true);
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_EquipSoundClass, GetActorLocation());
+
+	}
+	else
+	{
+
+		m_bScopeUsing = false;
+		m_ScopeMesh->SetVisibility(false);
 		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_DischargeSoundClass, GetActorLocation());
 
 	}

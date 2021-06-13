@@ -54,4 +54,14 @@ template<> PROJECTTPS_API UEnum* StaticEnum<EMoveDir>();
 enum class EItemType : uint8;
 template<> PROJECTTPS_API UEnum* StaticEnum<EItemType>();
 
+#define FOREACH_ENUM_EGEARTYPE(op) \
+	op(EGearType::None) \
+	op(EGearType::Suppressor) \
+	op(EGearType::Scope) \
+	op(EGearType::NightVision) \
+	op(EGearType::ThermalVision) 
+
+enum class EGearType : uint8;
+template<> PROJECTTPS_API UEnum* StaticEnum<EGearType>();
+
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

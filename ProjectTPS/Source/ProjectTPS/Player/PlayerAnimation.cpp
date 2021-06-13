@@ -56,14 +56,30 @@ void UPlayerAnimation::RifleFire()
 {
 	if (!m_bIsDead)
 	{
-		if (!m_MagEmpty && !Montage_IsPlaying(m_RifleReloadMontage))
+		if (!m_MagEmpty && !Montage_IsPlaying(m_RifleReloadMontage) && !Montage_IsPlaying(m_RifleReloadAimMontage))
+		{
 			Montage_Play(m_RifleFireMontage);
+		}
 	}
 }
-
+void UPlayerAnimation::RifleAimFire()
+{
+	if (!m_bIsDead)
+	{
+		if (!m_MagEmpty && !Montage_IsPlaying(m_RifleReloadMontage) && !Montage_IsPlaying(m_RifleReloadAimMontage))
+		{
+			Montage_Play(m_RifleFireAimMontage);
+		}
+	}
+}
 void UPlayerAnimation::RifleStop()
 {
 	Montage_Stop(0.2f, m_RifleFireMontage);
+}
+
+void UPlayerAnimation::RifleAimStop()
+{
+	Montage_Stop(0.2f, m_RifleFireAimMontage);
 }
 
 void UPlayerAnimation::ReloadMontage()
@@ -71,6 +87,14 @@ void UPlayerAnimation::ReloadMontage()
 	if (!m_bIsDead)
 	{
 		Montage_Play(m_RifleReloadMontage);
+	}
+}
+
+void UPlayerAnimation::ReloadAimMontage()
+{
+	if (!m_bIsDead)
+	{
+		Montage_Play(m_RifleReloadAimMontage);
 	}
 }
 

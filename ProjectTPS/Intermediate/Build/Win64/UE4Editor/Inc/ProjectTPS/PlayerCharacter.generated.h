@@ -73,7 +73,10 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayerCharacter); \
 	FORCEINLINE static uint32 __PPO__m_AimLock() { return STRUCT_OFFSET(APlayerCharacter, m_AimLock); } \
 	FORCEINLINE static uint32 __PPO__m_AimAssistParticle() { return STRUCT_OFFSET(APlayerCharacter, m_AimAssistParticle); } \
 	FORCEINLINE static uint32 __PPO__m_TimeAccelParticle() { return STRUCT_OFFSET(APlayerCharacter, m_TimeAccelParticle); } \
+	FORCEINLINE static uint32 __PPO__m_ScopeParticle() { return STRUCT_OFFSET(APlayerCharacter, m_ScopeParticle); } \
 	FORCEINLINE static uint32 __PPO__m_PostProcess() { return STRUCT_OFFSET(APlayerCharacter, m_PostProcess); } \
+	FORCEINLINE static uint32 __PPO__m_NightVision() { return STRUCT_OFFSET(APlayerCharacter, m_NightVision); } \
+	FORCEINLINE static uint32 __PPO__m_ThermalVision() { return STRUCT_OFFSET(APlayerCharacter, m_ThermalVision); } \
 	FORCEINLINE static uint32 __PPO__m_bIsDead() { return STRUCT_OFFSET(APlayerCharacter, m_bIsDead); } \
 	FORCEINLINE static uint32 __PPO__m_pPlayerAnim() { return STRUCT_OFFSET(APlayerCharacter, m_pPlayerAnim); } \
 	FORCEINLINE static uint32 __PPO__m_UpperYaw() { return STRUCT_OFFSET(APlayerCharacter, m_UpperYaw); } \
@@ -92,6 +95,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayerCharacter); \
 	FORCEINLINE static uint32 __PPO__m_ThrusterSound() { return STRUCT_OFFSET(APlayerCharacter, m_ThrusterSound); } \
 	FORCEINLINE static uint32 __PPO__m_TimeAccelOnSound() { return STRUCT_OFFSET(APlayerCharacter, m_TimeAccelOnSound); } \
 	FORCEINLINE static uint32 __PPO__m_TimeAccelOffSound() { return STRUCT_OFFSET(APlayerCharacter, m_TimeAccelOffSound); } \
+	FORCEINLINE static uint32 __PPO__m_NightVisionSound() { return STRUCT_OFFSET(APlayerCharacter, m_NightVisionSound); } \
+	FORCEINLINE static uint32 __PPO__m_ButtonSound() { return STRUCT_OFFSET(APlayerCharacter, m_ButtonSound); } \
 	FORCEINLINE static uint32 __PPO__m_HPRegenTime() { return STRUCT_OFFSET(APlayerCharacter, m_HPRegenTime); } \
 	FORCEINLINE static uint32 __PPO__m_bDashEnable() { return STRUCT_OFFSET(APlayerCharacter, m_bDashEnable); }
 

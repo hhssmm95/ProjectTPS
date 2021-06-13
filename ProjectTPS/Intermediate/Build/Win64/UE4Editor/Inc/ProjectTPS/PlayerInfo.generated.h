@@ -80,8 +80,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UPlayerInfo); \
 	FORCEINLINE static uint32 __PPO__m_DefenceLevel() { return STRUCT_OFFSET(UPlayerInfo, m_DefenceLevel); } \
 	FORCEINLINE static uint32 __PPO__m_UtilityLevel() { return STRUCT_OFFSET(UPlayerInfo, m_UtilityLevel); } \
 	FORCEINLINE static uint32 __PPO__m_AbilityPoint() { return STRUCT_OFFSET(UPlayerInfo, m_AbilityPoint); } \
-	FORCEINLINE static uint32 __PPO__m_HaveSnipeMode() { return STRUCT_OFFSET(UPlayerInfo, m_HaveSnipeMode); } \
-	FORCEINLINE static uint32 __PPO__m_HaveSuperSuppressor() { return STRUCT_OFFSET(UPlayerInfo, m_HaveSuperSuppressor); } \
+	FORCEINLINE static uint32 __PPO__m_HaveScope() { return STRUCT_OFFSET(UPlayerInfo, m_HaveScope); } \
+	FORCEINLINE static uint32 __PPO__m_HaveSuppressor() { return STRUCT_OFFSET(UPlayerInfo, m_HaveSuppressor); } \
 	FORCEINLINE static uint32 __PPO__m_HaveNightVision() { return STRUCT_OFFSET(UPlayerInfo, m_HaveNightVision); } \
 	FORCEINLINE static uint32 __PPO__m_HaveThermalVision() { return STRUCT_OFFSET(UPlayerInfo, m_HaveThermalVision); } \
 	FORCEINLINE static uint32 __PPO__m_WaitTime() { return STRUCT_OFFSET(UPlayerInfo, m_WaitTime); }

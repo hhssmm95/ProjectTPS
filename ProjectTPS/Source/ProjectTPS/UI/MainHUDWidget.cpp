@@ -20,12 +20,15 @@ void UMainHUDWidget::NativePreConstruct()
 	m_PlayerEquipWidget = Cast<UPlayerEquipWidget>(GetWidgetFromName(TEXT("UI_EquipWidget")));
 	m_HitMarkerWidget = Cast<UHitMarkerWidget>(GetWidgetFromName(TEXT("UI_HitMarker")));
 	m_AbilityWindowWidget = Cast<UAbilityWindowWidget>(GetWidgetFromName(TEXT("UI_AbilityWindowWidget")));
+	m_ScopeAim = Cast<UUserWidget>(GetWidgetFromName(TEXT("UI_ScopeAim")));
+
 	m_AbilitySlotText1 = Cast<UTextBlock>(GetWidgetFromName(TEXT("AbilitySlotText1")));
 	m_AbilitySlotText2 = Cast<UTextBlock>(GetWidgetFromName(TEXT("AbilitySlotText2")));
 	m_BackgroundBlur = Cast<UBackgroundBlur>(GetWidgetFromName(TEXT("MainHUDBlur")));
 	m_SlotProgress1 = Cast<UProgressBar>(GetWidgetFromName(TEXT("AbilitySlotProgress1")));
 	m_SlotProgress2 = Cast<UProgressBar>(GetWidgetFromName(TEXT("AbilitySlotProgress2")));
 	m_SlotInit = false;
+
 }
 
 void UMainHUDWidget::NativeConstruct()
@@ -68,7 +71,6 @@ void UMainHUDWidget::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
 	}
 }
 
-
 void UMainHUDWidget::AbilityWindowToggle()
 {
 	if (!m_SlotInit)
@@ -103,15 +105,29 @@ void UMainHUDWidget::AbilityWindowToggle()
 	}
 	
 }
+
 void UMainHUDWidget::ActiveSlot1Cooltime(float Cooltime)
 {
 	m_Slot1Cooltime = Cooltime;
 	m_bSlot1Disable = true; 
 	m_SlotProgress1->SetPercent(1.f);
 }
+
 void UMainHUDWidget::ActiveSlot2Cooltime(float Cooltime)
 {
 	m_Slot2Cooltime = Cooltime;
 	m_bSlot2Disable = true;
 	m_SlotProgress2->SetPercent(1.f);
+}
+
+void UMainHUDWidget::SetScopeAimVisible(bool visible)
+{
+	if (visible)
+	{
+		m_ScopeAim->SetVisibility(ESlateVisibility::HitTestInvisible);
+	}
+	else
+	{
+		m_ScopeAim->SetVisibility(ESlateVisibility::Collapsed);
+	}
 }

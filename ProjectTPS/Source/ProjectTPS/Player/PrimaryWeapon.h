@@ -25,6 +25,12 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		UStaticMeshComponent* m_SuppressorMesh;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		UStaticMeshComponent* m_ScopeMesh;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		UCameraComponent* m_ScopeCamera;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		float m_Damage;
 
@@ -83,11 +89,14 @@ protected:
 
 	class APlayerHUD* m_PlayerHUD;
 
+	float m_Pitch;
+
 	bool Delay;
 	float DelayTime;
 	float DelayTimeAcc;
 
 	bool m_bSuppressorUsing;
+	bool m_bScopeUsing;
 
 	bool m_bBurst;
 	float m_BurstTime;
@@ -98,15 +107,38 @@ public:
 		return m_Mesh;
 	}
 
+	bool GetSuppressorUsing()
+	{
+		return m_bSuppressorUsing;
+	}
+
+	bool GetScopeUsing()
+	{
+		return m_bScopeUsing;
+	}
+
+	FVector GetCameraLoc()
+	{
+		return m_ScopeCamera->GetComponentLocation();
+	}
+
+	FVector GetCameraForward()
+	{
+		return m_ScopeCamera->GetForwardVector();
+	}
+
 	void BurstMode(float BurstTime);
 	void BurstEnd();
 
 	void EquipSuppressor();
+	void EquipScope();
 
 	void Fire(FVector CameraPos, FVector CameraForward);
 	void ExplosiveFire(FVector CameraPos, FVector CameraForward);
 	void AutoFire(FVector CameraPos,  FVector TargetPos);
 	void Reload();
+
+	void LookUp(float fScale);
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

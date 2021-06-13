@@ -62,6 +62,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APrimaryWeapon); \
 	FORCEINLINE static uint32 __PPO__m_Mesh() { return STRUCT_OFFSET(APrimaryWeapon, m_Mesh); } \
 	FORCEINLINE static uint32 __PPO__m_RootScene() { return STRUCT_OFFSET(APrimaryWeapon, m_RootScene); } \
 	FORCEINLINE static uint32 __PPO__m_SuppressorMesh() { return STRUCT_OFFSET(APrimaryWeapon, m_SuppressorMesh); } \
+	FORCEINLINE static uint32 __PPO__m_ScopeMesh() { return STRUCT_OFFSET(APrimaryWeapon, m_ScopeMesh); } \
+	FORCEINLINE static uint32 __PPO__m_ScopeCamera() { return STRUCT_OFFSET(APrimaryWeapon, m_ScopeCamera); } \
 	FORCEINLINE static uint32 __PPO__m_Damage() { return STRUCT_OFFSET(APrimaryWeapon, m_Damage); } \
 	FORCEINLINE static uint32 __PPO__m_FireRate() { return STRUCT_OFFSET(APrimaryWeapon, m_FireRate); } \
 	FORCEINLINE static uint32 __PPO__m_CurrentMag() { return STRUCT_OFFSET(APrimaryWeapon, m_CurrentMag); } \

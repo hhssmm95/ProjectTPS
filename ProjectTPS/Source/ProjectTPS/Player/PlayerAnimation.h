@@ -53,8 +53,13 @@ public:
 		UAnimMontage* m_RifleFireMontage;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UAnimMontage* m_RifleFireAimMontage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		UAnimMontage* m_RifleReloadMontage;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UAnimMontage* m_RifleReloadAimMontage;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		UAnimMontage* m_HitMontage1;
@@ -70,6 +75,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		UAnimMontage* m_HitMontage4;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		bool m_bAiming;
 
 	bool m_MagEmpty;
 
@@ -88,15 +96,23 @@ public:
 		m_MagEmpty = empty;
 	}
 
+	void SetAiming(bool aiming)
+	{
+		m_bAiming = aiming;
+	}
+
 	//public:
 		////void InputAttack();
 
 	void JumpStart();
 	void Death();
 	void RifleFire();
+	void RifleAimFire();
 	void RifleStop();
+	void RifleAimStop();
 	void HitReaction();
 	void ReloadMontage();
+	void ReloadAimMontage();
 
 public:
 	UFUNCTION(BlueprintCallable)

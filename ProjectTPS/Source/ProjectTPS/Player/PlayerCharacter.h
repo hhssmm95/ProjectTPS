@@ -35,8 +35,18 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		UParticleSystemComponent* m_TimeAccelParticle;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UParticleSystemComponent* m_ScopeParticle;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		UPostProcessComponent* m_PostProcess;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UPostProcessComponent* m_NightVision;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UPostProcessComponent* m_ThermalVision;
 
 	//UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		//USceneComponent* m_Scene;
@@ -98,6 +108,12 @@ protected:
 		USoundBase* m_TimeAccelOnSound;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		USoundBase* m_TimeAccelOffSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		USoundBase* m_NightVisionSound;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		USoundBase* m_ButtonSound;
+
 	FVector m_AssistLoc;
 	bool m_bAimAssist;
 	float m_AimAssistTime;
@@ -138,6 +154,10 @@ protected:
 	bool m_bFire;
 	bool m_bMagEmpty;
 
+	bool m_bNightVision;
+	bool m_bThermalVision;
+	bool m_bScope;
+
 	bool m_Slot1AbilityEnable;
 	bool m_Slot2AbilityEnable;
 
@@ -148,14 +168,7 @@ protected:
 	EAbility m_eSlot2Ability;
 
 
-	//float m_Slot1AbilityAcc;
-	//float m_Slot2AbilityAcc;
 public:
-	/*
-	EMoveDir GetDirection() const
-	{
-		return m_eDirection;
-	}*/
 
 	UFUNCTION(BlueprintCallable)
 		float GetUpperYaw()	const
@@ -173,6 +186,8 @@ public:
 	void LookUp(float fScale);
 
 	void AddUpperYawInput(float fScale);
+
+	void WheelEvent(float fScale);
 
 	void Detection();
 
@@ -264,46 +279,22 @@ public:
 		m_bIsDead = true;
 	}
 
-	/*
-	void SetAssult1Enable(bool Enable)
+	void SetHaveScope(bool Enable)
 	{
-		m_PlayerInfo->SetAssult1Enable(Enable);
+		m_PlayerInfo->SetHaveScope(Enable);
 	}
-	void SetAssult2Enable(bool Enable)
+	void SetHaveSuppressor(bool Enable)
 	{
-		m_PlayerInfo->SetAssult2Enable(Enable);
+		m_PlayerInfo->SetHaveSuppressor(Enable);
 	}
-	void SetAssult3Enable(bool Enable)
+	void SetHaveNightVision(bool Enable)
 	{
-		m_PlayerInfo->SetAssult3Enable(Enable);
+		m_PlayerInfo->SetHaveNightVision(Enable);
 	}
-
-	void SetDefence1Enable(bool Enable)
+	void SetHaveThermalVision(bool Enable)
 	{
-		m_PlayerInfo->SetDefence1Enable(Enable);
+		m_PlayerInfo->SetHaveNightVision(Enable);
 	}
-	void SetDefence2Enable(bool Enable)
-	{
-		m_PlayerInfo->SetDefence2Enable(Enable);
-	}
-	void SetDefence3Enable(bool Enable)
-	{
-		m_PlayerInfo->SetDefence3Enable(Enable);
-	}
-
-	void SetUtility1Enable(bool Enable)
-	{
-		m_PlayerInfo->SetUtility1Enable(Enable);
-	}
-	void SetUtility2Enable(bool Enable)
-	{
-		m_PlayerInfo->SetUtility2Enable(Enable);
-	}
-	void SetUtility3Enable(bool Enable)
-	{
-		m_PlayerInfo->SetUtility3Enable(Enable);
-	}
-	*/
 public:
 	void MagEmpty();
 
@@ -380,13 +371,31 @@ public:
 		return m_PlayerInfo->GetAbilityPoint();
 	}
 
+	bool GetHaveScope()
+	{
+		return m_PlayerInfo->GetHaveScope();
+	}
+	bool GetHaveSuppressor()
+	{
+		return m_PlayerInfo->GetHaveSuppressor();
+	}
+	bool GetHaveNightVision()
+	{
+		return m_PlayerInfo->GetHaveNightVision();
+	}
+	bool GSetHaveThermalVision()
+	{
+		return m_PlayerInfo->GetHaveNightVision();
+	}
+
 	bool GetIsDead()
 	{
 		return m_bIsDead;
 	}
+
 public:
 
-	void EquipSuppressor();
+	void EquipGear();
 	void EmitHitEffect(FVector ImpactLoc, FRotator Rot);
 	void ShowHitMark();
 	void ShowHeadShotMark();
@@ -396,5 +405,6 @@ public:
 	void UpdateRemainMag();
 	void GetAmmoFromItem(int Ammo);
 	void TimeAccecleration();
+
 
 };

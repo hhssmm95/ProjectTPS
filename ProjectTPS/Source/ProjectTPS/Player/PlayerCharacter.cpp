@@ -44,6 +44,7 @@ APlayerCharacter::APlayerCharacter()
 	m_AimAssistParticle = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("AimAssistParticle"));
 	m_TimeAccelParticle = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("TimeAccelParticle"));
 	m_PostProcess = CreateDefaultSubobject<UPostProcessComponent>(TEXT("PostProcess"));
+
 	m_Camera->SetupAttachment(m_Arm);
 	m_PostProcess->SetupAttachment(GetCapsuleComponent());
 	m_Arm->SetupAttachment(GetCapsuleComponent());
@@ -106,6 +107,10 @@ void APlayerCharacter::BeginPlay()
 	SetRemainMag(100);
 	m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetRemainMagText(GetRemainMag());
 	m_AimLock->SetVisibility(false);
+	
+	m_NightVision = Cast<UPostProcessComponent>(GetDefaultSubobjectByName(TEXT("PP_NighTvision")));
+	m_ThermalVision = Cast<UPostProcessComponent>(GetDefaultSubobjectByName(TEXT("PP_ThermalVision")));
+	m_ScopeParticle = Cast<UParticleSystemComponent>(GetDefaultSubobjectByName(TEXT("ScopeParticle")));
 
 }
 
@@ -119,13 +124,29 @@ void APlayerCharacter::Tick(float DeltaTime)
 	{
 		int32 rand = FMath::RandRange(0, 3);
 
-		if (m_bAimAssist)
-			m_PrimaryWeapon->AutoFire(m_Camera->GetComponentLocation(), m_AssistLoc);
-		else if(!m_bAimAssist && rand == 0 && m_PlayerInfo->GetAssultLevel() >= 2)
-			m_PrimaryWeapon->ExplosiveFire(m_Camera->GetComponentLocation(), m_Camera->GetForwardVector());
+		if (!m_IsAiming)
+		{
+			if (m_bAimAssist)
+			{
+				m_PrimaryWeapon->AutoFire(m_Camera->GetComponentLocation(), m_AssistLoc);
+			}
+			else if (!m_bAimAssist && rand == 0 && m_PlayerInfo->GetAssultLevel() >= 2)
+				m_PrimaryWeapon->ExplosiveFire(m_Camera->GetComponentLocation(), m_Camera->GetForwardVector());
+			else
+				m_PrimaryWeapon->Fire(m_Camera->GetComponentLocation(), m_Camera->GetForwardVector());
+		}
 		else
-			m_PrimaryWeapon->Fire(m_Camera->GetComponentLocation(), m_Camera->GetForwardVector());
+		{
+			if (m_bAimAssist)
+			{
+				m_PrimaryWeapon->AutoFire(m_PrimaryWeapon->GetCameraLoc(), m_AssistLoc);
+			}
+			else if (!m_bAimAssist && rand == 0 && m_PlayerInfo->GetAssultLevel() >= 2)
+				m_PrimaryWeapon->ExplosiveFire(m_PrimaryWeapon->GetCameraLoc(), m_PrimaryWeapon->GetCameraForward());
+			else
+				m_PrimaryWeapon->Fire(m_PrimaryWeapon->GetCameraLoc(), m_PrimaryWeapon->GetCameraForward());
 
+		}
 	}
 	if (m_bIsRightDashing)
 	{
@@ -168,15 +189,6 @@ void APlayerCharacter::Tick(float DeltaTime)
 		m_DashingTimeAcc += DeltaTime;
 	}
 
-	//if (!m_bDashEnable)
-	//{
-	//	if (m_DashEnableTimeAcc >= m_DashEnableTime)
-	//	{
-	//		m_bDashEnable = true;
-	//		m_DashEnableTimeAcc = 0.f;
-	//	}
-	//	m_DashEnableTimeAcc += DeltaTime;
-	//}
 
 	if (m_bAimAssist)
 	{
@@ -280,6 +292,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAxis(TEXT("MoveRight"), this, &APlayerCharacter::MoveSide);
 	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &APlayerCharacter::Turn);
 	PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &APlayerCharacter::LookUp);
+	PlayerInputComponent->BindAxis(TEXT("SelectGear"), this, &APlayerCharacter::WheelEvent);
 
 	//PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Pressed, this, &APlayerCharacter::AttackKey);
 	PlayerInputComponent->BindAction(TEXT("Jump"), EInputEvent::IE_Pressed, this, &APlayerCharacter::InputJump);
@@ -287,7 +300,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction(TEXT("Aim"), EInputEvent::IE_Released, this, &APlayerCharacter::AimRelease);
 	PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Pressed, this, &APlayerCharacter::PrimaryFire);
 	PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Released, this, &APlayerCharacter::PrimaryStop);
-	PlayerInputComponent->BindAction(TEXT("SuppressorShot(Debug)"), EInputEvent::IE_Pressed, this, &APlayerCharacter::EquipSuppressor);
+	PlayerInputComponent->BindAction(TEXT("EquipGear"), EInputEvent::IE_Pressed, this, &APlayerCharacter::EquipGear);
 	PlayerInputComponent->BindAction(TEXT("AbilitySlot1"), EInputEvent::IE_Pressed, this, &APlayerCharacter::UseAbility1);
 	PlayerInputComponent->BindAction(TEXT("AbilitySlot2"), EInputEvent::IE_Pressed, this, &APlayerCharacter::UseAbility2);
 
@@ -344,6 +357,10 @@ void APlayerCharacter::LookUp(float fScale)
 		else
 			AddControllerPitchInput(fScale * 45.f * GetWorld()->GetDeltaSeconds());
 	}
+}
+void APlayerCharacter::WheelEvent(float fScale)
+{
+	m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->ChangeGear(fScale);
 }
 
 void APlayerCharacter::UseAbility1()
@@ -414,17 +431,29 @@ void APlayerCharacter::InputJump()
 
 void APlayerCharacter::AimPress()
 {
-	if (!m_bIsDead)
+	if (!m_bIsDead && m_bScope)
 	{
 		m_IsAiming = true;
+		m_pPlayerAnim->SetAiming(true);
+		APlayerController* pController = Cast<APlayerController>(GetController());
+
+		pController->SetViewTargetWithBlend(m_PrimaryWeapon, 0.2f);
+		m_PrimaryWeapon->EnableInput(pController);
+		m_HUD->GetMainHUDWidget()->SetScopeAimVisible(true);
 	}
 }
 
 void APlayerCharacter::AimRelease()
 {
-	if (!m_bIsDead)
+	if (!m_bIsDead && m_bScope)
 	{
 		m_IsAiming = false;
+		m_HUD->GetMainHUDWidget()->SetScopeAimVisible(false);
+		m_pPlayerAnim->SetAiming(false);
+		APlayerController* pController = Cast<APlayerController>(GetController());
+
+		m_PrimaryWeapon->DisableInput(pController);
+		pController->SetViewTargetWithBlend(this, 0.2f);
 	}
 }
 
@@ -437,7 +466,10 @@ void APlayerCharacter::ReloadStart()
 {
 	if (!m_bIsDead)
 	{
-		m_pPlayerAnim->ReloadMontage();
+		if (m_IsAiming)
+			m_pPlayerAnim->ReloadAimMontage();
+		else
+			m_pPlayerAnim->ReloadMontage();
 		m_IsReloading = true;
 	}
 }
@@ -455,7 +487,10 @@ void APlayerCharacter::PrimaryFire()
 	{
 		m_bFire = true;
 		//m_PrimaryWeapon->Fire();
-		m_pPlayerAnim->RifleFire();
+		if(m_IsAiming)
+			m_pPlayerAnim->RifleAimFire();
+		else
+			m_pPlayerAnim->RifleFire();
 	}
 }
 
@@ -464,15 +499,185 @@ void APlayerCharacter::PrimaryStop()
 	if (!m_bIsDead)
 	{
 		m_bFire = false;
-		m_pPlayerAnim->RifleStop();
+		if (m_IsAiming)
+			m_pPlayerAnim->RifleAimStop();
+		else
+			m_pPlayerAnim->RifleStop();
 	}
 }
 
-void APlayerCharacter::EquipSuppressor()
+void APlayerCharacter::EquipGear()
 {
 	if (!m_bIsDead)
 	{
-		m_PrimaryWeapon->EquipSuppressor();
+		switch (m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->GetCurrentGear())		
+		{
+		case EGearType::None:
+			if (m_PrimaryWeapon->GetSuppressorUsing())
+			{
+				m_PrimaryWeapon->EquipSuppressor();
+			}
+			else if (m_PrimaryWeapon->GetScopeUsing())
+			{
+				m_PrimaryWeapon->EquipScope();
+			}
+			else if (m_bThermalVision)
+			{
+				m_ThermalVision->bEnabled = false;
+				m_bThermalVision = false;
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ButtonSound, GetActorLocation());
+			}
+			else if (m_bNightVision)
+			{
+				m_NightVision->bEnabled = false;
+				m_bNightVision = false;
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ButtonSound, GetActorLocation());
+			}
+			break;
+
+		case EGearType::Suppressor:
+			if (m_PrimaryWeapon->GetScopeUsing())
+			{
+				m_PrimaryWeapon->EquipScope();
+			}
+			else if (m_bThermalVision)
+			{
+				m_ThermalVision->bEnabled = false;
+				m_bThermalVision = false;
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ButtonSound, GetActorLocation());
+			}
+			else if (m_bNightVision)
+			{
+				m_NightVision->bEnabled = false;
+				m_bNightVision = false;
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ButtonSound, GetActorLocation());
+			}
+				m_PrimaryWeapon->EquipSuppressor();
+			break;
+
+		case EGearType::Scope:
+			if (m_PrimaryWeapon->GetSuppressorUsing())
+			{
+				m_PrimaryWeapon->EquipSuppressor();
+			}
+			else if (m_bThermalVision)
+			{
+				m_ThermalVision->bEnabled = false;
+				m_bThermalVision = false;
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ButtonSound, GetActorLocation());
+			}
+			else if (m_bNightVision)
+			{
+				m_NightVision->bEnabled = false;
+				m_bNightVision = false;
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ButtonSound, GetActorLocation());
+			}
+
+			m_PrimaryWeapon->EquipScope();
+			if(!m_bScope)
+				m_bScope = true;
+			else
+			{
+				m_bScope = false;
+			}
+			break;
+
+		case EGearType::NightVision:
+			if (m_PrimaryWeapon->GetSuppressorUsing())
+			{
+				m_PrimaryWeapon->EquipSuppressor();
+			}
+
+			else if (m_PrimaryWeapon->GetScopeUsing())
+			{
+				m_bScope = true;
+				m_PrimaryWeapon->EquipScope();
+			}
+
+			else if (m_bThermalVision)
+			{
+				m_ThermalVision->bEnabled = false;
+				m_bThermalVision = false;
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ButtonSound, GetActorLocation());
+			}
+			if (!m_bNightVision)
+			{
+				if (!m_bShield && !m_bOverload)
+				{
+					m_NightVision->bEnabled = true;
+					m_bNightVision = true;
+					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_NightVisionSound, GetActorLocation());
+				}
+			}
+			else
+			{
+				m_NightVision->bEnabled = false;
+				m_bNightVision = false;
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ButtonSound, GetActorLocation());
+			}
+			break;
+
+		case EGearType::ThermalVision:
+			if (m_PrimaryWeapon->GetSuppressorUsing())
+			{
+				m_PrimaryWeapon->EquipSuppressor();
+			}
+			else if (m_PrimaryWeapon->GetScopeUsing())
+			{
+				m_PrimaryWeapon->EquipScope();
+			}
+
+			if (m_bNightVision)
+			{
+				m_NightVision->bEnabled = false;
+				m_bNightVision = false;
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ButtonSound, GetActorLocation());
+			}
+
+			if (!m_bThermalVision)
+			{
+				if (!m_bShield && !m_bOverload)
+				{
+					GetMesh()->SetRenderCustomDepth(true);
+					GetMesh()->SetCustomDepthStencilValue(9);
+
+					m_ThermalVision->bEnabled = true;
+					m_bThermalVision = true;
+					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_NightVisionSound, GetActorLocation());
+				}
+			}
+			else
+			{
+				if (m_bShield && m_bOverload)
+				{
+					if ((float)m_ShieldHP / (float)m_ShieldHPMax > 0.3f)
+					{
+						GetMesh()->SetCustomDepthStencilValue(7);
+					}
+					else
+					{
+						GetMesh()->SetCustomDepthStencilValue(8);
+					}
+				}
+				else if(m_bShield)
+				{
+					GetMesh()->SetCustomDepthStencilValue(5);
+				}
+				else if (m_bOverload)
+				{
+					GetMesh()->SetCustomDepthStencilValue(2);
+				}
+				else
+				{
+					GetMesh()->SetCustomDepthStencilValue(9);
+					GetMesh()->SetRenderCustomDepth(false);
+				}
+				m_bThermalVision = false;
+				m_ThermalVision->bEnabled = false;
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ButtonSound, GetActorLocation());
+			}
+			break;
+		}
 	}
 }
 

@@ -44,9 +44,8 @@ protected:
 	EAbility m_Slot2Key;
 
 	class UAbilitySlotData* m_CurrentSlotData;
-	//class UAbilitySlotData* m_PreviousSlotData;
-	/*class UImage* m_AbilitySlotImage1;
-	class UImage* m_AbilitySlotImage2;*/
+
+
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -106,6 +105,8 @@ public:
 
 	UFUNCTION()
 		void GetPlayerAbilityPoint();
+
+
 	void InitAbilitySlot(class UTextBlock* slot1, class UTextBlock* slot2)
 	{
 		m_AbilitySlotText1 = slot1;

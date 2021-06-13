@@ -80,10 +80,10 @@ protected:
 
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		bool m_HaveSnipeMode;
+		bool m_HaveScope;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		bool m_HaveSuperSuppressor;
+		bool m_HaveSuppressor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		bool m_HaveNightVision;
@@ -151,6 +151,23 @@ public:
 	void SetUtility3Enable(bool Enable)
 	{
 		m_Utility3Enable = Enable;
+	}
+
+	void SetHaveScope(bool Enable)
+	{
+		m_HaveScope = Enable;
+	}
+	void SetHaveSuppressor(bool Enable)
+	{
+		m_HaveSuppressor = Enable;
+	}
+	void SetHaveNightVision(bool Enable)
+	{
+		m_HaveNightVision = Enable;
+	}
+	void SetHaveThermalVision(bool Enable)
+	{
+		m_HaveThermalVision = Enable;
 	}
 
 public:
@@ -288,6 +305,21 @@ public:
 	}
 
 
-
+	bool GetHaveScope()
+	{
+		return m_HaveScope;
+	}
+	bool GetHaveSuppressor()
+	{
+		return m_HaveSuppressor;
+	}
+	bool GetHaveNightVision()
+	{
+		return m_HaveNightVision;
+	}
+	bool GetHaveThermalVision()
+	{
+		return m_HaveThermalVision;
+	}
 	
 };

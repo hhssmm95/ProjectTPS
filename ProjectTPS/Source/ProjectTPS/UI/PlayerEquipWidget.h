@@ -20,6 +20,10 @@ protected:
 		class UTextBlock* m_CurrentMagText;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		class UTextBlock* m_RemainMagText;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UTextBlock* m_GearText;
+
+	EGearType m_CurrentGear;
 
 protected:
 	virtual void NativePreConstruct();
@@ -30,4 +34,8 @@ protected:
 public:
 	void SetCurrentMagText(int32 Ammo);
 	void SetRemainMagText(int32 Ammo);
+	void ChangeGear(float fScale);
+
+	EGearType GetCurrentGear();
+
 };

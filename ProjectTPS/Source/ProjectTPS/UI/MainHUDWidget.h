@@ -26,6 +26,10 @@ protected:
 	class UAbilityWindowWidget* m_AbilityWindowWidget;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	class UUserWidget* m_ScopeAim;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	class UBackgroundBlur* m_BackgroundBlur;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -54,6 +58,8 @@ protected:
 	virtual void NativeTick(const FGeometry& MyGeometry, float InDeltaTime);
 
 public:
+	void SetScopeAimVisible(bool visible);
+
 	void AbilityWindowToggle();
 	void ActiveSlot1Cooltime(float Cooltime);
 	void ActiveSlot2Cooltime(float Cooltime);
