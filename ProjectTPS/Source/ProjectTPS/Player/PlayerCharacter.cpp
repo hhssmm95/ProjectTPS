@@ -98,9 +98,9 @@ void APlayerCharacter::BeginPlay()
 	m_PrimaryWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform,
 		TEXT("RifleSocket"));
 
-	m_PrimaryWeapon->SetActorRotation(FRotator(GetActorForwardVector().X, GetActorForwardVector().Y, 
-		GetActorForwardVector().X));
-
+	//m_PrimaryWeapon->SetActorRotation(FRotator(GetActorForwardVector().X, GetActorForwardVector().Y, 
+	//	GetActorForwardVector().X));
+	m_PrimaryWeapon->SetActorRotation(GetActorRotation());
 	m_HUD = Cast<APlayerHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
 	m_HUD->UpdatePlayerHP(m_PlayerInfo->GetHPPercent());
 
@@ -360,7 +360,11 @@ void APlayerCharacter::LookUp(float fScale)
 }
 void APlayerCharacter::WheelEvent(float fScale)
 {
-	m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->ChangeGear(fScale);
+	if (fScale != 0.f)
+	{
+		m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->ChangeGear(fScale);
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_GearSearchSound, GetActorLocation());
+	}
 }
 
 void APlayerCharacter::UseAbility1()
@@ -536,7 +540,7 @@ void APlayerCharacter::EquipGear()
 			break;
 
 		case EGearType::Suppressor:
-			if (m_PrimaryWeapon->GetScopeUsing())
+			/*if (m_PrimaryWeapon->GetScopeUsing())
 			{
 				m_PrimaryWeapon->EquipScope();
 			}
@@ -551,12 +555,20 @@ void APlayerCharacter::EquipGear()
 				m_NightVision->bEnabled = false;
 				m_bNightVision = false;
 				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ButtonSound, GetActorLocation());
+			}*/
+			if (m_PrimaryWeapon->GetSuppressorUsing())
+			{
+				m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetGearTextColorOrigin();
+			}
+			else
+			{
+				m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetGearTextColorBlue();
 			}
 				m_PrimaryWeapon->EquipSuppressor();
 			break;
 
 		case EGearType::Scope:
-			if (m_PrimaryWeapon->GetSuppressorUsing())
+			/*if (m_PrimaryWeapon->GetSuppressorUsing())
 			{
 				m_PrimaryWeapon->EquipSuppressor();
 			}
@@ -571,19 +583,23 @@ void APlayerCharacter::EquipGear()
 				m_NightVision->bEnabled = false;
 				m_bNightVision = false;
 				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ButtonSound, GetActorLocation());
-			}
+			}*/
 
 			m_PrimaryWeapon->EquipScope();
-			if(!m_bScope)
+			if (!m_bScope)
+			{
 				m_bScope = true;
+				m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetGearTextColorBlue();
+			}
 			else
 			{
 				m_bScope = false;
+				m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetGearTextColorOrigin();
 			}
 			break;
 
 		case EGearType::NightVision:
-			if (m_PrimaryWeapon->GetSuppressorUsing())
+			/*if (m_PrimaryWeapon->GetSuppressorUsing())
 			{
 				m_PrimaryWeapon->EquipSuppressor();
 			}
@@ -592,9 +608,9 @@ void APlayerCharacter::EquipGear()
 			{
 				m_bScope = true;
 				m_PrimaryWeapon->EquipScope();
-			}
+			}*/
 
-			else if (m_bThermalVision)
+			if (m_bThermalVision)
 			{
 				m_ThermalVision->bEnabled = false;
 				m_bThermalVision = false;
@@ -606,26 +622,28 @@ void APlayerCharacter::EquipGear()
 				{
 					m_NightVision->bEnabled = true;
 					m_bNightVision = true;
-					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_NightVisionSound, GetActorLocation());
 				}
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_NightVisionSound, GetActorLocation());
+				m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetGearTextColorBlue();
 			}
 			else
 			{
 				m_NightVision->bEnabled = false;
 				m_bNightVision = false;
 				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ButtonSound, GetActorLocation());
+				m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetGearTextColorOrigin();
 			}
 			break;
 
 		case EGearType::ThermalVision:
-			if (m_PrimaryWeapon->GetSuppressorUsing())
+			/*if (m_PrimaryWeapon->GetSuppressorUsing())
 			{
 				m_PrimaryWeapon->EquipSuppressor();
 			}
 			else if (m_PrimaryWeapon->GetScopeUsing())
 			{
 				m_PrimaryWeapon->EquipScope();
-			}
+			}*/
 
 			if (m_bNightVision)
 			{
@@ -645,6 +663,7 @@ void APlayerCharacter::EquipGear()
 					m_bThermalVision = true;
 					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_NightVisionSound, GetActorLocation());
 				}
+				m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetGearTextColorBlue();
 			}
 			else
 			{
@@ -675,6 +694,7 @@ void APlayerCharacter::EquipGear()
 				m_bThermalVision = false;
 				m_ThermalVision->bEnabled = false;
 				UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ButtonSound, GetActorLocation());
+				m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetGearTextColorOrigin();
 			}
 			break;
 		}
@@ -984,4 +1004,9 @@ void APlayerCharacter::TimeAccecleration()
 	m_TimeAccelParticle->ToggleActive();
 	m_PostProcess->bEnabled = true;
 	UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_TimeAccelOnSound, GetActorLocation());
+}
+
+bool APlayerCharacter::GetUsingSuppressor()
+{
+	return m_PrimaryWeapon->GetSuppressorUsing();
 }

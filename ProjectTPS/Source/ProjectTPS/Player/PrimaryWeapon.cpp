@@ -112,6 +112,12 @@ void APrimaryWeapon::BurstMode(float BurstTime)
 	m_BurstTime = BurstTime;
 	DelayTime = 0.06f;
 	GetMesh()->SetRenderCustomDepth(true);
+	m_SuppressorMesh->SetRenderCustomDepth(true);
+	m_ScopeMesh->SetRenderCustomDepth(true);
+	GetMesh()->SetCustomDepthStencilValue(3);
+	m_SuppressorMesh->SetCustomDepthStencilValue(3);
+	m_ScopeMesh->SetCustomDepthStencilValue(3);
+
 	UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_BurstModeSoundClass, GetActorLocation());
 }
 void APrimaryWeapon::BurstEnd()
@@ -119,6 +125,8 @@ void APrimaryWeapon::BurstEnd()
 	m_bBurst = false;
 	DelayTime = 0.12f;
 	GetMesh()->SetRenderCustomDepth(false);
+	m_SuppressorMesh->SetRenderCustomDepth(false);
+	m_ScopeMesh->SetRenderCustomDepth(false);
 }
 
 void APrimaryWeapon::AutoFire(FVector CameraPos, FVector TargetPos)
@@ -166,7 +174,7 @@ void APrimaryWeapon::AutoFire(FVector CameraPos, FVector TargetPos)
 
 			bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), CameraPos, TargetPos,
 				UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1), true, IgnoreActor,
-				EDrawDebugTrace::ForDuration, result, true, FLinearColor::Red, FLinearColor::Green, 0.1f);
+				EDrawDebugTrace::None, result, true, FLinearColor::Red, FLinearColor::Green, 0.1f);
 
 			if (bHit)
 			{
@@ -231,7 +239,7 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 
 			bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), CameraPos, CameraPos + CameraForward * 100000.f,
 				UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1), true, IgnoreActor,
-				EDrawDebugTrace::ForDuration, result, true);
+				EDrawDebugTrace::None, result, true);
 
 			if (bHit)
 			{

@@ -23,6 +23,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		class UTextBlock* m_GearText;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class APlayerCharacter* m_Player;
 	EGearType m_CurrentGear;
 
 protected:
@@ -37,5 +39,8 @@ public:
 	void ChangeGear(float fScale);
 
 	EGearType GetCurrentGear();
+	void SetGearTextColorBlue();
+	void SetGearTextColorOrigin();
+
 
 };

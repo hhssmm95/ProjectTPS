@@ -97,6 +97,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayerCharacter); \
 	FORCEINLINE static uint32 __PPO__m_TimeAccelOffSound() { return STRUCT_OFFSET(APlayerCharacter, m_TimeAccelOffSound); } \
 	FORCEINLINE static uint32 __PPO__m_NightVisionSound() { return STRUCT_OFFSET(APlayerCharacter, m_NightVisionSound); } \
 	FORCEINLINE static uint32 __PPO__m_ButtonSound() { return STRUCT_OFFSET(APlayerCharacter, m_ButtonSound); } \
+	FORCEINLINE static uint32 __PPO__m_GearSearchSound() { return STRUCT_OFFSET(APlayerCharacter, m_GearSearchSound); } \
 	FORCEINLINE static uint32 __PPO__m_HPRegenTime() { return STRUCT_OFFSET(APlayerCharacter, m_HPRegenTime); } \
 	FORCEINLINE static uint32 __PPO__m_bDashEnable() { return STRUCT_OFFSET(APlayerCharacter, m_bDashEnable); }
 

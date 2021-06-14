@@ -113,6 +113,8 @@ protected:
 		USoundBase* m_NightVisionSound;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		USoundBase* m_ButtonSound;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		USoundBase* m_GearSearchSound;
 
 	FVector m_AssistLoc;
 	bool m_bAimAssist;
@@ -393,6 +395,22 @@ public:
 		return m_bIsDead;
 	}
 
+	bool GetUsingScope()
+	{
+		return m_bScope;
+	}
+
+	bool GetUsingSuppressor();
+
+	bool GetUsingNightVision()
+	{
+		return m_bNightVision;
+	}
+
+	bool GetUsingThermalVision()
+	{
+		return m_bThermalVision;
+	}
 public:
 
 	void EquipGear();

@@ -63,7 +63,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UPlayerEquipWidget); \
 #define ProjectTPS_Source_ProjectTPS_UI_PlayerEquipWidget_h_15_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__m_CurrentMagText() { return STRUCT_OFFSET(UPlayerEquipWidget, m_CurrentMagText); } \
 	FORCEINLINE static uint32 __PPO__m_RemainMagText() { return STRUCT_OFFSET(UPlayerEquipWidget, m_RemainMagText); } \
-	FORCEINLINE static uint32 __PPO__m_GearText() { return STRUCT_OFFSET(UPlayerEquipWidget, m_GearText); }
+	FORCEINLINE static uint32 __PPO__m_GearText() { return STRUCT_OFFSET(UPlayerEquipWidget, m_GearText); } \
+	FORCEINLINE static uint32 __PPO__m_Player() { return STRUCT_OFFSET(UPlayerEquipWidget, m_Player); }
 
 
 #define ProjectTPS_Source_ProjectTPS_UI_PlayerEquipWidget_h_12_PROLOG
