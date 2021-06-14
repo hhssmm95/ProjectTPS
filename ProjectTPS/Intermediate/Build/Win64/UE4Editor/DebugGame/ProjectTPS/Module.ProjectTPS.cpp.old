@@ -23,7 +23,6 @@
 #include "G:/Git/ProjectTPS/Source/ProjectTPS/Monster/MonsterAnim.cpp"
 #include "G:/Git/ProjectTPS/Source/ProjectTPS/Monster/MonsterPatrolPoint.cpp"
 #include "G:/Git/ProjectTPS/Source/ProjectTPS/Monster/MonsterSpawnPoint.cpp"
-#include "G:/Git/ProjectTPS/Source/ProjectTPS/Player/PlayerAnimation.cpp"
 #include "G:/Git/ProjectTPS/Source/ProjectTPS/Player/PlayerInfo.cpp"
 #include "G:/Git/ProjectTPS/Source/ProjectTPS/Player/PrimaryWeapon.cpp"
 #include "G:/Git/ProjectTPS/Source/ProjectTPS/PlayerHUD.cpp"

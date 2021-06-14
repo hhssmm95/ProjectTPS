@@ -221,6 +221,48 @@ float AMonster::TakeDamage(float Damage, struct FDamageEvent const& DamageEvent,
 	return Damage;
 }
 
+float AMonster::TakeDamageFromClose(float Damage, struct FDamageEvent const& DamageEvent,
+	AController* EventInstigator, AActor* DamageCauser)
+{
+	Damage = Super::TakeDamage(Damage, DamageEvent, EventInstigator, DamageCauser);
+	AMonsterAIController* pController = Cast<AMonsterAIController>(GetController());
+
+	if (pController->GetTargetExist())
+	{
+
+		m_HP -= Damage;
+		PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("Enemy HP : %d"), m_HP));
+		pController->Panic();
+
+		if (m_HP <= 0)
+		{
+			m_bDeath = true;
+			m_eMonsterAIType = MonsterAI::Death;
+			m_MonsterAnim->SetDeath();
+			pController->SetDeath();
+			return Damage;
+		}
+
+	}
+	else
+	{
+		m_HP -= (Damage*3);
+		PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("Enemy HP : %d"), m_HP));
+		pController->Panic();
+
+		if (m_HP <= 0)
+		{
+			m_bDeath = true;
+			m_eMonsterAIType = MonsterAI::Death;
+			m_MonsterAnim->SetDeath();
+			pController->SetDeath();
+			return Damage;
+		}
+	}
+
+	m_MonsterAnim->MonsterHitReaction();
+	return Damage;
+}
 void AMonster::EmitHitEffect(FVector ImpactLoc, FRotator Rot)
 {
 	FActorSpawnParameters	params;

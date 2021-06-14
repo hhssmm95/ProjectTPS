@@ -5,6 +5,7 @@
 #include "MonsterAIController.h"
 #include "Monster.h"
 #include "BehaviorTree/BlackboardComponent.h"
+#include "../Player/PlayerCharacter.h"
 
 UBTTraceTargetTask::UBTTraceTargetTask()
 {
@@ -69,17 +70,28 @@ void UBTTraceTargetTask::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* Node
 		FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
 		return;
 	}
+
+	TArray<AActor*> IgnoreActor;
+	IgnoreActor.Add(pMonster);
+
+	FHitResult result;
+
 	UAIBlueprintHelperLibrary::SimpleMoveToActor(pController, pTarget);
 	//pMonster->SetMonsterAIType(MonsterAI::Trace);
+	FVector vLoc = pMonster->GetMesh()->GetSocketLocation(TEXT("LongAttackMuzzle"));
 
+	bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), vLoc, pTarget->GetActorLocation(),
+		UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_Visibility), true, IgnoreActor,
+		EDrawDebugTrace::ForDuration, result, true, FLinearColor::Red, FLinearColor::Green, 0.1f);
 
+	APlayerCharacter* pPlayer = Cast<APlayerCharacter>(result.Actor);
 
 
 	float fAttackDistance = pController->GetBlackboardComponent()->GetValueAsFloat(m_DistanceName);
 
 	float fDist = FVector::Distance(pTarget->GetActorLocation(), pMonster->GetActorLocation());
 
-	if (fDist <= fAttackDistance)
+	if (fDist <= fAttackDistance && pPlayer)
 	{
 		pController->StopMovement();
 

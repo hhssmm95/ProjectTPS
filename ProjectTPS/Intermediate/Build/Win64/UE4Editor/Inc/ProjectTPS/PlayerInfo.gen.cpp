@@ -64,6 +64,14 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_RemainMag;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_CloseAttackDistance_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_CloseAttackDistance;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_CloseAttackDamage_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_CloseAttackDamage;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Assult1Enable_MetaData[];
 #endif
 		static void NewProp_m_Assult1Enable_SetBit(void* Obj);
@@ -228,6 +236,22 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 	};
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_RemainMag = { "m_RemainMag", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_RemainMag), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_RemainMag_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_RemainMag_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CloseAttackDistance_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerInfo" },
+		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CloseAttackDistance = { "m_CloseAttackDistance", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_CloseAttackDistance), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CloseAttackDistance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CloseAttackDistance_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CloseAttackDamage_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerInfo" },
+		{ "ModuleRelativePath", "Player/PlayerInfo.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CloseAttackDamage = { "m_CloseAttackDamage", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerInfo, m_CloseAttackDamage), METADATA_PARAMS(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CloseAttackDamage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CloseAttackDamage_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult1Enable_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -433,6 +457,8 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CurrentMag,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CurrentMagMax,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_RemainMag,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CloseAttackDistance,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_CloseAttackDamage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult1Enable,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult2Enable,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerInfo_Statics::NewProp_m_Assult3Enable,
@@ -479,7 +505,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInfo() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UPlayerInfo, 3748426647);
+	IMPLEMENT_CLASS(UPlayerInfo, 282918583);
 	template<> PROJECTTPS_API UClass* StaticClass<UPlayerInfo>()
 	{
 		return UPlayerInfo::StaticClass();

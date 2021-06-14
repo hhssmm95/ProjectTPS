@@ -18,6 +18,8 @@ AMonsterAIController::AMonsterAIController()
 
 	if (BlackboardObj.Succeeded())
 		m_AIBlackBoard = BlackboardObj.Object;
+
+	//SetGenericTeamId(FGenericTeamId(2));
 }
 
 void AMonsterAIController::OnPossess(APawn* InPawn)
@@ -58,6 +60,13 @@ void AMonsterAIController::Panic()
 		Blackboard->SetValueAsBool(TEXT("IsPanic"), true);
 }
 
+bool AMonsterAIController::GetTargetExist()
+{
+	if (Blackboard->GetValueAsObject(TEXT("Target")) == nullptr)
+		return false;
+	else
+		return true;
+}
 /*
 
 void AMonsterAIController::PerceptionInit()

@@ -130,3 +130,29 @@ void UPlayerAnimation::AnimNotify_ReloadEnd()
 	m_pPlayer = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
 	m_pPlayer->ReloadEnd();
 }
+
+
+void UPlayerAnimation::CloseAttack()
+{
+	if (!m_bIsDead)
+	{
+		Montage_Play(m_CloseAttackMontage);
+	}
+}
+
+void UPlayerAnimation::UPlayerAnimation::AnimNotify_CloseAttack()
+{
+	if (!m_bIsDead)
+	{
+		m_pPlayer = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
+		m_pPlayer->CloseAttack();
+	}
+}
+void UPlayerAnimation::UPlayerAnimation::AnimNotify_CloseAttackEnd()
+{
+	if (!m_bIsDead)
+	{
+		m_pPlayer = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
+		m_pPlayer->CloseAttackEnd();
+	}
+}

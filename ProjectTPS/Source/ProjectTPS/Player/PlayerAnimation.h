@@ -77,6 +77,9 @@ public:
 		UAnimMontage* m_HitMontage4;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UAnimMontage* m_CloseAttackMontage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		bool m_bAiming;
 
 	bool m_MagEmpty;
@@ -113,8 +116,13 @@ public:
 	void HitReaction();
 	void ReloadMontage();
 	void ReloadAimMontage();
+	void CloseAttack();
 
 public:
 	UFUNCTION(BlueprintCallable)
 		void AnimNotify_ReloadEnd();
+	UFUNCTION(BlueprintCallable)
+		void AnimNotify_CloseAttack();
+	UFUNCTION(BlueprintCallable)
+		void AnimNotify_CloseAttackEnd();
 };

@@ -21,8 +21,6 @@
 			"BTTraceTargetTask.cpp.obj",
 			"BTWaitTask.cpp.obj",
 			"EnemyBullet.cpp.obj",
-			"Monster.cpp.obj",
-			"MonsterAIController.cpp.obj",
 			"MonsterAnim.cpp.obj",
 			"MonsterPatrolPoint.cpp.obj",
 			"MonsterSpawnPoint.cpp.obj",
@@ -32,6 +30,8 @@
 			"ProjectTPS.cpp.obj",
 			"ProjectTPSGameInstance.cpp.obj",
 			"ProjectTPSGameModeBase.cpp.obj",
+			"TP_ThirdPersonCharacter.cpp.obj",
+			"TP_ThirdPersonGameMode.cpp.obj",
 			"AbilitySlotData.cpp.obj",
 			"AbilitySlotWidget.cpp.obj",
 			"AbilityWindowWidget.cpp.obj",
@@ -39,6 +39,8 @@
 			"MainHUDWidget.cpp.obj",
 			"PlayerEquipWidget.cpp.obj",
 			"PlayerHPWidget.cpp.obj",
+			"Monster.cpp.obj",
+			"MonsterAIController.cpp.obj",
 			"PlayerAnimation.cpp.obj",
 			"PlayerCharacter.cpp.obj"
 		],
@@ -72,16 +74,18 @@
 			"MonsterAnim.gen.cpp.obj",
 			"MonsterPatrolPoint.gen.cpp.obj",
 			"MonsterSpawnPoint.gen.cpp.obj",
-			"PlayerAnimation.gen.cpp.obj",
 			"PlayerCharacter.gen.cpp.obj",
 			"PlayerEquipWidget.gen.cpp.obj",
 			"PlayerHPWidget.gen.cpp.obj",
 			"PlayerHUD.gen.cpp.obj",
-			"PlayerInfo.gen.cpp.obj",
 			"PrimaryWeapon.gen.cpp.obj",
-			"ProjectTPS.init.gen.cpp.obj",
 			"ProjectTPSGameInstance.gen.cpp.obj",
-			"ProjectTPSGameModeBase.gen.cpp.obj"
+			"ProjectTPSGameModeBase.gen.cpp.obj",
+			"TP_ThirdPersonCharacter.gen.cpp.obj",
+			"TP_ThirdPersonGameMode.gen.cpp.obj",
+			"PlayerAnimation.gen.cpp.obj",
+			"PlayerInfo.gen.cpp.obj",
+			"ProjectTPS.init.gen.cpp.obj"
 		]
 	}
 }

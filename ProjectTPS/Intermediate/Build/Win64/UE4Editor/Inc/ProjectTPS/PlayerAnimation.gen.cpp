@@ -137,6 +137,20 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 		}
 		return ReturnEnum;
 	}
+	DEFINE_FUNCTION(UPlayerAnimation::execAnimNotify_CloseAttackEnd)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AnimNotify_CloseAttackEnd();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UPlayerAnimation::execAnimNotify_CloseAttack)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AnimNotify_CloseAttack();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UPlayerAnimation::execAnimNotify_ReloadEnd)
 	{
 		P_FINISH;
@@ -148,9 +162,55 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 	{
 		UClass* Class = UPlayerAnimation::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "AnimNotify_CloseAttack", &UPlayerAnimation::execAnimNotify_CloseAttack },
+			{ "AnimNotify_CloseAttackEnd", &UPlayerAnimation::execAnimNotify_CloseAttackEnd },
 			{ "AnimNotify_ReloadEnd", &UPlayerAnimation::execAnimNotify_ReloadEnd },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttack_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttack_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/PlayerAnimation.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerAnimation, nullptr, "AnimNotify_CloseAttack", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttack_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttack_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttack()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttack_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttackEnd_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttackEnd_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/PlayerAnimation.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttackEnd_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerAnimation, nullptr, "AnimNotify_CloseAttackEnd", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttackEnd_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttackEnd_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttackEnd()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttackEnd_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UPlayerAnimation_AnimNotify_ReloadEnd_Statics
 	{
@@ -242,6 +302,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_HitMontage4;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_CloseAttackMontage_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_CloseAttackMontage;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_bAiming_MetaData[];
 #endif
 		static void NewProp_m_bAiming_SetBit(void* Obj);
@@ -255,6 +319,8 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ProjectTPS,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UPlayerAnimation_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttack, "AnimNotify_CloseAttack" }, // 3023038897
+		{ &Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttackEnd, "AnimNotify_CloseAttackEnd" }, // 3669625717
 		{ &Z_Construct_UFunction_UPlayerAnimation_AnimNotify_ReloadEnd, "AnimNotify_ReloadEnd" }, // 377443974
 	};
 #if WITH_METADATA
@@ -379,6 +445,14 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_HitMontage4 = { "m_HitMontage4", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerAnimation, m_HitMontage4), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_HitMontage4_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_HitMontage4_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_CloseAttackMontage_MetaData[] = {
+		{ "AllowPriavteAccess", "true" },
+		{ "Category", "PlayerAnimation" },
+		{ "ModuleRelativePath", "Player/PlayerAnimation.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_CloseAttackMontage = { "m_CloseAttackMontage", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerAnimation, m_CloseAttackMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_CloseAttackMontage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_CloseAttackMontage_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_bAiming_MetaData[] = {
 		{ "AllowPriavteAccess", "true" },
 		{ "Category", "PlayerAnimation" },
@@ -406,6 +480,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_HitMontage2,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_HitMontage3,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_HitMontage4,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_CloseAttackMontage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerAnimation_Statics::NewProp_m_bAiming,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UPlayerAnimation_Statics::StaticCppClassTypeInfo = {
@@ -435,7 +510,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UPlayerAnimation, 3442396776);
+	IMPLEMENT_CLASS(UPlayerAnimation, 3145016927);
 	template<> PROJECTTPS_API UClass* StaticClass<UPlayerAnimation>()
 	{
 		return UPlayerAnimation::StaticClass();

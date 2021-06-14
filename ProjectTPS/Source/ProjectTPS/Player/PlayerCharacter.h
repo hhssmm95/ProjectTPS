@@ -169,6 +169,8 @@ protected:
 	EAbility m_eSlot1Ability;
 	EAbility m_eSlot2Ability;
 
+	bool m_bCloseAttackEnable;
+
 
 public:
 
@@ -424,5 +426,8 @@ public:
 	void GetAmmoFromItem(int Ammo);
 	void TimeAccecleration();
 
+	void CloseAttack();
+	void CloseAttackStart();
+	void CloseAttackEnd();
 
 };

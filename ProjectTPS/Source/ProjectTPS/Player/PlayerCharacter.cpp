@@ -12,6 +12,7 @@
 #include "../UI/PlayerEquipWidget.h"
 #include "../Monster/Monster.h"
 #include "Components/WidgetComponent.h"
+#include "Perception/AISense_Damage.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -111,7 +112,7 @@ void APlayerCharacter::BeginPlay()
 	m_NightVision = Cast<UPostProcessComponent>(GetDefaultSubobjectByName(TEXT("PP_NighTvision")));
 	m_ThermalVision = Cast<UPostProcessComponent>(GetDefaultSubobjectByName(TEXT("PP_ThermalVision")));
 	m_ScopeParticle = Cast<UParticleSystemComponent>(GetDefaultSubobjectByName(TEXT("ScopeParticle")));
-
+	m_bCloseAttackEnable = true;
 }
 
 // Called every frame
@@ -305,6 +306,8 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction(TEXT("AbilitySlot2"), EInputEvent::IE_Pressed, this, &APlayerCharacter::UseAbility2);
 
 	PlayerInputComponent->BindAction(TEXT("Reload"), EInputEvent::IE_Pressed, this, &APlayerCharacter::ReloadStart);
+	PlayerInputComponent->BindAction(TEXT("CloseAttack"), EInputEvent::IE_Pressed, this, &APlayerCharacter::CloseAttackStart);
+
 	PlayerInputComponent->BindAction(TEXT("AbilityWindowToggle"), EInputEvent::IE_Pressed, this, &APlayerCharacter::AbilityWindowVisiblity).bExecuteWhenPaused = true;
 
 	PlayerInputComponent->BindAction(TEXT("DashRight"), EInputEvent::IE_Pressed, this, &APlayerCharacter::DashRight);
@@ -724,12 +727,14 @@ float APlayerCharacter::TakeDamage(float Damage, struct FDamageEvent const& Dama
 		m_bShield = false;
 		GetMesh()->SetRenderCustomDepth(false);
 		m_ShieldTimeAcc = 0.f;
-		m_pPlayerAnim->HitReaction();
+		if(!m_IsReloading)
+			m_pPlayerAnim->HitReaction();
 	}
 	else if (!m_bShield)
 	{
 		AddHP(-Damage);
-		m_pPlayerAnim->HitReaction();
+		if (!m_IsReloading)
+			m_pPlayerAnim->HitReaction();
 	}
 
 	if (GetHP() <= 0)
@@ -1009,4 +1014,56 @@ void APlayerCharacter::TimeAccecleration()
 bool APlayerCharacter::GetUsingSuppressor()
 {
 	return m_PrimaryWeapon->GetSuppressorUsing();
+}
+
+void APlayerCharacter::CloseAttack()
+{
+	FHitResult result;
+
+	FCollisionQueryParams	params(NAME_None, false, this);
+
+
+	bool bSweep = GetWorld()->SweepSingleByChannel(result, GetActorLocation() - GetActorForwardVector() *
+		m_PlayerInfo->GetCloseAttackDistance(), GetActorLocation() + GetActorForwardVector() *
+		m_PlayerInfo->GetCloseAttackDistance(), FQuat::Identity, ECollisionChannel::ECC_GameTraceChannel7,
+		FCollisionShape::MakeSphere(m_PlayerInfo->GetCloseAttackDistance()), params);
+	if (bSweep)
+	{
+		AMonster* pMonster = Cast<AMonster>(result.GetActor());
+
+		FVector vDir = GetActorLocation() - result.ImpactPoint;
+		vDir.Normalize();
+		FRotator	vRot = vDir.ToOrientationRotator();
+
+		if (pMonster)
+		{
+			FDamageEvent DmgEvent;
+			//pMonster->TakeDamage(m_PlayerInfo->GetCloseAttackDamage(), DmgEvent, GetController(), this);
+			pMonster->TakeDamageFromClose(m_PlayerInfo->GetCloseAttackDamage(), DmgEvent, GetController(), this);
+			pMonster->EmitHeadshotEffect(result.ImpactPoint, vRot);
+			UAISense_Damage::ReportDamageEvent(GetWorld(), pMonster, this, m_PlayerInfo->GetCloseAttackDamage(),
+				pMonster->GetActorLocation(), result.ImpactPoint);
+		}
+	}
+
+#if ENABLE_DRAW_DEBUG
+	FColor	DrawColor = bSweep ? FColor::Red : FColor::Green;
+
+
+
+	DrawDebugCone(GetWorld(), GetActorLocation(), GetActorForwardVector(), m_PlayerInfo->GetCloseAttackDistance(),
+		FMath::DegreesToRadians(22.5f), FMath::DegreesToRadians(22.5f), 20, DrawColor, false, 1.f);
+#endif // ENABLE_DRAW_DEBUGEDITOR
+}
+void APlayerCharacter::CloseAttackStart()
+{
+	if (m_bCloseAttackEnable)
+	{
+		m_bCloseAttackEnable = false;
+		m_pPlayerAnim->CloseAttack();
+	}
+}
+void APlayerCharacter::CloseAttackEnd()
+{
+	m_bCloseAttackEnable = true;
 }

@@ -67,6 +67,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UPlayerInfo); \
 	FORCEINLINE static uint32 __PPO__m_CurrentMag() { return STRUCT_OFFSET(UPlayerInfo, m_CurrentMag); } \
 	FORCEINLINE static uint32 __PPO__m_CurrentMagMax() { return STRUCT_OFFSET(UPlayerInfo, m_CurrentMagMax); } \
 	FORCEINLINE static uint32 __PPO__m_RemainMag() { return STRUCT_OFFSET(UPlayerInfo, m_RemainMag); } \
+	FORCEINLINE static uint32 __PPO__m_CloseAttackDistance() { return STRUCT_OFFSET(UPlayerInfo, m_CloseAttackDistance); } \
+	FORCEINLINE static uint32 __PPO__m_CloseAttackDamage() { return STRUCT_OFFSET(UPlayerInfo, m_CloseAttackDamage); } \
 	FORCEINLINE static uint32 __PPO__m_Assult1Enable() { return STRUCT_OFFSET(UPlayerInfo, m_Assult1Enable); } \
 	FORCEINLINE static uint32 __PPO__m_Assult2Enable() { return STRUCT_OFFSET(UPlayerInfo, m_Assult2Enable); } \
 	FORCEINLINE static uint32 __PPO__m_Assult3Enable() { return STRUCT_OFFSET(UPlayerInfo, m_Assult3Enable); } \

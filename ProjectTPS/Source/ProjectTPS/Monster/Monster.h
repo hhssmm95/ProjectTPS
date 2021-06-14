@@ -181,6 +181,9 @@ public:
 	virtual float TakeDamage(float Damage, struct FDamageEvent const& DamageEvent,
 		AController* EventInstigator, AActor* DamageCauser) override;
 
+	float TakeDamageFromClose(float Damage, struct FDamageEvent const& DamageEvent,
+		AController* EventInstigator, AActor* DamageCauser);
+
 	void EmitHitEffect(FVector ImpactLoc, FRotator Rot);
 	void EmitHeadshotEffect(FVector ImpactLoc, FRotator Rot);
 	void ItemDrop();

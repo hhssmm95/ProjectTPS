@@ -40,7 +40,11 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		int32 m_RemainMag;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		float m_CloseAttackDistance;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		float m_CloseAttackDamage;
 protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -222,7 +226,15 @@ public:
 	{
 		m_RemainMag = RemainMag;
 	}
+	void SetCloseAttackDistance(float Distance)
+	{
+		m_CloseAttackDistance = Distance;
+	}
 
+	void SetCloseAttackDamage(float Damage)
+	{
+		m_CloseAttackDamage = Damage;
+	}
 
 
 	void AddHP(float HP)
@@ -303,6 +315,16 @@ public:
 	{
 		return m_AbilityPoint;
 	}
+	float GetCloseAttackDistance()
+	{
+		return m_CloseAttackDistance;
+	}
+
+	float GetCloseAttackDamage()
+	{
+		return m_CloseAttackDamage;
+	}
+
 
 
 	bool GetHaveScope()

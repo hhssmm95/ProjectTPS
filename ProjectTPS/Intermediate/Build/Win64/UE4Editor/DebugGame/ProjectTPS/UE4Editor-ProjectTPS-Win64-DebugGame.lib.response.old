@@ -7,6 +7,7 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "G:\Git\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\DebugGame\Engine\SharedPCH.Engine.NonOptimized.ShadowErrors.h.obj"
+"G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\PlayerAnimation.cpp.obj"
 "G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\PlayerCharacter.cpp.obj"
 "G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\Module.ProjectTPS.cpp.obj"
 "G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\Module.ProjectTPS.gen.cpp.obj"

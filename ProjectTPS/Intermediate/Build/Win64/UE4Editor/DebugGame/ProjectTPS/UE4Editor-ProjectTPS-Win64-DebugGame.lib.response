@@ -7,9 +7,14 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "G:\Git\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\DebugGame\Engine\SharedPCH.Engine.NonOptimized.ShadowErrors.h.obj"
+"G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\Monster.cpp.obj"
+"G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\MonsterAIController.cpp.obj"
 "G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\PlayerAnimation.cpp.obj"
 "G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\PlayerCharacter.cpp.obj"
 "G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\Module.ProjectTPS.cpp.obj"
+"G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\PlayerAnimation.gen.cpp.obj"
+"G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\PlayerInfo.gen.cpp.obj"
+"G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\ProjectTPS.init.gen.cpp.obj"
 "G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\Module.ProjectTPS.gen.cpp.obj"
 "G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\Default.rc2.res"
 /OUT:"G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\DebugGame\ProjectTPS\UE4Editor-ProjectTPS-Win64-DebugGame.lib"
