@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerEquipWidget() {}
 	UMG_API UClass* Z_Construct_UClass_UUserWidget();
 	UPackage* Z_Construct_UPackage__Script_ProjectTPS();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UProgressBar_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_APlayerCharacter_NoRegister();
 // End Cross Module References
 	void UPlayerEquipWidget::StaticRegisterNativesUPlayerEquipWidget()
@@ -45,6 +46,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerEquipWidget() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_GearText_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_GearText;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SPDurabilityBar_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_SPDurabilityBar;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_Player_MetaData[];
 #endif
@@ -92,6 +97,15 @@ void EmptyLinkFunctionForGeneratedCodePlayerEquipWidget() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerEquipWidget_Statics::NewProp_m_GearText = { "m_GearText", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerEquipWidget, m_GearText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerEquipWidget_Statics::NewProp_m_GearText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerEquipWidget_Statics::NewProp_m_GearText_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerEquipWidget_Statics::NewProp_m_SPDurabilityBar_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerEquipWidget" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/PlayerEquipWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerEquipWidget_Statics::NewProp_m_SPDurabilityBar = { "m_SPDurabilityBar", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerEquipWidget, m_SPDurabilityBar), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerEquipWidget_Statics::NewProp_m_SPDurabilityBar_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerEquipWidget_Statics::NewProp_m_SPDurabilityBar_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerEquipWidget_Statics::NewProp_m_Player_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PlayerEquipWidget" },
@@ -103,6 +117,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerEquipWidget() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerEquipWidget_Statics::NewProp_m_CurrentMagText,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerEquipWidget_Statics::NewProp_m_RemainMagText,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerEquipWidget_Statics::NewProp_m_GearText,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerEquipWidget_Statics::NewProp_m_SPDurabilityBar,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerEquipWidget_Statics::NewProp_m_Player,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UPlayerEquipWidget_Statics::StaticCppClassTypeInfo = {
@@ -132,7 +147,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerEquipWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UPlayerEquipWidget, 60216016);
+	IMPLEMENT_CLASS(UPlayerEquipWidget, 1813117287);
 	template<> PROJECTTPS_API UClass* StaticClass<UPlayerEquipWidget>()
 	{
 		return UPlayerEquipWidget::StaticClass();

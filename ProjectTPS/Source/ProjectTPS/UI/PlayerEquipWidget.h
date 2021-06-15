@@ -22,6 +22,8 @@ protected:
 		class UTextBlock* m_RemainMagText;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		class UTextBlock* m_GearText;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UProgressBar* m_SPDurabilityBar;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		class APlayerCharacter* m_Player;
@@ -42,5 +44,6 @@ public:
 	void SetGearTextColorBlue();
 	void SetGearTextColorOrigin();
 
+	void SetSPDurabilityBar(float Durbility);
 
 };

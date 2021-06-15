@@ -21,8 +21,26 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TSubclassOf<ACharacter> m_PlayerCharacter;
 
+	UPROPERTY()
+	TArray<AActor*> m_AlertSpawnPoint;
+
+	UPROPERTY()
+		class UMainHUDWidget* m_MainHUDWidget;
+
+	bool m_bAlertEnable;
+	float m_AlertTimeAcc;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		float m_AlertTime;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+public:
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+public:
+	void SetAlertWithTime();
+	
 
 };

@@ -34,10 +34,11 @@ public:
 
 
 public:
-	UMainHUDWidget* GetMainHUDWidget()	const
+	UMainHUDWidget* GetMainHUDWidget()
 	{
 		return m_MainHUDWidget;
 	}
+
 	void AbilityWindowToggle();
 
 	void UpdatePlayerHP(float HP);

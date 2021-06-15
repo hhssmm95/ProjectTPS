@@ -64,6 +64,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UPlayerEquipWidget); \
 	FORCEINLINE static uint32 __PPO__m_CurrentMagText() { return STRUCT_OFFSET(UPlayerEquipWidget, m_CurrentMagText); } \
 	FORCEINLINE static uint32 __PPO__m_RemainMagText() { return STRUCT_OFFSET(UPlayerEquipWidget, m_RemainMagText); } \
 	FORCEINLINE static uint32 __PPO__m_GearText() { return STRUCT_OFFSET(UPlayerEquipWidget, m_GearText); } \
+	FORCEINLINE static uint32 __PPO__m_SPDurabilityBar() { return STRUCT_OFFSET(UPlayerEquipWidget, m_SPDurabilityBar); } \
 	FORCEINLINE static uint32 __PPO__m_Player() { return STRUCT_OFFSET(UPlayerEquipWidget, m_Player); }
 
 

@@ -37,6 +37,11 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		class UProgressBar* m_SlotProgress2;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UTextBlock* m_AlertCountText;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UBorder* m_AlertBorder;
+
 	class UTextBlock* m_AbilitySlotText1;
 	class UTextBlock* m_AbilitySlotText2;
 
@@ -63,6 +68,9 @@ public:
 	void AbilityWindowToggle();
 	void ActiveSlot1Cooltime(float Cooltime);
 	void ActiveSlot2Cooltime(float Cooltime);
+
+	void SetAlertVisible(bool Visible);
+	void SetAlertCountText(int32 Text);
 public:
 	UPlayerHPWidget* GetPlayerHPWidget()	const
 	{

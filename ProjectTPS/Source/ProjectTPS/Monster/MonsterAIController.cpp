@@ -38,6 +38,7 @@ void AMonsterAIController::OnPossess(APawn* InPawn)
 		{
 			LOG(TEXT("Monster BehaviorTree Error!!"));
 		}
+		//Blackboard->SetValueAsBool(TEXT("CallBackUpEnable"), pMonster->GetCallBackUpEnable());
 	}
 	PrintViewport(5.0f, FColor::Red, TEXT("Monster AIController Init"));
 }
@@ -66,6 +67,16 @@ bool AMonsterAIController::GetTargetExist()
 		return false;
 	else
 		return true;
+}
+
+void AMonsterAIController::SetTargetAsPlayer()
+{
+	Blackboard->SetValueAsObject(TEXT("Target"), GetWorld()->GetFirstPlayerController()->GetPawn());
+}
+
+void AMonsterAIController::SetCallBackUpEnable(bool Enable)
+{
+	Blackboard->SetValueAsBool(TEXT("CallBackUpEnable"), Enable);
 }
 /*
 

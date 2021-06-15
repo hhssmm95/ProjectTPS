@@ -56,6 +56,7 @@ void APrimaryWeapon::BeginPlay()
 
 
 	m_ScopeMesh = Cast<UStaticMeshComponent>(GetDefaultSubobjectByName(TEXT("ScopeMesh")));
+	m_SPDurability = m_SPDurabilityMax;
 }
 
 //
@@ -163,6 +164,14 @@ void APrimaryWeapon::AutoFire(FVector CameraPos, FVector TargetPos)
 				UAISense_Hearing::ReportNoiseEvent(GetWorld(), GetActorLocation(), 1.f,
 					m_Player, 3000.f, TEXT("SuppressorNoise"));
 
+				m_SPDurability -= m_SPDurabilityDecrease;
+				if (m_SPDurability <= 0.f)
+				{
+					m_SPDurability = 0.f;
+					EquipSuppressor();
+				}
+				m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->
+					SetSPDurabilityBar(m_SPDurability / m_SPDurabilityMax);
 			}
 			else
 			{
@@ -283,7 +292,15 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 					UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_SuppressorSoundClass, GetActorLocation());
 					UAISense_Hearing::ReportNoiseEvent(GetWorld(), GetActorLocation(), 1.f,
 						m_Player, 3000.f, TEXT("SuppressorNoise"));
-					
+
+					m_SPDurability -= m_SPDurabilityDecrease;
+					if (m_SPDurability <= 0.f)
+					{
+						m_SPDurability = 0.f;
+						EquipSuppressor();
+					}
+					m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->
+						SetSPDurabilityBar(m_SPDurability / m_SPDurabilityMax);
 				}
 				else
 				{
@@ -340,6 +357,14 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 					UAISense_Hearing::ReportNoiseEvent(GetWorld(), GetActorLocation(), 1.f,
 						m_Player, 3000.f, TEXT("SuppressorNoise"));
 
+					m_SPDurability -= m_SPDurabilityDecrease;
+					if (m_SPDurability <= 0.f)
+					{
+						m_SPDurability = 0.f;
+						EquipSuppressor();
+					}
+					m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->
+						SetSPDurabilityBar(m_SPDurability / m_SPDurabilityMax);
 				}
 				else
 				{
@@ -399,6 +424,14 @@ void APrimaryWeapon::ExplosiveFire(FVector CameraPos, FVector CameraForward)
 					UAISense_Hearing::ReportNoiseEvent(GetWorld(), GetActorLocation(), 1.f,
 						m_Player, 3000.f, TEXT("SuppressorNoise"));
 
+					m_SPDurability -= m_SPDurabilityDecrease;
+					if (m_SPDurability <= 0.f)
+					{
+						m_SPDurability = 0.f;
+						EquipSuppressor();
+					}
+					m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->
+						SetSPDurabilityBar(m_SPDurability / m_SPDurabilityMax);
 				}
 				else
 				{
@@ -436,6 +469,14 @@ void APrimaryWeapon::ExplosiveFire(FVector CameraPos, FVector CameraForward)
 					UAISense_Hearing::ReportNoiseEvent(GetWorld(), GetActorLocation(), 1.f,
 						m_Player, 3000.f, TEXT("SuppressorNoise"));
 
+					m_SPDurability -= m_SPDurabilityDecrease;
+					if (m_SPDurability <= 0.f)
+					{
+						m_SPDurability = 0.f;
+						EquipSuppressor();
+					}
+					m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->
+						SetSPDurabilityBar(m_SPDurability / m_SPDurabilityMax);
 				}
 				else
 				{
@@ -475,7 +516,7 @@ void APrimaryWeapon::Reload()
 
 void APrimaryWeapon::EquipSuppressor()
 {
-	if (!m_bSuppressorUsing)
+	if (!m_bSuppressorUsing && m_SPDurability > 0.f)
 	{
 		m_bSuppressorUsing = true;
 		m_SuppressorMesh->SetVisibility(true);

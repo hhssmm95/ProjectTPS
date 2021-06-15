@@ -46,5 +46,7 @@ public:
 	void SetDeath();
 	void Panic();
 	bool GetTargetExist();
+	void SetTargetAsPlayer();
+	void SetCallBackUpEnable(bool Enable);
 	
 };

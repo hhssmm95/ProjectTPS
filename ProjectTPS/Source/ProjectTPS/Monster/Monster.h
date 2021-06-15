@@ -126,6 +126,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		float m_WaitTime;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		bool m_bCallBackupEnable;
+
 	int32 m_PatrolIndex;
 	int32 m_PatrolDir;
 	bool m_bPatrol;
@@ -307,6 +310,16 @@ public:
 		void SetTargetLocation(FVector Loc)
 	{
 		m_TargetLoc = Loc;
+	}
+
+	void SetCallBackUpEnable(bool Enable)
+	{
+		m_bCallBackupEnable = Enable;
+	}
+
+	bool GetCallBackUpEnable()
+	{
+		return m_bCallBackupEnable;
 	}
 
 };

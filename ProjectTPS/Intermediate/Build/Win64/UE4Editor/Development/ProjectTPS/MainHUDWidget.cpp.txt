@@ -799,6 +799,8 @@ E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\ContentWidget.gener
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\BackgroundBlur.generated.h
 E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/ProgressBar.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\ProgressBar.generated.h
+E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/Border.h
+E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\Border.generated.h
 G:\Git\ProjectTPS\Source\ProjectTPS\UI\../Player/PlayerCharacter.h
 G:\Git\ProjectTPS\Source\ProjectTPS\Player\PlayerInfo.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerInfo.generated.h

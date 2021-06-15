@@ -47,6 +47,26 @@ void EmptyLinkFunctionForGeneratedCodeMonsterSpawnPoint() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SpawnTime_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_SpawnTime;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_bSpawnEnable_MetaData[];
+#endif
+		static void NewProp_m_bSpawnEnable_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_bSpawnEnable;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_bCallBackUpEnable_MetaData[];
+#endif
+		static void NewProp_m_bCallBackUpEnable_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_bCallBackUpEnable;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_bSpawnContinuous_MetaData[];
+#endif
+		static void NewProp_m_bSpawnContinuous_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_bSpawnContinuous;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_bIsChasing_MetaData[];
+#endif
+		static void NewProp_m_bIsChasing_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_bIsChasing;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -86,11 +106,63 @@ void EmptyLinkFunctionForGeneratedCodeMonsterSpawnPoint() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_SpawnTime = { "m_SpawnTime", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMonsterSpawnPoint, m_SpawnTime), METADATA_PARAMS(Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_SpawnTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_SpawnTime_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bSpawnEnable_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "MonsterSpawnPoint" },
+		{ "ModuleRelativePath", "Monster/MonsterSpawnPoint.h" },
+	};
+#endif
+	void Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bSpawnEnable_SetBit(void* Obj)
+	{
+		((AMonsterSpawnPoint*)Obj)->m_bSpawnEnable = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bSpawnEnable = { "m_bSpawnEnable", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AMonsterSpawnPoint), &Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bSpawnEnable_SetBit, METADATA_PARAMS(Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bSpawnEnable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bSpawnEnable_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bCallBackUpEnable_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "MonsterSpawnPoint" },
+		{ "ModuleRelativePath", "Monster/MonsterSpawnPoint.h" },
+	};
+#endif
+	void Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bCallBackUpEnable_SetBit(void* Obj)
+	{
+		((AMonsterSpawnPoint*)Obj)->m_bCallBackUpEnable = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bCallBackUpEnable = { "m_bCallBackUpEnable", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AMonsterSpawnPoint), &Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bCallBackUpEnable_SetBit, METADATA_PARAMS(Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bCallBackUpEnable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bCallBackUpEnable_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bSpawnContinuous_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "MonsterSpawnPoint" },
+		{ "ModuleRelativePath", "Monster/MonsterSpawnPoint.h" },
+	};
+#endif
+	void Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bSpawnContinuous_SetBit(void* Obj)
+	{
+		((AMonsterSpawnPoint*)Obj)->m_bSpawnContinuous = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bSpawnContinuous = { "m_bSpawnContinuous", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AMonsterSpawnPoint), &Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bSpawnContinuous_SetBit, METADATA_PARAMS(Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bSpawnContinuous_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bSpawnContinuous_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bIsChasing_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "MonsterSpawnPoint" },
+		{ "ModuleRelativePath", "Monster/MonsterSpawnPoint.h" },
+	};
+#endif
+	void Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bIsChasing_SetBit(void* Obj)
+	{
+		((AMonsterSpawnPoint*)Obj)->m_bIsChasing = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bIsChasing = { "m_bIsChasing", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AMonsterSpawnPoint), &Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bIsChasing_SetBit, METADATA_PARAMS(Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bIsChasing_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bIsChasing_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMonsterSpawnPoint_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_SpawnType,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_PatrolPoint_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_PatrolPoint,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_SpawnTime,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bSpawnEnable,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bCallBackUpEnable,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bSpawnContinuous,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonsterSpawnPoint_Statics::NewProp_m_bIsChasing,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMonsterSpawnPoint_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AMonsterSpawnPoint>::IsAbstract,
@@ -119,7 +191,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterSpawnPoint() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMonsterSpawnPoint, 3647559599);
+	IMPLEMENT_CLASS(AMonsterSpawnPoint, 1257357055);
 	template<> PROJECTTPS_API UClass* StaticClass<AMonsterSpawnPoint>()
 	{
 		return AMonsterSpawnPoint::StaticClass();

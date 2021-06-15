@@ -522,6 +522,7 @@ void APlayerCharacter::EquipGear()
 		case EGearType::None:
 			if (m_PrimaryWeapon->GetSuppressorUsing())
 			{
+				
 				m_PrimaryWeapon->EquipSuppressor();
 			}
 			else if (m_PrimaryWeapon->GetScopeUsing())
@@ -565,7 +566,8 @@ void APlayerCharacter::EquipGear()
 			}
 			else
 			{
-				m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetGearTextColorBlue();
+				if (m_PrimaryWeapon->GetSPDurability() > 0.f)
+					m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetGearTextColorBlue();
 			}
 				m_PrimaryWeapon->EquipSuppressor();
 			break;
@@ -1045,15 +1047,15 @@ void APlayerCharacter::CloseAttack()
 				pMonster->GetActorLocation(), result.ImpactPoint);
 		}
 	}
-
-#if ENABLE_DRAW_DEBUG
-	FColor	DrawColor = bSweep ? FColor::Red : FColor::Green;
-
-
-
-	DrawDebugCone(GetWorld(), GetActorLocation(), GetActorForwardVector(), m_PlayerInfo->GetCloseAttackDistance(),
-		FMath::DegreesToRadians(22.5f), FMath::DegreesToRadians(22.5f), 20, DrawColor, false, 1.f);
-#endif // ENABLE_DRAW_DEBUGEDITOR
+//
+//#if ENABLE_DRAW_DEBUG
+//	FColor	DrawColor = bSweep ? FColor::Red : FColor::Green;
+//
+//
+//
+//	DrawDebugCone(GetWorld(), GetActorLocation(), GetActorForwardVector(), m_PlayerInfo->GetCloseAttackDistance(),
+//		FMath::DegreesToRadians(22.5f), FMath::DegreesToRadians(22.5f), 20, DrawColor, false, 1.f);
+//#endif // ENABLE_DRAW_DEBUGEDITOR
 }
 void APlayerCharacter::CloseAttackStart()
 {

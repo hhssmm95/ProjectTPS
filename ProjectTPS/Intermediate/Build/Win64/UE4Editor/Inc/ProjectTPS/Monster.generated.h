@@ -107,6 +107,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMonster); \
 	FORCEINLINE static uint32 __PPO__m_DropItem() { return STRUCT_OFFSET(AMonster, m_DropItem); } \
 	FORCEINLINE static uint32 __PPO__m_PatrolPoint() { return STRUCT_OFFSET(AMonster, m_PatrolPoint); } \
 	FORCEINLINE static uint32 __PPO__m_WaitTime() { return STRUCT_OFFSET(AMonster, m_WaitTime); } \
+	FORCEINLINE static uint32 __PPO__m_bCallBackupEnable() { return STRUCT_OFFSET(AMonster, m_bCallBackupEnable); } \
 	FORCEINLINE static uint32 __PPO__m_bDeath() { return STRUCT_OFFSET(AMonster, m_bDeath); }
 
 

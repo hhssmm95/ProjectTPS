@@ -781,6 +781,16 @@ E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/TextBlock.h
 E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/TextWidgetTypes.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\TextWidgetTypes.generated.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\TextBlock.generated.h
+E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/ProgressBar.h
+E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\ProgressBar.generated.h
+E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/Border.h
+E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/ContentWidget.h
+E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/PanelWidget.h
+E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/PanelSlot.h
+E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\PanelSlot.generated.h
+E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\PanelWidget.generated.h
+E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\ContentWidget.generated.h
+E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\Border.generated.h
 G:\Git\ProjectTPS\Source\ProjectTPS\UI\../Player/PlayerCharacter.h
 G:\Git\ProjectTPS\Source\ProjectTPS\Player\PlayerInfo.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerInfo.generated.h

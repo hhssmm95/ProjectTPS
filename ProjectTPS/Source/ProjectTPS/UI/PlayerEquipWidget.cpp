@@ -3,6 +3,8 @@
 
 #include "PlayerEquipWidget.h"
 #include "Components/TextBlock.h"
+#include "Components/ProgressBar.h"
+#include "Components/Border.h"
 #include "../Player/PlayerCharacter.h"
 
 
@@ -12,7 +14,10 @@ void UPlayerEquipWidget::NativePreConstruct()
 	m_CurrentMagText = Cast<UTextBlock>(GetWidgetFromName(TEXT("Player_CurrentMag")));
 	m_RemainMagText = Cast<UTextBlock>(GetWidgetFromName(TEXT("Player_RemainMag")));
 	m_GearText = Cast<UTextBlock>(GetWidgetFromName(TEXT("GearText")));
+	m_SPDurabilityBar = Cast<UProgressBar>(GetWidgetFromName(TEXT("SuppressorDurabilityBar")));
 	m_CurrentGear = EGearType::None;
+
+	
 }
 
 void UPlayerEquipWidget::NativeConstruct()
@@ -67,7 +72,8 @@ void UPlayerEquipWidget::ChangeGear(float fScale)
 				m_GearText->SetColorAndOpacity(LColor);
 			else
 				m_GearText->SetColorAndOpacity(OriginColor);
-			
+
+			m_SPDurabilityBar->SetVisibility(ESlateVisibility::Visible);
 			break;
 		case EGearType::Suppressor:
 			m_CurrentGear = EGearType::Scope;
@@ -76,6 +82,7 @@ void UPlayerEquipWidget::ChangeGear(float fScale)
 				m_GearText->SetColorAndOpacity(LColor);
 			else
 				m_GearText->SetColorAndOpacity(OriginColor);
+			m_SPDurabilityBar->SetVisibility(ESlateVisibility::Collapsed);
 			break;
 		case EGearType::Scope:
 			m_CurrentGear = EGearType::NightVision;
@@ -118,6 +125,7 @@ void UPlayerEquipWidget::ChangeGear(float fScale)
 			m_CurrentGear = EGearType::None;
 			m_GearText->SetText(FText::FromString(TEXT("- -")));
 			m_GearText->SetColorAndOpacity(OriginColor);
+			m_SPDurabilityBar->SetVisibility(ESlateVisibility::Collapsed);
 			break;
 		case EGearType::Scope:
 			m_CurrentGear = EGearType::Suppressor;
@@ -126,6 +134,7 @@ void UPlayerEquipWidget::ChangeGear(float fScale)
 				m_GearText->SetColorAndOpacity(LColor);
 			else
 				m_GearText->SetColorAndOpacity(OriginColor);
+			m_SPDurabilityBar->SetVisibility(ESlateVisibility::Visible);
 			break;
 		case EGearType::NightVision:
 			m_CurrentGear = EGearType::Scope;
@@ -157,4 +166,10 @@ void UPlayerEquipWidget::SetGearTextColorOrigin()
 
 	FSlateColor LColor = FLinearColor(0.33f * 255.f, 0.8611f * 255.f, 0.8697f * 255.f, 1.0f);
 	m_GearText->SetColorAndOpacity(LColor);
+}
+
+
+void UPlayerEquipWidget::SetSPDurabilityBar(float Durability)
+{
+	m_SPDurabilityBar->SetPercent(Durability);
 }

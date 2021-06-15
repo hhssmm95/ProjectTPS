@@ -2,6 +2,7 @@
 
 
 #include "MonsterSpawnPoint.h"
+#include "MonsterAIController.h"
 
 // Sets default values
 AMonsterSpawnPoint::AMonsterSpawnPoint()
@@ -28,7 +29,7 @@ void AMonsterSpawnPoint::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (!m_SpawnMonster && IsValid(m_SpawnType))
+	if (!m_SpawnMonster && IsValid(m_SpawnType) && m_bSpawnEnable)
 	{
 		m_SpawnTimeAcc += DeltaTime;
 
@@ -48,6 +49,21 @@ void AMonsterSpawnPoint::Tick(float DeltaTime)
 			{
 				m_SpawnMonster->AddPatrolPoint(actor);
 			}
+			AMonsterAIController* pController = Cast<AMonsterAIController>(m_SpawnMonster->GetController());
+
+			if (m_bCallBackUpEnable)
+			{
+				m_SpawnMonster->SetCallBackUpEnable(true);
+				pController->SetCallBackUpEnable(m_bCallBackUpEnable);
+			}
+
+			if (m_bIsChasing)
+			{
+				pController->SetTargetAsPlayer();
+			}
+
+			if (m_bSpawnContinuous)
+				m_SpawnMonster = nullptr;
 		}
 	}
 }

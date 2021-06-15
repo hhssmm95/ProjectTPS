@@ -69,6 +69,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APrimaryWeapon); \
 	FORCEINLINE static uint32 __PPO__m_CurrentMag() { return STRUCT_OFFSET(APrimaryWeapon, m_CurrentMag); } \
 	FORCEINLINE static uint32 __PPO__m_CurrentMagMax() { return STRUCT_OFFSET(APrimaryWeapon, m_CurrentMagMax); } \
 	FORCEINLINE static uint32 __PPO__m_RemainMag() { return STRUCT_OFFSET(APrimaryWeapon, m_RemainMag); } \
+	FORCEINLINE static uint32 __PPO__m_SPDurabilityMax() { return STRUCT_OFFSET(APrimaryWeapon, m_SPDurabilityMax); } \
+	FORCEINLINE static uint32 __PPO__m_SPDurabilityDecrease() { return STRUCT_OFFSET(APrimaryWeapon, m_SPDurabilityDecrease); } \
 	FORCEINLINE static uint32 __PPO__m_BulletClass() { return STRUCT_OFFSET(APrimaryWeapon, m_BulletClass); } \
 	FORCEINLINE static uint32 __PPO__m_BurstBulletClass() { return STRUCT_OFFSET(APrimaryWeapon, m_BurstBulletClass); } \
 	FORCEINLINE static uint32 __PPO__m_ExplosiveBulletClass() { return STRUCT_OFFSET(APrimaryWeapon, m_ExplosiveBulletClass); } \

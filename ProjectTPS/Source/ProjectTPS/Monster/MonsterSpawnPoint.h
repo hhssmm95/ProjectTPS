@@ -26,6 +26,19 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		float m_SpawnTime;
 
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		bool m_bSpawnEnable;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		bool m_bCallBackUpEnable;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		bool m_bSpawnContinuous;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		bool m_bIsChasing;
+
 	float m_SpawnTimeAcc;
 	AMonster* m_SpawnMonster;
 
@@ -34,6 +47,12 @@ public:
 	{
 		m_SpawnMonster = nullptr;
 	}
+
+	void SetSpawnEnable(bool enable)
+	{
+		m_bSpawnEnable = enable;
+	}
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

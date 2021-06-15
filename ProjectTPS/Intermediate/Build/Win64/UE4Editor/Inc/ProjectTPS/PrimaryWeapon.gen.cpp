@@ -81,6 +81,14 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_m_RemainMag;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SPDurabilityMax_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_SPDurabilityMax;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SPDurabilityDecrease_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_SPDurabilityDecrease;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BulletClass_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FClassPropertyParams NewProp_m_BulletClass;
@@ -224,6 +232,22 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_RemainMag = { "m_RemainMag", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_RemainMag), METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_RemainMag_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_RemainMag_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SPDurabilityMax_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PrimaryWeapon" },
+		{ "ModuleRelativePath", "Player/PrimaryWeapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SPDurabilityMax = { "m_SPDurabilityMax", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_SPDurabilityMax), METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SPDurabilityMax_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SPDurabilityMax_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SPDurabilityDecrease_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PrimaryWeapon" },
+		{ "ModuleRelativePath", "Player/PrimaryWeapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SPDurabilityDecrease = { "m_SPDurabilityDecrease", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APrimaryWeapon, m_SPDurabilityDecrease), METADATA_PARAMS(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SPDurabilityDecrease_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SPDurabilityDecrease_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BulletClass_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PrimaryWeapon" },
@@ -322,6 +346,8 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_CurrentMag,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_CurrentMagMax,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_RemainMag,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SPDurabilityMax,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_SPDurabilityDecrease,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BulletClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_BurstBulletClass,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APrimaryWeapon_Statics::NewProp_m_ExplosiveBulletClass,
@@ -361,7 +387,7 @@ void EmptyLinkFunctionForGeneratedCodePrimaryWeapon() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APrimaryWeapon, 183756016);
+	IMPLEMENT_CLASS(APrimaryWeapon, 1398098636);
 	template<> PROJECTTPS_API UClass* StaticClass<APrimaryWeapon>()
 	{
 		return APrimaryWeapon::StaticClass();

@@ -45,7 +45,14 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		int32 m_RemainMag;
-	
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		float m_SPDurabilityMax;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		float m_SPDurabilityDecrease;
+
+	float m_SPDurability;
 protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -102,6 +109,11 @@ protected:
 	float m_BurstTime;
 	float m_BurstTimeAcc;
 public:
+	float GetSPDurability()	const
+	{
+		return m_SPDurability;
+	}
+
 	USkeletalMeshComponent* GetMesh()	const
 	{
 		return m_Mesh;

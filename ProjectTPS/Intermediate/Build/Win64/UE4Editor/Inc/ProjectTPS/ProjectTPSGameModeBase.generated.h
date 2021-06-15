@@ -59,7 +59,10 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AProjectTPSGameModeBase); \
 
 
 #define ProjectTPS_Source_ProjectTPS_ProjectTPSGameModeBase_h_15_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__m_PlayerCharacter() { return STRUCT_OFFSET(AProjectTPSGameModeBase, m_PlayerCharacter); }
+	FORCEINLINE static uint32 __PPO__m_PlayerCharacter() { return STRUCT_OFFSET(AProjectTPSGameModeBase, m_PlayerCharacter); } \
+	FORCEINLINE static uint32 __PPO__m_AlertSpawnPoint() { return STRUCT_OFFSET(AProjectTPSGameModeBase, m_AlertSpawnPoint); } \
+	FORCEINLINE static uint32 __PPO__m_MainHUDWidget() { return STRUCT_OFFSET(AProjectTPSGameModeBase, m_MainHUDWidget); } \
+	FORCEINLINE static uint32 __PPO__m_AlertTime() { return STRUCT_OFFSET(AProjectTPSGameModeBase, m_AlertTime); }
 
 
 #define ProjectTPS_Source_ProjectTPS_ProjectTPSGameModeBase_h_12_PROLOG

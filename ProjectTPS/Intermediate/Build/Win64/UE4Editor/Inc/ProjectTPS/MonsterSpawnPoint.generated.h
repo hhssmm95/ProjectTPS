@@ -61,7 +61,11 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMonsterSpawnPoint); \
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterSpawnPoint_h_13_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__m_SpawnType() { return STRUCT_OFFSET(AMonsterSpawnPoint, m_SpawnType); } \
 	FORCEINLINE static uint32 __PPO__m_PatrolPoint() { return STRUCT_OFFSET(AMonsterSpawnPoint, m_PatrolPoint); } \
-	FORCEINLINE static uint32 __PPO__m_SpawnTime() { return STRUCT_OFFSET(AMonsterSpawnPoint, m_SpawnTime); }
+	FORCEINLINE static uint32 __PPO__m_SpawnTime() { return STRUCT_OFFSET(AMonsterSpawnPoint, m_SpawnTime); } \
+	FORCEINLINE static uint32 __PPO__m_bSpawnEnable() { return STRUCT_OFFSET(AMonsterSpawnPoint, m_bSpawnEnable); } \
+	FORCEINLINE static uint32 __PPO__m_bCallBackUpEnable() { return STRUCT_OFFSET(AMonsterSpawnPoint, m_bCallBackUpEnable); } \
+	FORCEINLINE static uint32 __PPO__m_bSpawnContinuous() { return STRUCT_OFFSET(AMonsterSpawnPoint, m_bSpawnContinuous); } \
+	FORCEINLINE static uint32 __PPO__m_bIsChasing() { return STRUCT_OFFSET(AMonsterSpawnPoint, m_bIsChasing); }
 
 
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterSpawnPoint_h_10_PROLOG

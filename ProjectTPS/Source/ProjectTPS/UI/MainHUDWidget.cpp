@@ -9,6 +9,7 @@
 #include "Components/TextBlock.h"
 #include "Components/BackgroundBlur.h"
 #include "Components/ProgressBar.h"
+#include "Components/Border.h"
 #include "../Player/PlayerCharacter.h"
 
 void UMainHUDWidget::NativePreConstruct()
@@ -27,6 +28,10 @@ void UMainHUDWidget::NativePreConstruct()
 	m_BackgroundBlur = Cast<UBackgroundBlur>(GetWidgetFromName(TEXT("MainHUDBlur")));
 	m_SlotProgress1 = Cast<UProgressBar>(GetWidgetFromName(TEXT("AbilitySlotProgress1")));
 	m_SlotProgress2 = Cast<UProgressBar>(GetWidgetFromName(TEXT("AbilitySlotProgress2")));
+
+	m_AlertCountText = Cast<UTextBlock>(GetWidgetFromName(TEXT("AlertCountText")));
+	m_AlertBorder = Cast<UBorder>(GetWidgetFromName(TEXT("AlertBorder")));
+
 	m_SlotInit = false;
 
 }
@@ -130,4 +135,18 @@ void UMainHUDWidget::SetScopeAimVisible(bool visible)
 	{
 		m_ScopeAim->SetVisibility(ESlateVisibility::Collapsed);
 	}
+}
+
+
+void UMainHUDWidget::SetAlertVisible(bool Visible)
+{
+	if (Visible)
+		m_AlertBorder->SetVisibility(ESlateVisibility::HitTestInvisible);
+	else
+		m_AlertBorder->SetVisibility(ESlateVisibility::Collapsed);
+
+}
+void UMainHUDWidget::SetAlertCountText(int32 Text)
+{
+	m_AlertCountText->SetText(FText::FromString(FString::FromInt(Text)));
 }
