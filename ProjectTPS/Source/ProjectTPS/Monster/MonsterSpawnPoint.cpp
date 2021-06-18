@@ -37,6 +37,8 @@ void AMonsterSpawnPoint::Tick(float DeltaTime)
 		{
 			m_SpawnTimeAcc = 0.f;
 
+
+
 			FActorSpawnParameters	param;
 			param.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 

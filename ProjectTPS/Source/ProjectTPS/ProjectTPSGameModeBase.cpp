@@ -28,6 +28,9 @@ void AProjectTPSGameModeBase::BeginPlay()
 	FInputModeGameOnly inputMode;
 	GetWorld()->GetFirstPlayerController()->SetInputMode(inputMode);
 	UGameplayStatics::GetAllActorsWithTag(GetWorld(), TEXT("AlertSpawnPoint"), m_AlertSpawnPoint);
+	FActorSpawnParameters Param;
+	m_bGuideTextEnable = false;
+	m_GuideTextTimeAcc = 0.f;
 }
 
 
@@ -37,7 +40,7 @@ void AProjectTPSGameModeBase::Tick(float DeltaTime)
 
 	if (m_bAlertEnable)
 	{
-		m_MainHUDWidget->SetAlertCountText((int32)m_AlertTimeAcc);
+		m_MainHUDWidget->SetAlertCountText(FString::Printf(TEXT("%d.%d"), (int32)m_AlertTimeAcc, (int32)((m_AlertTimeAcc - (int32)m_AlertTimeAcc)*100.f)));
 		if (m_AlertTimeAcc <= 0)
 		{
 			m_bAlertEnable = false;
@@ -49,8 +52,26 @@ void AProjectTPSGameModeBase::Tick(float DeltaTime)
 				AMonsterSpawnPoint* pPoint = Cast<AMonsterSpawnPoint>(Point);
 				pPoint->SetSpawnEnable(false);
 			}
+
+			if (m_AlarmAmbientActor)
+			{
+				m_AlarmAmbientActor->Stop();
+			}
+			m_bGuideTextEnable = true;
+			m_MainHUDWidget->SetGuideTextVisible(true);
 		}
 		m_AlertTimeAcc -= DeltaTime;
+	}
+
+	if (m_bGuideTextEnable)
+	{
+		if (m_GuideTextTimeAcc >= 4.f)
+		{
+			m_bGuideTextEnable = false;
+			m_GuideTextTimeAcc = 0.f;
+			m_MainHUDWidget->SetGuideTextVisible(false);
+		}
+		m_GuideTextTimeAcc += DeltaTime;
 	}
 }
 
@@ -70,5 +91,21 @@ void AProjectTPSGameModeBase::SetAlertWithTime()
 		AMonsterSpawnPoint* pPoint = Cast<AMonsterSpawnPoint>(Point);
 		pPoint->SetSpawnEnable(true);
 	}
+
+	UGameplayStatics::GetAllActorsWithTag(GetWorld(), TEXT("AlarmAmbient"), m_AlarmAmbient);
+
+	if (!m_AlarmAmbientActor)
+	{
+		for (auto& Ambient : m_AlarmAmbient)
+		{
+			m_AlarmAmbientActor = Cast<AAmbientSound>(Ambient);
+			m_AlarmAmbientActor->Play();
+		}
+	}
+	else
+	{
+		m_AlarmAmbientActor->Play();
+	}
+
 
 }

@@ -77,9 +77,17 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_AlertCountText;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_AlertText_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_AlertText;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_AlertBorder_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_AlertBorder;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_GuideText_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_GuideText;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -176,6 +184,15 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertCountText = { "m_AlertCountText", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_AlertCountText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertCountText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertCountText_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertText_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "MainHUDWidget" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/MainHUDWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertText = { "m_AlertText", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_AlertText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertText_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertBorder_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "MainHUDWidget" },
@@ -184,6 +201,15 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertBorder = { "m_AlertBorder", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_AlertBorder), Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertBorder_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertBorder_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_GuideText_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "MainHUDWidget" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/MainHUDWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_GuideText = { "m_GuideText", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_GuideText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_GuideText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_GuideText_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMainHUDWidget_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_PlayerHPWidget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_PlayerEquipWidget,
@@ -194,7 +220,9 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress1,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress2,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertCountText,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertText,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertBorder,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_GuideText,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UMainHUDWidget_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UMainHUDWidget>::IsAbstract,
@@ -223,7 +251,7 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMainHUDWidget, 1696709577);
+	IMPLEMENT_CLASS(UMainHUDWidget, 1418981421);
 	template<> PROJECTTPS_API UClass* StaticClass<UMainHUDWidget>()
 	{
 		return UMainHUDWidget::StaticClass();

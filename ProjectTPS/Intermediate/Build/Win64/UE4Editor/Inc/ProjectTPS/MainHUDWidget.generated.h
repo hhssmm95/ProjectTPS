@@ -70,7 +70,9 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMainHUDWidget); \
 	FORCEINLINE static uint32 __PPO__m_SlotProgress1() { return STRUCT_OFFSET(UMainHUDWidget, m_SlotProgress1); } \
 	FORCEINLINE static uint32 __PPO__m_SlotProgress2() { return STRUCT_OFFSET(UMainHUDWidget, m_SlotProgress2); } \
 	FORCEINLINE static uint32 __PPO__m_AlertCountText() { return STRUCT_OFFSET(UMainHUDWidget, m_AlertCountText); } \
-	FORCEINLINE static uint32 __PPO__m_AlertBorder() { return STRUCT_OFFSET(UMainHUDWidget, m_AlertBorder); }
+	FORCEINLINE static uint32 __PPO__m_AlertText() { return STRUCT_OFFSET(UMainHUDWidget, m_AlertText); } \
+	FORCEINLINE static uint32 __PPO__m_AlertBorder() { return STRUCT_OFFSET(UMainHUDWidget, m_AlertBorder); } \
+	FORCEINLINE static uint32 __PPO__m_GuideText() { return STRUCT_OFFSET(UMainHUDWidget, m_GuideText); }
 
 
 #define ProjectTPS_Source_ProjectTPS_UI_MainHUDWidget_h_10_PROLOG

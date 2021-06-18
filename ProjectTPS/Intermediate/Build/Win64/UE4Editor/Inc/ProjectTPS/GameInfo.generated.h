@@ -64,4 +64,14 @@ template<> PROJECTTPS_API UEnum* StaticEnum<EItemType>();
 enum class EGearType : uint8;
 template<> PROJECTTPS_API UEnum* StaticEnum<EGearType>();
 
+#define FOREACH_ENUM_EREVENANTSKILLTYPE(op) \
+	op(ERevenantSkillType::None) \
+	op(ERevenantSkillType::Skill1) \
+	op(ERevenantSkillType::Skill2) \
+	op(ERevenantSkillType::Skill3) \
+	op(ERevenantSkillType::Skill4) 
+
+enum class ERevenantSkillType : uint8;
+template<> PROJECTTPS_API UEnum* StaticEnum<ERevenantSkillType>();
+
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

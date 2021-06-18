@@ -40,7 +40,11 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		class UTextBlock* m_AlertCountText;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UTextBlock* m_AlertText;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		class UBorder* m_AlertBorder;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UTextBlock* m_GuideText;
 
 	class UTextBlock* m_AbilitySlotText1;
 	class UTextBlock* m_AbilitySlotText2;
@@ -70,7 +74,9 @@ public:
 	void ActiveSlot2Cooltime(float Cooltime);
 
 	void SetAlertVisible(bool Visible);
-	void SetAlertCountText(int32 Text);
+	void SetAlertCountText(const FString& Text);
+
+	void SetGuideTextVisible(bool Visible);
 public:
 	UPlayerHPWidget* GetPlayerHPWidget()	const
 	{

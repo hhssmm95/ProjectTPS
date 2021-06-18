@@ -7,8 +7,6 @@
 #include "GameFramework/Character.h"
 #include "Monster.generated.h"
 
-
-
 UENUM(BlueprintType)
 enum class MonsterAI : uint8
 {
@@ -18,7 +16,11 @@ enum class MonsterAI : uint8
 	Trace,
 	Attack,
 	Death,
-	Suspicious
+	Suspicious,
+	Skill1,
+	Skill2,
+	Skill3,
+	Skill4
 };
 
 UCLASS()
@@ -47,21 +49,6 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		float m_AttackRate;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		float m_CloseAttackDistance;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		float m_LongAttackDistance;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		float m_SightDistance;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		float m_SightAngle;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		float m_HearingDistance;
-
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		float m_WalkSpeed;;
@@ -72,6 +59,13 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		class UMonsterAnim* m_MonsterAnim;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		float m_CloseAttackDistance;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		float m_LongAttackDistance;
 
 
 	MonsterAI	m_eMonsterAIType;
@@ -179,6 +173,14 @@ public:
 		return m_RunSpeed;
 	}
 
+	float GetHP() const
+	{
+		return m_HP;
+	}
+	float GetHPMax() const
+	{
+		return m_HPMax;
+	}
 public:
 
 	virtual float TakeDamage(float Damage, struct FDamageEvent const& DamageEvent,
@@ -218,21 +220,6 @@ public:
 	float GetLongAttackDistance()	const
 	{
 		return m_LongAttackDistance;
-	}
-
-	float GetSightDistance()	const
-	{
-		return m_SightDistance;
-	}
-
-	float GetSightAngle()	const
-	{
-		return m_SightAngle;
-	}
-
-	float GetHearingDistance()	const
-	{
-		return m_HearingDistance;
 	}
 
 

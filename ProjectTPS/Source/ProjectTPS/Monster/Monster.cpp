@@ -52,8 +52,6 @@ void AMonster::BeginPlay()
 	Super::BeginPlay();
 
 	m_MonsterAnim = Cast<UMonsterAnim>(GetMesh()->GetAnimInstance());
-	m_HPMax = 200;
-	m_HP = 200;
 
 	//m_SightDistance = 3000.f;
 	//m_SightAngle = 30.f;

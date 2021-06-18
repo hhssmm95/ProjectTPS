@@ -44,7 +44,7 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 		return MonsterAI_StaticEnum();
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_MonsterAI(MonsterAI_StaticEnum, TEXT("/Script/ProjectTPS"), TEXT("MonsterAI"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_ProjectTPS_MonsterAI_Hash() { return 2659211000U; }
+	uint32 Get_Z_Construct_UEnum_ProjectTPS_MonsterAI_Hash() { return 2121906244U; }
 	UEnum* Z_Construct_UEnum_ProjectTPS_MonsterAI()
 	{
 #if WITH_HOT_RELOAD
@@ -63,6 +63,10 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 				{ "MonsterAI::Attack", (int64)MonsterAI::Attack },
 				{ "MonsterAI::Death", (int64)MonsterAI::Death },
 				{ "MonsterAI::Suspicious", (int64)MonsterAI::Suspicious },
+				{ "MonsterAI::Skill1", (int64)MonsterAI::Skill1 },
+				{ "MonsterAI::Skill2", (int64)MonsterAI::Skill2 },
+				{ "MonsterAI::Skill3", (int64)MonsterAI::Skill3 },
+				{ "MonsterAI::Skill4", (int64)MonsterAI::Skill4 },
 			};
 #if WITH_METADATA
 			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
@@ -73,6 +77,10 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 				{ "ModuleRelativePath", "Monster/Monster.h" },
 				{ "None.Name", "MonsterAI::None" },
 				{ "Patrol.Name", "MonsterAI::Patrol" },
+				{ "Skill1.Name", "MonsterAI::Skill1" },
+				{ "Skill2.Name", "MonsterAI::Skill2" },
+				{ "Skill3.Name", "MonsterAI::Skill3" },
+				{ "Skill4.Name", "MonsterAI::Skill4" },
 				{ "Suspicious.Name", "MonsterAI::Suspicious" },
 				{ "Trace.Name", "MonsterAI::Trace" },
 			};
@@ -349,26 +357,6 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_AttackRate;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_CloseAttackDistance_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_CloseAttackDistance;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_LongAttackDistance_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_LongAttackDistance;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SightDistance_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_SightDistance;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SightAngle_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_SightAngle;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_HearingDistance_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_HearingDistance;
-#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_WalkSpeed_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_WalkSpeed;
@@ -380,6 +368,14 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_MonsterAnim_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_MonsterAnim;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_CloseAttackDistance_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_CloseAttackDistance;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_LongAttackDistance_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_LongAttackDistance;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SuspiciousVoice_MetaData[];
 #endif
@@ -518,46 +514,6 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMonster_Statics::NewProp_m_AttackRate = { "m_AttackRate", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMonster, m_AttackRate), METADATA_PARAMS(Z_Construct_UClass_AMonster_Statics::NewProp_m_AttackRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonster_Statics::NewProp_m_AttackRate_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonster_Statics::NewProp_m_CloseAttackDistance_MetaData[] = {
-		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Monster" },
-		{ "ModuleRelativePath", "Monster/Monster.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMonster_Statics::NewProp_m_CloseAttackDistance = { "m_CloseAttackDistance", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMonster, m_CloseAttackDistance), METADATA_PARAMS(Z_Construct_UClass_AMonster_Statics::NewProp_m_CloseAttackDistance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonster_Statics::NewProp_m_CloseAttackDistance_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonster_Statics::NewProp_m_LongAttackDistance_MetaData[] = {
-		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Monster" },
-		{ "ModuleRelativePath", "Monster/Monster.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMonster_Statics::NewProp_m_LongAttackDistance = { "m_LongAttackDistance", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMonster, m_LongAttackDistance), METADATA_PARAMS(Z_Construct_UClass_AMonster_Statics::NewProp_m_LongAttackDistance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonster_Statics::NewProp_m_LongAttackDistance_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonster_Statics::NewProp_m_SightDistance_MetaData[] = {
-		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Monster" },
-		{ "ModuleRelativePath", "Monster/Monster.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMonster_Statics::NewProp_m_SightDistance = { "m_SightDistance", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMonster, m_SightDistance), METADATA_PARAMS(Z_Construct_UClass_AMonster_Statics::NewProp_m_SightDistance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonster_Statics::NewProp_m_SightDistance_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonster_Statics::NewProp_m_SightAngle_MetaData[] = {
-		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Monster" },
-		{ "ModuleRelativePath", "Monster/Monster.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMonster_Statics::NewProp_m_SightAngle = { "m_SightAngle", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMonster, m_SightAngle), METADATA_PARAMS(Z_Construct_UClass_AMonster_Statics::NewProp_m_SightAngle_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonster_Statics::NewProp_m_SightAngle_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonster_Statics::NewProp_m_HearingDistance_MetaData[] = {
-		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Monster" },
-		{ "ModuleRelativePath", "Monster/Monster.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMonster_Statics::NewProp_m_HearingDistance = { "m_HearingDistance", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMonster, m_HearingDistance), METADATA_PARAMS(Z_Construct_UClass_AMonster_Statics::NewProp_m_HearingDistance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonster_Statics::NewProp_m_HearingDistance_MetaData)) };
-#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonster_Statics::NewProp_m_WalkSpeed_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Monster" },
@@ -581,6 +537,22 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMonster_Statics::NewProp_m_MonsterAnim = { "m_MonsterAnim", nullptr, (EPropertyFlags)0x0020080000020005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMonster, m_MonsterAnim), Z_Construct_UClass_UMonsterAnim_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMonster_Statics::NewProp_m_MonsterAnim_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonster_Statics::NewProp_m_MonsterAnim_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonster_Statics::NewProp_m_CloseAttackDistance_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Monster" },
+		{ "ModuleRelativePath", "Monster/Monster.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMonster_Statics::NewProp_m_CloseAttackDistance = { "m_CloseAttackDistance", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMonster, m_CloseAttackDistance), METADATA_PARAMS(Z_Construct_UClass_AMonster_Statics::NewProp_m_CloseAttackDistance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonster_Statics::NewProp_m_CloseAttackDistance_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonster_Statics::NewProp_m_LongAttackDistance_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Monster" },
+		{ "ModuleRelativePath", "Monster/Monster.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMonster_Statics::NewProp_m_LongAttackDistance = { "m_LongAttackDistance", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMonster, m_LongAttackDistance), METADATA_PARAMS(Z_Construct_UClass_AMonster_Statics::NewProp_m_LongAttackDistance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMonster_Statics::NewProp_m_LongAttackDistance_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonster_Statics::NewProp_m_SuspiciousVoice_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -727,14 +699,11 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_Armor,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_MovementSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_AttackRate,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_CloseAttackDistance,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_LongAttackDistance,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_SightDistance,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_SightAngle,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_HearingDistance,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_WalkSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_RunSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_MonsterAnim,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_CloseAttackDistance,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_LongAttackDistance,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_SuspiciousVoice,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_EnemySpotVoice,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMonster_Statics::NewProp_m_LongAttackSound,
@@ -780,7 +749,7 @@ void EmptyLinkFunctionForGeneratedCodeMonster() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMonster, 670617750);
+	IMPLEMENT_CLASS(AMonster, 3555356834);
 	template<> PROJECTTPS_API UClass* StaticClass<AMonster>()
 	{
 		return AMonster::StaticClass();

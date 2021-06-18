@@ -30,7 +30,10 @@ void UMainHUDWidget::NativePreConstruct()
 	m_SlotProgress2 = Cast<UProgressBar>(GetWidgetFromName(TEXT("AbilitySlotProgress2")));
 
 	m_AlertCountText = Cast<UTextBlock>(GetWidgetFromName(TEXT("AlertCountText")));
+	m_AlertText = Cast<UTextBlock>(GetWidgetFromName(TEXT("AlertText")));
 	m_AlertBorder = Cast<UBorder>(GetWidgetFromName(TEXT("AlertBorder")));
+
+	m_GuideText = Cast<UTextBlock>(GetWidgetFromName(TEXT("GuideText")));
 
 	m_SlotInit = false;
 
@@ -141,12 +144,31 @@ void UMainHUDWidget::SetScopeAimVisible(bool visible)
 void UMainHUDWidget::SetAlertVisible(bool Visible)
 {
 	if (Visible)
+	{
 		m_AlertBorder->SetVisibility(ESlateVisibility::HitTestInvisible);
+		m_AlertText->SetVisibility(ESlateVisibility::HitTestInvisible);
+	}
 	else
+	{
 		m_AlertBorder->SetVisibility(ESlateVisibility::Collapsed);
+		m_AlertText->SetVisibility(ESlateVisibility::Collapsed);
+	}
 
 }
-void UMainHUDWidget::SetAlertCountText(int32 Text)
+void UMainHUDWidget::SetAlertCountText(const FString& Text)
 {
-	m_AlertCountText->SetText(FText::FromString(FString::FromInt(Text)));
+	m_AlertCountText->SetText(FText::FromString(Text));
+}
+
+void UMainHUDWidget::SetGuideTextVisible(bool Visible)
+{
+	if (Visible)
+	{
+		m_GuideText->SetVisibility(ESlateVisibility::HitTestInvisible);
+	}
+	else
+	{
+		m_GuideText->SetVisibility(ESlateVisibility::Collapsed);
+	}
+
 }

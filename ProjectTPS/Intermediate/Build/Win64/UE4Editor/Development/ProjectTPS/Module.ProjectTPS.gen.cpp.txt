@@ -838,6 +838,9 @@ G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\BTCheckDista
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/BTPatrolTask.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/Monster/BTPatrolTask.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\BTPatrolTask.generated.h
+G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/BTTask_CallBackup.gen.cpp
+G:\Git\ProjectTPS\Source\ProjectTPS/Monster/BTTask_CallBackup.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\BTTask_CallBackup.generated.h
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/BTTask_Death.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/Monster/BTTask_Death.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\BTTask_Death.generated.h
@@ -881,7 +884,6 @@ G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\EnemyBullet.
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/ExplosiveBullet.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/ExplosiveBullet.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\ExplosiveBullet.generated.h
-G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/GameInfo.gen.cpp
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/HitCameraShake.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/HitCameraShake.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\HitCameraShake.generated.h
@@ -912,6 +914,9 @@ G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/MonsterAnim.
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/MonsterPatrolPoint.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/Monster/MonsterPatrolPoint.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\MonsterPatrolPoint.generated.h
+G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/MonsterSpawnPoint.gen.cpp
+G:\Git\ProjectTPS\Source\ProjectTPS/Monster/MonsterSpawnPoint.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\MonsterSpawnPoint.generated.h
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/PlayerAnimation.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/Player/PlayerAnimation.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerAnimation.generated.h
@@ -922,11 +927,17 @@ G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerInfo.g
 G:\Git\ProjectTPS\Source\ProjectTPS\Player\../PlayerHUD.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerHUD.generated.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerCharacter.generated.h
+G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/PlayerEquipWidget.gen.cpp
+G:\Git\ProjectTPS\Source\ProjectTPS/UI/PlayerEquipWidget.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerEquipWidget.generated.h
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/PlayerHPWidget.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/UI/PlayerHPWidget.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerHPWidget.generated.h
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/PlayerHUD.gen.cpp
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/PlayerInfo.gen.cpp
+G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/PrimaryWeapon.gen.cpp
+G:\Git\ProjectTPS\Source\ProjectTPS/Player/PrimaryWeapon.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PrimaryWeapon.generated.h
 G:/Git/ProjectTPS/Intermediate/Build/Win64/UE4Editor/Inc/ProjectTPS/ProjectTPSGameInstance.gen.cpp
 G:\Git\ProjectTPS\Source\ProjectTPS/ProjectTPSGameInstance.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\ProjectTPSGameInstance.generated.h

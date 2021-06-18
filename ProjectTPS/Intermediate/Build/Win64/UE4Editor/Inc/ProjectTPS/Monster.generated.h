@@ -17,8 +17,8 @@ enum class EMonsterAnimType : uint8;
 #endif
 #define PROJECTTPS_Monster_generated_h
 
-#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_SPARSE_DATA
-#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_RPC_WRAPPERS \
+#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_SPARSE_DATA
+#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execSetTargetLocation); \
 	DECLARE_FUNCTION(execSetMonsterAIType); \
@@ -27,7 +27,7 @@ enum class EMonsterAnimType : uint8;
 	DECLARE_FUNCTION(execChangeAnimation);
 
 
-#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
+#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execSetTargetLocation); \
 	DECLARE_FUNCTION(execSetMonsterAIType); \
@@ -36,7 +36,7 @@ enum class EMonsterAnimType : uint8;
 	DECLARE_FUNCTION(execChangeAnimation);
 
 
-#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_INCLASS_NO_PURE_DECLS \
+#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMonster(); \
 	friend struct Z_Construct_UClass_AMonster_Statics; \
@@ -45,7 +45,7 @@ public: \
 	DECLARE_SERIALIZER(AMonster)
 
 
-#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_INCLASS \
+#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_INCLASS \
 private: \
 	static void StaticRegisterNativesAMonster(); \
 	friend struct Z_Construct_UClass_AMonster_Statics; \
@@ -54,7 +54,7 @@ public: \
 	DECLARE_SERIALIZER(AMonster)
 
 
-#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_STANDARD_CONSTRUCTORS \
+#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AMonster(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMonster) \
@@ -67,7 +67,7 @@ private: \
 public:
 
 
-#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_ENHANCED_CONSTRUCTORS \
+#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMonster(AMonster&&); \
@@ -78,21 +78,18 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMonster); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMonster)
 
 
-#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_PRIVATE_PROPERTY_OFFSET \
+#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__m_HP() { return STRUCT_OFFSET(AMonster, m_HP); } \
 	FORCEINLINE static uint32 __PPO__m_HPMax() { return STRUCT_OFFSET(AMonster, m_HPMax); } \
 	FORCEINLINE static uint32 __PPO__m_Attack() { return STRUCT_OFFSET(AMonster, m_Attack); } \
 	FORCEINLINE static uint32 __PPO__m_Armor() { return STRUCT_OFFSET(AMonster, m_Armor); } \
 	FORCEINLINE static uint32 __PPO__m_MovementSpeed() { return STRUCT_OFFSET(AMonster, m_MovementSpeed); } \
 	FORCEINLINE static uint32 __PPO__m_AttackRate() { return STRUCT_OFFSET(AMonster, m_AttackRate); } \
-	FORCEINLINE static uint32 __PPO__m_CloseAttackDistance() { return STRUCT_OFFSET(AMonster, m_CloseAttackDistance); } \
-	FORCEINLINE static uint32 __PPO__m_LongAttackDistance() { return STRUCT_OFFSET(AMonster, m_LongAttackDistance); } \
-	FORCEINLINE static uint32 __PPO__m_SightDistance() { return STRUCT_OFFSET(AMonster, m_SightDistance); } \
-	FORCEINLINE static uint32 __PPO__m_SightAngle() { return STRUCT_OFFSET(AMonster, m_SightAngle); } \
-	FORCEINLINE static uint32 __PPO__m_HearingDistance() { return STRUCT_OFFSET(AMonster, m_HearingDistance); } \
 	FORCEINLINE static uint32 __PPO__m_WalkSpeed() { return STRUCT_OFFSET(AMonster, m_WalkSpeed); } \
 	FORCEINLINE static uint32 __PPO__m_RunSpeed() { return STRUCT_OFFSET(AMonster, m_RunSpeed); } \
 	FORCEINLINE static uint32 __PPO__m_MonsterAnim() { return STRUCT_OFFSET(AMonster, m_MonsterAnim); } \
+	FORCEINLINE static uint32 __PPO__m_CloseAttackDistance() { return STRUCT_OFFSET(AMonster, m_CloseAttackDistance); } \
+	FORCEINLINE static uint32 __PPO__m_LongAttackDistance() { return STRUCT_OFFSET(AMonster, m_LongAttackDistance); } \
 	FORCEINLINE static uint32 __PPO__m_SuspiciousVoice() { return STRUCT_OFFSET(AMonster, m_SuspiciousVoice); } \
 	FORCEINLINE static uint32 __PPO__m_EnemySpotVoice() { return STRUCT_OFFSET(AMonster, m_EnemySpotVoice); } \
 	FORCEINLINE static uint32 __PPO__m_LongAttackSound() { return STRUCT_OFFSET(AMonster, m_LongAttackSound); } \
@@ -111,27 +108,27 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMonster); \
 	FORCEINLINE static uint32 __PPO__m_bDeath() { return STRUCT_OFFSET(AMonster, m_bDeath); }
 
 
-#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_24_PROLOG
-#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_GENERATED_BODY_LEGACY \
+#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_26_PROLOG
+#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_PRIVATE_PROPERTY_OFFSET \
-	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_SPARSE_DATA \
-	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_RPC_WRAPPERS \
-	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_INCLASS \
-	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_STANDARD_CONSTRUCTORS \
+	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_PRIVATE_PROPERTY_OFFSET \
+	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_SPARSE_DATA \
+	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_RPC_WRAPPERS \
+	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_INCLASS \
+	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_GENERATED_BODY \
+#define ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_PRIVATE_PROPERTY_OFFSET \
-	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_SPARSE_DATA \
-	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
-	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_INCLASS_NO_PURE_DECLS \
-	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_27_ENHANCED_CONSTRUCTORS \
+	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_PRIVATE_PROPERTY_OFFSET \
+	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_SPARSE_DATA \
+	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_RPC_WRAPPERS_NO_PURE_DECLS \
+	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_INCLASS_NO_PURE_DECLS \
+	ProjectTPS_Source_ProjectTPS_Monster_Monster_h_29_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -149,7 +146,11 @@ template<> PROJECTTPS_API UClass* StaticClass<class AMonster>();
 	op(MonsterAI::Trace) \
 	op(MonsterAI::Attack) \
 	op(MonsterAI::Death) \
-	op(MonsterAI::Suspicious) 
+	op(MonsterAI::Suspicious) \
+	op(MonsterAI::Skill1) \
+	op(MonsterAI::Skill2) \
+	op(MonsterAI::Skill3) \
+	op(MonsterAI::Skill4) 
 
 enum class MonsterAI : uint8;
 template<> PROJECTTPS_API UEnum* StaticEnum<MonsterAI>();

@@ -5,6 +5,7 @@
 #include "MonsterAIController.h"
 #include "Monster.h"
 #include "BehaviorTree/BlackboardComponent.h"
+#include "../Player/PlayerCharacter.h"
 
 UBTAttackTargetTask::UBTAttackTargetTask()
 {
@@ -75,7 +76,27 @@ void UBTAttackTargetTask::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* Nod
 
 		FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
 		return;
+
 	}
+
+	//FVector SocketLoc = pMonster->GetMesh()->GetSocketLocation(TEXT("LongAttackMuzzle"));
+
+
+	//TArray<AActor*> IgnoreActor;
+	//IgnoreActor.Add(pMonster);
+
+	//FHitResult result;
+
+	//bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), SocketLoc, pTarget->GetActorLocation(),
+	//	UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_Visibility), true, IgnoreActor,
+	//	EDrawDebugTrace::ForDuration, result, true, FLinearColor::Red, FLinearColor::Green, 0.1f);
+
+	//APlayerCharacter* pPlayer = Cast<APlayerCharacter>(result.Actor);
+	//if (!pPlayer)
+	//{
+	//	FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
+	//	return;
+	//}
 
 	if (pMonster->GetMonsterAIType() != MonsterAI::Attack)
 	{

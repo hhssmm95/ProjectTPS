@@ -15,7 +15,6 @@ AMonsterPatrolPoint::AMonsterPatrolPoint()
 void AMonsterPatrolPoint::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame

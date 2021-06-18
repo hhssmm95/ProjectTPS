@@ -22,6 +22,12 @@ protected:
 		TSubclassOf<ACharacter> m_PlayerCharacter;
 
 	UPROPERTY()
+	TArray<AActor*> m_AlarmAmbient;
+
+	UPROPERTY(VisibleAnywhere)
+	AAmbientSound* m_AlarmAmbientActor;
+
+	UPROPERTY()
 	TArray<AActor*> m_AlertSpawnPoint;
 
 	UPROPERTY()
@@ -32,6 +38,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		float m_AlertTime;
+
+	bool m_bGuideTextEnable;
+	float m_GuideTextTimeAcc;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

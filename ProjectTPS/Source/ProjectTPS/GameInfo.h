@@ -14,6 +14,16 @@ DECLARE_LOG_CATEGORY_EXTERN(UEKR1, Log, All);
 void PrintViewport(float fTime, const FColor& Color, const FString& strText);
 
 UENUM(BlueprintType)
+enum class ERevenantSkillType : uint8
+{
+	None,
+	Skill1,
+	Skill2,
+	Skill3,
+	Skill4
+};
+
+UENUM(BlueprintType)
 enum class EGearType : uint8
 {
 	None,
