@@ -27,10 +27,12 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		float m_Phase4Percent;
 
+	bool phase1enable;
 	bool phase2enable;
 	bool phase3enable;
 	bool phase4enable;
 
+	bool phase1Init;
 	bool phase2Init;
 	bool phase3Init;
 	bool phase4Init;

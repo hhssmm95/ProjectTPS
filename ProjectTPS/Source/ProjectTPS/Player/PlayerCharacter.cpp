@@ -17,6 +17,7 @@
 // Sets default values
 APlayerCharacter::APlayerCharacter()
 {
+
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
@@ -37,7 +38,6 @@ APlayerCharacter::APlayerCharacter()
 	
 
 
-
 	m_Arm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Arm"));
 	m_Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	//m_Scene = CreateDefaultSubobject<USceneComponent>(TEXT("Scene"));
@@ -47,6 +47,7 @@ APlayerCharacter::APlayerCharacter()
 	m_PostProcess = CreateDefaultSubobject<UPostProcessComponent>(TEXT("PostProcess"));
 
 	m_Camera->SetupAttachment(m_Arm);
+
 	m_PostProcess->SetupAttachment(GetCapsuleComponent());
 	m_Arm->SetupAttachment(GetCapsuleComponent());
 	m_AimLock->SetupAttachment(GetCapsuleComponent());

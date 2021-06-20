@@ -25,7 +25,7 @@
 		<EngineModeEx>Dirty</EngineModeEx>
 		<DeploymentName />
 		<EngineVersion>4.26.2-15973114+++UE4+Release-4.26</EngineVersion>
-		<CommandLine>G:\Git\ProjectTPS\ProjectTPS.uproject</CommandLine>
+		<CommandLine>CommandLineRemoved</CommandLine>
 		<LanguageLCID>0</LanguageLCID>
 		<AppDefaultLocale>ko-KR</AppDefaultLocale>
 		<BuildVersion>++UE4+Release-4.26-CL-15973114</BuildVersion>

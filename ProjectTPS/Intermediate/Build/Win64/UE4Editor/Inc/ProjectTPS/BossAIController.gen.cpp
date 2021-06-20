@@ -77,7 +77,7 @@ void EmptyLinkFunctionForGeneratedCodeBossAIController() {}
 		{ "ModuleRelativePath", "Monster/BossAIController.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABossAIController_Statics::NewProp_m_AITree = { "m_AITree", nullptr, (EPropertyFlags)0x0020080000020005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABossAIController, m_AITree), Z_Construct_UClass_UBehaviorTree_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ABossAIController_Statics::NewProp_m_AITree_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABossAIController_Statics::NewProp_m_AITree_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABossAIController_Statics::NewProp_m_AITree = { "m_AITree", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABossAIController, m_AITree), Z_Construct_UClass_UBehaviorTree_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ABossAIController_Statics::NewProp_m_AITree_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABossAIController_Statics::NewProp_m_AITree_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABossAIController_Statics::NewProp_m_bDeath_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -122,7 +122,7 @@ void EmptyLinkFunctionForGeneratedCodeBossAIController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ABossAIController, 3872780753);
+	IMPLEMENT_CLASS(ABossAIController, 261422085);
 	template<> PROJECTTPS_API UClass* StaticClass<ABossAIController>()
 	{
 		return ABossAIController::StaticClass();

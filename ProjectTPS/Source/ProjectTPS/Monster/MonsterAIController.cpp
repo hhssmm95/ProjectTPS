@@ -9,16 +9,18 @@
 
 AMonsterAIController::AMonsterAIController()
 {
-	static ConstructorHelpers::FObjectFinder<UBehaviorTree>	TreeObj(TEXT("BehaviorTree'/Game/Monster/BT_MonsterAI.BT_MonsterAI'"));
+	if (!m_bIsBoss)
+	{
+		static ConstructorHelpers::FObjectFinder<UBehaviorTree>	TreeObj(TEXT("BehaviorTree'/Game/Monster/BT_MonsterAI.BT_MonsterAI'"));
 
-	if (TreeObj.Succeeded())
-		m_AITree = TreeObj.Object;
+		if (TreeObj.Succeeded())
+			m_AITree = TreeObj.Object;
 
-	static ConstructorHelpers::FObjectFinder<UBlackboardData>	BlackboardObj(TEXT("BlackboardData'/Game/Monster/BB_GuardMonster.BB_GuardMonster'"));
+		static ConstructorHelpers::FObjectFinder<UBlackboardData>	BlackboardObj(TEXT("BlackboardData'/Game/Monster/BB_GuardMonster.BB_GuardMonster'"));
 
-	if (BlackboardObj.Succeeded())
-		m_AIBlackBoard = BlackboardObj.Object;
-
+		if (BlackboardObj.Succeeded())
+			m_AIBlackBoard = BlackboardObj.Object;
+	}
 	//SetGenericTeamId(FGenericTeamId(2));
 }
 
@@ -31,8 +33,11 @@ void AMonsterAIController::OnPossess(APawn* InPawn)
 
 		Blackboard->SetValueAsFloat(TEXT("AttackDistance1"), pMonster->GetCloseAttackDistance());
 		Blackboard->SetValueAsFloat(TEXT("AttackDistance2"), pMonster->GetLongAttackDistance());
-		Blackboard->SetValueAsVector(TEXT("BeforePanicLocation"), FVector::ZeroVector);
-		Blackboard->SetValueAsVector(TEXT("RandomLocation"), FVector::ZeroVector);
+		if (!m_bIsBoss)
+		{
+			Blackboard->SetValueAsVector(TEXT("BeforePanicLocation"), FVector::ZeroVector);
+			Blackboard->SetValueAsVector(TEXT("RandomLocation"), FVector::ZeroVector);
+		}
 		////Cast<MonsterAI>(Blackboard->GetValueAsEnum(TEXT("MonsterAI")))
 		if (!RunBehaviorTree(m_AITree))
 		{

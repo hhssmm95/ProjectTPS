@@ -19,12 +19,12 @@ EBTNodeResult::Type UBTTraceTargetTask::ExecuteTask(UBehaviorTreeComponent& Owne
 {
 	EBTNodeResult::Type eResult = Super::ExecuteTask(OwnerComp, NodeMemory);
 
-	AMonsterAIController* pController = Cast<AMonsterAIController>(OwnerComp.GetAIOwner());
+	//AMonsterAIController* pController = Cast<AMonsterAIController>(OwnerComp.GetAIOwner());
 
-	if (!IsValid(pController))
-		return EBTNodeResult::Failed;
+	//if (!IsValid(pController))
+	//	return EBTNodeResult::Failed;
 
-	AMonster* pMonster = Cast<AMonster>(pController->GetPawn());
+	AMonster* pMonster = Cast<AMonster>(OwnerComp.GetAIOwner()->GetPawn());
 
 	if (!IsValid(pMonster))
 		return EBTNodeResult::Failed;
@@ -32,7 +32,7 @@ EBTNodeResult::Type UBTTraceTargetTask::ExecuteTask(UBehaviorTreeComponent& Owne
 	//if (pMonster->GetMonsterAIType() == MonsterAI::Skill1)
 	//	return EBTNodeResult::Failed;
 
-	UObject* pTarget = pController->GetBlackboardComponent()->GetValueAsObject(TEXT("Target"));
+	UObject* pTarget = OwnerComp.GetAIOwner()->GetBlackboardComponent()->GetValueAsObject(TEXT("Target"));
 
 	if (!IsValid(pTarget))
 		return EBTNodeResult::Failed;
@@ -51,11 +51,11 @@ void UBTTraceTargetTask::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* Node
 {
 	Super::TickTask(OwnerComp, NodeMemory, DeltaSeconds);
 
-	AMonsterAIController* pController = Cast<AMonsterAIController>(OwnerComp.GetAIOwner());
+	//AMonsterAIController* pController = Cast<AMonsterAIController>(OwnerComp.GetAIOwner());
 
-	AMonster* pMonster = Cast<AMonster>(pController->GetPawn());
+	AMonster* pMonster = Cast<AMonster>(OwnerComp.GetAIOwner()->GetPawn());
 
-	ACharacter* pTarget = Cast<ACharacter>(pController->GetBlackboardComponent()->GetValueAsObject(TEXT("Target")));
+	ACharacter* pTarget = Cast<ACharacter>(OwnerComp.GetAIOwner()->GetBlackboardComponent()->GetValueAsObject(TEXT("Target")));
 
 	if (pMonster->GetIsDeath())
 	{
@@ -65,7 +65,7 @@ void UBTTraceTargetTask::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* Node
 
 	if (!pTarget)
 	{
-		pController->StopMovement();
+		OwnerComp.GetAIOwner()->StopMovement();
 
 		FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
 		return;
@@ -76,7 +76,7 @@ void UBTTraceTargetTask::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* Node
 
 	FHitResult result;
 
-	UAIBlueprintHelperLibrary::SimpleMoveToActor(pController, pTarget);
+	UAIBlueprintHelperLibrary::SimpleMoveToActor(OwnerComp.GetAIOwner(), pTarget);
 	//pMonster->SetMonsterAIType(MonsterAI::Trace);
 	FVector vLoc = pMonster->GetMesh()->GetSocketLocation(TEXT("LongAttackMuzzle"));
 
@@ -87,13 +87,13 @@ void UBTTraceTargetTask::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* Node
 	APlayerCharacter* pPlayer = Cast<APlayerCharacter>(result.Actor);
 
 
-	float fAttackDistance = pController->GetBlackboardComponent()->GetValueAsFloat(m_DistanceName);
+	float fAttackDistance = OwnerComp.GetAIOwner()->GetBlackboardComponent()->GetValueAsFloat(m_DistanceName);
 
 	float fDist = FVector::Distance(pTarget->GetActorLocation(), pMonster->GetActorLocation());
 
 	if (fDist <= fAttackDistance && pPlayer)
 	{
-		pController->StopMovement();
+		OwnerComp.GetAIOwner()->StopMovement();
 
 		FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded);
 		return;

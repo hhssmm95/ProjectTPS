@@ -21,8 +21,7 @@ void ABossAIController::OnPossess(APawn* InPawn)
 
 		Blackboard->SetValueAsFloat(TEXT("AttackDistance1"), pMonster->GetCloseAttackDistance());
 		Blackboard->SetValueAsFloat(TEXT("AttackDistance2"), pMonster->GetLongAttackDistance());
-		Blackboard->SetValueAsVector(TEXT("BeforePanicLocation"), FVector::ZeroVector);
-		Blackboard->SetValueAsVector(TEXT("RandomLocation"), FVector::ZeroVector);
+		//SetTargetAsPlayer();
 		////Cast<MonsterAI>(Blackboard->GetValueAsEnum(TEXT("MonsterAI")))
 		if (!RunBehaviorTree(m_AITree))
 		{
@@ -42,7 +41,6 @@ void ABossAIController::SetDeath()
 {
 	m_bDeath = true;
 	Blackboard->SetValueAsBool(TEXT("Death"), true);
-	Blackboard->SetValueAsBool(TEXT("IsInvestigating"), false);
 	StopMovement();
 }
 bool ABossAIController::GetTargetExist()

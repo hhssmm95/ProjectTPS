@@ -24,9 +24,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		ERevenantSkillType	SkillType;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		int32	SkillEnablePhase;
-
 		bool InPhase;
 	FRevenantSkill()
 	{
@@ -46,6 +43,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TArray<FRevenantSkill>	m_SkillArray;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		TArray<AActor*>	m_TeleportSpotArray;
+
 	bool m_bSkillEnable;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -53,7 +53,7 @@ protected:
 
 	float m_SkillTime;
 
-	class ABossAIController* m_RevenantAI;
+	class AMonsterAIController* m_RevenantAI;
 
 	int32		m_UseSkillIndex;
 	ERevenantSkillType	m_UseSkillType;
@@ -72,6 +72,52 @@ public:
 		return m_SkillArray;
 	}
 
+	virtual void MonsterNearAttack();
+	virtual void MonsterLongAttack();
+
+	void SetSkill1InPhase()
+	{
+		for (auto& Skill : m_SkillArray)
+		{
+			if (Skill.SkillType == ERevenantSkillType::Skill1)
+			{
+				Skill.InPhase = true;
+			}
+		}
+	}
+	void SetSkill2InPhase()
+	{
+		for (auto& Skill : m_SkillArray)
+		{
+			if (Skill.SkillType == ERevenantSkillType::Skill2)
+			{
+				Skill.InPhase = true;
+			}
+		}
+	}
+	void SetSkill3InPhase()
+	{
+		for (auto& Skill : m_SkillArray)
+		{
+			if (Skill.SkillType == ERevenantSkillType::Skill3)
+			{
+				Skill.InPhase = true;
+			}
+		}
+	}
+	void SetSkill4InPhase()
+	{
+		for (auto& Skill : m_SkillArray)
+		{
+			if (Skill.SkillType == ERevenantSkillType::Skill4)
+			{
+				Skill.InPhase = true;
+			}
+		}
+	}
+
+	virtual void MonsterSkillEnd();
+	void Teleport();
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

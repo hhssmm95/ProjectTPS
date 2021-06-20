@@ -157,8 +157,8 @@ public:
 
 public:
 	void MonsterAttackEnd();
-	void MonsterNearAttack();
-	void MonsterLongAttack();
+	virtual void MonsterNearAttack();
+	virtual void MonsterLongAttack();
 	void MonsterSuspectEnd();
 	void MonsterDeathEnd();
 public:
@@ -309,4 +309,5 @@ public:
 		return m_bCallBackupEnable;
 	}
 
+	virtual void MonsterSkillEnd();
 };

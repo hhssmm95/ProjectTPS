@@ -19,6 +19,7 @@ void EmptyLinkFunctionForGeneratedCodeRevenant() {}
 	PROJECTTPS_API UClass* Z_Construct_UClass_ARevenant_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_ARevenant();
 	PROJECTTPS_API UClass* Z_Construct_UClass_AMonster();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_APlayerCharacter_NoRegister();
 // End Cross Module References
 class UScriptStruct* FRevenantSkill::StaticStruct()
@@ -63,10 +64,6 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFRevenantSkill
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SkillType_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_SkillType;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SkillEnablePhase_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FIntPropertyParams NewProp_SkillEnablePhase;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -109,20 +106,11 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFRevenantSkill
 	};
 #endif
 	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FRevenantSkill_Statics::NewProp_SkillType = { "SkillType", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FRevenantSkill, SkillType), Z_Construct_UEnum_ProjectTPS_ERevenantSkillType, METADATA_PARAMS(Z_Construct_UScriptStruct_FRevenantSkill_Statics::NewProp_SkillType_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FRevenantSkill_Statics::NewProp_SkillType_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FRevenantSkill_Statics::NewProp_SkillEnablePhase_MetaData[] = {
-		{ "AllowPrivateAccess", "true" },
-		{ "Category", "RevenantSkill" },
-		{ "ModuleRelativePath", "Monster/Revenant.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FRevenantSkill_Statics::NewProp_SkillEnablePhase = { "SkillEnablePhase", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FRevenantSkill, SkillEnablePhase), METADATA_PARAMS(Z_Construct_UScriptStruct_FRevenantSkill_Statics::NewProp_SkillEnablePhase_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FRevenantSkill_Statics::NewProp_SkillEnablePhase_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FRevenantSkill_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FRevenantSkill_Statics::NewProp_SkillEnable,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FRevenantSkill_Statics::NewProp_SkillTimeMax,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FRevenantSkill_Statics::NewProp_SkillType_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FRevenantSkill_Statics::NewProp_SkillType,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FRevenantSkill_Statics::NewProp_SkillEnablePhase,
 	};
 	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FRevenantSkill_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_ProjectTPS,
@@ -152,7 +140,7 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFRevenantSkill
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FRevenantSkill_Hash() { return 1498290429U; }
+	uint32 Get_Z_Construct_UScriptStruct_FRevenantSkill_Hash() { return 3567868212U; }
 	void ARevenant::StaticRegisterNativesARevenant()
 	{
 	}
@@ -171,6 +159,11 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFRevenantSkill
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SkillArray_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_m_SkillArray;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_TeleportSpotArray_Inner;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_TeleportSpotArray_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_m_TeleportSpotArray;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SkillTimeMax_MetaData[];
 #endif
@@ -203,6 +196,15 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFRevenantSkill
 	};
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillArray = { "m_SkillArray", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_SkillArray), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillArray_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillArray_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSpotArray_Inner = { "m_TeleportSpotArray", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSpotArray_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Revenant" },
+		{ "ModuleRelativePath", "Monster/Revenant.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSpotArray = { "m_TeleportSpotArray", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_TeleportSpotArray), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSpotArray_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSpotArray_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillTimeMax_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -220,6 +222,8 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFRevenantSkill
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARevenant_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillArray_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillArray,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSpotArray_Inner,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSpotArray,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillTimeMax,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_Target,
 	};
@@ -250,7 +254,7 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFRevenantSkill
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARevenant, 1854105373);
+	IMPLEMENT_CLASS(ARevenant, 4137715016);
 	template<> PROJECTTPS_API UClass* StaticClass<ARevenant>()
 	{
 		return ARevenant::StaticClass();

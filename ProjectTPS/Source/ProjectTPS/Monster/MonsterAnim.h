@@ -15,7 +15,11 @@ enum class EMonsterAnimType : uint8
 	Attack1,
 	Attack2,
 	Death,
-	Suspicious
+	Suspicious,
+	Skill1,
+	Skill2,
+	Skill3,
+	Skill4
 	
 };
 
@@ -33,6 +37,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		bool m_bDeath;
+
+	bool m_SkillEnd;
+	bool m_bSkillPlaying;
 public:
 	UMonsterAnim();
 
@@ -41,6 +48,14 @@ public:
 	virtual void NativeUpdateAnimation(float DeltaSeconds);
 
 public:
+	void SetSkillPlaying(bool playing)
+	{
+		m_bSkillPlaying = playing;
+	}
+	bool GetSkillPlaying() const
+	{
+		return m_bSkillPlaying;
+	}
 
 	void ChangeAnimType(EMonsterAnimType AnimType)
 	{
@@ -50,6 +65,16 @@ public:
 	void SetDeath()
 	{
 		m_bDeath = true;
+	}
+
+	void ClearSkillEnd()
+	{
+		m_SkillEnd = false;
+	}
+
+	bool IsSkillEnd()
+	{
+		return m_SkillEnd;
 	}
 
 public:
@@ -66,4 +91,8 @@ public:
 		void AnimNotify_MonsterSuspectEnd();
 	UFUNCTION(BlueprintCallable)
 		void AnimNotify_MonsterDeathEnd();
+	UFUNCTION(BlueprintCallable)
+		void AnimNotify_MonsterSkillEnd();
+	UFUNCTION(BlueprintCallable)
+		void AnimNotify_RevenantTeleport();
 };

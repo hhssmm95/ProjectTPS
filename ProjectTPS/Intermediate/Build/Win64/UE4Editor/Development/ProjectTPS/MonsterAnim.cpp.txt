@@ -682,3 +682,5 @@ E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AIBlueprintHel
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\MonsterAnim.generated.h
 G:\Git\ProjectTPS\Source\ProjectTPS\Monster\Monster.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\Monster.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Monster\Revenant.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\Revenant.generated.h

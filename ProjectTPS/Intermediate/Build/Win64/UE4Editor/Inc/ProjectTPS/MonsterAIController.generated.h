@@ -61,6 +61,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMonsterAIController); \
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterAIController_h_15_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__m_AITree() { return STRUCT_OFFSET(AMonsterAIController, m_AITree); } \
 	FORCEINLINE static uint32 __PPO__m_AIBlackBoard() { return STRUCT_OFFSET(AMonsterAIController, m_AIBlackBoard); } \
+	FORCEINLINE static uint32 __PPO__m_bIsBoss() { return STRUCT_OFFSET(AMonsterAIController, m_bIsBoss); } \
 	FORCEINLINE static uint32 __PPO__m_bDeath() { return STRUCT_OFFSET(AMonsterAIController, m_bDeath); }
 
 

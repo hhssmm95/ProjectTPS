@@ -78,39 +78,30 @@ void UBTAttackTargetTask::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* Nod
 		return;
 
 	}
+		
+	FVector vTarget = pTarget->GetActorLocation();
+	FVector vLoc = pMonster->GetActorLocation();
 
-	//FVector SocketLoc = pMonster->GetMesh()->GetSocketLocation(TEXT("LongAttackMuzzle"));
+	FVector vDir = vTarget - vLoc;
+	vDir.Normalize();
+	pMonster->SetActorRotation(FRotator(0.f, vDir.Rotation().Yaw, 0.f));
 
 
-	//TArray<AActor*> IgnoreActor;
-	//IgnoreActor.Add(pMonster);
-
-	//FHitResult result;
-
-	//bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), SocketLoc, pTarget->GetActorLocation(),
-	//	UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_Visibility), true, IgnoreActor,
-	//	EDrawDebugTrace::ForDuration, result, true, FLinearColor::Red, FLinearColor::Green, 0.1f);
-
-	//APlayerCharacter* pPlayer = Cast<APlayerCharacter>(result.Actor);
-	//if (!pPlayer)
+	FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded);
+	return;
+	//if (pMonster->GetMonsterAIType() != MonsterAI::Attack)
 	//{
-	//	FinishLatentTask(OwnerComp, EBTNodeResult::Failed);
+	//	//타겟을 바라보도록 회전한다.
+	//	FVector vTarget = pTarget->GetActorLocation();
+	//	FVector vLoc = pMonster->GetActorLocation();
+
+	//	FVector vDir = vTarget - vLoc;
+	//	vDir.Normalize();
+	//	pMonster->SetActorRotation(FRotator(0.f, vDir.Rotation().Yaw, 0.f));
+
+	//	//Task종료
+	//	FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded);
 	//	return;
 	//}
-
-	if (pMonster->GetMonsterAIType() != MonsterAI::Attack)
-	{
-		//타겟을 바라보도록 회전한다.
-		FVector vTarget = pTarget->GetActorLocation();
-		FVector vLoc = pMonster->GetActorLocation();
-
-		FVector vDir = vTarget - vLoc;
-		vDir.Normalize();
-		pMonster->SetActorRotation(FRotator(0.f, vDir.Rotation().Yaw, 0.f));
-
-		//Task종료
-		FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded);
-		return;
-	}
 
 }

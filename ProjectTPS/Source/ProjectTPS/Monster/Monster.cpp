@@ -71,14 +71,18 @@ void AMonster::Tick(float DeltaTime)
 		case MonsterAI::Idle:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Idle);
 			m_TargetLoc = FVector::ZeroVector;
+
+			//PrintViewport(2.f, FColor::Yellow, TEXT("AI is Idle"));
 			break;
 		case MonsterAI::Patrol:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Walk);
 			m_TargetLoc = FVector::ZeroVector;
+			//PrintViewport(2.f, FColor::Yellow, TEXT("AI is Patrol"));
 			break;
 		case MonsterAI::Trace:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Run);
 			m_TargetLoc = FVector::ZeroVector;
+			//PrintViewport(2.f, FColor::Yellow, TEXT("AI is Trace"));
 			break;
 		case MonsterAI::Attack:
 			break;
@@ -89,6 +93,26 @@ void AMonster::Tick(float DeltaTime)
 		case MonsterAI::Suspicious:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Suspicious);
 			m_TargetLoc = FVector::ZeroVector;
+			break;
+		case MonsterAI::Skill1:
+			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Skill1);
+			m_TargetLoc = FVector::ZeroVector;
+			//PrintViewport(2.f, FColor::Yellow, TEXT("AI is Skill1"));
+			break;
+		case MonsterAI::Skill2:
+			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Skill2);
+			m_TargetLoc = FVector::ZeroVector;
+			//PrintViewport(2.f, FColor::Yellow, TEXT("AI is Skill2"));
+			break;
+		case MonsterAI::Skill3:
+			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Skill3);
+			m_TargetLoc = FVector::ZeroVector;
+			//PrintViewport(2.f, FColor::Yellow, TEXT("AI is Skill3"));
+			break;
+		case MonsterAI::Skill4:
+			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Skill4);
+			m_TargetLoc = FVector::ZeroVector;
+			//PrintViewport(2.f, FColor::Yellow, TEXT("AI is Skill4"));
 			break;
 		}
 	
@@ -115,7 +139,9 @@ void AMonster::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void AMonster::MonsterAttackEnd()
 {
-	m_eMonsterAIType = MonsterAI::Idle;
+	if(!m_MonsterAnim->GetSkillPlaying())
+		m_eMonsterAIType = MonsterAI::Idle;
+	//PrintViewport(2.f, FColor::Red, TEXT("AttackEnd"));
 }
 
 
@@ -133,6 +159,8 @@ void AMonster::MonsterNearAttack()
 		params);
 	if (bSweep)
 	{
+
+		PrintViewport(2.f, FColor::Red, result.Actor->GetFName().ToString());
 		/*
 		
 
@@ -316,4 +344,10 @@ void AMonster::EmitHeadshotEffect(FVector ImpactLoc, FRotator Rot)
 void AMonster::ItemDrop()
 {
 	GetWorld()->SpawnActor<ADropItem>(m_DropItem, GetActorLocation(), GetActorRotation());
+}
+
+
+void AMonster::MonsterSkillEnd()
+{
+	m_eMonsterAIType = MonsterAI::Idle;
 }

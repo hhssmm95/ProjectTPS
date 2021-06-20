@@ -20,8 +20,8 @@ bool UBTCheckDistanceDecorator::CalculateRawConditionValue(
 	bool bResult = Super::CalculateRawConditionValue(OwnerComp, NodeMemory);
 
 
-	AMonsterAIController* pController = Cast<AMonsterAIController>(OwnerComp.GetAIOwner());
-	AMonster* pMonster = Cast<AMonster>(pController->GetPawn());
+	//AMonsterAIController* pController = Cast<AMonsterAIController>(OwnerComp.GetAIOwner());
+	AMonster* pMonster = Cast<AMonster>(OwnerComp.GetAIOwner()->GetPawn());
 
 	float   CheckDistance = 0.f;
 

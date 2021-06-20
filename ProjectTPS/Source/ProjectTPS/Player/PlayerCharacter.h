@@ -341,7 +341,7 @@ public:
 	{
 		m_PlayerInfo->AddAbilityPoint(Point);
 	}
-
+	
 
 
 public:
