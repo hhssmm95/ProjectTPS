@@ -9,6 +9,10 @@
 #include "EnemyBullet.h"
 #include "../EffectNormal.h"
 #include "../HitEffect.h"
+#include "Grenade.h"
+#include "../PlayerHUD.h"
+#include "../UI/MainHUDWidget.h"
+#include "../UI/BossHPWidget.h"
 
 ARevenant::ARevenant()
 {
@@ -30,7 +34,7 @@ void ARevenant::BeginPlay()
 	Super::BeginPlay();
 	m_RevenantAI = Cast<AMonsterAIController>(GetController());
 
-
+	
 }
 
 void ARevenant::Tick(float DeltaTime)
@@ -41,7 +45,24 @@ void ARevenant::Tick(float DeltaTime)
 	{
 		Target = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
 		m_RevenantAI->SetTargetAsPlayer();
+
+		
 	}
+
+	if (!m_HPWidget)
+	{
+		APlayerHUD* pHUD = Cast<APlayerHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
+		if(pHUD)
+			m_HPWidget = pHUD->GetMainHUDWidget()->GetBossHPWidget();
+
+		if (m_HPWidget)
+		{
+			m_HPWidget->SetName(TEXT("Revenant"));
+			m_HPWidget->SetHPBar((float)m_HP / (float)m_HPMax);
+			m_HPWidget->SetVisibility(ESlateVisibility::HitTestInvisible);
+		}
+	}
+
 
 	//스킬 쿨타임을 진행해야 한다면  스킬 쿨타임을 진행시킨다.
 	for (int32 i = 0; i < m_SkillArray.Num(); i++)
@@ -113,6 +134,7 @@ void ARevenant::MonsterSkillEnd()
 	m_SkillTime = 0.f;
 }
 
+
 float ARevenant::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent,
 	AController* EventInstigator, AActor* DamageCauser)
 {
@@ -122,6 +144,7 @@ float ARevenant::TakeDamage(float DamageAmount, struct FDamageEvent const& Damag
 	PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("Enemy HP : %d"), m_HP));
 	AMonsterAIController* pController = Cast<AMonsterAIController>(GetController());
 
+	m_HPWidget->SetHPBar((float)m_HP / (float)m_HPMax);
 	if (m_HP <= 0)
 	{
 		m_bDeath = true;
@@ -129,12 +152,40 @@ float ARevenant::TakeDamage(float DamageAmount, struct FDamageEvent const& Damag
 		m_MonsterAnim->SetDeath();
 		pController->SetDeath();
 	}
+
 	return DamageAmount;
+}
+
+float ARevenant::TakeDamageFromClose(float Damage, struct FDamageEvent const& DamageEvent,
+	AController* EventInstigator, AActor* DamageCauser)
+{
+	Damage = Super::TakeDamage(Damage, DamageEvent, EventInstigator, DamageCauser);
+	AMonsterAIController* pController = Cast<AMonsterAIController>(GetController());
+
+		m_HP -= Damage;
+
+		m_HPWidget->SetHPBar((float)m_HP / (float)m_HPMax);
+
+		if (m_HP <= 0)
+		{
+			m_bDeath = true;
+			m_eMonsterAIType = MonsterAI::Death;
+			m_MonsterAnim->SetDeath();
+			pController->SetDeath();
+			return Damage;
+		}
+
+
+	//m_MonsterAnim->MonsterHitReaction();
+	return Damage;
 }
 
 
 void ARevenant::MonsterNearAttack()
 {
+	if (m_IsReloading)
+		return;
+
 	FHitResult result;
 
 	FCollisionQueryParams	params(NAME_None, false, this);
@@ -171,7 +222,7 @@ void ARevenant::MonsterNearAttack()
 		{
 			FDamageEvent DmgEvent;
 			pPlayer->TakeDamage((float)m_Attack, DmgEvent, GetController(), this);
-			pPlayer->GetCapsuleComponent()->AddImpulse(result.ImpactNormal * 1000.f);
+			//pPlayer->GetCapsuleComponent()->AddImpulse(result.ImpactNormal * 1000.f);
 		}
 	}
 
@@ -188,36 +239,58 @@ void ARevenant::MonsterNearAttack()
 
 void ARevenant::MonsterLongAttack()
 {
+	if (m_IsReloading)
+		return;
 	FVector vMuzzlePos = GetMesh()->GetSocketLocation(TEXT("LongAttackMuzzle")) + GetActorForwardVector();
 	FRotator vMuzzleRot = GetActorRotation();
 
-	AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_LongAttackMuzzle, vMuzzlePos,
-		vMuzzleRot);
 
-	UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_LongAttackSound, GetActorLocation());
+	if (!m_SpecialBulletEnable)
+	{
+		AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_LongAttackMuzzle, vMuzzlePos,
+			vMuzzleRot);
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_LongAttackSound, GetActorLocation());
 
-	FRotator BulletRot = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 80.f,
-		FVector(m_TargetLoc.X, m_TargetLoc.Y, m_TargetLoc.Z + 50.f));
-	/*FRotator BulletRot1 = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 80.f,
+		FRotator BulletRot = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 80.f,
+			FVector(m_TargetLoc.X, m_TargetLoc.Y, m_TargetLoc.Z + 50.f));
+
+		AEnemyBullet* Bullet = GetWorld()->SpawnActor<AEnemyBullet>(m_LongAttackBullet, vMuzzlePos + GetActorForwardVector() * 80.f,
+			BulletRot);
+	}
+	else if (m_SpecialBulletEnable && m_SpecialBulletRemain >= 1)
+	{
+		AEffectNormal* Muzzle = GetWorld()->SpawnActor<AEffectNormal>(m_LongAttackMuzzle, vMuzzlePos,
+			vMuzzleRot);
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_LongAttackSound, GetActorLocation());
+
+		FRotator BulletRot1 = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 80.f,
 		FVector(m_TargetLoc.X + 50.f, m_TargetLoc.Y, m_TargetLoc.Z + 50.f));
 	FRotator BulletRot2 = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 80.f,
 		FVector(m_TargetLoc.X - 50.f, m_TargetLoc.Y, m_TargetLoc.Z + 50.f));
 	FRotator BulletRot3 = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 80.f,
 		FVector(m_TargetLoc.X + 100.f , m_TargetLoc.Y, m_TargetLoc.Z + 50.f));
 	FRotator BulletRot4 = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 80.f,
-		FVector(m_TargetLoc.X - 100.f , m_TargetLoc.Y, m_TargetLoc.Z + 50.f));*/
+		FVector(m_TargetLoc.X - 100.f , m_TargetLoc.Y, m_TargetLoc.Z + 50.f));
 
-	AEnemyBullet* Bullet = GetWorld()->SpawnActor<AEnemyBullet>(m_LongAttackBullet, vMuzzlePos + GetActorForwardVector() * 80.f,
-		BulletRot);
+		AEnemyBullet* Bullet1 = GetWorld()->SpawnActor<AEnemyBullet>(m_LongAttackBullet, vMuzzlePos + GetActorForwardVector() * 80.f,
+			BulletRot1);
+		AEnemyBullet* Bullet2 = GetWorld()->SpawnActor<AEnemyBullet>(m_LongAttackBullet, vMuzzlePos + GetActorForwardVector() * 80.f,
+			BulletRot2);
+		AEnemyBullet* Bullet3 = GetWorld()->SpawnActor<AEnemyBullet>(m_LongAttackBullet, vMuzzlePos + GetActorForwardVector() * 80.f,
+			BulletRot3);
+		AEnemyBullet* Bullet4 = GetWorld()->SpawnActor<AEnemyBullet>(m_LongAttackBullet, vMuzzlePos + GetActorForwardVector() * 80.f,
+			BulletRot4);
 
-	/*AEnemyBullet* Bullet1 = GetWorld()->SpawnActor<AEnemyBullet>(m_LongAttackBullet, vMuzzlePos + GetActorForwardVector() * 80.f,
-		BulletRot1);
-	AEnemyBullet* Bullet2 = GetWorld()->SpawnActor<AEnemyBullet>(m_LongAttackBullet, vMuzzlePos + GetActorForwardVector() * 80.f,
-		BulletRot2);
-	AEnemyBullet* Bullet3 = GetWorld()->SpawnActor<AEnemyBullet>(m_LongAttackBullet, vMuzzlePos + GetActorForwardVector() * 80.f,
-		BulletRot3);
-	AEnemyBullet* Bullet4 = GetWorld()->SpawnActor<AEnemyBullet>(m_LongAttackBullet, vMuzzlePos + GetActorForwardVector() * 80.f,
-		BulletRot4);*/
+		m_SpecialBulletRemain--;
+
+	}
+	else if (m_SpecialBulletEnable && m_SpecialBulletRemain <= 0)
+	{
+		m_IsReloading = true;
+		m_MonsterAnim->RevenantReloadMontage();
+	}
+
+	
 }
 
 void ARevenant::Teleport()
@@ -229,7 +302,110 @@ void ARevenant::Teleport()
 
 	SetActorLocation(m_TeleportSpotArray[SpotNumber]->GetActorLocation());
 
-	if (m_eMonsterAIType == MonsterAI::Idle)
-		m_eMonsterAIType = MonsterAI::Skill1;
+	int32 RandSound = FMath::RandRange(0, 1);
+	if(RandSound == 0)
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_TeleportSound1, GetActorLocation());
+	else
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_TeleportSound2, GetActorLocation());
+
 	//m_eMonsterAIType = MonsterAI::Idle;
+}
+
+void ARevenant::ThrowGrenade()
+{
+	if (!m_GrenadeClass)
+		return;
+
+	int32 RandSound = FMath::RandRange(0, 1);
+	if (RandSound == 0)
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_GrenadeSound1, GetActorLocation());
+	else
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_GrenadeSound2, GetActorLocation());
+
+	FActorSpawnParameters param;
+	param.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+	FVector vLoc = GetMesh()->GetSocketLocation(TEXT("hand_r_ability_socket"));
+	ACharacter* pTarget = Cast<ACharacter>(m_RevenantAI->GetBlackboardComponent()->GetValueAsObject(TEXT("Target")));
+	FVector vTargetLoc = pTarget->GetActorLocation();
+	AGrenade* pGrenade1 = GetWorld()->SpawnActor<AGrenade>(m_GrenadeClass, vLoc, FRotator::ZeroRotator, param);
+
+	AGrenade* pGrenade2 = GetWorld()->SpawnActor<AGrenade>(m_GrenadeClass, vLoc, FRotator::ZeroRotator, param);
+
+	AGrenade* pGrenade3 = GetWorld()->SpawnActor<AGrenade>(m_GrenadeClass, vLoc, FRotator::ZeroRotator, param);
+
+	pGrenade1->Throw(vLoc, FVector(vTargetLoc.X, vTargetLoc.Y, 0.f), this);
+	pGrenade2->Throw(vLoc, FVector(vTargetLoc.X, vTargetLoc.Y + 700.f , 0.f), this);
+	pGrenade3->Throw(vLoc, FVector(vTargetLoc.X, vTargetLoc.Y - 700.f, 0.f), this);
+
+
+}
+
+
+void ARevenant::CallBackup()
+{
+	if (!m_BackupMonsterClass)
+		return;
+
+	int32 RandSound = FMath::RandRange(0, 1);
+	if (RandSound == 0)
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_BackupSound1, GetActorLocation());
+	else
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_BackupSound2, GetActorLocation());
+
+	FActorSpawnParameters param;
+	param.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+
+	FActorSpawnParameters EffectParam;
+	param.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+	FNavLocation SpawnLot;
+
+	for (int i = 0; i < 4; i++)
+	{
+		ANavigationData* NavData = Cast<ANavigationData>(GetWorld()->GetNavigationSystem()->GetMainNavData());
+		NavData->GetRandomPointInNavigableRadius(GetActorLocation(), 1200.f, SpawnLot);
+
+		FVector SpawnFloorLot = FVector(SpawnLot.Location.X, SpawnLot.Location.Y, SpawnLot.Location.Z + 100.f);
+		
+
+		AMonster* pMonster = GetWorld()->SpawnActor<AMonster>(m_BackupMonsterClass, SpawnFloorLot, GetActorRotation(), param);
+		pMonster->SetDropAmmoAmount(15);
+		AMonsterAIController* pController = Cast<AMonsterAIController>(pMonster->GetController());
+		pController->SetTargetAsPlayer();
+
+		AHitEffect* pEffect = GetWorld()->SpawnActor<AHitEffect>(AHitEffect::StaticClass(), pMonster->GetActorLocation(), 
+			FRotator::ZeroRotator, EffectParam);
+
+		pEffect->LoadParticle(m_BackupParticle);
+		pEffect->LoadSound(m_BackupEffectSound);
+
+	}
+
+
+
+}
+
+void ARevenant::SpecialBullet()
+{
+	/*int32 RandSound = FMath::RandRange(0, 1);
+	if (RandSound == 0)
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ReloadSound1, GetActorLocation());
+	else
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ReloadSound2, GetActorLocation());*/
+
+	m_SpecialBulletEnable = true;
+	m_SpecialBulletRemain = 4;
+}
+
+void ARevenant::ReloadEnd()
+{
+	int32 RandSound = FMath::RandRange(0, 1);
+	if (RandSound == 0)
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ReloadSound1, GetActorLocation());
+	else
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_ReloadSound2, GetActorLocation());
+
+	m_SpecialBulletRemain = 4;
+	m_IsReloading = false;
 }

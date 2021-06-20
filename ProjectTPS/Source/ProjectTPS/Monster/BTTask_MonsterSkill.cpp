@@ -24,6 +24,13 @@ EBTNodeResult::Type UBTTask_MonsterSkill::ExecuteTask(UBehaviorTreeComponent& Ow
 
 	ERevenantSkillType	SkillType = (ERevenantSkillType)OwnerComp.GetAIOwner()->GetBlackboardComponent()->GetValueAsEnum(TEXT("SkillType"));
 
+	ARevenant* pRevenant = Cast<ARevenant>(pMonster);
+	if (pRevenant)
+	{
+		if(pRevenant->GetIsReloading())
+			return EBTNodeResult::Failed;
+	}
+
 	switch (SkillType)
 	{
 	case ERevenantSkillType::Skill1:

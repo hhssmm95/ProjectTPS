@@ -28,6 +28,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	class UUserWidget* m_ScopeAim;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	class UBossHPWidget* m_BossHPWidget;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	class UBackgroundBlur* m_BackgroundBlur;
@@ -91,5 +93,10 @@ public:
 	UHitMarkerWidget* GetHitMarkerWidget()	const
 	{
 		return m_HitMarkerWidget;
+	}
+
+	UBossHPWidget* GetBossHPWidget()
+	{
+		return m_BossHPWidget;
 	}
 };

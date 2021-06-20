@@ -40,6 +40,11 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 public:
+	void SetAmmoAmount(int32 Ammo)
+	{
+		m_AmmoAmount = Ammo;
+	}
+
 	UFUNCTION(BlueprintCallable)
 	void OnItemBeginOverlap(UPrimitiveComponent* OverlappedComponent,
 			AActor* OtherActor, UPrimitiveComponent* OtherComp,

@@ -77,6 +77,30 @@ void UMonsterAnim::AnimNotify_MonsterSkillEnd()
 		pMonster->MonsterSkillEnd();
 }
 
+void UMonsterAnim::RevenantReloadMontage()
+{
+	if(m_RevenantReloadMontage)
+		Montage_Play(m_RevenantReloadMontage);
+}
+
+void UMonsterAnim::AnimNotify_RevenantSpecialBullet()
+{
+	ARevenant* pRevenant = Cast<ARevenant>(TryGetPawnOwner());
+	if (pRevenant)
+	{
+		pRevenant->SpecialBullet();
+	}
+}
+
+void UMonsterAnim::AnimNotify_RevenantReloadEnd()
+{
+	ARevenant* pRevenant = Cast<ARevenant>(TryGetPawnOwner());
+	if (pRevenant)
+	{
+		pRevenant->ReloadEnd();
+	}
+}
+
 void UMonsterAnim::AnimNotify_RevenantTeleport()
 {
 	ARevenant* pRevenant = Cast<ARevenant>(TryGetPawnOwner());
@@ -84,5 +108,25 @@ void UMonsterAnim::AnimNotify_RevenantTeleport()
 	if (pRevenant)
 	{
 		pRevenant->Teleport();
+	}
+}
+
+void UMonsterAnim::AnimNotify_RevenantGrenade()
+{
+	ARevenant* pRevenant = Cast<ARevenant>(TryGetPawnOwner());
+
+	if (pRevenant)
+	{
+		pRevenant->ThrowGrenade();
+	}
+}
+
+void UMonsterAnim::AnimNotify_RevenantBackup()
+{
+	ARevenant* pRevenant = Cast<ARevenant>(TryGetPawnOwner());
+
+	if (pRevenant)
+	{
+		pRevenant->CallBackup();
 	}
 }

@@ -22,6 +22,7 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 	PROJECTTPS_API UClass* Z_Construct_UClass_UHitMarkerWidget_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_UAbilityWindowWidget_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
+	PROJECTTPS_API UClass* Z_Construct_UClass_UBossHPWidget_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UBackgroundBlur_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UProgressBar_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
@@ -60,6 +61,10 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_ScopeAim_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_ScopeAim;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BossHPWidget_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_BossHPWidget;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BackgroundBlur_MetaData[];
 #endif
@@ -148,6 +153,15 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_ScopeAim = { "m_ScopeAim", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_ScopeAim), Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_ScopeAim_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_ScopeAim_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BossHPWidget_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "MainHUDWidget" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/MainHUDWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BossHPWidget = { "m_BossHPWidget", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_BossHPWidget), Z_Construct_UClass_UBossHPWidget_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BossHPWidget_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BossHPWidget_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BackgroundBlur_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "MainHUDWidget" },
@@ -216,6 +230,7 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_HitMarkerWidget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AbilityWindowWidget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_ScopeAim,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BossHPWidget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BackgroundBlur,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress1,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress2,
@@ -251,7 +266,7 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMainHUDWidget, 1418981421);
+	IMPLEMENT_CLASS(UMainHUDWidget, 4243955295);
 	template<> PROJECTTPS_API UClass* StaticClass<UMainHUDWidget>()
 	{
 		return UMainHUDWidget::StaticClass();

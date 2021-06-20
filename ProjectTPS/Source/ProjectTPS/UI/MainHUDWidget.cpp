@@ -6,6 +6,7 @@
 #include "PlayerEquipWidget.h"
 #include "HitMarkerWidget.h"
 #include "AbilityWindowWidget.h"
+#include "BossHPWidget.h"
 #include "Components/TextBlock.h"
 #include "Components/BackgroundBlur.h"
 #include "Components/ProgressBar.h"
@@ -22,6 +23,7 @@ void UMainHUDWidget::NativePreConstruct()
 	m_HitMarkerWidget = Cast<UHitMarkerWidget>(GetWidgetFromName(TEXT("UI_HitMarker")));
 	m_AbilityWindowWidget = Cast<UAbilityWindowWidget>(GetWidgetFromName(TEXT("UI_AbilityWindowWidget")));
 	m_ScopeAim = Cast<UUserWidget>(GetWidgetFromName(TEXT("UI_ScopeAim")));
+	m_BossHPWidget = Cast<UBossHPWidget>(GetWidgetFromName(TEXT("UI_BossHPBar")));
 
 	m_AbilitySlotText1 = Cast<UTextBlock>(GetWidgetFromName(TEXT("AbilitySlotText1")));
 	m_AbilitySlotText2 = Cast<UTextBlock>(GetWidgetFromName(TEXT("AbilitySlotText2")));

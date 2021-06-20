@@ -140,6 +140,8 @@ protected:
 
 	bool m_IsDeathEnd;
 
+	int32 m_DropAmmoAmount;
+
 public:
 	// Sets default values for this character's properties
 	AMonster();
@@ -186,7 +188,7 @@ public:
 	virtual float TakeDamage(float Damage, struct FDamageEvent const& DamageEvent,
 		AController* EventInstigator, AActor* DamageCauser) override;
 
-	float TakeDamageFromClose(float Damage, struct FDamageEvent const& DamageEvent,
+	virtual float TakeDamageFromClose(float Damage, struct FDamageEvent const& DamageEvent,
 		AController* EventInstigator, AActor* DamageCauser);
 
 	void EmitHitEffect(FVector ImpactLoc, FRotator Rot);
@@ -307,6 +309,11 @@ public:
 	bool GetCallBackUpEnable()
 	{
 		return m_bCallBackupEnable;
+	}
+
+	void SetDropAmmoAmount(int32 Ammo)
+	{
+		m_DropAmmoAmount = Ammo;
 	}
 
 	virtual void MonsterSkillEnd();

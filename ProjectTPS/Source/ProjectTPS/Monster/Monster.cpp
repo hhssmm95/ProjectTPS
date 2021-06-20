@@ -343,7 +343,8 @@ void AMonster::EmitHeadshotEffect(FVector ImpactLoc, FRotator Rot)
 
 void AMonster::ItemDrop()
 {
-	GetWorld()->SpawnActor<ADropItem>(m_DropItem, GetActorLocation(), GetActorRotation());
+	ADropItem* pItem = GetWorld()->SpawnActor<ADropItem>(m_DropItem, GetActorLocation(), GetActorRotation());
+	pItem->SetAmmoAmount(m_DropAmmoAmount);
 }
 
 

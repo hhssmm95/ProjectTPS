@@ -785,6 +785,8 @@ G:\Git\ProjectTPS\Source\ProjectTPS\UI\HitMarkerWidget.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\HitMarkerWidget.generated.h
 G:\Git\ProjectTPS\Source\ProjectTPS\UI\AbilityWindowWidget.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\AbilityWindowWidget.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\UI\BossHPWidget.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\BossHPWidget.generated.h
 E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/TextBlock.h
 E:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/TextWidgetTypes.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\TextWidgetTypes.generated.h

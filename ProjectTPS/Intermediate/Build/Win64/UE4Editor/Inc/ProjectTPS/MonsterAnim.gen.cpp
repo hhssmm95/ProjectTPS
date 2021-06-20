@@ -93,6 +93,34 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		}
 		return ReturnEnum;
 	}
+	DEFINE_FUNCTION(UMonsterAnim::execAnimNotify_RevenantReloadEnd)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AnimNotify_RevenantReloadEnd();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UMonsterAnim::execAnimNotify_RevenantSpecialBullet)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AnimNotify_RevenantSpecialBullet();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UMonsterAnim::execAnimNotify_RevenantBackup)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AnimNotify_RevenantBackup();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UMonsterAnim::execAnimNotify_RevenantGrenade)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AnimNotify_RevenantGrenade();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UMonsterAnim::execAnimNotify_RevenantTeleport)
 	{
 		P_FINISH;
@@ -152,6 +180,10 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 			{ "AnimNotify_MonsterNearAttack", &UMonsterAnim::execAnimNotify_MonsterNearAttack },
 			{ "AnimNotify_MonsterSkillEnd", &UMonsterAnim::execAnimNotify_MonsterSkillEnd },
 			{ "AnimNotify_MonsterSuspectEnd", &UMonsterAnim::execAnimNotify_MonsterSuspectEnd },
+			{ "AnimNotify_RevenantBackup", &UMonsterAnim::execAnimNotify_RevenantBackup },
+			{ "AnimNotify_RevenantGrenade", &UMonsterAnim::execAnimNotify_RevenantGrenade },
+			{ "AnimNotify_RevenantReloadEnd", &UMonsterAnim::execAnimNotify_RevenantReloadEnd },
+			{ "AnimNotify_RevenantSpecialBullet", &UMonsterAnim::execAnimNotify_RevenantSpecialBullet },
 			{ "AnimNotify_RevenantTeleport", &UMonsterAnim::execAnimNotify_RevenantTeleport },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -288,6 +320,94 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantBackup_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantBackup_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Monster/MonsterAnim.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantBackup_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMonsterAnim, nullptr, "AnimNotify_RevenantBackup", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantBackup_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantBackup_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantBackup()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantBackup_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantGrenade_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantGrenade_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Monster/MonsterAnim.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantGrenade_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMonsterAnim, nullptr, "AnimNotify_RevenantGrenade", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantGrenade_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantGrenade_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantGrenade()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantGrenade_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantReloadEnd_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantReloadEnd_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Monster/MonsterAnim.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantReloadEnd_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMonsterAnim, nullptr, "AnimNotify_RevenantReloadEnd", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantReloadEnd_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantReloadEnd_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantReloadEnd()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantReloadEnd_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantSpecialBullet_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantSpecialBullet_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Monster/MonsterAnim.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantSpecialBullet_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMonsterAnim, nullptr, "AnimNotify_RevenantSpecialBullet", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantSpecialBullet_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantSpecialBullet_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantSpecialBullet()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantSpecialBullet_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantTeleport_Statics
 	{
 #if WITH_METADATA
@@ -331,6 +451,10 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_HitMontage;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_RevenantReloadMontage_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_RevenantReloadMontage;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_bDeath_MetaData[];
 #endif
 		static void NewProp_m_bDeath_SetBit(void* Obj);
@@ -350,6 +474,10 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterNearAttack, "AnimNotify_MonsterNearAttack" }, // 2536851774
 		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterSkillEnd, "AnimNotify_MonsterSkillEnd" }, // 2941429938
 		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_MonsterSuspectEnd, "AnimNotify_MonsterSuspectEnd" }, // 1008508225
+		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantBackup, "AnimNotify_RevenantBackup" }, // 2576265288
+		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantGrenade, "AnimNotify_RevenantGrenade" }, // 887346375
+		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantReloadEnd, "AnimNotify_RevenantReloadEnd" }, // 1952770603
+		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantSpecialBullet, "AnimNotify_RevenantSpecialBullet" }, // 3216392303
 		{ &Z_Construct_UFunction_UMonsterAnim_AnimNotify_RevenantTeleport, "AnimNotify_RevenantTeleport" }, // 1392909363
 	};
 #if WITH_METADATA
@@ -377,6 +505,14 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_HitMontage = { "m_HitMontage", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMonsterAnim, m_HitMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_HitMontage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_HitMontage_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_RevenantReloadMontage_MetaData[] = {
+		{ "AllowPriavteAccess", "true" },
+		{ "Category", "MonsterAnim" },
+		{ "ModuleRelativePath", "Monster/MonsterAnim.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_RevenantReloadMontage = { "m_RevenantReloadMontage", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMonsterAnim, m_RevenantReloadMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_RevenantReloadMontage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_RevenantReloadMontage_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_bDeath_MetaData[] = {
 		{ "AllowPriavteAccess", "true" },
 		{ "Category", "MonsterAnim" },
@@ -392,6 +528,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_eMonsterAnim_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_eMonsterAnim,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_HitMontage,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_RevenantReloadMontage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMonsterAnim_Statics::NewProp_m_bDeath,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UMonsterAnim_Statics::StaticCppClassTypeInfo = {
@@ -421,7 +558,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAnim() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMonsterAnim, 877934756);
+	IMPLEMENT_CLASS(UMonsterAnim, 1374278853);
 	template<> PROJECTTPS_API UClass* StaticClass<UMonsterAnim>()
 	{
 		return UMonsterAnim::StaticClass();

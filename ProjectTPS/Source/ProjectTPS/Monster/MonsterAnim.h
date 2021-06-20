@@ -36,6 +36,9 @@ protected:
 		UAnimMontage* m_HitMontage;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		UAnimMontage* m_RevenantReloadMontage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 		bool m_bDeath;
 
 	bool m_SkillEnd;
@@ -79,7 +82,7 @@ public:
 
 public:
 	void MonsterHitReaction();
-
+	void RevenantReloadMontage();
 
 	UFUNCTION(BlueprintCallable)
 		void AnimNotify_MonsterAttackEnd();
@@ -95,4 +98,12 @@ public:
 		void AnimNotify_MonsterSkillEnd();
 	UFUNCTION(BlueprintCallable)
 		void AnimNotify_RevenantTeleport();
+	UFUNCTION(BlueprintCallable)
+		void AnimNotify_RevenantGrenade();
+	UFUNCTION(BlueprintCallable)
+		void AnimNotify_RevenantBackup();
+	UFUNCTION(BlueprintCallable)
+		void AnimNotify_RevenantSpecialBullet();
+	UFUNCTION(BlueprintCallable)
+		void AnimNotify_RevenantReloadEnd();
 };

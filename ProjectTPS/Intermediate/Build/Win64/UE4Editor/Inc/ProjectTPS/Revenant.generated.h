@@ -67,9 +67,22 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ARevenant); \
 
 #define ProjectTPS_Source_ProjectTPS_Monster_Revenant_h_37_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__m_SkillArray() { return STRUCT_OFFSET(ARevenant, m_SkillArray); } \
-	FORCEINLINE static uint32 __PPO__m_TeleportSpotArray() { return STRUCT_OFFSET(ARevenant, m_TeleportSpotArray); } \
 	FORCEINLINE static uint32 __PPO__m_SkillTimeMax() { return STRUCT_OFFSET(ARevenant, m_SkillTimeMax); } \
-	FORCEINLINE static uint32 __PPO__Target() { return STRUCT_OFFSET(ARevenant, Target); }
+	FORCEINLINE static uint32 __PPO__m_TeleportSpotArray() { return STRUCT_OFFSET(ARevenant, m_TeleportSpotArray); } \
+	FORCEINLINE static uint32 __PPO__m_GrenadeClass() { return STRUCT_OFFSET(ARevenant, m_GrenadeClass); } \
+	FORCEINLINE static uint32 __PPO__m_BackupMonsterClass() { return STRUCT_OFFSET(ARevenant, m_BackupMonsterClass); } \
+	FORCEINLINE static uint32 __PPO__m_BackupParticle() { return STRUCT_OFFSET(ARevenant, m_BackupParticle); } \
+	FORCEINLINE static uint32 __PPO__m_BackupEffectSound() { return STRUCT_OFFSET(ARevenant, m_BackupEffectSound); } \
+	FORCEINLINE static uint32 __PPO__m_TeleportSound1() { return STRUCT_OFFSET(ARevenant, m_TeleportSound1); } \
+	FORCEINLINE static uint32 __PPO__m_TeleportSound2() { return STRUCT_OFFSET(ARevenant, m_TeleportSound2); } \
+	FORCEINLINE static uint32 __PPO__m_GrenadeSound1() { return STRUCT_OFFSET(ARevenant, m_GrenadeSound1); } \
+	FORCEINLINE static uint32 __PPO__m_GrenadeSound2() { return STRUCT_OFFSET(ARevenant, m_GrenadeSound2); } \
+	FORCEINLINE static uint32 __PPO__m_BackupSound1() { return STRUCT_OFFSET(ARevenant, m_BackupSound1); } \
+	FORCEINLINE static uint32 __PPO__m_BackupSound2() { return STRUCT_OFFSET(ARevenant, m_BackupSound2); } \
+	FORCEINLINE static uint32 __PPO__m_ReloadSound1() { return STRUCT_OFFSET(ARevenant, m_ReloadSound1); } \
+	FORCEINLINE static uint32 __PPO__m_ReloadSound2() { return STRUCT_OFFSET(ARevenant, m_ReloadSound2); } \
+	FORCEINLINE static uint32 __PPO__Target() { return STRUCT_OFFSET(ARevenant, Target); } \
+	FORCEINLINE static uint32 __PPO__m_HPWidget() { return STRUCT_OFFSET(ARevenant, m_HPWidget); }
 
 
 #define ProjectTPS_Source_ProjectTPS_Monster_Revenant_h_34_PROLOG

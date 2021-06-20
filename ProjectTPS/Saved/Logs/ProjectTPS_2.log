@@ -2016,3 +2016,169 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2021.06.20-15.46.28:737][839]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0102 seconds. Added 3651 classes and 869 folders.
 [2021.06.20-15.46.28:742][839]Display: HotReload took  0.5s.
 [2021.06.20-15.48.00:061][254]LogUObjectHash: Compacting FUObjectHashTables data took   6.83ms
+[2021.06.20-15.51.07:540][200]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2021.06.20-15.57.17:681][641]Running E:/UE_4.26/Engine/Binaries/DotNET/UnrealBuildTool.exe  -projectfiles -project="G:/Git/ProjectTPS/ProjectTPS.uproject" -game -rocket -progress
+[2021.06.20-15.57.19:678][641]Discovering modules, targets and source code for project...
+[2021.06.20-15.57.28:221][641]Binding IntelliSense data...
+[2021.06.20-15.57.37:597][641]Binding IntelliSense data... 100%
+[2021.06.20-15.57.37:597][641]Writing project files...
+[2021.06.20-15.57.45:342][641]Writing project files... 100%
+[2021.06.20-15.57.45:707][641]Candidate modules for hot reload:
+[2021.06.20-15.57.45:707][641]  ProjectTPS
+[2021.06.20-15.57.45:712][641]Launching UnrealBuildTool... [E:/UE_4.26/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ProjectTPS,7724 ProjectTPSEditor Win64 Development -Project="G:/Git/ProjectTPS/ProjectTPS.uproject" "G:/Git/ProjectTPS/ProjectTPS.uproject"  -IgnoreJunk]
+[2021.06.20-15.59.09:148][641]CompilerResultsLog: New page: 컴파일 - 2021. 6. 21. 오전 9:59:09
+[2021.06.20-15.59.09:149][641]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (G:\Git).
+[2021.06.20-15.59.09:149][641]CompilerResultsLog: Creating makefile for ProjectTPSEditor (no existing makefile)
+[2021.06.20-15.59.09:149][641]CompilerResultsLog: Parsing headers for ProjectTPSEditor
+[2021.06.20-15.59.09:149][641]CompilerResultsLog:   Running UnrealHeaderTool "G:\Git\ProjectTPS\ProjectTPS.uproject" "G:\Git\ProjectTPS\Intermediate\Build\Win64\ProjectTPSEditor\Development\ProjectTPSEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\han\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+[2021.06.20-15.59.09:149][641]CompilerResultsLog: Reflection code generated for ProjectTPSEditor in 21.0320094 seconds
+[2021.06.20-15.59.09:149][641]CompilerResultsLog: Building ProjectTPSEditor...
+[2021.06.20-15.59.09:149][641]CompilerResultsLog: Using Visual Studio 2019 14.28.29336 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2021.06.20-15.59.09:149][641]CompilerResultsLog: [Adaptive unity build] Excluded from ProjectTPS unity file: Grenade.cpp
+[2021.06.20-15.59.09:149][641]CompilerResultsLog: Building 6 actions with 8 processes...
+[2021.06.20-15.59.09:149][641]CompilerResultsLog:   [1/6] Grenade.cpp
+[2021.06.20-15.59.09:149][641]CompilerResultsLog:   G:\Git\ProjectTPS\Source\ProjectTPS\Monster\Grenade.cpp(4): fatal error C1083: ???? ?????? ?? ?? ?????ϴ?. 'Monster/Grenade.h': No such file or directory
+[2021.06.20-15.59.09:149][641]CompilerResultsLog:   [2/6] Module.ProjectTPS.gen.cpp
+[2021.06.20-15.59.09:149][641]CompilerResultsLog:   [3/6] Module.ProjectTPS.cpp
+[2021.06.20-15.59.09:149][641]LogMainFrame: MainFrame: Module compiling took 83.491 seconds
+[2021.06.20-15.59.09:227][641]Warning: HotReload failed, recompile failed
+[2021.06.20-15.59.09:227][641]Warning: RebindPackages failed because compilation failed.
+[2021.06.20-15.59.23:197][641]LogSlate: Window '메시지' being destroyed
+[2021.06.20-15.59.23:213][641]Message dialog closed, result: No, title: 메시지, text: 'Grenade' 클래스 추가에 성공했지만, 'ProjectTPS' 모듈을 다시 컴파일해야 콘텐츠 브라우저에 나타날 것입니다. 'ProjectTPS' 모듈을 자동으로 핫 리로드하는 데 실패했습니다.
+
+출력 로그를 열어 자세한 내용을 확인하시겠습니까?
+[2021.06.20-15.59.23:213][641]LogSlate: Window 'C++ 클래스 추가' being destroyed
+[2021.06.20-16.11.22:342][896]LogAudioMixer: Display: Audio Buffer Underrun (starvation) detected.
+[2021.06.20-16.16.35:285][832]LogHotReload: New module detected: UE4Editor-ProjectTPS-0038.dll
+[2021.06.20-16.16.37:677][840]LogHotReload: Starting Hot-Reload from IDE
+[2021.06.20-16.16.37:715][840]LogClass: Could not find existing class Grenade in package /Script/ProjectTPS for HotReload, assuming new class
+[2021.06.20-16.16.37:715][840]LogClass: Function OnGrenadeHit is new.
+[2021.06.20-16.16.38:066][840]LogClass: EAttackType HotReload.
+[2021.06.20-16.16.38:066][840]LogClass: EDistanceCheckType HotReload.
+[2021.06.20-16.16.38:066][840]LogClass: EAbility HotReload.
+[2021.06.20-16.16.38:066][840]LogClass: EMoveDir HotReload.
+[2021.06.20-16.16.38:066][840]LogClass: EItemType HotReload.
+[2021.06.20-16.16.38:066][840]LogClass: EGearType HotReload.
+[2021.06.20-16.16.38:066][840]LogClass: ERevenantSkillType HotReload.
+[2021.06.20-16.16.38:066][840]LogClass: MonsterAI HotReload.
+[2021.06.20-16.16.38:066][840]LogClass: EMonsterAnimType HotReload.
+[2021.06.20-16.16.38:066][840]LogClass: PlayerMoveType HotReload.
+[2021.06.20-16.16.38:067][840]LogClass: PlayerAnimType HotReload.
+[2021.06.20-16.16.38:067][840]LogClass: EBossAnimType HotReload.
+[2021.06.20-16.16.38:067][840]LogClass: PlayerAbilityInfo HotReload.
+[2021.06.20-16.16.38:067][840]LogClass: RevenantSkill HotReload.
+[2021.06.20-16.16.38:130][840]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ProjectTPS' in 0.0005 seconds. Added 48 classes and 6 folders.
+[2021.06.20-16.16.38:145][840]Display: HotReload successful (34 functions remapped  2 scriptstructs remapped)
+[2021.06.20-16.16.38:381][840]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0176 seconds. Added 3652 classes and 869 folders.
+[2021.06.20-16.16.38:387][840]Display: HotReload took  0.7s.
+[2021.06.20-16.17.34:484][  6]LogHotReload: New module detected: UE4Editor-ProjectTPS-0040.dll
+[2021.06.20-16.17.35:539][ 10]LogHotReload: Starting Hot-Reload from IDE
+[2021.06.20-16.17.35:658][ 10]LogClass: Could not find existing class Grenade in package /Script/ProjectTPS for HotReload, assuming new class
+[2021.06.20-16.17.35:658][ 10]LogClass: Function OnGrenadeHit is new.
+[2021.06.20-16.17.35:945][ 10]LogClass: EAttackType HotReload.
+[2021.06.20-16.17.35:945][ 10]LogClass: EDistanceCheckType HotReload.
+[2021.06.20-16.17.35:945][ 10]LogClass: EAbility HotReload.
+[2021.06.20-16.17.35:945][ 10]LogClass: EMoveDir HotReload.
+[2021.06.20-16.17.35:945][ 10]LogClass: EItemType HotReload.
+[2021.06.20-16.17.35:945][ 10]LogClass: EGearType HotReload.
+[2021.06.20-16.17.35:945][ 10]LogClass: ERevenantSkillType HotReload.
+[2021.06.20-16.17.35:945][ 10]LogClass: MonsterAI HotReload.
+[2021.06.20-16.17.35:945][ 10]LogClass: EMonsterAnimType HotReload.
+[2021.06.20-16.17.35:945][ 10]LogClass: PlayerMoveType HotReload.
+[2021.06.20-16.17.35:945][ 10]LogClass: PlayerAnimType HotReload.
+[2021.06.20-16.17.35:945][ 10]LogClass: EBossAnimType HotReload.
+[2021.06.20-16.17.35:945][ 10]LogClass: PlayerAbilityInfo HotReload.
+[2021.06.20-16.17.35:945][ 10]LogClass: RevenantSkill HotReload.
+[2021.06.20-16.17.35:963][ 10]LogHotReload: Re-instancing Grenade after hot-reload.
+[2021.06.20-16.17.36:063][ 10]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ProjectTPS' in 0.0004 seconds. Added 48 classes and 6 folders.
+[2021.06.20-16.17.36:080][ 10]Display: HotReload successful (34 functions remapped  2 scriptstructs remapped)
+[2021.06.20-16.17.36:327][ 10]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0183 seconds. Added 3652 classes and 869 folders.
+[2021.06.20-16.17.36:339][ 10]Display: HotReload took  0.8s.
+[2021.06.20-16.18.47:980][891]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2021.06.20-16.18.51:023][891]LogSlate: Window '부모 클래스 선택' being destroyed
+[2021.06.20-16.18.51:036][891]LogContentBrowser: Deferred new asset file creation: NewBlueprint
+[2021.06.20-16.18.51:080][891]LogContentBrowser: Creating deferred item: NewBlueprint
+[2021.06.20-16.18.56:984][159]LogContentBrowser: Attempting asset rename: NewBlueprint -> BP_RevenantGrenade
+[2021.06.20-16.18.57:028][159]LogPackageName: SearchForPackageOnDisk took   0.000s, but failed to resolve /Game/Monster/BP_RevenantGrenade.
+[2021.06.20-16.18.57:029][159]LogContentBrowser: End creating deferred item NewBlueprint
+[2021.06.20-16.18.58:793][230]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Monster/BP_RevenantGrenade.BP_RevenantGrenade
+[2021.06.20-16.19.09:175][762]LogTexture: Display: 텍스처 빌드: T_Fire_Gradient_COLOR (AutoDXT, 256X64)
+[2021.06.20-16.19.09:175][762]LogStaticMesh: TwinBlast_Grenade 스태틱 메시 빌드중...
+[2021.06.20-16.19.09:292][762]LogTexture: Display: 텍스처 빌드: T_TwinBlast_Pistol_Decals (AutoDXT, 4096X4096)
+[2021.06.20-16.19.09:292][762]LogStaticMesh: Built static mesh [0.12s] /Game/ParagonTwinblast/Characters/Heroes/TwinBlast/Meshes/TwinBlast_Grenade.TwinBlast_Grenade
+[2021.06.20-16.19.19:099][762]LogTexture: Display: 텍스처 빌드: T_TwinBlast_Pistol_MASK (AutoDXT, 4096X4096)
+[2021.06.20-16.19.19:099][762]LogTexture: Display: 텍스처 빌드: T_Composite_Bumps_N (BC5, 2048X2048)
+[2021.06.20-16.19.19:099][762]LogTexture: Display: 텍스처 빌드: T_TwinBlast_Pistol_N (BC5, 4096X4096)
+[2021.06.20-16.19.19:099][762]LogTexture: Display: 텍스처 빌드: T_TwinBlast_Pistol_RGB (AutoDXT, 4096X4096)
+[2021.06.20-16.19.19:099][762]LogTexture: Display: 텍스처 빌드: T_Composite_Bumps_D (AutoDXT, 2048X2048)
+[2021.06.20-16.19.21:224][762]LogMaterial: Display: Missing cached shader map for material M_TwinBlast_Pistol, compiling. 
+[2021.06.20-16.19.21:353][762]LogShaderCompilers: Display: Worker (1/5): shaders left to compile 98
+[2021.06.20-16.19.21:353][762]LogShaderCompilers: Display: Worker (2/5): shaders left to compile 88
+[2021.06.20-16.19.21:353][762]LogShaderCompilers: Display: Worker (3/5): shaders left to compile 78
+[2021.06.20-16.19.21:353][762]LogShaderCompilers: Display: Worker (4/5): shaders left to compile 68
+[2021.06.20-16.19.31:343][ 68]LogShaderCompilers: Display: Worker (1/5): shaders left to compile 58
+[2021.06.20-16.19.33:273][134]LogShaderCompilers: Display: Worker (3/5): shaders left to compile 48
+[2021.06.20-16.19.35:628][213]LogShaderCompilers: Display: Worker (2/5): shaders left to compile 38
+[2021.06.20-16.19.36:018][226]LogShaderCompilers: Display: Worker (4/5): shaders left to compile 28
+[2021.06.20-16.19.45:981][565]LogShaderCompilers: Display: Worker (4/5): shaders left to compile 20
+[2021.06.20-16.19.46:454][581]LogShaderCompilers: Display: Worker (1/5): shaders left to compile 14
+[2021.06.20-16.19.48:906][665]LogShaderCompilers: Display: Worker (3/5): shaders left to compile 10
+[2021.06.20-16.19.50:518][719]LogShaderCompilers: Display: Worker (2/5): shaders left to compile 7
+[2021.06.20-16.19.50:860][731]LogShaderCompilers: Display: Worker (1/5): shaders left to compile 5
+[2021.06.20-16.19.52:531][788]LogShaderCompilers: Display: Worker (3/5): shaders left to compile 3
+[2021.06.20-16.19.52:646][792]LogShaderCompilers: Display: Worker (2/5): shaders left to compile 2
+[2021.06.20-16.19.53:950][838]LogShaderCompilers: Display: Worker (3/5): shaders left to compile 1
+[2021.06.20-16.23.03:644][719]LogStaticMesh: Warning: Mesh SM_G67_Thrown is recomputing physics on load. It must be resaved before it will cook deterministically. Please resave /Game/FPS_Weapon_Bundle/Weapons/Meshes/G67_Grenade/SM_G67_Thrown.SM_G67_Thrown.
+[2021.06.20-16.24.43:193][192]LogTexture: Display: 텍스처 빌드: ThumbnailTexture (DXT1, 512X512)
+[2021.06.20-16.25.12:509][170]BlueprintLog: New page: BP_RevenantGrenade 컴파일
+[2021.06.20-16.25.12:964][170]LogUObjectHash: Compacting FUObjectHashTables data took  12.99ms
+[2021.06.20-16.25.54:435][424]BlueprintLog: New page: BP_RevenantGrenade 컴파일
+[2021.06.20-16.26.13:202][424]LogWindows: Error: === Critical error: ===
+[2021.06.20-16.26.13:202][424]LogWindows: Error: 
+[2021.06.20-16.26.13:202][424]LogWindows: Error: Fatal error!
+[2021.06.20-16.26.13:202][424]LogWindows: Error: 
+[2021.06.20-16.26.13:202][424]LogWindows: Error: Unhandled Exception: EXCEPTION_ACCESS_VIOLATION reading address 0x0000000000510008
+[2021.06.20-16.26.13:202][424]LogWindows: Error: 
+[2021.06.20-16.26.13:202][424]LogWindows: Error: [Callstack] 0x00007ffa91a404b1 UE4Editor-CoreUObject.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa91d528d3 UE4Editor-CoreUObject.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa91d29e4c UE4Editor-CoreUObject.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa91c2969a UE4Editor-CoreUObject.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa91d42739 UE4Editor-CoreUObject.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa91d4255d UE4Editor-CoreUObject.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa7bf4e2c5 UE4Editor-UnrealEd.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa7bf7b7a4 UE4Editor-UnrealEd.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa7bf2e637 UE4Editor-UnrealEd.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa755e1cd5 UE4Editor-Kismet.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa75585eb7 UE4Editor-Kismet.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa75585bf1 UE4Editor-Kismet.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa7bf3796e UE4Editor-UnrealEd.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa7568ff6c UE4Editor-Kismet.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa756ad576 UE4Editor-Kismet.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa7dcc0088 UE4Editor-Slate.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa7ddaf342 UE4Editor-Slate.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa7dd8bd07 UE4Editor-Slate.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa7de2859e UE4Editor-Slate.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa7de4071e UE4Editor-Slate.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa7dc846be UE4Editor-Slate.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa7dd07f14 UE4Editor-Slate.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa7dcf0337 UE4Editor-Slate.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffa7dce3632 UE4Editor-Slate.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffac3c6bcb5 UE4Editor-ApplicationCore.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffac3c59197 UE4Editor-ApplicationCore.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffac3c6e389 UE4Editor-ApplicationCore.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffac3c54310 UE4Editor-ApplicationCore.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffae8e7e858 USER32.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffae8e7e299 USER32.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffac3c6f914 UE4Editor-ApplicationCore.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ff7f3098848 UE4Editor.exe!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ff7f30b117c UE4Editor.exe!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ff7f30b125a UE4Editor.exe!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ff7f30c52bd UE4Editor.exe!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ff7f30c7fea UE4Editor.exe!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffae8867034 KERNEL32.DLL!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: [Callstack] 0x00007ffae9ea2651 ntdll.dll!UnknownFunction []
+[2021.06.20-16.26.13:203][424]LogWindows: Error: 
+[2021.06.20-16.26.13:216][424]LogExit: Executing StaticShutdownAfterError
+[2021.06.20-16.26.13:493][424]LogWindows: FPlatformMisc::RequestExit(1)
+[2021.06.20-16.26.13:493][424]LogCore: Engine exit requested (reason: Win RequestExit)
+[2021.06.20-16.26.13:508][424]Log file closed, 06/21/21 01:26:13

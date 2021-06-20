@@ -16,6 +16,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterAnim_h_29_SPARSE_DATA
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterAnim_h_29_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execAnimNotify_RevenantReloadEnd); \
+	DECLARE_FUNCTION(execAnimNotify_RevenantSpecialBullet); \
+	DECLARE_FUNCTION(execAnimNotify_RevenantBackup); \
+	DECLARE_FUNCTION(execAnimNotify_RevenantGrenade); \
 	DECLARE_FUNCTION(execAnimNotify_RevenantTeleport); \
 	DECLARE_FUNCTION(execAnimNotify_MonsterSkillEnd); \
 	DECLARE_FUNCTION(execAnimNotify_MonsterDeathEnd); \
@@ -27,6 +31,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterAnim_h_29_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execAnimNotify_RevenantReloadEnd); \
+	DECLARE_FUNCTION(execAnimNotify_RevenantSpecialBullet); \
+	DECLARE_FUNCTION(execAnimNotify_RevenantBackup); \
+	DECLARE_FUNCTION(execAnimNotify_RevenantGrenade); \
 	DECLARE_FUNCTION(execAnimNotify_RevenantTeleport); \
 	DECLARE_FUNCTION(execAnimNotify_MonsterSkillEnd); \
 	DECLARE_FUNCTION(execAnimNotify_MonsterDeathEnd); \
@@ -81,6 +89,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMonsterAnim); \
 #define ProjectTPS_Source_ProjectTPS_Monster_MonsterAnim_h_29_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__m_eMonsterAnim() { return STRUCT_OFFSET(UMonsterAnim, m_eMonsterAnim); } \
 	FORCEINLINE static uint32 __PPO__m_HitMontage() { return STRUCT_OFFSET(UMonsterAnim, m_HitMontage); } \
+	FORCEINLINE static uint32 __PPO__m_RevenantReloadMontage() { return STRUCT_OFFSET(UMonsterAnim, m_RevenantReloadMontage); } \
 	FORCEINLINE static uint32 __PPO__m_bDeath() { return STRUCT_OFFSET(UMonsterAnim, m_bDeath); }
 
 

@@ -20,7 +20,13 @@ void EmptyLinkFunctionForGeneratedCodeRevenant() {}
 	PROJECTTPS_API UClass* Z_Construct_UClass_ARevenant();
 	PROJECTTPS_API UClass* Z_Construct_UClass_AMonster();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	PROJECTTPS_API UClass* Z_Construct_UClass_AGrenade_NoRegister();
+	PROJECTTPS_API UClass* Z_Construct_UClass_AMonster_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_APlayerCharacter_NoRegister();
+	PROJECTTPS_API UClass* Z_Construct_UClass_UBossHPWidget_NoRegister();
 // End Cross Module References
 class UScriptStruct* FRevenantSkill::StaticStruct()
 {
@@ -159,19 +165,71 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFRevenantSkill
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SkillArray_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_m_SkillArray;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SkillTimeMax_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_SkillTimeMax;
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_TeleportSpotArray_Inner;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_TeleportSpotArray_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_m_TeleportSpotArray;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_SkillTimeMax_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_GrenadeClass_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_m_SkillTimeMax;
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_m_GrenadeClass;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BackupMonsterClass_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_m_BackupMonsterClass;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BackupParticle_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_BackupParticle;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BackupEffectSound_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_BackupEffectSound;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_TeleportSound1_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_TeleportSound1;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_TeleportSound2_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_TeleportSound2;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_GrenadeSound1_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_GrenadeSound1;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_GrenadeSound2_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_GrenadeSound2;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BackupSound1_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_BackupSound1;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BackupSound2_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_BackupSound2;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_ReloadSound1_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_ReloadSound1;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_ReloadSound2_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_ReloadSound2;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Target_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Target;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_HPWidget_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_HPWidget;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -196,6 +254,14 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFRevenantSkill
 	};
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillArray = { "m_SkillArray", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_SkillArray), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillArray_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillArray_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillTimeMax_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Revenant" },
+		{ "ModuleRelativePath", "Monster/Revenant.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillTimeMax = { "m_SkillTimeMax", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_SkillTimeMax), METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillTimeMax_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillTimeMax_MetaData)) };
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSpotArray_Inner = { "m_TeleportSpotArray", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSpotArray_MetaData[] = {
@@ -206,26 +272,134 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFRevenantSkill
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSpotArray = { "m_TeleportSpotArray", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_TeleportSpotArray), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSpotArray_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSpotArray_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillTimeMax_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_GrenadeClass_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Revenant" },
 		{ "ModuleRelativePath", "Monster/Revenant.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillTimeMax = { "m_SkillTimeMax", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_SkillTimeMax), METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillTimeMax_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillTimeMax_MetaData)) };
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_GrenadeClass = { "m_GrenadeClass", nullptr, (EPropertyFlags)0x0024080000000005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_GrenadeClass), Z_Construct_UClass_AGrenade_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_GrenadeClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_GrenadeClass_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupMonsterClass_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Revenant" },
+		{ "ModuleRelativePath", "Monster/Revenant.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupMonsterClass = { "m_BackupMonsterClass", nullptr, (EPropertyFlags)0x0024080000000005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_BackupMonsterClass), Z_Construct_UClass_AMonster_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupMonsterClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupMonsterClass_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupParticle_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Revenant" },
+		{ "ModuleRelativePath", "Monster/Revenant.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupParticle = { "m_BackupParticle", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_BackupParticle), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupParticle_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupParticle_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupEffectSound_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Revenant" },
+		{ "ModuleRelativePath", "Monster/Revenant.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupEffectSound = { "m_BackupEffectSound", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_BackupEffectSound), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupEffectSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupEffectSound_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSound1_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Revenant" },
+		{ "ModuleRelativePath", "Monster/Revenant.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSound1 = { "m_TeleportSound1", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_TeleportSound1), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSound1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSound1_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSound2_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Revenant" },
+		{ "ModuleRelativePath", "Monster/Revenant.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSound2 = { "m_TeleportSound2", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_TeleportSound2), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSound2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSound2_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_GrenadeSound1_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Revenant" },
+		{ "ModuleRelativePath", "Monster/Revenant.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_GrenadeSound1 = { "m_GrenadeSound1", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_GrenadeSound1), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_GrenadeSound1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_GrenadeSound1_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_GrenadeSound2_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Revenant" },
+		{ "ModuleRelativePath", "Monster/Revenant.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_GrenadeSound2 = { "m_GrenadeSound2", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_GrenadeSound2), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_GrenadeSound2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_GrenadeSound2_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupSound1_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Revenant" },
+		{ "ModuleRelativePath", "Monster/Revenant.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupSound1 = { "m_BackupSound1", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_BackupSound1), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupSound1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupSound1_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupSound2_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Revenant" },
+		{ "ModuleRelativePath", "Monster/Revenant.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupSound2 = { "m_BackupSound2", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_BackupSound2), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupSound2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupSound2_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_ReloadSound1_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Revenant" },
+		{ "ModuleRelativePath", "Monster/Revenant.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_ReloadSound1 = { "m_ReloadSound1", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_ReloadSound1), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_ReloadSound1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_ReloadSound1_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_ReloadSound2_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Revenant" },
+		{ "ModuleRelativePath", "Monster/Revenant.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_ReloadSound2 = { "m_ReloadSound2", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_ReloadSound2), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_ReloadSound2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_ReloadSound2_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_Target_MetaData[] = {
 		{ "ModuleRelativePath", "Monster/Revenant.h" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_Target = { "Target", nullptr, (EPropertyFlags)0x0020080000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, Target), Z_Construct_UClass_APlayerCharacter_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_Target_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_Target_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_HPWidget_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Monster/Revenant.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_HPWidget = { "m_HPWidget", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_HPWidget), Z_Construct_UClass_UBossHPWidget_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_HPWidget_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_HPWidget_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARevenant_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillArray_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillArray,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillTimeMax,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSpotArray_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSpotArray,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_SkillTimeMax,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_GrenadeClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupMonsterClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupParticle,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupEffectSound,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSound1,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_TeleportSound2,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_GrenadeSound1,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_GrenadeSound2,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupSound1,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupSound2,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_ReloadSound1,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_ReloadSound2,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_Target,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_HPWidget,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ARevenant_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ARevenant>::IsAbstract,
@@ -254,7 +428,7 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFRevenantSkill
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARevenant, 4137715016);
+	IMPLEMENT_CLASS(ARevenant, 1884329071);
 	template<> PROJECTTPS_API UClass* StaticClass<ARevenant>()
 	{
 		return ARevenant::StaticClass();
