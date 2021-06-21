@@ -66,7 +66,7 @@ void AExplosiveBullet::OnBulletHit(UPrimitiveComponent* HitComponent, AActor* Ot
 
 	bool bHit = UKismetSystemLibrary::SphereTraceMulti(GetWorld(), GetActorLocation(), GetActorLocation(),
 		300.f, UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel7), true, IgnoreActor,
-		EDrawDebugTrace::ForDuration, results, true, FLinearColor::Red, FLinearColor::Green, 2.f);
+		EDrawDebugTrace::None, results, true, FLinearColor::Red, FLinearColor::Green, 2.f);
 
 	if (bHit)
 	{
@@ -76,7 +76,6 @@ void AExplosiveBullet::OnBulletHit(UPrimitiveComponent* HitComponent, AActor* Ot
 			if (pMonster)
 			{
 				pMonster->TakeDamage(m_Damage, DmgEvent, m_Player->GetController(), m_Player);
-				PrintViewport(2.f, FColor::Yellow, TEXT("Explode"));
 				pMonster->EmitHitEffect(Hit.ImpactPoint, vRot);
 				m_Player->ShowHitMark();
 				

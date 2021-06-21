@@ -8,14 +8,23 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UMainHUDWidget;
 #ifdef PROJECTTPS_PlayerHUD_generated_h
 #error "PlayerHUD.generated.h already included, missing '#pragma once' in PlayerHUD.h"
 #endif
 #define PROJECTTPS_PlayerHUD_generated_h
 
 #define ProjectTPS_Source_ProjectTPS_PlayerHUD_h_15_SPARSE_DATA
-#define ProjectTPS_Source_ProjectTPS_PlayerHUD_h_15_RPC_WRAPPERS
-#define ProjectTPS_Source_ProjectTPS_PlayerHUD_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define ProjectTPS_Source_ProjectTPS_PlayerHUD_h_15_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execGetMainHUDWidget);
+
+
+#define ProjectTPS_Source_ProjectTPS_PlayerHUD_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execGetMainHUDWidget);
+
+
 #define ProjectTPS_Source_ProjectTPS_PlayerHUD_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPlayerHUD(); \

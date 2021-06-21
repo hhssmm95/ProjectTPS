@@ -21,6 +21,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TSubclassOf<UMainHUDWidget>	m_MainHUDWidgetClass;
 
+
 public:
 	APlayerHUD();
 
@@ -34,6 +35,7 @@ public:
 
 
 public:
+	UFUNCTION(BlueprintCallable)
 	UMainHUDWidget* GetMainHUDWidget()
 	{
 		return m_MainHUDWidget;

@@ -29,7 +29,6 @@ void ABossAIController::OnPossess(APawn* InPawn)
 		}
 		//Blackboard->SetValueAsBool(TEXT("CallBackUpEnable"), pMonster->GetCallBackUpEnable());
 	}
-	PrintViewport(5.0f, FColor::Red, TEXT("Boss AIController Init"));
 }
 
 void ABossAIController::OnUnPossess()

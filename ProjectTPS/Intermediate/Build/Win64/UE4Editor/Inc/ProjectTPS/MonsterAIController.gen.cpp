@@ -20,8 +20,42 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAIController() {}
 	AIMODULE_API UClass* Z_Construct_UClass_UBehaviorTree_NoRegister();
 	AIMODULE_API UClass* Z_Construct_UClass_UBlackboardData_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AMonsterAIController::execSetTargetAsPlayer)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetTargetAsPlayer();
+		P_NATIVE_END;
+	}
 	void AMonsterAIController::StaticRegisterNativesAMonsterAIController()
 	{
+		UClass* Class = AMonsterAIController::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "SetTargetAsPlayer", &AMonsterAIController::execSetTargetAsPlayer },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AMonsterAIController_SetTargetAsPlayer_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMonsterAIController_SetTargetAsPlayer_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Monster/MonsterAIController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMonsterAIController_SetTargetAsPlayer_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMonsterAIController, nullptr, "SetTargetAsPlayer", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMonsterAIController_SetTargetAsPlayer_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMonsterAIController_SetTargetAsPlayer_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMonsterAIController_SetTargetAsPlayer()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMonsterAIController_SetTargetAsPlayer_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_AMonsterAIController_NoRegister()
 	{
@@ -30,6 +64,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAIController() {}
 	struct Z_Construct_UClass_AMonsterAIController_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -58,6 +93,9 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAIController() {}
 	UObject* (*const Z_Construct_UClass_AMonsterAIController_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_AAIController,
 		(UObject* (*)())Z_Construct_UPackage__Script_ProjectTPS,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_AMonsterAIController_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AMonsterAIController_SetTargetAsPlayer, "SetTargetAsPlayer" }, // 253373956
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMonsterAIController_Statics::Class_MetaDataParams[] = {
@@ -121,11 +159,11 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAIController() {}
 		"Engine",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_AMonsterAIController_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_AMonsterAIController_Statics::PropPointers),
 		0,
 		0x009002A4u,
@@ -140,7 +178,7 @@ void EmptyLinkFunctionForGeneratedCodeMonsterAIController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMonsterAIController, 26586960);
+	IMPLEMENT_CLASS(AMonsterAIController, 1054907649);
 	template<> PROJECTTPS_API UClass* StaticClass<AMonsterAIController>()
 	{
 		return AMonsterAIController::StaticClass();

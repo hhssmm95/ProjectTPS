@@ -34,7 +34,6 @@ void UBTService_CheckHP::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* Node
 	if (!phase1Init)
 	{
 		pRevenant->SetSkill1InPhase();
-		PrintViewport(2.f, FColor::Yellow, TEXT("Skill1InPhase"));
 		phase1Init = true;
 	}
 

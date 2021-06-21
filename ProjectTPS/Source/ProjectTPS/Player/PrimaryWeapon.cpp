@@ -199,14 +199,12 @@ void APrimaryWeapon::AutoFire(FVector CameraPos, FVector TargetPos)
 					if (result.BoneName.ToString() == TEXT("head"))
 					{
 						pMonster->TakeDamage(m_Damage * 3, DmgEvent, m_Player->GetController(), m_Player);
-						PrintViewport(2.f, FColor::Blue, TEXT("HeadShot!"));
 						pMonster->EmitHeadshotEffect(result.ImpactPoint, vRot);
 						m_Player->ShowHeadShotMark();
 					}
 					else
 					{
 						pMonster->TakeDamage(m_Damage, DmgEvent, m_Player->GetController(), m_Player);
-						PrintViewport(2.f, FColor::Yellow, TEXT("BodyShot"));
 						pMonster->EmitHitEffect(result.ImpactPoint, vRot);
 						m_Player->ShowHitMark();
 					}
@@ -219,7 +217,7 @@ void APrimaryWeapon::AutoFire(FVector CameraPos, FVector TargetPos)
 
 			}
 
-			m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(--m_CurrentMag);
+			m_PlayerHUD->GetMainHUDWidget()->GetPlayerEquipWidget()->SetCurrentMagText(m_CurrentMag);
 			if (m_CurrentMag < 0)
 				m_CurrentMag = 0;
 

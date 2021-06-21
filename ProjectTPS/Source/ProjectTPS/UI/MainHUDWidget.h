@@ -32,6 +32,9 @@ protected:
 	class UBossHPWidget* m_BossHPWidget;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UDeathScreenWidget* m_DeathScreenWidget;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	class UBackgroundBlur* m_BackgroundBlur;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -48,6 +51,14 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		class UTextBlock* m_GuideText;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class UBorder* m_TextScriptBorder;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		class URichTextBlock* m_TextScript;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		TArray<FString> m_ScriptArray;
+
 	class UTextBlock* m_AbilitySlotText1;
 	class UTextBlock* m_AbilitySlotText2;
 
@@ -62,6 +73,25 @@ protected:
 	float m_Slot2Cooltime;
 	float m_Slot1CooltimeAcc;
 	float m_Slot2CooltimeAcc;
+
+	FString m_FullText;
+	FString m_CurrentText;
+	bool m_bIsTextScriptEnd;
+
+	bool m_bPlayTextScript;
+	float m_IntervalTime;
+	float m_IntervalTimeAcc;
+	int32 m_WriteCount;
+	int32 m_ArrayIndex;
+
+	bool m_bCloseTextScript;
+	float m_CloseScriptTime;
+	float m_CloseScriptTimeAcc;
+
+	bool m_bScriptTimer;
+	float m_ScriptTimer;
+	float m_ScriptTimerAcc;
+
 
 protected:
 	virtual void NativePreConstruct();
@@ -79,6 +109,19 @@ public:
 	void SetAlertCountText(const FString& Text);
 
 	void SetGuideTextVisible(bool Visible);
+
+	UFUNCTION(BlueprintCallable)
+	void SetTextScriptVisible(bool Visible);
+
+	UFUNCTION(BlueprintCallable)
+		void AddScriptToArray(const FString& Script);
+
+	UFUNCTION(BlueprintCallable)
+		void PlayScriptArray();
+
+	UFUNCTION(BlueprintCallable)
+		void ClearScriptArray();
+
 public:
 	UPlayerHPWidget* GetPlayerHPWidget()	const
 	{
@@ -95,8 +138,13 @@ public:
 		return m_HitMarkerWidget;
 	}
 
-	UBossHPWidget* GetBossHPWidget()
+	UBossHPWidget* GetBossHPWidget()	const
 	{
 		return m_BossHPWidget;
+	}
+
+	UDeathScreenWidget* GetDeathScreenWidget()	const
+	{
+		return m_DeathScreenWidget;
 	}
 };

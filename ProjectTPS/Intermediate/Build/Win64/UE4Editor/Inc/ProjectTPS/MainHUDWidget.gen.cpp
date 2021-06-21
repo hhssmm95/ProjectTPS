@@ -23,13 +23,174 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 	PROJECTTPS_API UClass* Z_Construct_UClass_UAbilityWindowWidget_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_UBossHPWidget_NoRegister();
+	PROJECTTPS_API UClass* Z_Construct_UClass_UDeathScreenWidget_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UBackgroundBlur_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UProgressBar_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UBorder_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_URichTextBlock_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(UMainHUDWidget::execClearScriptArray)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ClearScriptArray();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UMainHUDWidget::execPlayScriptArray)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->PlayScriptArray();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UMainHUDWidget::execAddScriptToArray)
+	{
+		P_GET_PROPERTY(FStrProperty,Z_Param_Script);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AddScriptToArray(Z_Param_Script);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UMainHUDWidget::execSetTextScriptVisible)
+	{
+		P_GET_UBOOL(Z_Param_Visible);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetTextScriptVisible(Z_Param_Visible);
+		P_NATIVE_END;
+	}
 	void UMainHUDWidget::StaticRegisterNativesUMainHUDWidget()
 	{
+		UClass* Class = UMainHUDWidget::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "AddScriptToArray", &UMainHUDWidget::execAddScriptToArray },
+			{ "ClearScriptArray", &UMainHUDWidget::execClearScriptArray },
+			{ "PlayScriptArray", &UMainHUDWidget::execPlayScriptArray },
+			{ "SetTextScriptVisible", &UMainHUDWidget::execSetTextScriptVisible },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray_Statics
+	{
+		struct MainHUDWidget_eventAddScriptToArray_Parms
+		{
+			FString Script;
+		};
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Script_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_Script;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray_Statics::NewProp_Script_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray_Statics::NewProp_Script = { "Script", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MainHUDWidget_eventAddScriptToArray_Parms, Script), METADATA_PARAMS(Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray_Statics::NewProp_Script_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray_Statics::NewProp_Script_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray_Statics::NewProp_Script,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/MainHUDWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMainHUDWidget, nullptr, "AddScriptToArray", nullptr, nullptr, sizeof(MainHUDWidget_eventAddScriptToArray_Parms), Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UMainHUDWidget_ClearScriptArray_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMainHUDWidget_ClearScriptArray_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/MainHUDWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMainHUDWidget_ClearScriptArray_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMainHUDWidget, nullptr, "ClearScriptArray", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMainHUDWidget_ClearScriptArray_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMainHUDWidget_ClearScriptArray_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMainHUDWidget_ClearScriptArray()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMainHUDWidget_ClearScriptArray_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UMainHUDWidget_PlayScriptArray_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMainHUDWidget_PlayScriptArray_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/MainHUDWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMainHUDWidget_PlayScriptArray_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMainHUDWidget, nullptr, "PlayScriptArray", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMainHUDWidget_PlayScriptArray_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMainHUDWidget_PlayScriptArray_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMainHUDWidget_PlayScriptArray()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMainHUDWidget_PlayScriptArray_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UMainHUDWidget_SetTextScriptVisible_Statics
+	{
+		struct MainHUDWidget_eventSetTextScriptVisible_Parms
+		{
+			bool Visible;
+		};
+		static void NewProp_Visible_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_Visible;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_UMainHUDWidget_SetTextScriptVisible_Statics::NewProp_Visible_SetBit(void* Obj)
+	{
+		((MainHUDWidget_eventSetTextScriptVisible_Parms*)Obj)->Visible = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UMainHUDWidget_SetTextScriptVisible_Statics::NewProp_Visible = { "Visible", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(MainHUDWidget_eventSetTextScriptVisible_Parms), &Z_Construct_UFunction_UMainHUDWidget_SetTextScriptVisible_Statics::NewProp_Visible_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMainHUDWidget_SetTextScriptVisible_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMainHUDWidget_SetTextScriptVisible_Statics::NewProp_Visible,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMainHUDWidget_SetTextScriptVisible_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/MainHUDWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMainHUDWidget_SetTextScriptVisible_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMainHUDWidget, nullptr, "SetTextScriptVisible", nullptr, nullptr, sizeof(MainHUDWidget_eventSetTextScriptVisible_Parms), Z_Construct_UFunction_UMainHUDWidget_SetTextScriptVisible_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMainHUDWidget_SetTextScriptVisible_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMainHUDWidget_SetTextScriptVisible_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMainHUDWidget_SetTextScriptVisible_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMainHUDWidget_SetTextScriptVisible()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMainHUDWidget_SetTextScriptVisible_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_UMainHUDWidget_NoRegister()
 	{
@@ -38,6 +199,7 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 	struct Z_Construct_UClass_UMainHUDWidget_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -66,6 +228,10 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_BossHPWidget;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_DeathScreenWidget_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_DeathScreenWidget;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BackgroundBlur_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_BackgroundBlur;
@@ -93,6 +259,19 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_GuideText_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_GuideText;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_TextScriptBorder_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_TextScriptBorder;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_TextScript_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_TextScript;
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_m_ScriptArray_Inner;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_ScriptArray_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_m_ScriptArray;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -100,6 +279,12 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 	UObject* (*const Z_Construct_UClass_UMainHUDWidget_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_UUserWidget,
 		(UObject* (*)())Z_Construct_UPackage__Script_ProjectTPS,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_UMainHUDWidget_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UMainHUDWidget_AddScriptToArray, "AddScriptToArray" }, // 2883176418
+		{ &Z_Construct_UFunction_UMainHUDWidget_ClearScriptArray, "ClearScriptArray" }, // 1252993291
+		{ &Z_Construct_UFunction_UMainHUDWidget_PlayScriptArray, "PlayScriptArray" }, // 1362860871
+		{ &Z_Construct_UFunction_UMainHUDWidget_SetTextScriptVisible, "SetTextScriptVisible" }, // 4209835337
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainHUDWidget_Statics::Class_MetaDataParams[] = {
@@ -161,6 +346,15 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BossHPWidget = { "m_BossHPWidget", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_BossHPWidget), Z_Construct_UClass_UBossHPWidget_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BossHPWidget_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BossHPWidget_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_DeathScreenWidget_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "MainHUDWidget" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/MainHUDWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_DeathScreenWidget = { "m_DeathScreenWidget", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_DeathScreenWidget), Z_Construct_UClass_UDeathScreenWidget_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_DeathScreenWidget_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_DeathScreenWidget_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BackgroundBlur_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -224,6 +418,33 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_GuideText = { "m_GuideText", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_GuideText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_GuideText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_GuideText_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_TextScriptBorder_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "MainHUDWidget" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/MainHUDWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_TextScriptBorder = { "m_TextScriptBorder", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_TextScriptBorder), Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_TextScriptBorder_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_TextScriptBorder_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_TextScript_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "MainHUDWidget" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/MainHUDWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_TextScript = { "m_TextScript", nullptr, (EPropertyFlags)0x002008000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_TextScript), Z_Construct_UClass_URichTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_TextScript_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_TextScript_MetaData)) };
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_ScriptArray_Inner = { "m_ScriptArray", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_ScriptArray_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "MainHUDWidget" },
+		{ "ModuleRelativePath", "UI/MainHUDWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_ScriptArray = { "m_ScriptArray", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMainHUDWidget, m_ScriptArray), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_ScriptArray_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_ScriptArray_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMainHUDWidget_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_PlayerHPWidget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_PlayerEquipWidget,
@@ -231,6 +452,7 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AbilityWindowWidget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_ScopeAim,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BossHPWidget,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_DeathScreenWidget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_BackgroundBlur,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress1,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_SlotProgress2,
@@ -238,6 +460,10 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertText,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_AlertBorder,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_GuideText,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_TextScriptBorder,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_TextScript,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_ScriptArray_Inner,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainHUDWidget_Statics::NewProp_m_ScriptArray,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UMainHUDWidget_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UMainHUDWidget>::IsAbstract,
@@ -247,11 +473,11 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 		nullptr,
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_UMainHUDWidget_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_UMainHUDWidget_Statics::PropPointers),
 		0,
 		0x00B010A0u,
@@ -266,7 +492,7 @@ void EmptyLinkFunctionForGeneratedCodeMainHUDWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMainHUDWidget, 4243955295);
+	IMPLEMENT_CLASS(UMainHUDWidget, 3303114774);
 	template<> PROJECTTPS_API UClass* StaticClass<UMainHUDWidget>()
 	{
 		return UMainHUDWidget::StaticClass();

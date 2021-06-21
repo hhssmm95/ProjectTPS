@@ -10,6 +10,7 @@
 #include "../EffectNormal.h"
 #include "../UI/MainHUDWidget.h"
 #include "../UI/PlayerEquipWidget.h"
+#include "../UI/DeathScreenWidget.h"
 #include "../Monster/Monster.h"
 #include "Components/WidgetComponent.h"
 #include "Perception/AISense_Damage.h"
@@ -114,13 +115,16 @@ void APlayerCharacter::BeginPlay()
 	m_ThermalVision = Cast<UPostProcessComponent>(GetDefaultSubobjectByName(TEXT("PP_ThermalVision")));
 	m_ScopeParticle = Cast<UParticleSystemComponent>(GetDefaultSubobjectByName(TEXT("ScopeParticle")));
 	m_bCloseAttackEnable = true;
+	m_bInEventScene = false;
 }
 
 // Called every frame
 void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	Detection();
+	Detection();/*
+	if (m_bInEventScene)
+		return;*/
 
 	if (m_bFire && !m_IsReloading)
 	{
@@ -200,6 +204,7 @@ void APlayerCharacter::Tick(float DeltaTime)
 			m_bAimAssist = false;
 			m_AimAssistTimeAcc = 0.f;
 			m_AimAssistParticle->SetVisibility(false);
+			m_ScopeParticle->SetVisibility(false);
 		}
 		m_AimAssistTimeAcc += DeltaTime;
 	}
@@ -313,12 +318,16 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 	PlayerInputComponent->BindAction(TEXT("DashRight"), EInputEvent::IE_Pressed, this, &APlayerCharacter::DashRight);
 	PlayerInputComponent->BindAction(TEXT("DashLeft"), EInputEvent::IE_Pressed, this, &APlayerCharacter::DashLeft);
+
+	PlayerInputComponent->BindAction(TEXT("AnyKey"), EInputEvent::IE_Pressed, this, &APlayerCharacter::RestartLevelOnDeath);
 	
 }
 
 
 void APlayerCharacter::MoveFront(float fScale)
 {
+	if (m_bInEventScene)
+		return;
 
 	if (!m_bIsDead && GetCharacterMovement()->IsMovingOnGround() && !m_bIsDashing)
 		AddMovementInput(GetActorForwardVector(), fScale);
@@ -327,6 +336,9 @@ void APlayerCharacter::MoveFront(float fScale)
 }
 void APlayerCharacter::MoveSide(float fScale)
 {
+	if (m_bInEventScene)
+		return;
+
 	if (!m_bIsDead && GetCharacterMovement()->IsMovingOnGround() && !m_bIsDashing)
 		AddMovementInput(GetActorRightVector(), fScale);
 
@@ -335,6 +347,8 @@ void APlayerCharacter::MoveSide(float fScale)
 
 void APlayerCharacter::Turn(float fScale)
 {
+	if (m_bInEventScene)
+		return;
 
 	if (!m_bIsDead && !m_bIsDashing)
 	{
@@ -348,11 +362,16 @@ void APlayerCharacter::Turn(float fScale)
 
 void APlayerCharacter::AddUpperYawInput(float fScale)
 {
+	if (m_bInEventScene)
+		return;
+
 	if (fScale > 0.f || fScale < 0.f && !m_bIsDead && !m_bIsDashing)
 		m_UpperYaw += fScale;
 }
 void APlayerCharacter::LookUp(float fScale)
 {
+	if (m_bInEventScene)
+		return;
 
 	if (!m_bIsDead && !m_bIsDashing)
 	{
@@ -364,6 +383,9 @@ void APlayerCharacter::LookUp(float fScale)
 }
 void APlayerCharacter::WheelEvent(float fScale)
 {
+	if (m_bInEventScene)
+		return;
+
 	if (fScale != 0.f)
 	{
 		m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->ChangeGear(fScale);
@@ -373,6 +395,9 @@ void APlayerCharacter::WheelEvent(float fScale)
 
 void APlayerCharacter::UseAbility1()
 {
+	if (m_bInEventScene)
+		return;
+
 	if (m_Slot1AbilityEnable && m_eSlot1Ability != EAbility::None && !m_bIsDead && !m_bIsDashing)
 	{
 		m_Slot1AbilityEnable = false;
@@ -400,6 +425,9 @@ void APlayerCharacter::UseAbility1()
 }
 void APlayerCharacter::UseAbility2()
 {
+	if (m_bInEventScene)
+		return;
+
 	if (m_Slot2AbilityEnable && m_eSlot2Ability != EAbility::None && !m_bIsDead && !m_bIsDashing)
 	{
 		m_Slot2AbilityEnable = false;
@@ -430,6 +458,9 @@ void APlayerCharacter::UseAbility2()
 
 void APlayerCharacter::InputJump()
 {
+	if (m_bInEventScene)
+		return;
+
 	if (!m_bIsDead)
 	{
 		Jump();
@@ -439,6 +470,9 @@ void APlayerCharacter::InputJump()
 
 void APlayerCharacter::AimPress()
 {
+	if (m_bInEventScene)
+		return;
+
 	if (!m_bIsDead && m_bScope)
 	{
 		m_IsAiming = true;
@@ -453,6 +487,7 @@ void APlayerCharacter::AimPress()
 
 void APlayerCharacter::AimRelease()
 {
+
 	if (!m_bIsDead && m_bScope)
 	{
 		m_IsAiming = false;
@@ -491,6 +526,10 @@ void APlayerCharacter::ReloadEnd()
 }
 void APlayerCharacter::PrimaryFire()
 {
+
+	if (m_bInEventScene)
+		return;
+
 	if (!m_bIsDead)
 	{
 		m_bFire = true;
@@ -516,6 +555,9 @@ void APlayerCharacter::PrimaryStop()
 
 void APlayerCharacter::EquipGear()
 {
+	if (m_bInEventScene)
+		return;
+
 	if (!m_bIsDead)
 	{
 		switch (m_HUD->GetMainHUDWidget()->GetPlayerEquipWidget()->GetCurrentGear())		
@@ -713,6 +755,9 @@ float APlayerCharacter::TakeDamage(float Damage, struct FDamageEvent const& Dama
 {
 	Damage = Super::TakeDamage(Damage, DamageEvent, EventInstigator, DamageCauser);
 
+	if (m_bInEventScene)
+		return Damage;
+
 	if (m_bShield && m_ShieldHP >= (int32)Damage)
 	{
 		m_ShieldHP -= (int32)Damage;
@@ -744,6 +789,7 @@ float APlayerCharacter::TakeDamage(float Damage, struct FDamageEvent const& Dama
 	{
 		m_bIsDead = true;
 		m_pPlayerAnim->SetIsDead();
+		DeathEffect();
 	}
 
 
@@ -763,6 +809,9 @@ void APlayerCharacter::AddHP(float HP)
 
 void APlayerCharacter::EmitHitEffect(FVector ImpactLoc, FRotator Rot)
 {
+	if (m_bInEventScene)
+		return;
+
 	if (!m_bIsDead)
 	{
 		FActorSpawnParameters	params;
@@ -805,6 +854,9 @@ void APlayerCharacter::ShowHeadShotMark()
 
 void APlayerCharacter::AbilityWindowVisiblity()
 {
+	if (m_bInEventScene)
+		return;
+
 	m_HUD->AbilityWindowToggle();
 }
 
@@ -812,6 +864,7 @@ void APlayerCharacter::AimAssist()
 {
 	m_bAimAssist = true;
 	m_AimAssistParticle->SetVisibility(true);
+	m_ScopeParticle->SetVisibility(true);
 }
 
 void APlayerCharacter::Detection()
@@ -828,7 +881,7 @@ void APlayerCharacter::Detection()
 
 		bool bHit = UKismetSystemLibrary::CapsuleTraceSingle(GetWorld(), StartLoc, EndLoc, 600, 500,
 			UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel7), true, IgnoreActor,
-			EDrawDebugTrace::ForDuration, result, true, FLinearColor::Red, FLinearColor::Green, 0.01f);
+			EDrawDebugTrace::None, result, true, FLinearColor::Red, FLinearColor::Green, 0.01f);
 
 		if (bHit)
 		{
@@ -905,6 +958,9 @@ void APlayerCharacter::ReactorOverload()
 
 void APlayerCharacter::DashRight()
 {
+	if (m_bInEventScene)
+		return;
+
 	if (m_Slot1AbilityEnable && m_eSlot1Ability == EAbility::Utility1 && !m_bIsDead && !m_bIsDashing)
 	{
 		m_Slot1AbilityEnable = false;
@@ -946,6 +1002,9 @@ void APlayerCharacter::DashRight()
 
 void APlayerCharacter::DashLeft()
 {
+	if (m_bInEventScene)
+		return;
+
 	if (m_Slot1AbilityEnable && m_eSlot1Ability == EAbility::Utility1 && !m_bIsDead && !m_bIsDashing)
 	{
 		m_Slot1AbilityEnable = false;
@@ -1021,6 +1080,9 @@ bool APlayerCharacter::GetUsingSuppressor()
 
 void APlayerCharacter::CloseAttack()
 {
+	if (m_bInEventScene)
+		return;
+
 	FHitResult result;
 
 	FCollisionQueryParams	params(NAME_None, false, this);
@@ -1069,4 +1131,29 @@ void APlayerCharacter::CloseAttackStart()
 void APlayerCharacter::CloseAttackEnd()
 {
 	m_bCloseAttackEnable = true;
+}
+void APlayerCharacter::DeathEffect()
+{
+	if (m_bIsDead)
+	{
+		m_HUD->GetMainHUDWidget()->GetDeathScreenWidget()->SetVisibility(ESlateVisibility::Visible);
+		m_HUD->GetMainHUDWidget()->GetDeathScreenWidget()->ShowDefeatText();
+
+	}
+}
+
+void APlayerCharacter::RestartLevelOnDeath()
+{
+	if (m_bIsDead && m_HUD->GetMainHUDWidget()->GetDeathScreenWidget()->GetTextAnimationEnd())
+	{
+
+		//UGameplayStatics::OpenLevel(GetWorld(), (FName)GetWorld()->GetMapName());
+		UKismetSystemLibrary::ExecuteConsoleCommand(GetWorld(), TEXT("RestartLevel"));
+	}
+}
+
+
+void APlayerCharacter::SetWeaponVisibility(bool Visibility)
+{
+	m_PrimaryWeapon->GetMesh()->SetVisibility(Visibility);
 }

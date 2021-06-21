@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ProjectTPS.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{504F625C-2966-49A7-A593-F377F4EBB6F6}</UniqueIdentifier>
+      <UniqueIdentifier>{7D01A22E-3204-4D6C-B7AF-1FB3AD759882}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ProjectTPS.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{B3795C97-9A2D-4A2D-9AD8-2FE3DFFCE5DC}</UniqueIdentifier>
+      <UniqueIdentifier>{C80CEE77-25D8-4B03-ADFF-23B074E8364C}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\ProjectTPS">
-      <UniqueIdentifier>{28BA703A-9FAF-4DF5-B10C-284C4EFED5C8}</UniqueIdentifier>
+      <UniqueIdentifier>{DD3666B2-8032-4E57-9A20-A7BE139F6731}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ProjectTPS\EffectNormal.cpp">
       <Filter>Source\ProjectTPS</Filter>
@@ -104,8 +104,14 @@
     <ClInclude Include="..\..\Source\ProjectTPS\DropItem.h">
       <Filter>Source\ProjectTPS</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\LevelTransition.cpp">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectTPS\LevelTransition.h">
+      <Filter>Source\ProjectTPS</Filter>
+    </ClInclude>
     <Filter Include="Source\ProjectTPS\Player">
-      <UniqueIdentifier>{C13041DA-6EB4-4952-BCA1-CEBC88F8F964}</UniqueIdentifier>
+      <UniqueIdentifier>{24C255EB-CDC6-434B-A87D-FDDA7DDB08E5}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\ProjectTPS\Player\PlayerInfo.h">
       <Filter>Source\ProjectTPS\Player</Filter>
@@ -132,7 +138,7 @@
       <Filter>Source\ProjectTPS\Player</Filter>
     </ClCompile>
     <Filter Include="Source\ProjectTPS\UI">
-      <UniqueIdentifier>{4A7D204C-8B52-49D0-8C35-36827F4A233A}</UniqueIdentifier>
+      <UniqueIdentifier>{552B5BD6-51E9-4716-942F-23A303F42028}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ProjectTPS\UI\PlayerHPWidget.cpp">
       <Filter>Source\ProjectTPS\UI</Filter>
@@ -176,20 +182,26 @@
     <ClInclude Include="..\..\Source\ProjectTPS\UI\PlayerEquipWidget.h">
       <Filter>Source\ProjectTPS\UI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\ProjectTPS\UI\MainHUDWidget.h">
+    <ClCompile Include="..\..\Source\ProjectTPS\UI\BossHPWidget.cpp">
       <Filter>Source\ProjectTPS\UI</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ProjectTPS\UI\MainHUDWidget.cpp">
       <Filter>Source\ProjectTPS\UI</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\ProjectTPS\UI\BossHPWidget.h">
       <Filter>Source\ProjectTPS\UI</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\ProjectTPS\UI\BossHPWidget.cpp">
+    <ClInclude Include="..\..\Source\ProjectTPS\UI\MainHUDWidget.h">
+      <Filter>Source\ProjectTPS\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ProjectTPS\UI\DeathScreenWidget.h">
+      <Filter>Source\ProjectTPS\UI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectTPS\UI\DeathScreenWidget.cpp">
       <Filter>Source\ProjectTPS\UI</Filter>
     </ClCompile>
     <Filter Include="Source\ProjectTPS\Monster">
-      <UniqueIdentifier>{74EC8C04-E685-443E-982D-1476CF14FD93}</UniqueIdentifier>
+      <UniqueIdentifier>{DC5C909E-2271-4AE2-A56F-5B8AF0710EB5}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\ProjectTPS\Monster\BTTask_MonsterSkill.h">
       <Filter>Source\ProjectTPS\Monster</Filter>
@@ -251,18 +263,18 @@
     <ClInclude Include="..\..\Source\ProjectTPS\Monster\BTService_CheckHP.h">
       <Filter>Source\ProjectTPS\Monster</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\ProjectTPS\Monster\Revenant.cpp">
+    <ClInclude Include="..\..\Source\ProjectTPS\Monster\Monster.h">
       <Filter>Source\ProjectTPS\Monster</Filter>
-    </ClCompile>
+    </ClInclude>
     <ClCompile Include="..\..\Source\ProjectTPS\Monster\BTAttackTargetTask.cpp">
       <Filter>Source\ProjectTPS\Monster</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\ProjectTPS\Monster\RevenantAnim.cpp">
       <Filter>Source\ProjectTPS\Monster</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\ProjectTPS\Monster\Monster.h">
+    <ClCompile Include="..\..\Source\ProjectTPS\Monster\Revenant.cpp">
       <Filter>Source\ProjectTPS\Monster</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ProjectTPS\Monster\Monster.cpp">
       <Filter>Source\ProjectTPS\Monster</Filter>
     </ClCompile>
@@ -342,7 +354,7 @@
       <Filter>Source\ProjectTPS\Monster</Filter>
     </ClCompile>
     <Filter Include="Source\ProjectTPS\TP_ThirdPerson">
-      <UniqueIdentifier>{CD75AF4B-D096-46F2-8F05-FB8A9A99E6C0}</UniqueIdentifier>
+      <UniqueIdentifier>{7658E489-FDC2-4E23-8111-DFE9968864F4}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\ProjectTPS\TP_ThirdPerson\TP_ThirdPerson.h">
       <Filter>Source\ProjectTPS\TP_ThirdPerson</Filter>

@@ -17,14 +17,107 @@ void EmptyLinkFunctionForGeneratedCodeProjectTPSGameModeBase() {}
 	PROJECTTPS_API UClass* Z_Construct_UClass_AProjectTPSGameModeBase();
 	ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
 	UPackage* Z_Construct_UPackage__Script_ProjectTPS();
+	PROJECTTPS_API UClass* Z_Construct_UClass_UMainHUDWidget_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AAmbientSound_NoRegister();
-	PROJECTTPS_API UClass* Z_Construct_UClass_UMainHUDWidget_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AProjectTPSGameModeBase::execGetMainHUDWidget)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(UMainHUDWidget**)Z_Param__Result=P_THIS->GetMainHUDWidget();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AProjectTPSGameModeBase::execSetAlertWithTime)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_AlertTime);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetAlertWithTime(Z_Param_AlertTime);
+		P_NATIVE_END;
+	}
 	void AProjectTPSGameModeBase::StaticRegisterNativesAProjectTPSGameModeBase()
 	{
+		UClass* Class = AProjectTPSGameModeBase::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "GetMainHUDWidget", &AProjectTPSGameModeBase::execGetMainHUDWidget },
+			{ "SetAlertWithTime", &AProjectTPSGameModeBase::execSetAlertWithTime },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget_Statics
+	{
+		struct ProjectTPSGameModeBase_eventGetMainHUDWidget_Parms
+		{
+			UMainHUDWidget* ReturnValue;
+		};
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget_Statics::NewProp_ReturnValue_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ProjectTPSGameModeBase_eventGetMainHUDWidget_Parms, ReturnValue), Z_Construct_UClass_UMainHUDWidget_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget_Statics::NewProp_ReturnValue_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget_Statics::NewProp_ReturnValue_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ProjectTPSGameModeBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AProjectTPSGameModeBase, nullptr, "GetMainHUDWidget", nullptr, nullptr, sizeof(ProjectTPSGameModeBase_eventGetMainHUDWidget_Parms), Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AProjectTPSGameModeBase_SetAlertWithTime_Statics
+	{
+		struct ProjectTPSGameModeBase_eventSetAlertWithTime_Parms
+		{
+			float AlertTime;
+		};
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_AlertTime;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AProjectTPSGameModeBase_SetAlertWithTime_Statics::NewProp_AlertTime = { "AlertTime", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ProjectTPSGameModeBase_eventSetAlertWithTime_Parms, AlertTime), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AProjectTPSGameModeBase_SetAlertWithTime_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AProjectTPSGameModeBase_SetAlertWithTime_Statics::NewProp_AlertTime,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AProjectTPSGameModeBase_SetAlertWithTime_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ProjectTPSGameModeBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AProjectTPSGameModeBase_SetAlertWithTime_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AProjectTPSGameModeBase, nullptr, "SetAlertWithTime", nullptr, nullptr, sizeof(ProjectTPSGameModeBase_eventSetAlertWithTime_Parms), Z_Construct_UFunction_AProjectTPSGameModeBase_SetAlertWithTime_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AProjectTPSGameModeBase_SetAlertWithTime_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AProjectTPSGameModeBase_SetAlertWithTime_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AProjectTPSGameModeBase_SetAlertWithTime_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AProjectTPSGameModeBase_SetAlertWithTime()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AProjectTPSGameModeBase_SetAlertWithTime_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_AProjectTPSGameModeBase_NoRegister()
 	{
@@ -33,6 +126,7 @@ void EmptyLinkFunctionForGeneratedCodeProjectTPSGameModeBase() {}
 	struct Z_Construct_UClass_AProjectTPSGameModeBase_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -69,6 +163,10 @@ void EmptyLinkFunctionForGeneratedCodeProjectTPSGameModeBase() {}
 	UObject* (*const Z_Construct_UClass_AProjectTPSGameModeBase_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_AGameModeBase,
 		(UObject* (*)())Z_Construct_UPackage__Script_ProjectTPS,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_AProjectTPSGameModeBase_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AProjectTPSGameModeBase_GetMainHUDWidget, "GetMainHUDWidget" }, // 1904589606
+		{ &Z_Construct_UFunction_AProjectTPSGameModeBase_SetAlertWithTime, "SetAlertWithTime" }, // 788111447
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectTPSGameModeBase_Statics::Class_MetaDataParams[] = {
@@ -141,11 +239,11 @@ void EmptyLinkFunctionForGeneratedCodeProjectTPSGameModeBase() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_AProjectTPSGameModeBase_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_AProjectTPSGameModeBase_Statics::PropPointers),
 		0,
 		0x009002ACu,
@@ -160,7 +258,7 @@ void EmptyLinkFunctionForGeneratedCodeProjectTPSGameModeBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AProjectTPSGameModeBase, 1778031650);
+	IMPLEMENT_CLASS(AProjectTPSGameModeBase, 1139937113);
 	template<> PROJECTTPS_API UClass* StaticClass<AProjectTPSGameModeBase>()
 	{
 		return AProjectTPSGameModeBase::StaticClass();

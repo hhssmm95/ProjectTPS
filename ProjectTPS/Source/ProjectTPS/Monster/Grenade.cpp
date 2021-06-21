@@ -62,14 +62,11 @@ void AGrenade::Throw(FVector LaunchLoc, FVector TargetLoc, APawn* Invenstigator)
 		//Movement->AddForce(m_Velocity * m_Box->GetMass());
 		////m_Capsule->AddForce(m_Velocity);
 		//float time = FMath::sin m_Velocity * m_Box->GetMass();
-		//PrintViewport(3.f, FColor::Green, FString::Printf(TEXT("impulse velocity(%f, %f, %f)"), m_Velocity.X, m_Velocity.Y, m_Velocity.Z));
-
 		m_Body->AddImpulse(m_Velocity * m_Body->GetMass());
 		m_Launched = true;
 	}
 	else
 	{
-		PrintViewport(3.f, FColor::Red, TEXT("fail"));
 
 	}
 
@@ -94,7 +91,7 @@ void AGrenade::OnGrenadeHit(UPrimitiveComponent* HitComponent,
 
 		bool bHit = UKismetSystemLibrary::SphereTraceSingle(GetWorld(), GetActorLocation(), GetActorLocation(),
 			200.f, UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel5), true, IgnoreActor,
-			EDrawDebugTrace::ForDuration, result, true, FLinearColor::Red, FLinearColor::Green, 2.f);
+			EDrawDebugTrace::None, result, true, FLinearColor::Red, FLinearColor::Green, 2.f);
 
 		if (bHit)
 		{

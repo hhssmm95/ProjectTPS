@@ -49,6 +49,7 @@ public:
 	void SetDeath();
 	void Panic();
 	bool GetTargetExist();
+	UFUNCTION(BlueprintCallable)
 	void SetTargetAsPlayer();
 	void SetCallBackUpEnable(bool Enable);
 	

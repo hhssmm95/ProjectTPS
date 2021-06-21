@@ -1,14 +1,19 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (G:\Git).
   Building ProjectTPSEditor...
   Using Visual Studio 2019 14.28.29336 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  [Adaptive unity build] Excluded from ProjectTPS unity file: BTTask_MonsterSkill.cpp, Grenade.cpp, Monster.cpp, MonsterAnim.cpp, Revenant.cpp, BossHPWidget.cpp, MainHUDWidget.cpp
-  [Adaptive unity build] Excluded from ProjectTPS.gen unity file: BossHPWidget.gen.cpp, Grenade.gen.cpp, MainHUDWidget.gen.cpp, MonsterAnim.gen.cpp, ProjectTPS.init.gen.cpp, Revenant.gen.cpp
-  Building 4 actions with 8 processes...
-    [1/4] Revenant.cpp
-    [2/4] UE4Editor-ProjectTPS-0096.lib
-       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0096.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0096.exp 개체를 생성하고 있습니다.
-    [3/4] UE4Editor-ProjectTPS-0096.dll
-       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0096.suppressed.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0096.suppressed.exp 개체를 생성하고 있습니다.
-    [4/4] ProjectTPSEditor.target
-  Total time in Parallel executor: 35.53 seconds
-  Total execution time: 37.42 seconds
+  [Adaptive unity build] Excluded from ProjectTPS unity file: Bullet.cpp, ExplosiveBullet.cpp, LevelTransition.cpp, BossAIController.cpp, BTService_CheckHP.cpp, BTTask_MonsterSkill.cpp, BTTask_Panic.cpp, Grenade.cpp, Monster.cpp, MonsterAIController.cpp, MonsterAnim.cpp, Revenant.cpp, PlayerCharacter.cpp, PrimaryWeapon.cpp, ProjectTPSGameModeBase.cpp, DeathScreenWidget.cpp, MainHUDWidget.cpp
+  [Adaptive unity build] Excluded from ProjectTPS.gen unity file: DeathScreenWidget.gen.cpp, LevelTransition.gen.cpp, MainHUDWidget.gen.cpp, MonsterAIController.gen.cpp, PlayerCharacter.gen.cpp, PlayerHUD.gen.cpp, ProjectTPS.init.gen.cpp, ProjectTPSGameModeBase.gen.cpp, Revenant.gen.cpp
+  Building 9 actions with 8 processes...
+    [1/9] Grenade.cpp
+    [2/9] ExplosiveBullet.cpp
+    [3/9] Monster.cpp
+    [4/9] BTTask_Panic.cpp
+    [5/9] PlayerCharacter.cpp
+    [6/9] Revenant.cpp
+    [7/9] UE4Editor-ProjectTPS-0156.lib
+       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0156.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0156.exp 개체를 생성하고 있습니다.
+    [8/9] UE4Editor-ProjectTPS-0156.dll
+       G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0156.suppressed.lib 라이브러리 및 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Development\ProjectTPS\UE4Editor-ProjectTPS-0156.suppressed.exp 개체를 생성하고 있습니다.
+    [9/9] ProjectTPSEditor.target
+  Total time in Parallel executor: 35.83 seconds
+  Total execution time: 37.19 seconds

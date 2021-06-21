@@ -72,17 +72,14 @@ void AMonster::Tick(float DeltaTime)
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Idle);
 			m_TargetLoc = FVector::ZeroVector;
 
-			//PrintViewport(2.f, FColor::Yellow, TEXT("AI is Idle"));
 			break;
 		case MonsterAI::Patrol:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Walk);
 			m_TargetLoc = FVector::ZeroVector;
-			//PrintViewport(2.f, FColor::Yellow, TEXT("AI is Patrol"));
 			break;
 		case MonsterAI::Trace:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Run);
 			m_TargetLoc = FVector::ZeroVector;
-			//PrintViewport(2.f, FColor::Yellow, TEXT("AI is Trace"));
 			break;
 		case MonsterAI::Attack:
 			break;
@@ -97,22 +94,18 @@ void AMonster::Tick(float DeltaTime)
 		case MonsterAI::Skill1:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Skill1);
 			m_TargetLoc = FVector::ZeroVector;
-			//PrintViewport(2.f, FColor::Yellow, TEXT("AI is Skill1"));
 			break;
 		case MonsterAI::Skill2:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Skill2);
 			m_TargetLoc = FVector::ZeroVector;
-			//PrintViewport(2.f, FColor::Yellow, TEXT("AI is Skill2"));
 			break;
 		case MonsterAI::Skill3:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Skill3);
 			m_TargetLoc = FVector::ZeroVector;
-			//PrintViewport(2.f, FColor::Yellow, TEXT("AI is Skill3"));
 			break;
 		case MonsterAI::Skill4:
 			m_MonsterAnim->ChangeAnimType(EMonsterAnimType::Skill4);
 			m_TargetLoc = FVector::ZeroVector;
-			//PrintViewport(2.f, FColor::Yellow, TEXT("AI is Skill4"));
 			break;
 		}
 	
@@ -141,7 +134,6 @@ void AMonster::MonsterAttackEnd()
 {
 	if(!m_MonsterAnim->GetSkillPlaying())
 		m_eMonsterAIType = MonsterAI::Idle;
-	//PrintViewport(2.f, FColor::Red, TEXT("AttackEnd"));
 }
 
 
@@ -160,7 +152,6 @@ void AMonster::MonsterNearAttack()
 	if (bSweep)
 	{
 
-		PrintViewport(2.f, FColor::Red, result.Actor->GetFName().ToString());
 		/*
 		
 
@@ -185,15 +176,15 @@ void AMonster::MonsterNearAttack()
 			pPlayer->TakeDamage((float)m_Attack, DmgEvent, GetController(), this);
 		}
 	}
-
-#if ENABLE_DRAW_DEBUG
-	FColor	DrawColor = bSweep ? FColor::Yellow : FColor::Blue;
-
-
-
-	DrawDebugCone(GetWorld(), GetActorLocation(), GetActorForwardVector(), m_CloseAttackDistance, 
-		FMath::DegreesToRadians(22.5f), FMath::DegreesToRadians(22.5f), 20, DrawColor, false, 1.f);
-#endif // ENABLE_DRAW_DEBUGEDITOR
+//
+//#if ENABLE_DRAW_DEBUG
+//	FColor	DrawColor = bSweep ? FColor::Yellow : FColor::Blue;
+//
+//
+//
+//	/*DrawDebugCone(GetWorld(), GetActorLocation(), GetActorForwardVector(), m_CloseAttackDistance, 
+//		FMath::DegreesToRadians(22.5f), FMath::DegreesToRadians(22.5f), 20, DrawColor, false, 1.f);*/
+//#endif // ENABLE_DRAW_DEBUGEDITOR
 
 }
 
@@ -230,7 +221,6 @@ float AMonster::TakeDamage(float Damage, struct FDamageEvent const& DamageEvent,
 	Damage = Super::TakeDamage(Damage, DamageEvent, EventInstigator, DamageCauser);
 
 	m_HP -= Damage;
-	PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("Enemy HP : %d"), m_HP));
 	AMonsterAIController* pController = Cast<AMonsterAIController>(GetController());
 	pController->Panic();
 
@@ -258,7 +248,6 @@ float AMonster::TakeDamageFromClose(float Damage, struct FDamageEvent const& Dam
 	{
 
 		m_HP -= Damage;
-		PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("Enemy HP : %d"), m_HP));
 		pController->Panic();
 
 		if (m_HP <= 0)
@@ -274,7 +263,6 @@ float AMonster::TakeDamageFromClose(float Damage, struct FDamageEvent const& Dam
 	else
 	{
 		m_HP -= (Damage*3);
-		PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("Enemy HP : %d"), m_HP));
 		pController->Panic();
 
 		if (m_HP <= 0)

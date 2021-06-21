@@ -19,7 +19,6 @@ void UMonsterAnim::NativeUpdateAnimation(float DeltaSeconds)
 {
 	Super::NativeUpdateAnimation(DeltaSeconds);
 
-	//PrintViewport(2.f, FColor::Green, (FString)m_eMonsterAnim)
 }
 
 
@@ -67,7 +66,6 @@ void UMonsterAnim::MonsterHitReaction()
 
 void UMonsterAnim::AnimNotify_MonsterSkillEnd()
 {
-	PrintViewport(10.f, FColor::Red, TEXT("SkillEnd"));
 	m_SkillEnd = true;
 
 	AMonster* pMonster = Cast<AMonster>(TryGetPawnOwner());

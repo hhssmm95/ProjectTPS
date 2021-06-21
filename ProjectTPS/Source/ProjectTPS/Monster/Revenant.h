@@ -95,7 +95,7 @@ protected:
 
 	float m_SkillTime;
 
-
+	UPROPERTY()
 	class AMonsterAIController* m_RevenantAI;
 
 	int32		m_UseSkillIndex;

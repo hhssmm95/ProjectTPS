@@ -45,7 +45,6 @@ void AMonsterAIController::OnPossess(APawn* InPawn)
 		}
 		//Blackboard->SetValueAsBool(TEXT("CallBackUpEnable"), pMonster->GetCallBackUpEnable());
 	}
-	PrintViewport(5.0f, FColor::Red, TEXT("Monster AIController Init"));
 }
 
 void AMonsterAIController::OnUnPossess()
@@ -100,5 +99,4 @@ void AMonsterAIController::PerceptionInit()
 	m_SightConfig->IsEnabled();
 
 	GetPerceptionComponent()->ConfigureSense(*m_SightConfig);
-	PrintViewport(5.f, FColor::Yellow, TEXT("Perception Init"));
 }*/

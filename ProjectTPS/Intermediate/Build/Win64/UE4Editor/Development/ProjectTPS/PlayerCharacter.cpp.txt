@@ -798,6 +798,8 @@ E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\UserWidget.generate
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\MainHUDWidget.generated.h
 G:\Git\ProjectTPS\Source\ProjectTPS\Player\../UI/PlayerEquipWidget.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\PlayerEquipWidget.generated.h
+G:\Git\ProjectTPS\Source\ProjectTPS\Player\../UI/DeathScreenWidget.h
+G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\DeathScreenWidget.generated.h
 G:\Git\ProjectTPS\Source\ProjectTPS\Player\../Monster/Monster.h
 G:\Git\ProjectTPS\Source\ProjectTPS\Monster\MonsterAnim.h
 G:\Git\ProjectTPS\Intermediate\Build\Win64\UE4Editor\Inc\ProjectTPS\MonsterAnim.generated.h

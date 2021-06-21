@@ -50,6 +50,14 @@ public:
 
 public:
 	void SetAlertWithTime();
+	UFUNCTION(BlueprintCallable)
+	void SetAlertWithTime(float AlertTime);
+
+	UFUNCTION(BlueprintCallable)
+	UMainHUDWidget* GetMainHUDWidget() const
+	{
+		return m_MainHUDWidget;
+	}
 	
 
 };

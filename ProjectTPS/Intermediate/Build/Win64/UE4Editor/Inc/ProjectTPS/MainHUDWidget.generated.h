@@ -14,8 +14,22 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define PROJECTTPS_MainHUDWidget_generated_h
 
 #define ProjectTPS_Source_ProjectTPS_UI_MainHUDWidget_h_13_SPARSE_DATA
-#define ProjectTPS_Source_ProjectTPS_UI_MainHUDWidget_h_13_RPC_WRAPPERS
-#define ProjectTPS_Source_ProjectTPS_UI_MainHUDWidget_h_13_RPC_WRAPPERS_NO_PURE_DECLS
+#define ProjectTPS_Source_ProjectTPS_UI_MainHUDWidget_h_13_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execClearScriptArray); \
+	DECLARE_FUNCTION(execPlayScriptArray); \
+	DECLARE_FUNCTION(execAddScriptToArray); \
+	DECLARE_FUNCTION(execSetTextScriptVisible);
+
+
+#define ProjectTPS_Source_ProjectTPS_UI_MainHUDWidget_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execClearScriptArray); \
+	DECLARE_FUNCTION(execPlayScriptArray); \
+	DECLARE_FUNCTION(execAddScriptToArray); \
+	DECLARE_FUNCTION(execSetTextScriptVisible);
+
+
 #define ProjectTPS_Source_ProjectTPS_UI_MainHUDWidget_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMainHUDWidget(); \
@@ -67,13 +81,17 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMainHUDWidget); \
 	FORCEINLINE static uint32 __PPO__m_AbilityWindowWidget() { return STRUCT_OFFSET(UMainHUDWidget, m_AbilityWindowWidget); } \
 	FORCEINLINE static uint32 __PPO__m_ScopeAim() { return STRUCT_OFFSET(UMainHUDWidget, m_ScopeAim); } \
 	FORCEINLINE static uint32 __PPO__m_BossHPWidget() { return STRUCT_OFFSET(UMainHUDWidget, m_BossHPWidget); } \
+	FORCEINLINE static uint32 __PPO__m_DeathScreenWidget() { return STRUCT_OFFSET(UMainHUDWidget, m_DeathScreenWidget); } \
 	FORCEINLINE static uint32 __PPO__m_BackgroundBlur() { return STRUCT_OFFSET(UMainHUDWidget, m_BackgroundBlur); } \
 	FORCEINLINE static uint32 __PPO__m_SlotProgress1() { return STRUCT_OFFSET(UMainHUDWidget, m_SlotProgress1); } \
 	FORCEINLINE static uint32 __PPO__m_SlotProgress2() { return STRUCT_OFFSET(UMainHUDWidget, m_SlotProgress2); } \
 	FORCEINLINE static uint32 __PPO__m_AlertCountText() { return STRUCT_OFFSET(UMainHUDWidget, m_AlertCountText); } \
 	FORCEINLINE static uint32 __PPO__m_AlertText() { return STRUCT_OFFSET(UMainHUDWidget, m_AlertText); } \
 	FORCEINLINE static uint32 __PPO__m_AlertBorder() { return STRUCT_OFFSET(UMainHUDWidget, m_AlertBorder); } \
-	FORCEINLINE static uint32 __PPO__m_GuideText() { return STRUCT_OFFSET(UMainHUDWidget, m_GuideText); }
+	FORCEINLINE static uint32 __PPO__m_GuideText() { return STRUCT_OFFSET(UMainHUDWidget, m_GuideText); } \
+	FORCEINLINE static uint32 __PPO__m_TextScriptBorder() { return STRUCT_OFFSET(UMainHUDWidget, m_TextScriptBorder); } \
+	FORCEINLINE static uint32 __PPO__m_TextScript() { return STRUCT_OFFSET(UMainHUDWidget, m_TextScript); } \
+	FORCEINLINE static uint32 __PPO__m_ScriptArray() { return STRUCT_OFFSET(UMainHUDWidget, m_ScriptArray); }
 
 
 #define ProjectTPS_Source_ProjectTPS_UI_MainHUDWidget_h_10_PROLOG

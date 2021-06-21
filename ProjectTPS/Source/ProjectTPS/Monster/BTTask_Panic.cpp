@@ -40,10 +40,8 @@ EBTNodeResult::Type UBTTask_Panic::ExecuteTask(UBehaviorTreeComponent& OwnerComp
 	if (NavData->GetRandomPointInNavigableRadius(OriginLot, 2500.f, RandomLoc))
 	{ 
 		OwnerComp.GetBlackboardComponent()->SetValueAsVector(TEXT("RandomLocation"), RandomLoc.Location);/*
-		PrintViewport(2.f, FColor::Red, FString::Printf(TEXT("%s ,%f, %f, %f"), pMonster->GetFName().ToString(),
 			RandomLoc.Location.X, RandomLoc.Location.Y, RandomLoc.Location.Z));*/
 
-		//DrawDebugSphere(GetWorld(), RandomLoc.Location, 100.f, 16, FColor::Red, false, 5.f);
 
 		return EBTNodeResult::Succeeded;
 	}

@@ -41,13 +41,13 @@ void ARevenant::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (!Target)
+	/*if (!Target)
 	{
 		Target = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
 		m_RevenantAI->SetTargetAsPlayer();
 
 		
-	}
+	}*/
 
 	if (!m_HPWidget)
 	{
@@ -141,7 +141,8 @@ float ARevenant::TakeDamage(float DamageAmount, struct FDamageEvent const& Damag
 	//DamageAmount = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 
 	m_HP -= DamageAmount;
-	PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("Enemy HP : %d"), m_HP));
+
+
 	AMonsterAIController* pController = Cast<AMonsterAIController>(GetController());
 
 	m_HPWidget->SetHPBar((float)m_HP / (float)m_HPMax);
@@ -199,7 +200,6 @@ void ARevenant::MonsterNearAttack()
 	if (bSweep)
 	{
 
-		PrintViewport(2.f, FColor::Red, result.Actor->GetFName().ToString());
 		/*
 
 
@@ -226,14 +226,14 @@ void ARevenant::MonsterNearAttack()
 		}
 	}
 
-#if ENABLE_DRAW_DEBUG
-	FColor	DrawColor = bSweep ? FColor::Yellow : FColor::Blue;
-
-
-
-	DrawDebugCone(GetWorld(), GetActorLocation(), GetActorForwardVector(), m_CloseAttackDistance,
-		FMath::DegreesToRadians(22.5f), FMath::DegreesToRadians(22.5f), 20, DrawColor, false, 1.f);
-#endif // ENABLE_DRAW_DEBUGEDITOR
+//#if ENABLE_DRAW_DEBUG
+//	FColor	DrawColor = bSweep ? FColor::Yellow : FColor::Blue;
+//
+//
+//
+//	DrawDebugCone(GetWorld(), GetActorLocation(), GetActorForwardVector(), m_CloseAttackDistance,
+//		FMath::DegreesToRadians(22.5f), FMath::DegreesToRadians(22.5f), 20, DrawColor, false, 1.f);
+//#endif // ENABLE_DRAW_DEBUGEDITOR
 
 }
 
@@ -334,6 +334,7 @@ void ARevenant::ThrowGrenade()
 
 	AGrenade* pGrenade3 = GetWorld()->SpawnActor<AGrenade>(m_GrenadeClass, vLoc, FRotator::ZeroRotator, param);
 
+
 	pGrenade1->Throw(vLoc, FVector(vTargetLoc.X, vTargetLoc.Y, 0.f), this);
 	pGrenade2->Throw(vLoc, FVector(vTargetLoc.X, vTargetLoc.Y + 700.f , 0.f), this);
 	pGrenade3->Throw(vLoc, FVector(vTargetLoc.X, vTargetLoc.Y - 700.f, 0.f), this);
@@ -377,6 +378,7 @@ void ARevenant::CallBackup()
 		AHitEffect* pEffect = GetWorld()->SpawnActor<AHitEffect>(AHitEffect::StaticClass(), pMonster->GetActorLocation(), 
 			FRotator::ZeroRotator, EffectParam);
 
+		pEffect->SetActorScale3D(FVector(1.6f, 1.6f, 1.6f));
 		pEffect->LoadParticle(m_BackupParticle);
 		pEffect->LoadSound(m_BackupEffectSound);
 

@@ -17,11 +17,63 @@ void EmptyLinkFunctionForGeneratedCodePlayerHUD() {}
 	PROJECTTPS_API UClass* Z_Construct_UClass_APlayerHUD();
 	ENGINE_API UClass* Z_Construct_UClass_AHUD();
 	UPackage* Z_Construct_UPackage__Script_ProjectTPS();
-	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	PROJECTTPS_API UClass* Z_Construct_UClass_UMainHUDWidget_NoRegister();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 // End Cross Module References
+	DEFINE_FUNCTION(APlayerHUD::execGetMainHUDWidget)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(UMainHUDWidget**)Z_Param__Result=P_THIS->GetMainHUDWidget();
+		P_NATIVE_END;
+	}
 	void APlayerHUD::StaticRegisterNativesAPlayerHUD()
 	{
+		UClass* Class = APlayerHUD::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "GetMainHUDWidget", &APlayerHUD::execGetMainHUDWidget },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget_Statics
+	{
+		struct PlayerHUD_eventGetMainHUDWidget_Parms
+		{
+			UMainHUDWidget* ReturnValue;
+		};
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget_Statics::NewProp_ReturnValue_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(PlayerHUD_eventGetMainHUDWidget_Parms, ReturnValue), Z_Construct_UClass_UMainHUDWidget_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget_Statics::NewProp_ReturnValue_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget_Statics::NewProp_ReturnValue_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PlayerHUD.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayerHUD, nullptr, "GetMainHUDWidget", nullptr, nullptr, sizeof(PlayerHUD_eventGetMainHUDWidget_Parms), Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_APlayerHUD_NoRegister()
 	{
@@ -30,6 +82,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerHUD() {}
 	struct Z_Construct_UClass_APlayerHUD_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -44,6 +97,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerHUD() {}
 	UObject* (*const Z_Construct_UClass_APlayerHUD_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_AHUD,
 		(UObject* (*)())Z_Construct_UPackage__Script_ProjectTPS,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_APlayerHUD_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_APlayerHUD_GetMainHUDWidget, "GetMainHUDWidget" }, // 1067285130
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerHUD_Statics::Class_MetaDataParams[] = {
@@ -73,11 +129,11 @@ void EmptyLinkFunctionForGeneratedCodePlayerHUD() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_APlayerHUD_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_APlayerHUD_Statics::PropPointers),
 		0,
 		0x009002ACu,
@@ -92,7 +148,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerHUD() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayerHUD, 1943643274);
+	IMPLEMENT_CLASS(APlayerHUD, 4130993359);
 	template<> PROJECTTPS_API UClass* StaticClass<APlayerHUD>()
 	{
 		return APlayerHUD::StaticClass();

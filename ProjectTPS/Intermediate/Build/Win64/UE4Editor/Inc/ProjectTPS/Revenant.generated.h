@@ -81,6 +81,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ARevenant); \
 	FORCEINLINE static uint32 __PPO__m_BackupSound2() { return STRUCT_OFFSET(ARevenant, m_BackupSound2); } \
 	FORCEINLINE static uint32 __PPO__m_ReloadSound1() { return STRUCT_OFFSET(ARevenant, m_ReloadSound1); } \
 	FORCEINLINE static uint32 __PPO__m_ReloadSound2() { return STRUCT_OFFSET(ARevenant, m_ReloadSound2); } \
+	FORCEINLINE static uint32 __PPO__m_RevenantAI() { return STRUCT_OFFSET(ARevenant, m_RevenantAI); } \
 	FORCEINLINE static uint32 __PPO__Target() { return STRUCT_OFFSET(ARevenant, Target); } \
 	FORCEINLINE static uint32 __PPO__m_HPWidget() { return STRUCT_OFFSET(ARevenant, m_HPWidget); }
 

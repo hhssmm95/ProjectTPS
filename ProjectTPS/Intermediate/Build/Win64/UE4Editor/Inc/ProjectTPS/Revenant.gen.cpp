@@ -25,6 +25,7 @@ void EmptyLinkFunctionForGeneratedCodeRevenant() {}
 	PROJECTTPS_API UClass* Z_Construct_UClass_AMonster_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
+	PROJECTTPS_API UClass* Z_Construct_UClass_AMonsterAIController_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_APlayerCharacter_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_UBossHPWidget_NoRegister();
 // End Cross Module References
@@ -223,6 +224,10 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFRevenantSkill
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_ReloadSound2;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_RevenantAI_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_RevenantAI;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Target_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Target;
@@ -368,6 +373,12 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFRevenantSkill
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_ReloadSound2 = { "m_ReloadSound2", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_ReloadSound2), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_ReloadSound2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_ReloadSound2_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_m_RevenantAI_MetaData[] = {
+		{ "ModuleRelativePath", "Monster/Revenant.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARevenant_Statics::NewProp_m_RevenantAI = { "m_RevenantAI", nullptr, (EPropertyFlags)0x0020080000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevenant, m_RevenantAI), Z_Construct_UClass_AMonsterAIController_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARevenant_Statics::NewProp_m_RevenantAI_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevenant_Statics::NewProp_m_RevenantAI_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevenant_Statics::NewProp_Target_MetaData[] = {
 		{ "ModuleRelativePath", "Monster/Revenant.h" },
 	};
@@ -398,6 +409,7 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFRevenantSkill
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_BackupSound2,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_ReloadSound1,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_ReloadSound2,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_RevenantAI,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_Target,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevenant_Statics::NewProp_m_HPWidget,
 	};
@@ -428,7 +440,7 @@ static struct FScriptStruct_ProjectTPS_StaticRegisterNativesFRevenantSkill
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARevenant, 1884329071);
+	IMPLEMENT_CLASS(ARevenant, 3651049410);
 	template<> PROJECTTPS_API UClass* StaticClass<ARevenant>()
 	{
 		return ARevenant::StaticClass();

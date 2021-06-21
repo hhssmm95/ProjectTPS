@@ -136,6 +136,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
 	bool m_bDashEnable;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPriavteAccess = "true"))
+		bool m_bInEventScene;
+
 	bool m_bIsRightDashing;
 	bool m_bIsLeftDashing;
 	bool m_bIsDashing;
@@ -226,7 +229,17 @@ public:
 
 
 public:
+	UFUNCTION(BlueprintCallable)
+	void SetInEventScene(bool Enable)
+	{
+		m_bInEventScene = Enable;
+	}
 
+	UFUNCTION(BlueprintCallable)
+	bool GetInEventScene()
+	{
+		return m_bInEventScene;
+	}
 	
 	void SetSlot1Enable(bool Enable)
 	{
@@ -429,5 +442,9 @@ public:
 	void CloseAttack();
 	void CloseAttackStart();
 	void CloseAttackEnd();
+	void DeathEffect();
+	void RestartLevelOnDeath();
 
+	UFUNCTION(BlueprintCallable)
+		void SetWeaponVisibility(bool Visibility);
 };

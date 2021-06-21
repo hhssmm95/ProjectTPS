@@ -30,6 +30,29 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 	PROJECTTPS_API UClass* Z_Construct_UClass_AEffectNormal_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(APlayerCharacter::execSetWeaponVisibility)
+	{
+		P_GET_UBOOL(Z_Param_Visibility);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetWeaponVisibility(Z_Param_Visibility);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(APlayerCharacter::execGetInEventScene)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->GetInEventScene();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(APlayerCharacter::execSetInEventScene)
+	{
+		P_GET_UBOOL(Z_Param_Enable);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetInEventScene(Z_Param_Enable);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(APlayerCharacter::execGetUpperYaw)
 	{
 		P_FINISH;
@@ -41,9 +64,49 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 	{
 		UClass* Class = APlayerCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "GetInEventScene", &APlayerCharacter::execGetInEventScene },
 			{ "GetUpperYaw", &APlayerCharacter::execGetUpperYaw },
+			{ "SetInEventScene", &APlayerCharacter::execSetInEventScene },
+			{ "SetWeaponVisibility", &APlayerCharacter::execSetWeaponVisibility },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_APlayerCharacter_GetInEventScene_Statics
+	{
+		struct PlayerCharacter_eventGetInEventScene_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_APlayerCharacter_GetInEventScene_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((PlayerCharacter_eventGetInEventScene_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_APlayerCharacter_GetInEventScene_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(PlayerCharacter_eventGetInEventScene_Parms), &Z_Construct_UFunction_APlayerCharacter_GetInEventScene_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayerCharacter_GetInEventScene_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayerCharacter_GetInEventScene_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayerCharacter_GetInEventScene_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/PlayerCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayerCharacter_GetInEventScene_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayerCharacter, nullptr, "GetInEventScene", nullptr, nullptr, sizeof(PlayerCharacter_eventGetInEventScene_Parms), Z_Construct_UFunction_APlayerCharacter_GetInEventScene_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerCharacter_GetInEventScene_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayerCharacter_GetInEventScene_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerCharacter_GetInEventScene_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayerCharacter_GetInEventScene()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayerCharacter_GetInEventScene_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_APlayerCharacter_GetUpperYaw_Statics
 	{
@@ -74,6 +137,80 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayerCharacter_GetUpperYaw_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_APlayerCharacter_SetInEventScene_Statics
+	{
+		struct PlayerCharacter_eventSetInEventScene_Parms
+		{
+			bool Enable;
+		};
+		static void NewProp_Enable_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_Enable;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_APlayerCharacter_SetInEventScene_Statics::NewProp_Enable_SetBit(void* Obj)
+	{
+		((PlayerCharacter_eventSetInEventScene_Parms*)Obj)->Enable = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_APlayerCharacter_SetInEventScene_Statics::NewProp_Enable = { "Enable", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(PlayerCharacter_eventSetInEventScene_Parms), &Z_Construct_UFunction_APlayerCharacter_SetInEventScene_Statics::NewProp_Enable_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayerCharacter_SetInEventScene_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayerCharacter_SetInEventScene_Statics::NewProp_Enable,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayerCharacter_SetInEventScene_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/PlayerCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayerCharacter_SetInEventScene_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayerCharacter, nullptr, "SetInEventScene", nullptr, nullptr, sizeof(PlayerCharacter_eventSetInEventScene_Parms), Z_Construct_UFunction_APlayerCharacter_SetInEventScene_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerCharacter_SetInEventScene_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayerCharacter_SetInEventScene_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerCharacter_SetInEventScene_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayerCharacter_SetInEventScene()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayerCharacter_SetInEventScene_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_APlayerCharacter_SetWeaponVisibility_Statics
+	{
+		struct PlayerCharacter_eventSetWeaponVisibility_Parms
+		{
+			bool Visibility;
+		};
+		static void NewProp_Visibility_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_Visibility;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_APlayerCharacter_SetWeaponVisibility_Statics::NewProp_Visibility_SetBit(void* Obj)
+	{
+		((PlayerCharacter_eventSetWeaponVisibility_Parms*)Obj)->Visibility = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_APlayerCharacter_SetWeaponVisibility_Statics::NewProp_Visibility = { "Visibility", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(PlayerCharacter_eventSetWeaponVisibility_Parms), &Z_Construct_UFunction_APlayerCharacter_SetWeaponVisibility_Statics::NewProp_Visibility_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayerCharacter_SetWeaponVisibility_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayerCharacter_SetWeaponVisibility_Statics::NewProp_Visibility,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayerCharacter_SetWeaponVisibility_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/PlayerCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayerCharacter_SetWeaponVisibility_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayerCharacter, nullptr, "SetWeaponVisibility", nullptr, nullptr, sizeof(PlayerCharacter_eventSetWeaponVisibility_Parms), Z_Construct_UFunction_APlayerCharacter_SetWeaponVisibility_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerCharacter_SetWeaponVisibility_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayerCharacter_SetWeaponVisibility_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerCharacter_SetWeaponVisibility_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayerCharacter_SetWeaponVisibility()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayerCharacter_SetWeaponVisibility_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -224,6 +361,11 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 #endif
 		static void NewProp_m_bDashEnable_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_bDashEnable;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_bInEventScene_MetaData[];
+#endif
+		static void NewProp_m_bInEventScene_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_m_bInEventScene;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -233,7 +375,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ProjectTPS,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_APlayerCharacter_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_APlayerCharacter_GetInEventScene, "GetInEventScene" }, // 2352299671
 		{ &Z_Construct_UFunction_APlayerCharacter_GetUpperYaw, "GetUpperYaw" }, // 1282428015
+		{ &Z_Construct_UFunction_APlayerCharacter_SetInEventScene, "SetInEventScene" }, // 1460040894
+		{ &Z_Construct_UFunction_APlayerCharacter_SetWeaponVisibility, "SetWeaponVisibility" }, // 2986870197
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerCharacter_Statics::Class_MetaDataParams[] = {
@@ -534,6 +679,18 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		((APlayerCharacter*)Obj)->m_bDashEnable = 1;
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_bDashEnable = { "m_bDashEnable", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(APlayerCharacter), &Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_bDashEnable_SetBit, METADATA_PARAMS(Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_bDashEnable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_bDashEnable_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_bInEventScene_MetaData[] = {
+		{ "AllowPriavteAccess", "true" },
+		{ "Category", "PlayerCharacter" },
+		{ "ModuleRelativePath", "Player/PlayerCharacter.h" },
+	};
+#endif
+	void Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_bInEventScene_SetBit(void* Obj)
+	{
+		((APlayerCharacter*)Obj)->m_bInEventScene = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_bInEventScene = { "m_bInEventScene", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(APlayerCharacter), &Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_bInEventScene_SetBit, METADATA_PARAMS(Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_bInEventScene_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_bInEventScene_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APlayerCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_PlayerInfo,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_Camera,
@@ -568,6 +725,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_GearSearchSound,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_HPRegenTime,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_bDashEnable,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_m_bInEventScene,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APlayerCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<APlayerCharacter>::IsAbstract,
@@ -596,7 +754,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayerCharacter, 1678821675);
+	IMPLEMENT_CLASS(APlayerCharacter, 1151392302);
 	template<> PROJECTTPS_API UClass* StaticClass<APlayerCharacter>()
 	{
 		return APlayerCharacter::StaticClass();

@@ -16,11 +16,17 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ProjectTPS_Source_ProjectTPS_Player_PlayerCharacter_h_13_SPARSE_DATA
 #define ProjectTPS_Source_ProjectTPS_Player_PlayerCharacter_h_13_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execSetWeaponVisibility); \
+	DECLARE_FUNCTION(execGetInEventScene); \
+	DECLARE_FUNCTION(execSetInEventScene); \
 	DECLARE_FUNCTION(execGetUpperYaw);
 
 
 #define ProjectTPS_Source_ProjectTPS_Player_PlayerCharacter_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execSetWeaponVisibility); \
+	DECLARE_FUNCTION(execGetInEventScene); \
+	DECLARE_FUNCTION(execSetInEventScene); \
 	DECLARE_FUNCTION(execGetUpperYaw);
 
 
@@ -99,7 +105,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayerCharacter); \
 	FORCEINLINE static uint32 __PPO__m_ButtonSound() { return STRUCT_OFFSET(APlayerCharacter, m_ButtonSound); } \
 	FORCEINLINE static uint32 __PPO__m_GearSearchSound() { return STRUCT_OFFSET(APlayerCharacter, m_GearSearchSound); } \
 	FORCEINLINE static uint32 __PPO__m_HPRegenTime() { return STRUCT_OFFSET(APlayerCharacter, m_HPRegenTime); } \
-	FORCEINLINE static uint32 __PPO__m_bDashEnable() { return STRUCT_OFFSET(APlayerCharacter, m_bDashEnable); }
+	FORCEINLINE static uint32 __PPO__m_bDashEnable() { return STRUCT_OFFSET(APlayerCharacter, m_bDashEnable); } \
+	FORCEINLINE static uint32 __PPO__m_bInEventScene() { return STRUCT_OFFSET(APlayerCharacter, m_bInEventScene); }
 
 
 #define ProjectTPS_Source_ProjectTPS_Player_PlayerCharacter_h_10_PROLOG

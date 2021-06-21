@@ -109,3 +109,39 @@ void AProjectTPSGameModeBase::SetAlertWithTime()
 
 
 }
+
+
+void AProjectTPSGameModeBase::SetAlertWithTime(float AlertTime)
+{
+	if (!m_MainHUDWidget)
+	{
+		APlayerHUD* m_HUD = Cast<APlayerHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
+		m_MainHUDWidget = Cast<UMainHUDWidget>(m_HUD->GetMainHUDWidget());
+	}
+	m_AlertTimeAcc = AlertTime;
+	m_bAlertEnable = true;
+	m_MainHUDWidget->SetAlertVisible(true);
+
+	for (auto& Point : m_AlertSpawnPoint)
+	{
+		AMonsterSpawnPoint* pPoint = Cast<AMonsterSpawnPoint>(Point);
+		pPoint->SetSpawnEnable(true);
+	}
+
+	UGameplayStatics::GetAllActorsWithTag(GetWorld(), TEXT("AlarmAmbient"), m_AlarmAmbient);
+
+	if (!m_AlarmAmbientActor)
+	{
+		for (auto& Ambient : m_AlarmAmbient)
+		{
+			m_AlarmAmbientActor = Cast<AAmbientSound>(Ambient);
+			m_AlarmAmbientActor->Play();
+		}
+	}
+	else
+	{
+		m_AlarmAmbientActor->Play();
+	}
+
+
+}
