@@ -16,6 +16,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ProjectTPS_Source_ProjectTPS_Player_PlayerAnimation_h_31_SPARSE_DATA
 #define ProjectTPS_Source_ProjectTPS_Player_PlayerAnimation_h_31_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execAnimNotify_LeftFoot); \
+	DECLARE_FUNCTION(execAnimNotify_RightFoot); \
 	DECLARE_FUNCTION(execAnimNotify_CloseAttackEnd); \
 	DECLARE_FUNCTION(execAnimNotify_CloseAttack); \
 	DECLARE_FUNCTION(execAnimNotify_ReloadEnd);
@@ -23,6 +25,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define ProjectTPS_Source_ProjectTPS_Player_PlayerAnimation_h_31_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execAnimNotify_LeftFoot); \
+	DECLARE_FUNCTION(execAnimNotify_RightFoot); \
 	DECLARE_FUNCTION(execAnimNotify_CloseAttackEnd); \
 	DECLARE_FUNCTION(execAnimNotify_CloseAttack); \
 	DECLARE_FUNCTION(execAnimNotify_ReloadEnd);

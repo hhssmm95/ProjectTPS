@@ -140,7 +140,7 @@ void UPlayerAnimation::CloseAttack()
 	}
 }
 
-void UPlayerAnimation::UPlayerAnimation::AnimNotify_CloseAttack()
+void UPlayerAnimation::AnimNotify_CloseAttack()
 {
 	if (!m_bIsDead)
 	{
@@ -148,11 +148,30 @@ void UPlayerAnimation::UPlayerAnimation::AnimNotify_CloseAttack()
 		m_pPlayer->CloseAttack();
 	}
 }
-void UPlayerAnimation::UPlayerAnimation::AnimNotify_CloseAttackEnd()
+void UPlayerAnimation::AnimNotify_CloseAttackEnd()
 {
 	if (!m_bIsDead)
 	{
 		m_pPlayer = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
 		m_pPlayer->CloseAttackEnd();
+	}
+}
+
+void UPlayerAnimation::AnimNotify_RightFoot()
+{
+	if (!m_bIsDead)
+	{
+		m_pPlayer = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
+		m_pPlayer->FootSound(false);
+	}
+
+}
+
+void UPlayerAnimation::AnimNotify_LeftFoot()
+{
+	if (!m_bIsDead)
+	{
+		m_pPlayer = Cast<APlayerCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
+		m_pPlayer->FootSound(true);
 	}
 }

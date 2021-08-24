@@ -445,6 +445,8 @@ public:
 	void DeathEffect();
 	void RestartLevelOnDeath();
 
+	void FootSound(bool Left);
+
 	UFUNCTION(BlueprintCallable)
 		void SetWeaponVisibility(bool Visibility);
 };

@@ -82,7 +82,7 @@ void UBTTraceTargetTask::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* Node
 
 	bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), vLoc, pTarget->GetActorLocation(),
 		UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_Visibility), true, IgnoreActor,
-		EDrawDebugTrace::ForDuration, result, true, FLinearColor::Red, FLinearColor::Green, 0.1f);
+		EDrawDebugTrace::None, result, true, FLinearColor::Red, FLinearColor::Green, 0.1f);
 
 	APlayerCharacter* pPlayer = Cast<APlayerCharacter>(result.Actor);
 

@@ -14,7 +14,7 @@
 #include "../Monster/Monster.h"
 #include "Components/WidgetComponent.h"
 #include "Perception/AISense_Damage.h"
-
+#include "../FloorPhysicalMaterial.h"
 // Sets default values
 APlayerCharacter::APlayerCharacter()
 {
@@ -83,6 +83,7 @@ APlayerCharacter::APlayerCharacter()
 	m_TimeAccelParticle->SetVisibility(false);
 	m_PostProcess->bEnabled = false;
 
+
 }
 
 // Called when the game starts or when spawned
@@ -130,6 +131,12 @@ void APlayerCharacter::Tick(float DeltaTime)
 	{
 		int32 rand = FMath::RandRange(0, 3);
 
+		/*FVector RecoilOffset = FVector(m_Camera->GetForwardVector().X + m_CurrentBulletSpreadYaw, 
+			m_Camera->GetForwardVector().Y, m_Camera->GetForwardVector().Z + m_CurrentBulletSpreadPitch);
+
+		PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("RecoilOffset (%f, %f, %f)"), m_Camera->GetForwardVector().X + m_CurrentBulletSpreadYaw
+			, m_Camera->GetForwardVector().Y, m_Camera->GetForwardVector().Z + m_CurrentBulletSpreadPitch));*/
+
 		if (!m_IsAiming)
 		{
 			if (m_bAimAssist)
@@ -137,9 +144,14 @@ void APlayerCharacter::Tick(float DeltaTime)
 				m_PrimaryWeapon->AutoFire(m_Camera->GetComponentLocation(), m_AssistLoc);
 			}
 			else if (!m_bAimAssist && rand == 0 && m_PlayerInfo->GetAssultLevel() >= 2)
-				m_PrimaryWeapon->ExplosiveFire(m_Camera->GetComponentLocation(), m_Camera->GetForwardVector());
+			{
+				m_PrimaryWeapon->ExplosiveFire(m_Camera);
+			}
 			else
-				m_PrimaryWeapon->Fire(m_Camera->GetComponentLocation(), m_Camera->GetForwardVector());
+			{
+				//m_PrimaryWeapon->Fire(m_Camera->GetComponentLocation(), m_Camera->GetForwardVector());
+				m_PrimaryWeapon->Fire(m_Camera);
+			}
 		}
 		else
 		{
@@ -148,11 +160,21 @@ void APlayerCharacter::Tick(float DeltaTime)
 				m_PrimaryWeapon->AutoFire(m_PrimaryWeapon->GetCameraLoc(), m_AssistLoc);
 			}
 			else if (!m_bAimAssist && rand == 0 && m_PlayerInfo->GetAssultLevel() >= 2)
-				m_PrimaryWeapon->ExplosiveFire(m_PrimaryWeapon->GetCameraLoc(), m_PrimaryWeapon->GetCameraForward());
+			{
+				/*m_PrimaryWeapon->ExplosiveFire(m_PrimaryWeapon->GetCameraLoc(), m_PrimaryWeapon->GetCameraForward());*/
+				m_PrimaryWeapon->ExplosiveFire(m_PrimaryWeapon->GetScopeCamera());
+			}
 			else
-				m_PrimaryWeapon->Fire(m_PrimaryWeapon->GetCameraLoc(), m_PrimaryWeapon->GetCameraForward());
+			{
+				//m_PrimaryWeapon->Fire(m_PrimaryWeapon->GetCameraLoc(), m_PrimaryWeapon->GetCameraForward());
+				m_PrimaryWeapon->Fire(m_PrimaryWeapon->GetScopeCamera());
+			}
 
 		}
+
+		//m_CurrentBulletSpreadYaw += m_BulletSpreadYaw;
+		//m_CurrentBulletSpreadPitch += m_BulletSpreadPitch;
+
 	}
 	if (m_bIsRightDashing)
 	{
@@ -550,6 +572,12 @@ void APlayerCharacter::PrimaryStop()
 			m_pPlayerAnim->RifleAimStop();
 		else
 			m_pPlayerAnim->RifleStop();
+
+		m_PrimaryWeapon->RecoilRecovery();
+
+		//m_CurrentBulletSpreadYaw = 0.f;
+		//m_CurrentBulletSpreadPitch = 0.f;
+
 	}
 }
 
@@ -747,6 +775,7 @@ void APlayerCharacter::EquipGear()
 			break;
 		}
 	}
+
 }
 
 
@@ -1156,4 +1185,43 @@ void APlayerCharacter::RestartLevelOnDeath()
 void APlayerCharacter::SetWeaponVisibility(bool Visibility)
 {
 	m_PrimaryWeapon->GetMesh()->SetVisibility(Visibility);
+}
+
+void APlayerCharacter::FootSound(bool Left)
+{
+	FVector vSocketLoc;
+
+	if (Left)
+	{
+		vSocketLoc = GetMesh()->GetSocketLocation(TEXT("FootLSound"));
+
+		//PrintViewport(1.0f, FColor::Green, TEXT("FOOTLEFT"));
+	}
+	else
+	{
+		vSocketLoc = GetMesh()->GetSocketLocation(TEXT("FootRSound"));
+		//PrintViewport(1.0f, FColor::Green, TEXT("FOOTRIGHT"));
+	}
+
+	//PrintViewport(1.0f, FColor::Green, FString::Printf(TEXT("%d"), bLeft));
+
+	FHitResult	result;
+	FCollisionQueryParams	param(NAME_None, false, this);
+	TArray<AActor*>	IgnoreActor;
+	IgnoreActor.Add(this);
+
+	bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), vSocketLoc,
+		vSocketLoc + FVector(0.f, 0.f, -1.f) * 100.f,
+		UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_WorldStatic),
+		true, IgnoreActor, EDrawDebugTrace::None, result, true);
+
+
+	UFloorPhysicalMaterial* pPhysMtrl = Cast<UFloorPhysicalMaterial>(result.PhysMaterial);
+
+
+	if (pPhysMtrl)
+	{
+		//PrintViewport(1.0f, FColor::Green, pPhysMtrl->GetFName().ToString());
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), pPhysMtrl->PlaySound(), vSocketLoc);
+	}
 }

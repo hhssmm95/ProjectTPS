@@ -38,6 +38,12 @@ APrimaryWeapon::APrimaryWeapon()
 
 	m_bSuppressorUsing = false;
 	m_SuppressorMesh->SetVisibility(false);
+
+	//m_BulletSpreadYaw = 1.f;
+	//m_CurrentBulletSpreadYaw = 0.f;
+	//m_BulletSpreadPitch = 3.f;
+	//m_CurrentBulletSpreadPitch = 0.f;
+	m_RecoilStack = 0;
 }
 
 // Called when the game starts or when spawned
@@ -224,6 +230,7 @@ void APrimaryWeapon::AutoFire(FVector CameraPos, FVector TargetPos)
 			if (m_CurrentMag == 0)
 				m_Player->MagEmpty();
 
+
 		}
 		else
 		{
@@ -233,7 +240,7 @@ void APrimaryWeapon::AutoFire(FVector CameraPos, FVector TargetPos)
 	}
 }
 
-void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
+void APrimaryWeapon::Fire(UCameraComponent* PlayerCamera)
 {
 	if (!Delay)
 	{
@@ -244,9 +251,26 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 			TArray<AActor*> IgnoreActor;
 			IgnoreActor.Add(this);
 
-			bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), CameraPos, CameraPos + CameraForward * 100000.f,
-				UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1), true, IgnoreActor,
-				EDrawDebugTrace::None, result, true);
+			//FVector RecoilOffset = FVector(CameraForward.X + m_CurrentBulletSpreadYaw,
+			//	CameraForward.Y + m_CurrentBulletSpreadPitch, 1.f );
+
+			FVector2D RandPoint = RandPointInCircle(20.f * (float)m_RecoilStack);
+			
+			//PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("RandPoint (%f, %f)"), RandPoint.X, RandPoint.Y));
+
+			FVector RecoilOffset = ((PlayerCamera->GetComponentLocation() + PlayerCamera->GetForwardVector() * 10000.f)
+				+ (PlayerCamera->GetRightVector() * RandPoint.X) + (PlayerCamera->GetUpVector() * RandPoint.Y));
+
+			bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), PlayerCamera->GetComponentLocation(),
+				RecoilOffset, UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1), true, 
+				IgnoreActor, EDrawDebugTrace::None, result, true);
+			
+
+			
+
+			/*PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("RecoilOffset (%f, %f, %f), RecoilStack(%d)"), RecoilOffset.X,
+				RecoilOffset.Y, RecoilOffset.Z, m_RecoilStack));*/
+
 
 			if (bHit)
 			{
@@ -268,6 +292,7 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 					}
 
 				}
+
 
 
 				FRotator BulletRot = UKismetMathLibrary::FindLookAtRotation(vMuzzlePos + GetActorForwardVector() * 40.f, result.ImpactPoint);
@@ -314,6 +339,10 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 				if (m_CurrentMag == 0)
 					m_Player->MagEmpty();
 
+				
+
+
+				m_RecoilStack++;
 				Delay = true;
 			}
 			else
@@ -375,7 +404,12 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 				if (m_CurrentMag < 0)
 					m_CurrentMag = 0;
 				Delay = true;
+
+
 			}
+
+			//m_CurrentBulletSpreadYaw += m_BulletSpreadYaw;
+			//m_CurrentBulletSpreadPitch += m_BulletSpreadPitch;
 		}
 		else
 		{
@@ -385,7 +419,7 @@ void APrimaryWeapon::Fire(FVector CameraPos, FVector CameraForward)
 	}
 }
 
-void APrimaryWeapon::ExplosiveFire(FVector CameraPos, FVector CameraForward)
+void APrimaryWeapon::ExplosiveFire(UCameraComponent* PlayerCamera)
 {
 	if (!Delay)
 	{
@@ -395,10 +429,17 @@ void APrimaryWeapon::ExplosiveFire(FVector CameraPos, FVector CameraForward)
 
 			TArray<AActor*> IgnoreActor;
 			IgnoreActor.Add(this);
+			FVector2D RandPoint = RandPointInCircle(20.f * (float)m_RecoilStack);
 
-			bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), CameraPos, CameraPos + CameraForward * 100000.f,
-				UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1), true, IgnoreActor,
-				EDrawDebugTrace::None, result, true);
+			//PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("RandPoint (%f, %f)"), RandPoint.X, RandPoint.Y));
+
+			FVector RecoilOffset = ((PlayerCamera->GetComponentLocation() + PlayerCamera->GetForwardVector() * 10000.f)
+				+ (PlayerCamera->GetRightVector() * RandPoint.X) + (PlayerCamera->GetUpVector() * RandPoint.Y));
+
+			bool bHit = UKismetSystemLibrary::LineTraceSingle(GetWorld(), PlayerCamera->GetComponentLocation(),
+				RecoilOffset, UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1), true,
+				IgnoreActor, EDrawDebugTrace::None, result, true);
+
 
 			if (bHit)
 			{
@@ -445,6 +486,7 @@ void APrimaryWeapon::ExplosiveFire(FVector CameraPos, FVector CameraForward)
 				if (m_CurrentMag == 0)
 					m_Player->MagEmpty();
 
+				m_RecoilStack++;
 				Delay = true;
 			}
 			else
@@ -548,4 +590,21 @@ void APrimaryWeapon::EquipScope()
 		UGameplayStatics::PlaySoundAtLocation(GetWorld(), m_DischargeSoundClass, GetActorLocation());
 
 	}
+}
+
+void APrimaryWeapon::RecoilRecovery()
+{
+	m_RecoilStack = 0;
+}
+
+
+FVector2D APrimaryWeapon::RandPointInCircle(float Radius)
+{
+	float Angle = UKismetMathLibrary::RandomFloatInRange(0.f, 360.f);
+	float DistanceFromCenter = UKismetMathLibrary::RandomFloatInRange(0, Radius);
+
+	FVector2D RandPoint = FVector2D(DistanceFromCenter * UKismetMathLibrary::DegCos(Angle), DistanceFromCenter * UKismetMathLibrary::DegSin(Angle));
+	
+
+	return RandPoint;
 }

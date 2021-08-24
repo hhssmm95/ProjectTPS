@@ -125,4 +125,10 @@ public:
 		void AnimNotify_CloseAttack();
 	UFUNCTION(BlueprintCallable)
 		void AnimNotify_CloseAttackEnd();
+
+	UFUNCTION(BlueprintCallable)
+		void AnimNotify_RightFoot();
+
+	UFUNCTION(BlueprintCallable)
+		void AnimNotify_LeftFoot();
 };

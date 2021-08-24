@@ -108,6 +108,18 @@ protected:
 	bool m_bBurst;
 	float m_BurstTime;
 	float m_BurstTimeAcc;
+
+
+	//float m_BulletSpreadYaw;
+	//float m_CurrentBulletSpreadYaw;
+	//float m_BulletSpreadYawMax;
+
+	//float m_BulletSpreadPitch;
+	//float m_CurrentBulletSpreadPitch;
+	//float m_BulletSpreadPitchMax;
+
+	int m_RecoilStack;
+
 public:
 	float GetSPDurability()	const
 	{
@@ -129,6 +141,11 @@ public:
 		return m_bScopeUsing;
 	}
 
+	UCameraComponent* GetScopeCamera()
+	{
+		return m_ScopeCamera;
+	}
+
 	FVector GetCameraLoc()
 	{
 		return m_ScopeCamera->GetComponentLocation();
@@ -145,12 +162,19 @@ public:
 	void EquipSuppressor();
 	void EquipScope();
 
-	void Fire(FVector CameraPos, FVector CameraForward);
-	void ExplosiveFire(FVector CameraPos, FVector CameraForward);
+	//void Fire(FVector CameraPos, FVector CameraForward);
+	//void ExplosiveFire(FVector CameraPos, FVector CameraForward);
 	void AutoFire(FVector CameraPos,  FVector TargetPos);
+	void Fire(UCameraComponent* PlayerCamera);
+	void ExplosiveFire(UCameraComponent* PlayerCamera);
+	//void AutoFire(UCameraComponent* PlayerCamera);
 	void Reload();
 
 	void LookUp(float fScale);
+
+	FVector2D RandPointInCircle(float Radius);
+
+	void RecoilRecovery();
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

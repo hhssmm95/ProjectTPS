@@ -137,6 +137,20 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 		}
 		return ReturnEnum;
 	}
+	DEFINE_FUNCTION(UPlayerAnimation::execAnimNotify_LeftFoot)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AnimNotify_LeftFoot();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UPlayerAnimation::execAnimNotify_RightFoot)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AnimNotify_RightFoot();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UPlayerAnimation::execAnimNotify_CloseAttackEnd)
 	{
 		P_FINISH;
@@ -164,7 +178,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "AnimNotify_CloseAttack", &UPlayerAnimation::execAnimNotify_CloseAttack },
 			{ "AnimNotify_CloseAttackEnd", &UPlayerAnimation::execAnimNotify_CloseAttackEnd },
+			{ "AnimNotify_LeftFoot", &UPlayerAnimation::execAnimNotify_LeftFoot },
 			{ "AnimNotify_ReloadEnd", &UPlayerAnimation::execAnimNotify_ReloadEnd },
+			{ "AnimNotify_RightFoot", &UPlayerAnimation::execAnimNotify_RightFoot },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -212,6 +228,28 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UPlayerAnimation_AnimNotify_LeftFoot_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerAnimation_AnimNotify_LeftFoot_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/PlayerAnimation.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerAnimation_AnimNotify_LeftFoot_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerAnimation, nullptr, "AnimNotify_LeftFoot", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UPlayerAnimation_AnimNotify_LeftFoot_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerAnimation_AnimNotify_LeftFoot_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UPlayerAnimation_AnimNotify_LeftFoot()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UPlayerAnimation_AnimNotify_LeftFoot_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UPlayerAnimation_AnimNotify_ReloadEnd_Statics
 	{
 #if WITH_METADATA
@@ -231,6 +269,28 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UPlayerAnimation_AnimNotify_ReloadEnd_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UPlayerAnimation_AnimNotify_RightFoot_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerAnimation_AnimNotify_RightFoot_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/PlayerAnimation.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerAnimation_AnimNotify_RightFoot_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerAnimation, nullptr, "AnimNotify_RightFoot", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UPlayerAnimation_AnimNotify_RightFoot_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerAnimation_AnimNotify_RightFoot_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UPlayerAnimation_AnimNotify_RightFoot()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UPlayerAnimation_AnimNotify_RightFoot_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -321,7 +381,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_UPlayerAnimation_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttack, "AnimNotify_CloseAttack" }, // 3023038897
 		{ &Z_Construct_UFunction_UPlayerAnimation_AnimNotify_CloseAttackEnd, "AnimNotify_CloseAttackEnd" }, // 3669625717
+		{ &Z_Construct_UFunction_UPlayerAnimation_AnimNotify_LeftFoot, "AnimNotify_LeftFoot" }, // 3711139263
 		{ &Z_Construct_UFunction_UPlayerAnimation_AnimNotify_ReloadEnd, "AnimNotify_ReloadEnd" }, // 377443974
+		{ &Z_Construct_UFunction_UPlayerAnimation_AnimNotify_RightFoot, "AnimNotify_RightFoot" }, // 389063927
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerAnimation_Statics::Class_MetaDataParams[] = {
@@ -510,7 +572,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimation() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UPlayerAnimation, 3145016927);
+	IMPLEMENT_CLASS(UPlayerAnimation, 3922979555);
 	template<> PROJECTTPS_API UClass* StaticClass<UPlayerAnimation>()
 	{
 		return UPlayerAnimation::StaticClass();
