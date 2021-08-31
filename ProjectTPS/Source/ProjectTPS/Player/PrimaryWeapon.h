@@ -109,6 +109,8 @@ protected:
 	float m_BurstTime;
 	float m_BurstTimeAcc;
 
+	bool m_bRecoilRecovering;
+
 
 	//float m_BulletSpreadYaw;
 	//float m_CurrentBulletSpreadYaw;
@@ -121,6 +123,12 @@ protected:
 	int m_RecoilStack;
 
 public:
+
+	void SetRecoilRecovery(bool Value)
+	{
+		m_bRecoilRecovering = Value;
+	}
+	
 	float GetSPDurability()	const
 	{
 		return m_SPDurability;

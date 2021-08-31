@@ -17,11 +17,15 @@ class UMainHUDWidget;
 #define ProjectTPS_Source_ProjectTPS_PlayerHUD_h_15_SPARSE_DATA
 #define ProjectTPS_Source_ProjectTPS_PlayerHUD_h_15_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execGetHUDCrosshairSpread); \
+	DECLARE_FUNCTION(execSetHUDCrosshairSpread); \
 	DECLARE_FUNCTION(execGetMainHUDWidget);
 
 
 #define ProjectTPS_Source_ProjectTPS_PlayerHUD_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetHUDCrosshairSpread); \
+	DECLARE_FUNCTION(execSetHUDCrosshairSpread); \
 	DECLARE_FUNCTION(execGetMainHUDWidget);
 
 
@@ -68,7 +72,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayerHUD); \
 
 
 #define ProjectTPS_Source_ProjectTPS_PlayerHUD_h_15_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__m_MainHUDWidgetClass() { return STRUCT_OFFSET(APlayerHUD, m_MainHUDWidgetClass); }
+	FORCEINLINE static uint32 __PPO__m_MainHUDWidgetClass() { return STRUCT_OFFSET(APlayerHUD, m_MainHUDWidgetClass); } \
+	FORCEINLINE static uint32 __PPO__m_CrosshairSpread() { return STRUCT_OFFSET(APlayerHUD, m_CrosshairSpread); }
 
 
 #define ProjectTPS_Source_ProjectTPS_PlayerHUD_h_12_PROLOG

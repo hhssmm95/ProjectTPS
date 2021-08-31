@@ -83,6 +83,14 @@ APlayerCharacter::APlayerCharacter()
 	m_TimeAccelParticle->SetVisibility(false);
 	m_PostProcess->bEnabled = false;
 
+	m_MoveRecoil = 0.f;
+	m_MoveRecoilMax = 25.f;
+
+	m_ShotRecoil = 0.f;
+	m_ShotRecoilMax = 40.f;
+
+	m_ResultRecoil = 0.f;
+	m_ResultRecoilMin = 8.0;
 
 }
 
@@ -309,6 +317,9 @@ void APlayerCharacter::Tick(float DeltaTime)
 			SetHP(GetHPMax());
 		m_HPRegenTimeAcc += DeltaTime;
 		m_HUD->UpdatePlayerHP(m_PlayerInfo->GetHPPercent());
+
+		if(GetCharacterMovement()->Velocity.Size() <= 10.f)
+			DecreaseMoveRecoil();
 	}
 }
 
@@ -352,8 +363,10 @@ void APlayerCharacter::MoveFront(float fScale)
 		return;
 
 	if (!m_bIsDead && GetCharacterMovement()->IsMovingOnGround() && !m_bIsDashing)
+	{
 		AddMovementInput(GetActorForwardVector(), fScale);
-
+		SetMoveRecoil();
+	}
 
 }
 void APlayerCharacter::MoveSide(float fScale)
@@ -362,7 +375,10 @@ void APlayerCharacter::MoveSide(float fScale)
 		return;
 
 	if (!m_bIsDead && GetCharacterMovement()->IsMovingOnGround() && !m_bIsDashing)
+	{
 		AddMovementInput(GetActorRightVector(), fScale);
+		SetMoveRecoil();
+	}
 
 	
 }
@@ -401,8 +417,12 @@ void APlayerCharacter::LookUp(float fScale)
 			AddControllerPitchInput(fScale * 45.f * 10.f * GetWorld()->GetDeltaSeconds());
 		else
 			AddControllerPitchInput(fScale * 45.f * GetWorld()->GetDeltaSeconds());
+
 	}
+	;
+	//PrintViewport(2.f, FColor::Yellow, FString::Printf(TEXT("ControlPitch: %f, fScale: %f"), GetController()->GetControlRotation().Pitch, fScale));
 }
+
 void APlayerCharacter::WheelEvent(float fScale)
 {
 	if (m_bInEventScene)
@@ -503,6 +523,7 @@ void APlayerCharacter::AimPress()
 
 		pController->SetViewTargetWithBlend(m_PrimaryWeapon, 0.2f);
 		m_PrimaryWeapon->EnableInput(pController);
+		m_PrimaryWeapon->GetMesh()->SetVisibility(false, true);
 		m_HUD->GetMainHUDWidget()->SetScopeAimVisible(true);
 	}
 }
@@ -518,6 +539,8 @@ void APlayerCharacter::AimRelease()
 		APlayerController* pController = Cast<APlayerController>(GetController());
 
 		m_PrimaryWeapon->DisableInput(pController);
+
+		m_PrimaryWeapon->GetMesh()->SetVisibility(true, true);
 		pController->SetViewTargetWithBlend(this, 0.2f);
 	}
 }
@@ -546,6 +569,7 @@ void APlayerCharacter::ReloadEnd()
 	m_IsReloading = false;
 	m_bMagEmpty = false;
 }
+
 void APlayerCharacter::PrimaryFire()
 {
 
@@ -1224,4 +1248,71 @@ void APlayerCharacter::FootSound(bool Left)
 		//PrintViewport(1.0f, FColor::Green, pPhysMtrl->GetFName().ToString());
 		UGameplayStatics::PlaySoundAtLocation(GetWorld(), pPhysMtrl->PlaySound(), vSocketLoc);
 	}
+}
+
+void APlayerCharacter::SetMoveRecoil()
+{
+	float speed = GetCharacterMovement()->Velocity.Size() / GetCharacterMovement()->MaxWalkSpeed;
+	
+	m_MoveRecoil = (m_MoveRecoilMax * speed);
+	if (m_MoveRecoil > m_MoveRecoilMax)
+		m_MoveRecoil = m_MoveRecoilMax;
+
+	m_ResultRecoil = m_MoveRecoil + m_ShotRecoil;
+	if (m_ResultRecoil < m_ResultRecoilMin)
+		m_ResultRecoil = m_ResultRecoilMin;
+
+	m_HUD->SetHUDCrosshairSpread(m_ResultRecoil);
+}
+
+void APlayerCharacter::DecreaseMoveRecoil()
+{
+	m_MoveRecoil = 0.f;
+
+	m_ResultRecoil = m_MoveRecoil + m_ShotRecoil;
+	if (m_ResultRecoil < m_ResultRecoilMin)
+		m_ResultRecoil = m_ResultRecoilMin;
+
+	m_HUD->SetHUDCrosshairSpread(m_ResultRecoil);
+}
+
+void APlayerCharacter::IncreaseShotRecoil(float fScale)
+{
+	m_ShotRecoil += fScale;
+	if (m_ShotRecoil > m_ShotRecoilMax)
+	{
+		m_ShotRecoil = m_ShotRecoilMax;
+	}
+
+	if (m_ShotRecoil < 0.f)
+	{
+		m_PrimaryWeapon->SetRecoilRecovery(false);
+		m_ShotRecoil = 0.f;
+	}
+
+	m_ResultRecoil = m_MoveRecoil + m_ShotRecoil;
+	if (m_ResultRecoil < m_ResultRecoilMin)
+		m_ResultRecoil = m_ResultRecoilMin;
+
+	m_HUD->SetHUDCrosshairSpread(m_ResultRecoil);
+
+	
+}
+
+void APlayerCharacter::DecreaseShotRecoil()
+{
+	m_ShotRecoil = 0.f;
+
+	m_ResultRecoil = m_MoveRecoil + m_ShotRecoil;
+	if (m_ResultRecoil < m_ResultRecoilMin)
+		m_ResultRecoil = m_ResultRecoilMin;
+
+	if (m_ShotRecoil < 0.f)
+	{
+		m_PrimaryWeapon->SetRecoilRecovery(false);
+		m_ShotRecoil = 0.f;
+	}
+
+
+	m_HUD->SetHUDCrosshairSpread(m_ResultRecoil);
 }

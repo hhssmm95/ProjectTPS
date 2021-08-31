@@ -21,6 +21,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TSubclassOf<UMainHUDWidget>	m_MainHUDWidgetClass;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		float m_CrosshairSpread;
 
 public:
 	APlayerHUD();
@@ -39,6 +41,18 @@ public:
 	UMainHUDWidget* GetMainHUDWidget()
 	{
 		return m_MainHUDWidget;
+	}
+
+	UFUNCTION(BlueprintCallable)
+	void SetHUDCrosshairSpread(float fScale)
+	{
+		m_CrosshairSpread = fScale;
+	}
+
+	UFUNCTION(BlueprintCallable)
+	float GetHUDCrosshairSpread()
+	{
+		return m_CrosshairSpread;
 	}
 
 	void AbilityWindowToggle();

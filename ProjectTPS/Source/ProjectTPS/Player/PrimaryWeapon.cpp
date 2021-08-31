@@ -21,16 +21,17 @@ APrimaryWeapon::APrimaryWeapon()
 
 
 	m_Mesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Mesh"));
-	m_RootScene = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
+	//m_RootScene = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
 
 	m_SuppressorMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Suppressor"));
-	SetRootComponent(m_RootScene);
-
+	//SetRootComponent(m_RootScene);
+	SetRootComponent(m_Mesh);
 	m_ScopeCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("ScopeCamera"));
-
-	m_Mesh->SetupAttachment(m_RootScene);
-	m_SuppressorMesh->SetupAttachment(m_RootScene);
+	
+	//m_Mesh->SetupAttachment(m_RootScene);
+	m_SuppressorMesh->SetupAttachment(m_Mesh);
 	m_ScopeCamera->SetupAttachment(m_Mesh);
+
 
 	Delay = false;
 	DelayTime = 0.12f;
@@ -44,6 +45,7 @@ APrimaryWeapon::APrimaryWeapon()
 	//m_BulletSpreadPitch = 3.f;
 	//m_CurrentBulletSpreadPitch = 0.f;
 	m_RecoilStack = 0;
+	m_bRecoilRecovering = false;
 }
 
 // Called when the game starts or when spawned
@@ -63,6 +65,7 @@ void APrimaryWeapon::BeginPlay()
 
 	m_ScopeMesh = Cast<UStaticMeshComponent>(GetDefaultSubobjectByName(TEXT("ScopeMesh")));
 	m_SPDurability = m_SPDurabilityMax;
+
 }
 
 //
@@ -101,6 +104,11 @@ void APrimaryWeapon::Tick(float DeltaTime)
 			BurstEnd();
 			m_BurstTimeAcc = 0.f;
 		}
+	}
+
+	if (m_bRecoilRecovering)
+	{
+		m_Player->IncreaseShotRecoil(-2.f);
 	}
 }
 
@@ -246,6 +254,9 @@ void APrimaryWeapon::Fire(UCameraComponent* PlayerCamera)
 	{
 		if (m_CurrentMag > 0)
 		{
+			if (m_bRecoilRecovering)
+				m_bRecoilRecovering = false;
+
 			FHitResult result;
 
 			TArray<AActor*> IgnoreActor;
@@ -341,8 +352,10 @@ void APrimaryWeapon::Fire(UCameraComponent* PlayerCamera)
 
 				
 
+				
 
 				m_RecoilStack++;
+				m_Player->IncreaseShotRecoil(4.f);
 				Delay = true;
 			}
 			else
@@ -425,6 +438,9 @@ void APrimaryWeapon::ExplosiveFire(UCameraComponent* PlayerCamera)
 	{
 		if (m_CurrentMag > 0)
 		{
+			if (m_bRecoilRecovering)
+				m_bRecoilRecovering = false;
+
 			FHitResult result;
 
 			TArray<AActor*> IgnoreActor;
@@ -487,6 +503,7 @@ void APrimaryWeapon::ExplosiveFire(UCameraComponent* PlayerCamera)
 					m_Player->MagEmpty();
 
 				m_RecoilStack++;
+				m_Player->IncreaseShotRecoil(4.f);
 				Delay = true;
 			}
 			else
@@ -595,8 +612,9 @@ void APrimaryWeapon::EquipScope()
 void APrimaryWeapon::RecoilRecovery()
 {
 	m_RecoilStack = 0;
+	//m_Player->DecreaseShotRecoil();
+	m_bRecoilRecovering = true;
 }
-
 
 FVector2D APrimaryWeapon::RandPointInCircle(float Radius)
 {

@@ -174,6 +174,16 @@ protected:
 
 	bool m_bCloseAttackEnable;
 
+	float m_MoveRecoil;
+	float m_MoveRecoilMax;
+
+	float m_ShotRecoil;
+	float m_ShotRecoilMax;
+
+	float m_ResultRecoil;
+	float m_ResultRecoilMin;
+
+	
 
 public:
 
@@ -186,6 +196,12 @@ public:
 public:
 	virtual float TakeDamage(float Damage, struct FDamageEvent const& DamageEvent, 
 		AController* EventInstigator, AActor* DamageCauser) override;
+
+	void SetMoveRecoil();
+	void DecreaseMoveRecoil();
+
+	void IncreaseShotRecoil(float fScale);
+	void DecreaseShotRecoil();
 
 	void MoveFront(float fScale);
 	void MoveSide(float fScale);
